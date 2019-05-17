@@ -206,8 +206,11 @@ Route::group(['middleware' => 'admin'], function() {
     /* sub services */
 
     Route::get('/admin/subservices','Admin\SubservicesController@index');
+    Route::get('/admin/supersubservices','Admin\SupersubController@index');
     Route::get('/admin/addsubservice','Admin\AddsubserviceController@formview');
+    Route::get('/admin/superservices','Admin\AddsupersubserviceController@formview');
     Route::get('/admin/addsubservice','Admin\AddsubserviceController@getservice');
+    Route::get('/admin/superservices','Admin\AddsupersubserviceController@getservice');
     Route::post('/admin/addsubservice', ['as'=>'admin.addsubservice','uses'=>'Admin\AddsubserviceController@addsubservicedata']);
     Route::get('/admin/subservices/{id}','Admin\SubservicesController@destroy');
 

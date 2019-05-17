@@ -41,7 +41,6 @@ class AddsubserviceController extends Controller
 	public function getservice()
 
     {
-
         $services = DB::table('services')->orderBy('name', 'asc')->get();
 
         return view('admin.addsubservice', ['services' => $services]);

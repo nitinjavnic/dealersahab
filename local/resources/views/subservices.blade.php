@@ -80,7 +80,7 @@ else
    
    <div id="products" class="row list-group">
    
-   <?php foreach($services as $service){
+   <?php foreach($supersubservice as $service){
 		$subview=strtolower($service->subname);
 			$results = preg_replace('/[ ,]+/', '-', trim($subview));
 		?>
