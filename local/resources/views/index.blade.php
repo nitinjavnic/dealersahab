@@ -42,8 +42,8 @@ $setid=1;
 
         <div class="container info-sub1">
             <div class="row ">
-                <div class="col-md-4 col-4"></div>
-                <div class="col-md-4 col-4  ">
+                <div class="col-md-3 col-3"></div>
+                <div class="col-md-6 col-6  ">
                     <div class="row info-sub pt-10">
                         <div class="col-md-4 text-center ">
                             <p><strong>30+M</strong><br>Users Served</p>
@@ -61,20 +61,16 @@ $setid=1;
 
                     </div>
                 </div>
-                <div class="col-md-4 col-4"></div>
+                <div class="col-md-3 col-3"></div>
             </div>
         </div>
     </div>
 
 	<div class="bannertxt">
-
 		<div class="col-md-12" align="center">
 		<div class="row">
-
 		<h1 class="headingcolor"> Consider it done. </h1>
 		</div>
-
-
 		<div class="row">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
@@ -82,10 +78,6 @@ $setid=1;
 		</div>
 		<div class="col-md-3"></div>
 		</div>
-
-
-
-
 		</div>
 
 
@@ -93,26 +85,19 @@ $setid=1;
 
 
         <div class="col-md-12 form_move" align="center">
-
-
             <div class="col-md-2"></div>
-
             <form action="{{ route('search') }}" method="post" enctype="multipart/form-data" id="formID">
                 <div class="col-md-8">
                     {!! csrf_field() !!}
-
                     <div class="col-md-3 paddingoff">
                         <input type="text" name="search_location" class="searchtext validate[required]" id="search_text" placeholder="Location">
                     </div>
-
                     <div class="col-md-6 paddingoff">
                         <input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="What service do you need?">
                     </div>
                     <div class="col-md-3 paddingoff">
                         <input type="submit" name="search" class="searchbtn" value="Get Started">
                     </div>
-
-
                 </div>
             </form>
             <div class="col-md-2"></div>
@@ -168,13 +153,11 @@ $setid=1;
    });
 </script>
 
-
-
-
-	<div class="icons mt-80">
-
-	<div class="col-md-12">
-	<ul class="paddoff customcolor">
+<div class="container sub-cat">
+    <div class="col-md-12 nopadding">
+	
+	
+    <div id="flexiselDemo34">
 	<?php foreach ($services as $service) {
      $subserve=strtolower($service->name);
 			$result_url = preg_replace('/[ ,]+/', '-', trim($subserve));
@@ -197,19 +180,13 @@ $setid=1;
 	</li>
 	<?php } ?>
 
-
-	<li>
-	<div class="move10">
-	<a href="<?php echo $url; ?>/subservices"><img src="<?php echo $url."/local/images/more.png";?>" border="0" width="50"></a>
-	</div>
-	<div><a href="<?php echo $url; ?>/subservices" class="serviceclr">More</a></div>
-	</li>
+</div>
+	 
+</div>
+</div>
 
 
-	</ul>
-	</div>
-
-	</div>
+	
 
 
 	<div class="ashbg">
@@ -258,6 +235,45 @@ $setid=1;
 </div>
 
 
+
+        <div class="clearfix"></div>
+
+
+
+        <div class="container">
+            <div class="col-md-12 nopadding">
+                <?php if(!empty($two[0]->name)){?><h2 class="sli-head"><?php echo $two[0]->name;?></h2><?php } ?>
+
+                <?php if(!empty($two_count)){?>
+                <div id="flexiselDemo111">
+                    <?php
+
+                    foreach($second as $newservice){
+                    $subview=strtolower($newservice->subname);
+                    $results = preg_replace('/[ ,]+/', '-', trim($subview));
+                    ?>
+                    <li>
+                        <div class="weightbg">
+                            <div>
+                                <?php
+                                $subservicephoto="/subservicephoto/";
+                                $path ='/local/images'.$subservicephoto.$newservice->subimage;
+                                if($newservice->subimage!=""){
+                                ?>
+                                <a href="<?php echo $url; ?>/search/<?php echo $results;?>"><img src="<?php echo $url.$path;?>" class="img-responsive" /></a>
+                                <?php } else {?>
+                                <a href="<?php echo $url; ?>/search/<?php echo $results;?>"><img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="img-responsive"></a>
+                                <?php } ?>
+                            </div>
+                            <div><a href="<?php echo $url; ?>/search/<?php echo $results;?>"><?php  echo $newservice->subname;?></a></div>
+                        </div>
+                    </li>
+                    <?php } ?>
+
+                </div>
+                <?php } ?>
+            </div>
+        </div>
 
 
 <div class="clearfix"></div>
@@ -465,34 +481,56 @@ $setid=1;
 	<div class="col-md-1"></div>
 
 
-	<div class="col-md-10 nopadding testimons">
+	<div class="col-md-10 nopadding  ">
 
-	<div id="flexiselDemotesti">
 
-	<?php foreach($testimonials as $testimonial){?>
-        <li>
-            <div class="weightbg">
-                <div class="innerbg">
-                    <span class="fa fa-star text-warning"></span>
-                    <span class="fa fa-star text-warning"></span>
-                    <span class="fa fa-star text-warning"></span>
-                    <span class="fa fa-star text-warning"></span>
-                    <span class="fa fa-star text-warning"></span>
-                    <h5><?php echo $testimonial->name;?></h5>
-                    <p><?php echo $testimonial->description;?></p>
-                </div>
+
+        <div class="col-md-3 col-6">
+            <div class="testimons">
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <h4>Hello</h4>
+                <p>hello</p>
             </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="testimons">
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <h4>Hello</h4>
+                <p>hello</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="testimons">
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <h4>Hello</h4>
+                <p>hello</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="testimons">
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <h4>Hello</h4>
+                <p>hello</p>
+            </div>
+        </div>
 
-        </li>
 
-
-	<?php } ?>
-
-
-
-
-
-	</div>
 	</div>
 
 
