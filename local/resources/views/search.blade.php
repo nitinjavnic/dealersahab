@@ -84,7 +84,7 @@
 	?>
 
 
-	<div class="col-md-3">
+	<div class="col-md-3 ">
 		<div class="shop-list-page">
 			<div class="shop_pic">
 			<?php
@@ -267,48 +267,47 @@
 	</div>
 
 
-
-
-
-
-
-
-
-
-
 	<?php } ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 	<div class="row">
 	<div class="clearfix"></div>
-		<div class="col-md-3 border">
-			<form action="" method="" class="pl-10">
-				<input type="checkbox" name="manufacturer" ><strong>Manufacturer</strong><br>
-				<input type="checkbox" name="dealer" ><strong>Dealer</strong><br>
-				<input type="checkbox" name="trader" ><strong>Trader/Wholesaler</strong><br>
-				<input type="checkbox" name="trader" ><strong>Supplier/Distributor</strong><br><br>
+		<div class="col-md-3  filter-review1">
+		<div class="filter-review">
+			<form action="" method="" >
+				<div class="pl-40 checkin-filter">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="">
+							<span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
+							Manufacturer
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="">
+							<span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
+							Manufacturer
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="">
+							<span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
+							Manufacturer
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="">
+							<span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
+							Manufacturer
+						</label>
+					</div>
 
 
-
-
+				</div>
 				<label class="pl-50"for="category">Category<br>
 					<select>
 						<option value="">abc</option>
@@ -366,17 +365,19 @@
 					</select></label><br><br>
 			</form>
 		</div>
+		</div>
 
-		<div class="col-md-9">
+		<div class="col-md-9 ">
 
 
-			<div class="row">
+			<div class="row ">
 				<?php if(!empty($sub_value)){?>
 
 				<?php foreach($subsearches as $shop){
 
 				?>
-				<div class="col-md-7 company-info">
+				<div class="row review-point m-0">
+				<div class="col-md-7 company-info ">
 
 
 					<?php
@@ -476,7 +477,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div></div>
 					<?php } ?>
 
 

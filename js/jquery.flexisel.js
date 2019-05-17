@@ -476,8 +476,16 @@ $(window).load(function() {
             pauseOnHover: true
         }        
     });
-	
-	
+
+    $("#flexiselDemo111").flexisel({
+        visibleItems: 4,
+        itemsToScroll: 1,
+        autoPlay: {
+            enable: true,
+            interval: 5000,
+            pauseOnHover: true
+        }
+    });
 	
 	$("#flexiselDemo32").flexisel({
         visibleItems: 4,
@@ -501,7 +509,16 @@ $(window).load(function() {
         }        
     });
 	
-	
+	$("#flexiselDemo34").flexisel({
+        visibleItems: 6,
+		
+        itemsToScroll: 1,         
+        autoPlay: {
+            enable: false,
+            interval: 5000,
+            pauseOnHover: true
+        }        
+    });
 	
 	$("#flexiselDemotesti").flexisel({
         visibleItems: 5,
