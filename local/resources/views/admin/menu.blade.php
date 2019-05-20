@@ -33,7 +33,8 @@ $url = URL::to("/");
 				  <li><a href="<?php echo $url;?>/admin/testimonials"><i class="fa fa-comments"></i> Testimonials </a></li>
 				  
 				  <li><a href="<?php echo $url;?>/admin/pages"><i class="fa fa-sticky-note"></i> Pages </a></li>
-				  
+				  <li><a href="<?php echo $url;?>/admin/blog"><i class="fa fa-sticky-note"></i> Blog </a></li>
+
 				  <li><a href="<?php echo $url;?>/admin/shop"><i class="fa fa-shopping-cart"></i> Shop </a></li>
 				  
 				  <li><a href="<?php echo $url;?>/admin/settings"><i class="fa fa-cog"></i> Settings </a></li>
