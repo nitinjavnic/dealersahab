@@ -421,44 +421,28 @@ $setid=1;
             <div class="height30"></div>
             <div class="row">
 
+           <?php foreach($blog as $blog){
+
+                $blogphoto="/blogphoto/";
+                $path ='/local/images'.$blogphoto.$blog->photo;
+
+               ?>
+
 
 
                 <div class="col-md-4">
                     <div class="card">
-                        <img class="card-img-top " src="img/v1.jpg" alt="Card image cap">
+                        <img class="card-img-top " src="<?php echo $url.$path;?>" alt="Card image cap">
                         <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">Mar 09,2019 <span class="f-right">By Admin</span> </h6>
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <h6 class="card-subtitle mb-2 text-muted"><?php echo $blog->date_time; ?> <span class="f-right">By Admin</span> </h6>
+                            <h4 class="card-title"><?php  echo $blog->blog_titile;?></h4>
+                            <p class="card-text"><?php echo $blog->blog_text ?></p>
                             <a href="#!" class="card-link">MORE</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top " src="img/v1.jpg" alt="Card image cap" width="100%">
-                        <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">Mar 09,2019 <span class="f-right">By Admin</span> </h6>
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#!" class="card-link">MORE</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card">
-                        <img class="card-img-top " src="img/v1.jpg" alt="Card image cap" width="100%">
-                        <div class="card-body">
-                            <h6 class="card-subtitle mb-2 text-muted">Mar 09,2019 <span class="f-right">By Admin</span> </h6>
-                            <h4 class="card-title">Card title</h4>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#!" class="card-link">MORE</a>
-                        </div>
-                    </div>
-                </div>
-
+               <?php } ?>
 
             </div>
         </div>

@@ -26,6 +26,7 @@ Route::get('/index', 'IndexController@sangvish_index');
 
 Route::get('searchajax',array('as'=>'searchajax','uses'=>'IndexController@sangvish_autoComplete'));
 Route::get('searchlocation',array('as'=>'searchlocation','uses'=>'IndexController@searchlocation'));
+Route::get('getsubservices',array('as'=>'getsubservices','uses'=>'GetsubserviceController@getsubservices'));
 
 
 Route::get('dateavailable/{val}',array('as'=>'dateavailable','uses'=>'BookingController@dateavailable'));
@@ -194,11 +195,17 @@ Route::group(['middleware' => 'admin'], function() {
 
     /* services */
     Route::get('/admin/services','Admin\ServicesController@index');
+    Route::get('/admin/blog','Admin\BlogController@index');
     Route::get('/admin/addservice','Admin\AddserviceController@formview');
+    Route::get('/admin/addblog','Admin\AddblogController@formview');
     Route::post('/admin/addservice', ['as'=>'admin.addservice','uses'=>'Admin\AddserviceController@addservicedata']);
+    Route::post('/admin/addblog', ['as'=>'admin.addblog','uses'=>'Admin\AddblogController@addblogedata']);
     Route::get('/admin/services/{id}','Admin\ServicesController@destroy');
+    Route::get('/admin/blog/{id}','Admin\BlogController@destroy');
     Route::get('/admin/editservice/{id}','Admin\EditserviceController@showform');
+    Route::get('/admin/editblog/{id}','Admin\EditblogController@showform');
     Route::post('/admin/editservice', ['as'=>'admin.editservice','uses'=>'Admin\EditserviceController@editservicedata']);
+    Route::post('/admin/editblog', ['as'=>'admin.editblog','uses'=>'Admin\EditblogController@editblogedata']);
 
     /* end services */
 
@@ -211,7 +218,8 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/superservices','Admin\AddsupersubserviceController@formview');
     Route::get('/admin/addsubservice','Admin\AddsubserviceController@getservice');
     Route::get('/admin/superservices','Admin\AddsupersubserviceController@getservice');
-    Route::post('/admin/addsubservice', ['as'=>'admin.addsubservice','uses'=>'Admin\AddsubserviceController@addsubservicedata']);
+    Route::post('/admin/addsubservice', ['as'=>'admin.addsubservice','uses'=>'Admin\AddsubserviceController@addsupersubservicedata']);
+    Route::post('/admin/addsupersubservice', ['as'=>'admin.addsupersubservice','uses'=>'Admin\AddsupersubserviceController@addsubservicedata']);
     Route::get('/admin/subservices/{id}','Admin\SubservicesController@destroy');
 
 

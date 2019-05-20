@@ -24,37 +24,22 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $services = DB::table('services')
+        $blog = DB::table('blog')
             ->orderBy('id','desc')
             ->get();
 
-        return view('admin.services', ['services' => $services]);
+        return view('admin.blog', ['blog' => $blog]);
     }
 
 
     public function destroy($id) {
 
-        $image = DB::table('services')->where('id', $id)->get();
-        $orginalfile=$image[0]->image;
-
-        $simage = DB::table('subservices')->where('service', $id)->get();
-
-        $simage_count = DB::table('subservices')->where('service', $id)->count();
-
-
-        $userphoto="/servicephoto/";
+        $image = DB::table('blog')->where('id', $id)->get();
+        $orginalfile=$image[0]->photo;
+        $userphoto="/blogphoto/";
         $path = base_path('images'.$userphoto.$orginalfile);
         File::delete($path);
-        if(!empty($simage_count))
-        {
-            $subfile=$simage[0]->subimage;
-            $spath = base_path('images/subservicephoto/'.$subfile);
-
-            File::delete($spath);
-            DB::delete('delete from subservices where service = ?',[$id]);
-        }
-        DB::delete('delete from services where id = ?',[$id]);
-
+        DB::delete('delete from blog where id = ?',[$id]);
         return back();
 
     }

@@ -83,16 +83,16 @@
 
                         @endif
 
-                        <form class="form-horizontal form-label-left" role="form" method="POST" action="{{ route('admin.addsubservice') }}" enctype="multipart/form-data" novalidate>
+                        <form class="form-horizontal form-label-left" role="form" method="POST" action="{{ route('admin.addsupersubservice') }}" enctype="multipart/form-data" novalidate>
                             {{ csrf_field() }}
-                            <span class="section">Add Sub Service</span>
+                            <span class="section">Add Super Sub Service</span>
 
 
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Select Service <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control col-md-7 col-xs-12"  name="service" required="required">
+                                    <select class="form-control col-md-7 col-xs-12"  id="change_category" name="service" required="required">
                                         <option value=""></option>
                                         <?php foreach($services as $service){?>
                                         <option value="<?php echo $service->id;?>"><?php echo $service->name;?></option>
@@ -107,11 +107,11 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Select Sub Service <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control col-md-7 col-xs-12"  name="service" required="required">
-                                        <option value=""></option>
-                                        <?php foreach($subservice as $service){?>
-                                        <option value="<?php echo $service->id;?>"><?php echo $service->name;?></option>
-                                        <?php } ?>
+                                    <select  class="form-control col-md-7 col-xs-12" id="subservice" name="subservice" required="required">
+                                        <option value="">
+
+                                        </option>
+
                                     </select>
 
                                 </div>
@@ -180,8 +180,37 @@
             @include('admin.footer')
         </div>
     </div>
+    </div>
 
 
 
 </body>
+<script>
+    jQuery(document).ready(function(){
+        src = "{{ route('getsubservices') }}";
+        $("#change_category").change(function() {
+           var id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: src,
+                data: {
+                    id : id
+                },
+                success: function(data) {
+                    if(data.value=='No Result Found'){
+                        $("#subservice").append("<option>" + 'No Result Found' + "</option>");
+                    }else {
+                        $.each(data, function () {
+                            $.each(this, function (k, v) {
+                                $("#subservice").append("<option>" + v + "</option>");
+                            });
+                        });
+                    }
+                }
+
+
+            });
+        });
+    });
+</script>
 </html>

@@ -14,7 +14,7 @@ use Image;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 
-class AddsupersubserviceController extends Controller
+class AddblogController extends Controller
 {
 
 
@@ -32,27 +32,9 @@ class AddsupersubserviceController extends Controller
 
     {
 
-        return view('admin.addsupersubservice');
+        return view('admin.addblog');
 
     }
-
-
-
-    public function getservice()
-
-    {
-
-        $services = DB::table('services')->orderBy('name', 'asc')->get();
-        $subservices = DB::table('subservices')
-            ->leftJoin('services', 'services.id', '=', 'subservices.service')
-            ->orderBy('subservices.subid','desc')
-            ->get();
-        return view('admin.addsupersubservice', ['services' => $services ,'subservice'=>$subservices]);
-
-    }
-
-
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -77,40 +59,25 @@ class AddsupersubserviceController extends Controller
 
     /* protected $fillable = ['name', 'email','password','phone']; */
 
-    protected function addsupersubservicedata(Request $request)
+    protected function addblogedata(Request $request)
     {
+
 
         $this->validate($request, [
 
-            'name' => 'required'
-
-
-
-
-
+            'blog_titile' => 'required'
         ]);
-
-
-
-        $input['name'] = Input::get('name');
-
-
+        $input['blog_titile'] = Input::get('blog_titile');
+        $input['blog_text'] = Input::get('blog_text');
         $rules = array(
+            'blog_titile' => 'required|unique:blog,blog_text',
+            'blog_text' => 'required',
+            'photo' => 'required|max:1024|mimes:jpg,jpeg,png'
 
-            'name' => 'unique:subservices,subname',
-            'photo' => 'max:1024|mimes:jpg,jpeg,png'
         );
-
-
         $messages = array(
-
-
-
         );
-
         $validator = Validator::make(Input::all(), $rules, $messages);
-
-
         if ($validator->fails())
         {
             $failedRules = $validator->failed();
@@ -119,20 +86,14 @@ class AddsupersubserviceController extends Controller
         else
         {
 
-
             $image = Input::file('photo');
             if($image!="")
             {
                 $filename  = time() . '.' . $image->getClientOriginalExtension();
-                $userphoto="/subservicephoto/";
+                $userphoto="/blogphoto/";
                 $path = base_path('images'.$userphoto.$filename);
                 $destinationPath=base_path('images'.$userphoto);
-
-
-                Image::make($image->getRealPath())->resize(300, 300)->save($path);
-                /*Input::file('photo')->move($destinationPath, $filename);*/
-                /* $user->image = $filename;
-                 $user->save();*/
+                Input::file('photo')->move($destinationPath, $filename);
                 $namef=$filename;
             }
             else
@@ -140,27 +101,20 @@ class AddsupersubserviceController extends Controller
                 $namef="";
             }
 
-
             $data = $request->all();
 
-            /*User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'admin' => '0',
-            'password' => bcrypt($data['password']),
-            'phone' => $data['phone']
 
-        ]);*/
-            $name=$data['name'];
+            $blog_titile=$data['blog_titile'];
+            $blog_text=$data['blog_text'];
+            $ldate = date('Y-m-d');
 
-            $service=$data['service'];
+            DB::insert('insert into blog (blog_titile, photo ,blog_text,date_time) values (?, ?, ?, ?)', [$blog_titile,$namef,$blog_text,$ldate]);
+
+
+            return back()->with('success', 'Blog has been created');
 
 
 
-            DB::insert('insert into subservices (subname, service, subimage) values (?, ?,?)', [$name,$service,$namef]);
-
-
-            return back()->with('success', 'Sub service has been created');
         }
 
 

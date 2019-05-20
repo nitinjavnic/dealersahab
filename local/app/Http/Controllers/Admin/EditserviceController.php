@@ -61,21 +61,11 @@ class EditserviceController extends Controller
 	 
     protected function editservicedata(Request $request)
     {
-        /*return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);*/
-		
-		
-		
+
 		 $this->validate($request, [
 
         		'name' => 'required'
 
-        		
-				
-				
 
         	]);
          
@@ -112,20 +102,7 @@ class EditserviceController extends Controller
 		}
 		else
 		{ 
-		
-		
-		
 
-		
-
-			/*User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-			'admin' => '0',
-            'password' => bcrypt($data['password']),
-			'phone' => $data['phone']
-			
-        ]);*/
 		$name=$data['name'];
 		
 		
