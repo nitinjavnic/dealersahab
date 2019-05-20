@@ -2920,7 +2920,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .dropdown .btn{width:100%; height:50px; border-radius:0px;}
 .dropdown-item{display:block; }
 .dropdown-menu{width:100%}
-.company-info img{width:`100px; height:100px; float:left; padding-right:10px;}
+.company-info img{width:100px; height:100px; float:left; padding-right:10px;}
 .pl-10{padding-left:10px;}
 .pl-40{padding-left:40px;}
 .checked{color:orange;}
@@ -3005,4 +3005,17 @@ footer{background:#294a5a;}
 .checkin-filter .checkbox label input[type="checkbox"]:disabled + .cr,
 .radio label input[type="radio"]:disabled + .cr {
 	opacity: .5;
+}
+
+.company-profile{width:150px; height:150px; float:left;}
+
+.block-company table{text-align: center; width:100%;}
+.block-company{  background:white!important; }
+.bg-company-info {
+    background-image: url("../img/banner.jpg");
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
 }
