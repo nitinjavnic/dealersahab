@@ -39,9 +39,17 @@ $setid=1;
           <ul class="nav navbar-nav navbar-right <?php if($currentPaths=="index" or $currentPaths=="/"){?>sangvish_homepage<?php } else {?>sangvish_otherpage<?php } ?>">
 		  <!--<li class="active"><a href="#">Join as a pro</a></li>-->
             <?php if (Auth::guest()) {?>
-			
+
+
+
+
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Post your Requirment</a></li>
+              <li><a href="#">List your Business</a></li>
+              <li><a href="#">Contact Us</a></li>
             <li><a href="<?php echo $url;?>/register">Sign Up</a></li>
             <li><a href="<?php echo $url;?>/login">Login</a></li>
+
             <?php } else { ?>
 			<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->name }}<b class="caret"></b></a>
