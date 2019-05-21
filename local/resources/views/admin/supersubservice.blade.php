@@ -80,7 +80,7 @@
                                 <tr>
                                     <th>Sno</th>
                                     <th>Image</th>
-                                    <th>Service</th>
+                                    <th>Sub Service</th>
                                     <th>Name</th>
 
                                     <th>Action</th>
@@ -90,15 +90,16 @@
                                 <tbody>
                                 <?php
                                 $i=1;
-                                foreach ($subservices as $subservice) { ?>
+                                foreach ($subservices as $subservice) {
+                                    ?>
 
 
                                 <tr>
                                     <td><?php echo $i;?></td>
                                     <?php
-                                    $subservicephoto="/subservicephoto/";
-                                    $path ='/local/images'.$subservicephoto.$subservice->subimage;
-                                    if($subservice->subimage!=""){
+                                    $subservicephoto="/supersubservicephoto/";
+                                    $path ='/local/images'.$subservicephoto.$subservice->supersubimage;
+                                    if($subservice->supersubimage!=""){
                                     ?>
                                     <td><img src="<?php echo $url.$path;?>" class="thumb" width="70"></td>
                                     <?php } else { ?>
@@ -106,20 +107,20 @@
                                     <?php } ?>
 
 
-                                    <td><?php echo $subservice->name;?></td>
                                     <td><?php echo $subservice->subname;?></td>
+                                    <td><?php echo $subservice->subsupername;?></td>
                                     <td>
                                         <?php if(config('global.demosite')=="yes"){?>
                                         <a href="#" class="btn btn-success btndisable">Edit</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
                                         <?php } else { ?>
 
-                                        <a href="<?php echo $url;?>/admin/editsubservice/{{ $subservice->subid }}" class="btn btn-success">Edit</a>
+                                        <a href="<?php echo $url;?>/admin/editsupersubservice/{{ $subservice->id }}" class="btn btn-success">Edit</a>
                                         <?php } ?>
                                         <?php if(config('global.demosite')=="yes"){?>
                                         <a href="#" class="btn btn-danger btndisable">Delete</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
                                         <?php } else { ?>
 
-                                        <a href="<?php echo $url;?>/admin/subservices/{{ $subservice->subid }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
+                                        <a href="<?php echo $url;?>/admin/supersubservices/{{ $subservice->id }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
                                         <?php } ?>
                                     </td>
                                 </tr>

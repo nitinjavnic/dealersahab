@@ -24,9 +24,9 @@ class SupersubController extends Controller
      */
     public function index()
     {
-        $subservices = DB::table('subservices')
-            ->leftJoin('services', 'services.id', '=', 'subservices.service')
-            ->orderBy('subservices.subid','desc')
+        $subservices = DB::table('subsuperservice')
+            ->leftJoin('subservices', 'subid', '=', 'subsuperservice.subservice')
+            ->orderBy('subsuperservice.id','desc')
             ->get();
 
         return view('admin.supersubservice', compact('subservices','services'));
@@ -41,12 +41,13 @@ class SupersubController extends Controller
 
     public function destroy($id) {
 
-        $image = DB::table('subservices')->where('subid', $id)->first();
-        $orginalfile=$image->subimage;
-        $userphoto="/subservicephoto/";
+
+        $image = DB::table('subsuperservice')->where('id', $id)->first();
+        $orginalfile=$image->supersubimage;
+        $userphoto="/supersubservicephoto/";
         $path = base_path('images'.$userphoto.$orginalfile);
         File::delete($path);
-        DB::delete('delete from subservices where subid = ?',[$id]);
+        DB::delete('delete from subsuperservice where id = ?',[$id]);
 
         return back();
 

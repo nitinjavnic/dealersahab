@@ -2966,47 +2966,7 @@ footer{background:#294a5a;}
 .filter-review select{width:200px; box-shadow:0 0 6px 0px #294a5a; height:30px;}
 .filter-review1{border:1px solid black; box-shadow:inset 0 0 9px 0px #888888; padding:40px; margin-top:10px;}
 .checkin-filter{padding-left:30px;}
-.checkin-filter .checkbox label:after,
-.radio label:after {
-	content: '';
-	display: table;
-	clear: both;
-}
-.checkin-filter .checkbox .cr,
-.radio .cr {
-	position: relative;
-	display: inline-block;
-	border: 1px solid #a9a9a9;
-	border-radius: .25em;
-	width: 1.3em;
-	height: 1.3em;
-	float: left;
-	margin-right: .5em;
-}
-
-.checkin-filter .checkbox label input[type="checkbox"],
-.radio label input[type="radio"] {
-	display: none;
-}
-
-.checkin-filter .checkbox label input[type="checkbox"] + .cr > .cr-icon,
-.radio label input[type="radio"] + .cr > .cr-icon {
-	transform: scale(3) rotateZ(-20deg);
-	opacity: 0;
-	transition: all .3s ease-in;
-}
-
-.checkin-filter .checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
-.radio label input[type="radio"]:checked + .cr > .cr-icon {
-	transform: scale(1) rotateZ(0deg);
-	opacity: 1;
-}
-
-.checkin-filter .checkbox label input[type="checkbox"]:disabled + .cr,
-.radio label input[type="radio"]:disabled + .cr {
-	opacity: .5;
-}
-
+.
 .company-profile{width:150px; height:150px; float:left;}
 
 .block-company table{text-align: center; width:100%;}

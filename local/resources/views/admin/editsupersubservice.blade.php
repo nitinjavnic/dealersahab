@@ -83,39 +83,46 @@
 
                         @endif
 
-                        <form class="form-horizontal form-label-left" role="form" method="POST" action="{{ route('admin.addsupersubservice') }}" enctype="multipart/form-data" novalidate>
+                        <form class="form-horizontal form-label-left" role="form" method="POST" action="{{ route('admin.editsupersubservice') }}" enctype="multipart/form-data" novalidate>
                             {{ csrf_field() }}
-                            <span class="section">Add Super Sub Service</span>
+                            <span class="section">Edit Sub Service</span>
+
 
 
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Select Service <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control col-md-7 col-xs-12"  id="change_category" name="service" required="required">
+                                    <select class="form-control col-md-7 col-xs-12"  name="service" required="required">
                                         <option value=""></option>
-                                        <?php foreach($services as $service){?>
-                                        <option value="<?php echo $service->id;?>"><?php echo $service->name;?></option>
+                                        <?php foreach($services as $service){
+
+
+                                            ?>
+                                        <option value="<?php echo $service->id;?>" <?php if($subservices[0]->service==$service->id){?> selected="selected" <?php } ?> ><?php echo $service->name;?></option>
                                         <?php } ?>
                                     </select>
 
                                 </div>
                             </div>
 
-
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Select Sub Service <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select  class="form-control col-md-7 col-xs-12" id="subservice" name="subservice" required="required">
-                                        <option value="">
+                                    <select class="form-control col-md-7 col-xs-12"  name="subservice" required="required">
+                                        <option value=""></option>
+                                        <?php foreach($subcategory as $services){
 
-                                        </option>
 
+                                        ?>
+                                        <option value="<?php echo $services->subid;?>" <?php if($subservices[0]->service==$services->subid){?> selected="selected" <?php } ?> ><?php echo $services->subname;?></option>
+                                        <?php } ?>
                                     </select>
 
                                 </div>
                             </div>
+
 
 
 
@@ -124,7 +131,7 @@
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="name" class="form-control col-md-7 col-xs-12"  name="name" value="{{ old('name') }}" required="required" type="text">
+                                    <input id="name" class="form-control col-md-7 col-xs-12"  name="name" value="<?php echo $subservices[0]->subsupername; ?>" required="required" type="text">
                                     @if ($errors->has('name'))
                                         <span class="help-block" style="color:red;">
                                         <strong>That sub service is already exists</strong>
@@ -136,28 +143,49 @@
 
 
 
+
+                            <input type="hidden" name="subid" value="<?php echo $subservices[0]->id; ?>">
+
+
+
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="photo">Image <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="file" id="photo" name="photo" class="form-control col-md-7 col-xs-12">
-
                                     @if ($errors->has('photo'))
                                         <span class="help-block" style="color:red;">
                                         <strong>{{ $errors->first('photo') }}</strong>
                                     </span>
                                     @endif
+
                                 </div>
                             </div>
-
-
-
-
                             <?php $url = URL::to("/"); ?>
+                            <?php
+                            $subservicephoto="/supersubservicephoto/";
+                            $path ='/local/images'.$subservicephoto.$subservices[0]->supersubimage;
+                            if($subservices[0]->supersubimage!=""){
+                            ?>
+                            <div class="item form-group" align="center">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <img src="<?php echo $url.$path;?>" class="thumb" width="100">
+                                </div>
+                            </div>
+                            <?php } else { ?>
+                            <div class="item form-group" align="center">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="thumb" width="100">
+                                </div>
+                            </div>
+                            <?php } ?>
+
+                            <input type="hidden" name="currentphoto" value="<?php echo $subservices[0]->supersubimage;?>">
+
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-3">
-                                    <a href="<?php echo $url;?>/admin/subservices" class="btn btn-primary">Cancel</a>
+                                    <a href="<?php echo $url;?>/admin/supersubservices" class="btn btn-primary">Cancel</a>
                                     <button id="send" type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
@@ -175,44 +203,18 @@
 
 
 
+
+
+
+
+
             <!-- /page content -->
 
             @include('admin.footer')
         </div>
     </div>
-    </div>
 
 
 
 </body>
-<script>
-    jQuery(document).ready(function(){
-        src = "{{ route('getsubservices') }}";
-        $("#change_category").change(function() {
-           var id = $(this).val();
-            $.ajax({
-                type: 'GET',
-                url: src,
-                data: {
-                    id : id
-                },
-                success: function(data) {
-
-
-                    if(data.error=='No Result Found'){
-                        $("#subservice").append("<option>" + 'No Result Found' + "</option>");
-                    }else {
-                        $.each(data, function (index,value) {
-                                console.log(value);
-                                $("#subservice").append("<option value="+ value.subid +">" + value.value + "</option>");
-
-                        });
-                    }
-                }
-
-
-            });
-        });
-    });
-</script>
 </html>

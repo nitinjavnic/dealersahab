@@ -9,12 +9,13 @@ use Illuminate\Support\Facades\Validator;
 use Responsive\Http\Requests;
 use Illuminate\Http\Request;
 use Responsive\User;
-use File;
-use Image;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
+use File;
+use Image;
 
-class AddsupersubserviceController extends Controller
+
+class EditsupersubserviceController extends Controller
 {
 
 
@@ -28,28 +29,27 @@ class AddsupersubserviceController extends Controller
     {
         $this->middleware('admin');
     }
-    public function formview()
+
+
+
+
+
+
+    public function edit($id)
 
     {
 
-        return view('admin.addsupersubservice');
-
-    }
-
-
-
-    public function getservice()
-
-    {
-
+        $subservices = DB::select('select * from subsuperservice where id = ?',[$id]);
         $services = DB::table('services')->orderBy('name', 'asc')->get();
-        $subservices = DB::table('subservices')
-            ->leftJoin('services', 'services.id', '=', 'subservices.service')
-            ->orderBy('subservices.subid','desc')
-            ->get();
-        return view('admin.addsupersubservice', ['services' => $services ,'subservice'=>$subservices]);
+        $subcategory = DB::table('subservices')->orderBy('subname', 'asc')->get();
+        $data = array('subservices'=>$subservices, 'services'=>$services,'subcategory'=>$subcategory);
+        return view('admin.editsupersubservice')->with($data);
 
     }
+
+
+
+
 
 
 
@@ -62,9 +62,8 @@ class AddsupersubserviceController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'name' => 'required|string|max:255'
+
         ]);
     }
 
@@ -75,11 +74,10 @@ class AddsupersubserviceController extends Controller
      * @return User
      */
 
-    /* protected $fillable = ['name', 'email','password','phone']; */
 
-    protected function addsubservicedata(Request $request)
+
+    protected function editsupersubservicedata(Request $request)
     {
-
 
         $this->validate($request, [
 
@@ -105,36 +103,55 @@ class AddsupersubserviceController extends Controller
             return back()->withErrors($validator);
         }
 
+
+        if ($validator->fails())
+        {
+            $failedRules = $validator->failed();
+            return back()->withErrors($validator);
+        }
         else
         {
+            $data = $request->all();
+
+            $name=$data['name'];
+            $subid=$data['subid'];
+
+
+            $currentphoto=$data['currentphoto'];
+
+
             $image = Input::file('photo');
             if($image!="")
             {
+                $subservicephoto="/supersubservicephoto/";
+                $delpath = base_path('images'.$subservicephoto.$currentphoto);
+                File::delete($delpath);
                 $filename  = time() . '.' . $image->getClientOriginalExtension();
-                $userphoto="/supersubservicephoto/";
-                $path = base_path('images'.$userphoto.$filename);
 
-                $destinationPath=base_path('images'.$userphoto);
-                Image::make($image->getRealPath())->resize(300, 300)->save($path);
-                $namef=$filename;
+                $path = base_path('images'.$subservicephoto.$filename);
+                $destinationPath=base_path('images'.$subservicephoto);
+
+                /* Image::make($image->getRealPath())->resize(200, 200)->save($path);*/
+                Input::file('photo')->move($destinationPath, $filename);
+                $savefname=$filename;
             }
             else
             {
-                $namef="";
+                $savefname=$currentphoto;
             }
-            $data = $request->all();
-            $name=$data['name'];
+
+
             $service=$data['service'];
             $subservice=$data['subservice'];
 
-            DB::insert('insert into subsuperservice (subsupername, service, subservice, supersubimage) values (?, ?,? ,?)', [$name,$service,$subservice,$namef]);
 
 
-            return back()->with('success', 'Super Sub service has been created');
+            DB::update('update subsuperservice set subsupername="'.$name.'",service="'.$service.'",supersubimage="'.$savefname.'",subservice="'.$subservice.'" where id = ?', [$subid]);
+
+
+
+            return back()->with('success', 'Super Sub service has been updated');
         }
-
-
-
 
 
 

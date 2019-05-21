@@ -27,6 +27,7 @@ Route::get('/index', 'IndexController@sangvish_index');
 Route::get('searchajax',array('as'=>'searchajax','uses'=>'IndexController@sangvish_autoComplete'));
 Route::get('searchlocation',array('as'=>'searchlocation','uses'=>'IndexController@searchlocation'));
 Route::get('getsubservices',array('as'=>'getsubservices','uses'=>'GetsubserviceController@getsubservices'));
+Route::get('getseller',array('as'=>'getseller','uses'=>'GetsubserviceController@getseller'));
 
 
 Route::get('dateavailable/{val}',array('as'=>'dateavailable','uses'=>'BookingController@dateavailable'));
@@ -218,15 +219,18 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/superservices','Admin\AddsupersubserviceController@formview');
     Route::get('/admin/addsubservice','Admin\AddsubserviceController@getservice');
     Route::get('/admin/superservices','Admin\AddsupersubserviceController@getservice');
-    Route::post('/admin/addsubservice', ['as'=>'admin.addsubservice','uses'=>'Admin\AddsubserviceController@addsupersubservicedata']);
+    Route::post('/admin/addsubservice', ['as'=>'admin.addsubservice','uses'=>'Admin\AddsubserviceController@addsubservicedata']);
     Route::post('/admin/addsupersubservice', ['as'=>'admin.addsupersubservice','uses'=>'Admin\AddsupersubserviceController@addsubservicedata']);
     Route::get('/admin/subservices/{id}','Admin\SubservicesController@destroy');
+    Route::get('/admin/supersubservices/{id}','Admin\SupersubController@destroy');
 
 
 
     Route::get('/admin/editsubservice/{id}','Admin\EditsubserviceController@edit');
+    Route::get('/admin/editsupersubservice/{id}','Admin\EditsupersubserviceController@edit');
 
     Route::post('/admin/editsubservice', ['as'=>'admin.editsubservice','uses'=>'Admin\EditsubserviceController@editsubservicedata']);
+    Route::post('/admin/editsupersubservice/', ['as'=>'admin.editsupersubservice','uses'=>'Admin\EditsupersubserviceController@editsupersubservicedata']);
     /* end sub services */
 
 

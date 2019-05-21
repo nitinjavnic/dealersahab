@@ -276,52 +276,44 @@
 		<div class="col-md-3  filter-review1">
 		<div class="filter-review">
 			<form action="" method="" >
-				<div class="pl-40 checkin-filter">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="">
-							<span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
-							Manufacturer
+				<div class="pl-40 customerType">
+
+						<label class="radio">
+							<input type="radio" value="Manufacturer" id="Manufecturer" name="optradio">Manufecturer<br>
 						</label>
-					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="">
-							<span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
-							Manufacturer
+						<label class="radio">
+							<input type="radio" value="Dealer" id="Dealer" name="optradio">Dealer
 						</label>
-					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="">
-							<span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
-							Manufacturer
+						<label class="radio">
+							<input type="radio" value="Seller" id="Seller" name="optradio">Seller
 						</label>
-					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="">
-							<span class="cr"><i class="cr-icon glyphicon glyphicon-arrow-right"></i></span>
-							Manufacturer
-						</label>
-					</div>
+
+					<label class="radio">
+						<input type="radio" value="Wholeseller" id="Wholeseller" name="optradio">Wholeseller
+					</label>
 
 
 				</div>
 				<label class="pl-50"for="category">Category<br>
 					<select>
-						<option value="">abc</option>
-						<option value="">123</option>
-						<option value="">456</option>
-						<option value="">789</option>
+						<option value="">Choose Category</option>
+						<?php foreach ($allservice as $allservice){ ?>
+
+							<option value=""><?php echo $allservice->name ?></option>
+
+						<?php }?>
+
 					</select></label><br><br>
 
 				<label class="pl-50" for="category">SubCategory<br>
 					<select>
-						<option value="">abc</option>
-						<option value="">123</option>
-						<option value="">456</option>
-						<option value="">789</option>
+						<option value="">Choose SubCategory</option>
+						<?php foreach ($allsubservice as $allsubservice ) {?>
+
+							<option value=""><?php echo $allsubservice->subname ?></option>
+						<?php } ?>
+
+
 					</select></label><br><br>
 
 				<label  class="pl-50"for="category">SuperSubCategory<br>
@@ -370,7 +362,7 @@
 		<div class="col-md-9 ">
 
 
-			<div class="row ">
+			<div class="row test">
 				<?php if(!empty($sub_value)){?>
 
 				<?php foreach($subsearches as $shop){
@@ -480,25 +472,6 @@
 					</div></div>
 					<?php } ?>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 				<?php } ?>
 
 
@@ -529,4 +502,45 @@
 
       @include('footer')
 </body>
+
+<script>
+	$('.radio').on('click', function() {
+		if ($("#Manufecturer").is(":checked")) {
+			var Manufecturer = $("input[name='optradio']:checked").val();
+			src = "{{ route('getseller') }}";
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					sellertype : Manufecturer
+				},
+				success: function(data) {
+                    $.each(data, function (index,value) {
+
+                        $(".test").append("<h1>hiiiiii</h1>");
+
+                    });
+				}
+
+
+			});
+		}
+		if ($("#Dealer").is(":checked")) {
+			var Dealer = $("input[name='optradio']:checked").val();
+		}
+
+		if ($("#Seller").is(":checked")) {
+			var Seller = $("input[name='optradio']:checked").val();
+		}
+
+		if ($("#Wholeseller").is(":checked")) {
+			var Wholeseller = $("input[name='optradio']:checked").val();
+		}
+
+
+	});
+
+
+</script>
+
 </html>

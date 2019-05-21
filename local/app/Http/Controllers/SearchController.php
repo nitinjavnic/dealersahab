@@ -42,14 +42,12 @@ class SearchController extends Controller
 	
 	public function sangvish_homeindex($id)
 	{
-		
+
 		$subview=strtolower($id);
-			$results = preg_replace('/-+/', ' ', $subview); 
-		
-		
-		
-		 $services = DB::table('subservices')->where('subname', $results)->get();
-		 
+		$results = preg_replace('/-+/', ' ', $subview);
+        $allsubservice = DB::table('subservices')->select('subname')->get();
+        $allservice = DB::table('services')->select('name')->get();
+        $services = DB::table('subservices')->where('subname', $results)->get();
 		 $subsearches = DB::table('shop')
 		->leftJoin('seller_services', 'seller_services.shop_id', '=', 'shop.id')
 		->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
@@ -58,22 +56,23 @@ class SearchController extends Controller
 		->where('seller_services.subservice_id', '=', $services[0]->subid)
 		->groupBy('shop.id')
 		->get();
-		
+
+
 		$viewservices= DB::table('subservices')->orderBy('subname','asc')->get();
-		
+
 		$shopview=DB::table('shop')
 		         ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
 		         ->where('shop.status', '=', 'approved')
 				 ->orderBy('shop.id','desc')->get();
-		
+
 		$sub_value = $id;
-		
-		$data = array('subsearches' => $subsearches, 'viewservices' => $viewservices, 'shopview' => $shopview, 'sub_value' => $sub_value, 'services' => $services);
+
+		$data = array('subsearches' => $subsearches, 'viewservices' => $viewservices, 'shopview' => $shopview, 'sub_value' => $sub_value, 'services' => $services,'allsubservice'=>$allsubservice,'allservice'=>$allservice);
 
             return view('search')->with($data);
-		
+
 	}
-	
+
     public function sangvish_index(Request $request)
     {
 		
