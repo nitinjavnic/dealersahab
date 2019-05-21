@@ -747,7 +747,7 @@ body
 	}
 
 	.info-sub1{display:none;}
-	
+
 }
 
 
@@ -755,9 +755,9 @@ body
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
-
+    .bg-company-info{display:none!important;}
 	.info-sub1{display:none;}
-
+    .block-company{top:50px!important; margin-bottom:50px;}
 
 	#myTab > li
 	{
@@ -2955,7 +2955,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 @media screen and(max-width:600px){
 	.banner-add{margin-left:0px!important;}
-	
+
 }
 
 footer{background:#294a5a;}
@@ -3010,7 +3010,8 @@ footer{background:#294a5a;}
 .company-profile{width:150px; height:150px; float:left;}
 
 .block-company table{text-align: center; width:100%;}
-.block-company{  background:white!important; }
+.block-company{background:white!important; position:relative; top:-100px; padding:20px; box-shadow:0 0 9px 0px #040404;
+border-radius:10px; border:.5px solid black;}
 .bg-company-info {
     background-image: url("../img/banner.jpg");
     height: 300px;
@@ -3018,4 +3019,5 @@ footer{background:#294a5a;}
     background-repeat: no-repeat;
     background-size: cover;
     position:relative;
+    background-color: rgba(0, 0, 0, 0.5);
 }
