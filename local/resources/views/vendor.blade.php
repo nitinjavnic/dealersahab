@@ -34,7 +34,7 @@
 
 
 <div class="clearfix"></div>
-<div class="clearfix"></div>
+
 
 
 <div class="container-fluid">
@@ -119,8 +119,7 @@
 
 
 	<div class="row">
-
-		<div class="col-md-6 company-info pb-20 pl-80 pr-20">
+		<div class="col-md-8 company-info pb-20 pl-80 pr-20">
 			<h3><span class="pl-80">Reviews</span></h3>
 			<img src="../img/banner.jpg" alt="">
 			<p>Graphic Designer</p>
@@ -159,7 +158,7 @@
 			<p>We have using ac brands of all types but it is my first time with hitach 1.5 ton it is a mind blowing air conditioner it has a superb cooling capacity.it cools our all the room very fast .now it was my loving brand.</p>
 		</div>
 
-		<div class="col-md-6 company-info pb-20 pl-80 pr-20 ">
+		<div class="col-md-4 company-info">
 			<h3><u>You Can Also Check-</u></h3>
 			<img src="../img/banner.jpg" alt="" >
 			<h3><strong>Dummy India Pvt. Ltd.</strong></h3>
@@ -186,16 +185,15 @@
 
 
 		</div>
-
-	</div>
-				</div>
+    </div>
+                </div>
 		</div>
 
 
 
 
-<div class="clearfix"></div>
-<div class="clearfix"></div>
+
+
 
 @include('footer')
 <?php if(session()->has('message')){?>
