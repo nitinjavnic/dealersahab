@@ -43,7 +43,7 @@ $setid=1;
 
 
 
-              <li><a href="#">Blog</a></li>
+              <li><a href="<?php echo $url;?>/blogList">Blog</a></li>
               <li><a href="#">Post your Requirment</a></li>
               <li><a href="#">List your Business</a></li>
               <li><a href="#">Contact Us</a></li>

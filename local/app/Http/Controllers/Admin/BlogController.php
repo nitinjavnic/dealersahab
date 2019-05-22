@@ -32,6 +32,21 @@ class BlogController extends Controller
     }
 
 
+    public function  blogList(){
+        $blog = DB::table('blog')
+            ->get();
+        return view('blogList', ['blog' => $blog]);
+
+    }
+
+
+    public function readmore($id){
+        $readmore = DB::table('blog')->where('id', $id)->get();
+
+        return view('blogreadMore', ['blog' => $readmore]);
+    }
+
+
     public function destroy($id) {
 
         $image = DB::table('blog')->where('id', $id)->get();

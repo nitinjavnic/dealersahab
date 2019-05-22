@@ -22,19 +22,7 @@
 
 <!-- slider -->
 
-
-
-
-
-
-
-
-
-
-
-
 <div class="clearfix"></div>
-
 
 
 <div class="container-fluid">
@@ -62,7 +50,10 @@
 
 
         <div class="col-md-6 col-8">
-            <h2><?php echo $shop[0]->shop_name;?><a href="#" class="btn btn-success pin-seller">Pinned </a></h2>
+            <h2><?php echo $shop[0]->shop_name;?><a href="#" class="btn btn-success pin-seller " id="pinned">Pinned </a></h2>
+
+
+
             <p><strong>Location-</strong> <?php echo $shop[0]->address;?> <strong>Profile View</strong></p>
             <table class="text-center">
                 <tr>
@@ -457,5 +448,17 @@
 </script>
 </div>
 <?php } ?>
+
+<script>
+
+    $('#pinned').on('click', function() {
+                alert('hii')
+    });
+
+</script>
 </body>
+
+
+
+
 </html>

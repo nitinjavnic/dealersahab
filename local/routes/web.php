@@ -23,10 +23,15 @@ Route::get('/', 'CommonController@home');*/
 
 Route::get('/', 'IndexController@sangvish_index');
 Route::get('/index', 'IndexController@sangvish_index');
+Route::get('/blogList', 'Admin\BlogController@blogList');
+Route::get('/readmore/{id}','Admin\BlogController@readmore');
+
 
 Route::get('searchajax',array('as'=>'searchajax','uses'=>'IndexController@sangvish_autoComplete'));
 Route::get('searchlocation',array('as'=>'searchlocation','uses'=>'IndexController@searchlocation'));
 Route::get('getsubservices',array('as'=>'getsubservices','uses'=>'GetsubserviceController@getsubservices'));
+Route::get('getallCategory',array('as'=>'getallCategory','uses'=>'GetsubserviceController@getallCategory'));
+Route::get('getsuballCategory',array('as'=>'getsuballCategory','uses'=>'GetsubserviceController@getsuballCategory'));
 Route::get('getseller',array('as'=>'getseller','uses'=>'GetsubserviceController@getseller'));
 
 
@@ -145,6 +150,7 @@ Route::post('/contact', ['as'=>'contact','uses'=>'PageController@sangvish_mailse
 
 
 Route::get('/services','ServicesController@sangvish_index');
+Route::get('/pinnedseller','PinnedController@sangvish_index');
 Route::get('/services/{id}','ServicesController@sangvish_editdata');
 
 Route::post('/services', ['as'=>'services','uses'=>'ServicesController@sangvish_savedata']);
