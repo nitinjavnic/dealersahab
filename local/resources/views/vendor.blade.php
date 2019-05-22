@@ -44,8 +44,8 @@
         </div>
     </div>
 
-    <div class="container block-company">
-        <div class="row ">
+    <div class="container ">
+        <div class="row block-company">
             <div class="col-md-2 col-4">
 
                 <?php $shopphoto="/shop/";
@@ -62,7 +62,7 @@
 
 
         <div class="col-md-6 col-8">
-            <h2><?php echo $shop[0]->shop_name;?></h2>
+            <h2><?php echo $shop[0]->shop_name;?><a href="#" class="btn btn-success pin-seller">Pinned </a></h2>
             <p><strong>Location-</strong> <?php echo $shop[0]->address;?> <strong>Profile View</strong></p>
             <table class="text-center">
                 <tr>
@@ -190,13 +190,189 @@
         </div>
 
 
+            <div class="row review-gallery">
+
+                <div class="col-md-12">
+                    <div class="clearfix"></div>
+
+                    <ul class="nav nav-tabs" id="myTab">
+                        <li class="active"><a href="#freez" data-toggle="tab">Freez</a></li>
+                        <li class=""><a href="#Ac" data-toggle="tab" class="btn btn-primary"> Ac</a></li>
+                        <li class=""><a href="#Cooler" data-toggle="tab"> Cooler</a></li>
+                        <li class=""><a href="#Washing" data-toggle="tab">Washing </a></li>
+                        <li class=""><a href="#Moter" data-toggle="tab">Motar </a></li>
+                    </ul>
+
+                    <div class="tab-content">
+
+
+                        <div class="tab-pane active " id="freez">
+
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056495.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056590.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="tab-pane" id="Ac">
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056495.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056590.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="Cooler">
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056495.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056590.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="Moter">
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056495.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056590.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="tab-pane" id="gallery">
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056495.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056590.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                    <div class="col-md-3 pt-30">
+                                        <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
+                                        <a href="#" class="">Freez</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+
+
+        </div>
 
 
 
 
 
 
-        <div class="row">
+
+        <div class="row block-company1">
 
             <div class="col-md-8 company-info pb-20 pl-80 pr-20">
 
