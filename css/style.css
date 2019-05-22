@@ -2717,7 +2717,7 @@ footer .footerbar ul li a:hover
 
 .star_rates
 {
-	height:17px;
+	height:17px!important;
 }
 
 .nbs-flexisel-item a,.nbs-flexisel-item a:hover

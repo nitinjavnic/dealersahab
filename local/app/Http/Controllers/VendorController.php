@@ -27,7 +27,7 @@ class VendorController extends Controller
     public function sangvish_showpage($id) {
 
         $uber = DB::table('users')->where('name', '=', $id)->get();
-
+        $sellertype= $uber[0]->sellertype;
 
         $shopcount = DB::table('shop')
             ->where('seller_email', '=', $uber[0]->email)
@@ -97,7 +97,6 @@ class VendorController extends Controller
         $rating = DB::table('rating')
             ->leftJoin('users', 'users.email', '=', 'rating.email')
             ->where('rshop_id', '=', $shop_id)
-
             ->get();
 
 
@@ -110,7 +109,7 @@ class VendorController extends Controller
         $admin_email = $admindetails->email;
 
 
-        $data = array('shopcount' => $shopcount, 'shop' => $shop, 'stime' => $stime, 'etime' => $etime, 'lev' => $lev, 'sel' => $sel, 'viewservice' => $viewservice,
+        $data = array('sellertype'=>$sellertype,'shopcount' => $shopcount, 'shop' => $shop, 'stime' => $stime, 'etime' => $etime, 'lev' => $lev, 'sel' => $sel, 'viewservice' => $viewservice,
             'setting' => $setting, 'viewgallery' => $viewgallery, 'shop_id' => $shop_id, 'vendor_email' => $vendor_email , 'site_setting' => $site_setting, 'vendor' => $vendor,
             'userid' => $userid, 'rating_count' => $rating_count, 'rating' => $rating,'admin_email' => $admin_email);
         return view('vendor')->with($data);

@@ -359,10 +359,10 @@
 		</div>
 		</div>
 
-		<div class="col-md-9 ">
+		<div class="col-md-9 " id="test">
 
 
-			<div class="row test">
+			<div class="row ">
 				<?php if(!empty($sub_value)){?>
 
 				<?php foreach($subsearches as $shop){
@@ -515,9 +515,58 @@
 					sellertype : Manufecturer
 				},
 				success: function(data) {
+
+					data.forEach(function (current, index) {
+						console.log(current);
+					});
+
+
                     $.each(data, function (index,value) {
 
-                        $(".test").append("<h1>hiiiiii</h1>");
+
+							$('#test').html('<div class="row review-point m-0">\n' +
+								'        <div class="col-md-7 company-info ">\n' +
+								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>Nitin Shop</strong></h3></a>\n' +
+								'            <p>Location-42, Featherstone Street LONDON EC1Y 8SY UNITED KINGDOM<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <p>  Nature of Business-Dealer</p>\n' +
+								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
+								'            <p> Brand Company-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
+								'        <div class="col-md-5">\n' +
+								'            <div class="well well-sm">\n' +
+								'                <div class="row">\n' +
+								'                    <div class="col-xs-12 col-md-6 text-center">\n' +
+								'                        <h1 class="rating-num">\n' +
+								'                            3\t\t\t\t\t\t\t\t\t</h1>\n' +
+								'                        <div class="rating">\n' +
+								'\n' +
+								'                            <img src="http://localhost/dealerSahab/local/images/3star.png" alt="rated 3\t\t\t\t\t\t\t\t\t\t\t\t\tstars" class="star_rates">\n' +
+								'                        </div>\n' +
+								'                        <div>\n' +
+								'                            <span class="glyphicon glyphicon-user"></span>47 Rating\n' +
+								'                            <button type="button" class="btn btn-warning" name="submit">View Detail</button>\n' +
+								'                        </div>\n' +
+								'                    </div>\n' +
+								'                    <div class="col-xs-12 col-md-6">\n' +
+								'                        <div class="row rating-desc">\n' +
+								'                            <div class="col-xs-3 col-md-3 text-right">\n' +
+								'                                <span class="glyphicon glyphicon-star"></span>3\t\t\t\t\t\t\t\t\t\t</div>\n' +
+								'                            <div class="col-xs-8 col-md-9">\n' +
+								'                                <div class="progress progress-striped">\n' +
+								'                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">\n' +
+								'                                        <span class="sr-only">80%</span>\n' +
+								'                                    </div>\n' +
+								'\n' +
+								'                                </div>\n' +
+								'                            </div>\n' +
+								'\n' +
+								'                            <!-- end 1 -->\n' +
+								'                        </div>\n' +
+								'                        <!-- end row -->\n' +
+								'                    </div>\n' +
+								'                </div>\n' +
+								'            </div>\n' +
+								'        </div></div>\n');
 
                     });
 				}

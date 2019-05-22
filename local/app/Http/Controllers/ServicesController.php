@@ -41,10 +41,10 @@ class ServicesController extends Controller
 		
 		$shopview = DB::table('shop')->where('seller_email', $uid)->get();
 		
-		$viewservice = DB::table('seller_services')
+		$viewservice = DB::table('products')
 		->where('user_id', $uuid)
 		->orderBy('id','desc')
-		->leftJoin('subservices', 'subservices.subid', '=', 'seller_services.subservice_id')
+		->leftJoin('subservices', 'subservices.subid', '=', 'products.subcategory_id')
 		->get();
 		
 		$editid="";
@@ -60,10 +60,8 @@ class ServicesController extends Controller
 	public function sangvish_destroy($did) {
 		
 		
-      DB::delete('delete from seller_services where id = ?',[$did]);
-	   
-      
-	 
+      DB::delete('delete from products where id = ?',[$did]);
+
 	  return redirect('services');
       
    }
@@ -73,48 +71,70 @@ class ServicesController extends Controller
        $services = DB::table('services')->orderBy('name', 'asc')->get();
 	   $set_id=1;
 		$setting = DB::table('settings')->where('id', $set_id)->get();
-		
+
 		$uuid=Auth::user()->id;
 		$uid=Auth::user()->email;
-		
+
 		$shopview = DB::table('shop')->where('seller_email', $uid)->get();
-		
-		$viewservice = DB::table('seller_services')
+
+		$viewservice = DB::table('products')
 		->where('user_id', $uuid)
 		->orderBy('id','desc')
-		->leftJoin('subservices', 'subservices.subid', '=', 'seller_services.subservice_id')
+		->leftJoin('subservices', 'subservices.subid', '=', 'products.subcategory_id')
 		->get();
-		
-		
-		$sellservices = DB::select('select * from seller_services where id = ?',[$id]);
+
+
+		$sellservices = DB::select('select * from products where id = ?',[$id]);
 		$editid=$id;
-	   
+
       $data = array('services' => $services, 'setting' => $setting, 'shopview' => $shopview, 'uuid' => $uuid, 'viewservice' => $viewservice , 'sellservices' => $sellservices,
 	  'editid' => $editid);
 
-        return view('services')->with($data); 
+        return view('services')->with($data);
    }
    
    
    protected function sangvish_savedata(Request $request)
    {
-	   $data = $request->all();
-	   $subservice_id=$data['subservice_id'];
-	   
+       $this->validate($request, [
+           'productname' => 'required',
+           'service' => 'required',
+           'subservice' => 'required',
+           'supersubservice' => 'required',
+       ]);
+
+       $image = Input::file('photo');
+       if($image!="")
+       {
+           $filename  = time() . '.' . $image->getClientOriginalExtension();
+           $userphoto="/productimage/";
+           $path = base_path('images'.$userphoto.$filename);
+           $destinationPath=base_path('images'.$userphoto);
+           Image::make($image->getRealPath())->resize(300, 300)->save($path);
+           $namef=$filename;
+       }
+       else
+       {
+           $namef="";
+       }
+       $data = $request->all();
+
+
+       $service=$data['service'];
+	   $subservice=$data['subservice'];
+	   $supersubservice=$data['supersubservice'];
 	   $price=$data['price'];
-	   $time=$data['time'];
+	   $productname=$data['productname'];
 	   $user_id=$data['user_id'];
 	   $shop_id=$data['shop_id'];
-	   
 	   $editid=$data['editid'];
-	   
-	   $servi_id=DB::table('subservices')->where('subid', $subservice_id)->get();
+	   $servi_id=DB::table('subservices')->where('subid', $subservice)->get();
 	   $service_id = $servi_id[0]->service;
 	   
-	   $servicecnt = DB::table('seller_services')
+	   $servicecnt = DB::table('products')
 				->where('user_id', '=', $user_id)
 				->where('shop_id', '=', $shop_id)
-				->where('subservice_id', '=', $subservice_id)
+				->where('subcategory_id', '=', $subservice)
 				->count();
 	   
 	   if($editid=="")
@@ -123,9 +143,10 @@ class ServicesController extends Controller
 			   if($servicecnt==0)
 			   
 			   {
-			   DB::insert('insert into seller_services (service_id,subservice_id,price,time,user_id,shop_id) values (?, ?, ?, ?, ?, ?)', [$service_id,$subservice_id,$price,$time,$user_id,$shop_id]);
-				
-			   return back()->with('success', 'Services has been added');
+
+                   DB::insert('insert into products (user_id,shop_id,price,product_name,category_id,subcategory_id,supersubcategory_id,photo) values (?, ?, ?, ?, ?, ? ,?, ?)', [$user_id,$shop_id,$price,$productname,$service,$subservice,$supersubservice,$namef]);
+
+                   return back()->with('success', 'Product has been added');
 			   }
 			   else
 			   {
