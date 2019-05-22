@@ -203,7 +203,6 @@
                         $("#subservice").append("<option>" + 'No Result Found' + "</option>");
                     }else {
                         $.each(data, function (index,value) {
-                                console.log(value);
                                 $("#subservice").append("<option value="+ value.subid +">" + value.value + "</option>");
 
                         });

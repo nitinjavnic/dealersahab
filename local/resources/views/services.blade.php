@@ -79,22 +79,45 @@
    
    
 	<div class="form-group col-md-4 swidth" >
-	<label>Services Name<span class="star">*</span></label>
-		<select class="form-control validate[required]" id="subservice_id" name="subservice_id" required>
+	<label>Category Name<span class="star">*</span></label>
+		<select id="change_category" class="form-control validate[required]" id="subservice_id" name="subservice_id" required>
 			<option value="">Select Services</option>
 			<?php foreach($services as $disp){?>
-			<option value="<?php echo $disp->id;?>" disabled><?php echo $disp->name;?></option>
-			<?php $subservices = DB::table('subservices')->where('service', '=', $disp->id)->orderBy('subname','asc')->get();
-			foreach($subservices as $dispsub){
-			?>
-			   <option value="<?php echo $dispsub->subid;?>" <?php if(!empty($sellservices)) { if($sellservices[0]->subservice_id==$dispsub->subid){?> selected <?php } } ?>> -- <?php echo $dispsub->subname;?></option>
-			<?php } } ?>
+			   <option value="<?php echo $disp->id;?>"><?php echo $disp->name;?></option>
+		<?php }  ?>
 		</select>
 	</div>
-	
-	
-	
-	<div class="form-group col-md-2 swidth">	
+
+
+	   <div class="form-group col-md-4 swidth" >
+		   <label>Subcategory Name<span class="star">*</span></label>
+		   <select class="form-control validate[required]" id="subservice_id" name="subservice_id" required>
+			   <option value="">Select Services</option>
+			   <?php foreach($services as $disp){?>
+			   <?php $subservices = DB::table('subservices')->where('service', '=', $disp->id)->orderBy('subname','asc')->get();
+			   foreach($subservices as $dispsub){
+			   ?>
+			   <option value="<?php echo $dispsub->subid;?>" <?php if(!empty($sellservices)) { if($sellservices[0]->subservice_id==$dispsub->subid){?> selected <?php } } ?>><?php echo $dispsub->subname;?></option>
+			   <?php } } ?>
+		   </select>
+	   </div>
+
+
+	   <div class="form-group col-md-4 swidth" >
+		   <label>SuperSub category Name<span class="star">*</span></label>
+		   <select  class="form-control col-md-7 col-xs-12" id="subservice" name="subservice" required="required">
+			   <option value="">
+
+			   </option>
+
+		   </select>
+
+	   </div>
+
+
+
+
+	   <div class="form-group col-md-2 swidth">
 		<label>Currency</label>
 		<input type="text"  name="" id="" class="form-control validate[required] text-input" disabled="disabled" value="<?php echo $setting[0]->site_currency;?>">
 	</div>	
@@ -230,4 +253,34 @@
 
       @include('footer')
 </body>
+
+<script>
+	jQuery(document).ready(function(){
+		src = "{{ route('getsubservices') }}";
+		$("#change_category").change(function() {
+			var id = $(this).val();
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					id : id
+				},
+				success: function(data) {
+					if(data.error=='No Result Found'){
+						$("#subservice").append("<option>" + 'No Result Found' + "</option>");
+					}else {
+						$.each(data, function (index,value) {
+							$("#subservice").append("<option value="+ value.subid +">" + value.value + "</option>");
+
+						});
+					}
+				}
+
+
+			});
+		});
+	});
+</script>
+
+
 </html>
