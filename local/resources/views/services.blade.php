@@ -80,7 +80,7 @@
    
 	<div class="form-group col-md-4 swidth" >
 	<label>Category Name<span class="star">*</span></label>
-		<select id="change_category" class="form-control validate[required]" id="subservice_id" name="subservice_id" required>
+		<select id="change_category" class="form-control validate[required]" id="subservice_id" name="service" required>
 			<option value="">Select Services</option>
 			<?php foreach($services as $disp){?>
 			   <option value="<?php echo $disp->id;?>"><?php echo $disp->name;?></option>
@@ -91,21 +91,18 @@
 
 	   <div class="form-group col-md-4 swidth" >
 		   <label>Subcategory Name<span class="star">*</span></label>
-		   <select class="form-control validate[required]" id="subservice_id" name="subservice_id" required>
-			   <option value="">Select Services</option>
-			   <?php foreach($services as $disp){?>
-			   <?php $subservices = DB::table('subservices')->where('service', '=', $disp->id)->orderBy('subname','asc')->get();
-			   foreach($subservices as $dispsub){
-			   ?>
-			   <option value="<?php echo $dispsub->subid;?>" <?php if(!empty($sellservices)) { if($sellservices[0]->subservice_id==$dispsub->subid){?> selected <?php } } ?>><?php echo $dispsub->subname;?></option>
-			   <?php } } ?>
+		   <select  class="form-control col-md-7 col-xs-12" id="subservice" name="subservice" required="required">
+			   <option value="">
+
+			   </option>
+
 		   </select>
 	   </div>
 
 
 	   <div class="form-group col-md-4 swidth" >
 		   <label>SuperSub category Name<span class="star">*</span></label>
-		   <select  class="form-control col-md-7 col-xs-12" id="subservice" name="subservice" required="required">
+		   <select  class="form-control col-md-7 col-xs-12" id="subsuperservice" name="supersubservice" required="required">
 			   <option value="">
 
 			   </option>
@@ -115,13 +112,25 @@
 	   </div>
 
 
+	   <div class="form-group col-md-4 swidth" >
+		   <label>Product Image<span class="star">*</span></label>
+		   <input type="file" id="photo" name="photo" class="form-control col-md-7 col-xs-12">
 
+	   </div>
 
-	   <div class="form-group col-md-2 swidth">
-		<label>Currency</label>
-		<input type="text"  name="" id="" class="form-control validate[required] text-input" disabled="disabled" value="<?php echo $setting[0]->site_currency;?>">
-	</div>	
-	
+	   <div class="item form-group">
+		   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> Product Name <span class="required">*</span>
+		   </label>
+		   <div class="col-md-6 col-sm-6 col-xs-12">
+			   <input id="name" class="form-control col-md-7 col-xs-12"  name="productname" value="{{ old('name') }}" required="required" type="text">
+			   @if ($errors->has('name'))
+				   <span class="help-block" style="color:red;">
+                                        <strong>That product name is already exists</strong>
+                                    </span>
+			   @endif
+		   </div>
+	   </div>
+
 	
 	
 	<div class="form-group col-md-2 swidth">		
@@ -129,12 +138,7 @@
 		<input type="text"  name="price" required id="price" class="form-control validate[required] text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>">
 	</div>
 	
-	<div class="form-group col-md-4 swidth" id="shop_address" >
-		<label>Time (Hours)</label>
-		<input type="text" name="time" id="time" class="form-control validate[required] text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->time; }?>">
-	</div>
-	
-	
+
 	<input type="hidden" name="user_id" value="<?php echo $uuid;?>">
 	
 	<input type="hidden" name="shop_id" value="<?php echo $shopview[0]->id;?>">
@@ -179,9 +183,9 @@
   <thead>
     <tr>
       <th>Sno</th>
-      <th>Services</th>
+      <th>Category</th>
       <th>Price</th>
-      <th>Time</th>
+
 	  <th>Update</th>
 	  <th>Delete</th>
     </tr>
@@ -189,12 +193,14 @@
   <tbody>
   <?php 
   $ii=1;
-  foreach($viewservice as $newserve){?>
+  foreach($viewservice as $newserve){
+
+  	?>
     <tr>
       <th><?php echo $ii;?></th>
       <td><?php echo $newserve->subname;?></td>
       <td><?php echo $newserve->price.' '.$setting[0]->site_currency;?></td>
-      <td><?php echo $newserve->time;?></td>
+
 	  <td>
 	  <?php if(config('global.demosite')=="yes"){?>
 	  <a href="#" class="btndisable"><img src="<?php echo $url.'/local/images/edit.png';?>" alt="Edit" border="0"></a> <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
@@ -256,12 +262,13 @@
 
 <script>
 	jQuery(document).ready(function(){
-		src = "{{ route('getsubservices') }}";
+		srcurl = "{{ route('getallCategory') }}";
 		$("#change_category").change(function() {
+
 			var id = $(this).val();
 			$.ajax({
 				type: 'GET',
-				url: src,
+				url: srcurl,
 				data: {
 					id : id
 				},
@@ -270,6 +277,7 @@
 						$("#subservice").append("<option>" + 'No Result Found' + "</option>");
 					}else {
 						$.each(data, function (index,value) {
+
 							$("#subservice").append("<option value="+ value.subid +">" + value.value + "</option>");
 
 						});
@@ -280,6 +288,36 @@
 			});
 		});
 	});
+
+	jQuery(document).ready(function(){
+		src = "{{ route('getsuballCategory') }}";
+		$("#subservice").change(function() {
+			var id = $(this).val();
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					id : id
+				},
+				success: function(data) {
+					if(data.error=='No Result Found'){
+						$("#subsuperservice").append("<option>" + 'No Result Found' + "</option>");
+					}else {
+						$.each(data, function (index,value) {
+
+							$("#subsuperservice").append("<option value="+ value.subid +">" + value.value + "</option>");
+
+						});
+					}
+				}
+
+
+			});
+		});
+	});
+
+
+
 </script>
 
 

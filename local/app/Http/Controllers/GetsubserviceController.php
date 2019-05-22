@@ -40,6 +40,45 @@ class GetsubserviceController extends Controller
 
     }
 
+
+    public function getallCategory(Request $request)
+    {
+        $data = $request->all();
+        $id=$data['id'];
+        $query = DB::table('subservices')->select('subname','subid')->where('service', $id)->get();
+        $data=array();
+        foreach ($query as $viewsub) {
+
+            $data[]=array('value'=>$viewsub->subname,'subid'=>$viewsub->subid);
+        }
+
+        if(count($data))
+            return $data;
+        else
+            return ['error'=>'No Result Found'];
+
+    }
+
+    public function getsuballCategory(Request $request)
+    {
+        $data = $request->all();
+        $id=$data['id'];
+        $query = DB::table('subsuperservice')->select('subsupername','id')->where('subservice', $id)->get();
+        $data=array();
+        foreach ($query as $viewsub) {
+
+            $data[]=array('value'=>$viewsub->subsupername,'subid'=>$viewsub->id);
+        }
+
+        if(count($data))
+            return $data;
+        else
+            return ['error'=>'No Result Found'];
+
+    }
+
+
+
     public function getseller(Request $request)
     {
 

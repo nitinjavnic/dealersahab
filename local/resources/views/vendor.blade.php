@@ -198,9 +198,6 @@
 
 	<div class="row">
 
-
-
-
 		<div class="col-md-8 company-info pb-20 pl-80 pr-20">
 
 
