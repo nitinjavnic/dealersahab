@@ -2966,8 +2966,7 @@ footer{background:#294a5a;}
 .filter-review select{width:200px; box-shadow:0 0 6px 0px #294a5a; height:30px;}
 .filter-review1{border:1px solid black; box-shadow:inset 0 0 9px 0px #888888; padding:40px; margin-top:10px;}
 .checkin-filter{padding-left:30px;}
-.
-.company-profile{width:150px; height:150px; float:left;}
+.company-profile {width:150px; height:150px; float:left;}
 
 .block-company table{text-align: center; width:100%;}
 .block-company{background:white!important; position:relative; top:-100px; padding:20px; box-shadow:0 0 9px 0px #040404;
