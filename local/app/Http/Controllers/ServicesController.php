@@ -98,9 +98,6 @@ class ServicesController extends Controller
    {
        $this->validate($request, [
            'productname' => 'required',
-           'service' => 'required',
-           'subservice' => 'required',
-           'supersubservice' => 'required',
        ]);
 
        $image = Input::file('photo');
@@ -131,32 +128,18 @@ class ServicesController extends Controller
 	   $servi_id=DB::table('subservices')->where('subid', $subservice)->get();
 	   $service_id = $servi_id[0]->service;
 	   
-	   $servicecnt = DB::table('products')
-				->where('user_id', '=', $user_id)
-				->where('shop_id', '=', $shop_id)
-				->where('subcategory_id', '=', $subservice)
-				->count();
+
 	   
 	   if($editid=="")
 	   {
-	   
-			   if($servicecnt==0)
-			   
-			   {
-
                    DB::insert('insert into products (user_id,shop_id,price,product_name,category_id,subcategory_id,supersubcategory_id,photo) values (?, ?, ?, ?, ?, ? ,?, ?)', [$user_id,$shop_id,$price,$productname,$service,$subservice,$supersubservice,$namef]);
+           return back()->with('success', 'Products has been added');
 
-                   return back()->with('success', 'Product has been added');
-			   }
-			   else
-			   {
-				   return back()->with('error','That services is already added.');
-			   }
 	   }
        else if($editid!="")
        {
 		   DB::update('update seller_services set service_id="'.$service_id.'",subservice_id="'.$subservice_id.'",price="'.$price.'",time="'.$time.'",shop_id="'.$shop_id.'" where id = ?', [$editid]);
-			return back()->with('success', 'Services has been updated');
+			return back()->with('success', 'Products has been updated');
 	   }		   
 	   
    }

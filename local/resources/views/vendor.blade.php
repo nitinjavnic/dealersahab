@@ -178,7 +178,8 @@
 
                 <p class="pt-10">Contanct no- 9876543210</p>
                 <p>Email id- xyz@gmail.com</p>
-                <a href="#" class="btn btn-warning btn-lg post-btn">Post Your Requirement</a>
+
+                <a href="" class="btn btn-warning btn-lg post-btn">Post Your Requirement</a>
 
         </div>
 

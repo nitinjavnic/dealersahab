@@ -94,12 +94,34 @@
 							<i class="glyphicon glyphicon-home"></i>
 							Overview </a>
 						</li>-->
+
 						<li>
 							<a href="<?php echo $url;?>/dashboard">
-							<i class="fa fa-user" aria-hidden="true"></i>
+								<i class="fa fa-user" aria-hidden="true"></i>
 
-							Account Settings </a>
+								Personal Detail </a>
 						</li>
+
+						<li>
+							<a href="<?php echo $url;?>/dashboard">
+								<i class="fa fa-user" aria-hidden="true"></i>
+
+								Business Detail </a>
+						</li>
+
+						<li>
+							<a href="<?php echo $url;?>/dashboard">
+								<i class="fa fa-user" aria-hidden="true"></i>
+
+								My Product </a>
+						</li>
+						<li>
+							<a href="<?php echo $url;?>/dashboard">
+								<i class="fa fa-user" aria-hidden="true"></i>
+
+								Account Settings </a>
+						</li>
+
 						<?php if($sta!=1){?>
 						<li>
 						<?php if(config('global.demosite')=="yes"){?>

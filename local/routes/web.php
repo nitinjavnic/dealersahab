@@ -47,10 +47,12 @@ Route::get('/shop', 'ShopController@sangvish_viewshop');
 Route::get('/addshop', 'ShopController@sangvish_addshop');
 
 Route::get('/editshop/{id}', 'ShopController@sangvish_editshop');
+Route::get('/business', 'BusinessController@sangvish_editshop');
 
 Route::post('/editshop', ['as'=>'editshop','uses'=>'ShopController@sangvish_savedata']);
 
 Route::post('/addshop', ['as'=>'addshop','uses'=>'ShopController@sangvish_savedata']);
+Route::post('/addbusiness', ['as'=>'addbusiness','uses'=>'BusinessController@sangvish_savedata']);
 
 
 
