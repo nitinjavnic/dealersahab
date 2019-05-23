@@ -30,12 +30,12 @@
                     <img src="http://localhost/dealersahab/local/images/shop/1496146095.jpg" alt="">
 
 
-                    <div class="text-center center-block">
+                    <div class="text-center center-block pb-10">
                         <br />
                         <a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
                         <a href="#"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                        <a href="#"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                        <a href="#"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                        <a href="#"><i id="social-tw" class="fa fa-linkedin-square fa-3x social"></i></a>
+                        <a href="#"><i id="social-gp" class="fa fa-quora fa-3x social"></i></a>
                     </div>
 
 

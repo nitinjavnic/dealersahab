@@ -53,7 +53,6 @@
             <h2><?php echo $shop[0]->shop_name;?><a href="#" class="btn btn-success pin-seller " id="pinned">Pinned </a></h2>
 
 
-
             <p><strong>Location-</strong> <?php echo $shop[0]->address;?> <strong>Profile View</strong></p>
             <table class="text-center">
                 <tr>
@@ -75,6 +74,9 @@
                     <td></td>
                 </tr>
             </table>
+            <br>
+            <p><strong>Product Dealing-</strong> Compressor,ac Freez Motor</p>
+            <p><strong>Brand Company-</strong> Alg8i, Usha</p>
             <p>Concise description which, among other items of information, includes (1) firm's history, (2) number and quality of its human, financial, and physical resources (3) organizational and management structure, (4) past, current and anticipated performance, and (5) its reputation, and the standing of its goods or services.</p>
         </div>
         <div class="col-md-4 col-12">
@@ -168,24 +170,24 @@
                         </div>
                         <!-- end row -->
                     </div>
+
                 </div>
             </div>
 
             <?php }?>
 
+                <p class="pt-10">Contanct no- 9876543210</p>
+                <p>Email id- xyz@gmail.com</p>
+                <a href="#" class="btn btn-warning btn-lg post-btn">Post Your Requirement</a>
 
-
-
-            <p><strong>Product Dealing-</strong> Compressor,ac Freez Motor</p>
-            <p><strong>Brand Comoany-</strong> Alg8i, Usha</p>
         </div>
 
 
-            <div class="row review-gallery">
+            <div class="row">
 
-                <div class="col-md-12">
+
                     <div class="clearfix"></div>
-
+            <div class="gallery-filter">
                     <ul class="nav nav-tabs" id="myTab">
                         <li class="active"><a href="#freez" data-toggle="tab">Freez</a></li>
                         <li class=""><a href="#Ac" data-toggle="tab" class="btn btn-primary"> Ac</a></li>
@@ -346,12 +348,12 @@
                         </div>
 
                     </div>
+            </div>
 
 
 
 
 
-                </div>
             </div>
 
 
@@ -380,7 +382,7 @@
                 <?php } else { ?>
 
                 <h3>
-                    <span class="pl-80">Reviews</span></h3>
+                    <span class="">Reviews</span></h3>
                 <?php foreach($rating as $newrating){?>
                 <img src="../img/banner.jpg" alt="">
 
@@ -397,35 +399,43 @@
                     <img src="<?php echo $url.$starpath;?>" class="star_rates" alt="rated <?php if($newrating->rating==""){ echo "0"; } else { echo $newrating->rating; }?> stars" title="rated <?php if($newrating->rating==""){ echo "0"; } else { echo $newrating->rating; }?> stars" />  - &nbsp; <?php  echo $newrating->name;?>
 
                 </div>
-                <p><?php echo $newrating->comment; ?></p>
+                <p class="mt-20"><?php echo $newrating->comment; ?></p>
                 <?php } ?>
                 <?php } ?>
-
+                <hr>
             </div>
 
-            <div class="col-md-4 company-info">
+            <div class="col-md-4 company-info bd-left">
                 <h3><u>You Can Also Check-</u></h3>
+                <div>
                 <img src="../img/banner.jpg" alt="" >
                 <h3><strong>Dummy India Pvt. Ltd.</strong></h3>
                 <p><strong>Location-Delhi</strong><span class="pl-10">250 Profile Views</span></p>
                 <p><span> Nature of Business-Dealer</span></p>
                 <p><span class="pl-10"> Product Dealing-Compressor,Piston,Tools</span></p>
-                <p> <span class="pl-10"> Brand Company-Usha,Algi,Shakti,Kirlooskar</span></p><br>
+                <p> <span class="pl-10"> Brand Company-Usha,Algi,Shakti,Kirlooskar</span></p>
+                </div>
+                <hr>
 
-                <img src="../img/banner.jpg" alt="" >
-                <h3><strong>Dummy India Pvt. Ltd.</strong></h3>
-                <p><strong>Location-Delhi</strong><span class="pl-10">250 Profile Views</span></p>
-                <p><span> Nature of Business-Dealer</span></p>
-                <p><span class="pl-10"> Product Dealing-Compressor,Piston,Tools</span></p>
-                <p> <span class="pl-10"> Brand Company-Usha,Algi,Shakti,Kirlooskar</span></p><br>
+                <div>
+                    <img src="../img/banner.jpg" alt="" >
+                    <h3><strong>Dummy India Pvt. Ltd.</strong></h3>
+                    <p><strong>Location-Delhi</strong><span class="pl-10">250 Profile Views</span></p>
+                    <p><span> Nature of Business-Dealer</span></p>
+                    <p><span class="pl-10"> Product Dealing-Compressor,Piston,Tools</span></p>
+                    <p> <span class="pl-10"> Brand Company-Usha,Algi,Shakti,Kirlooskar</span></p>
+                </div>
+                <hr>
 
-
-                <img src="../img/banner.jpg" alt="" >
-                <h3><strong>Dummy India Pvt. Ltd.</strong></h3>
-                <p><strong>Location-Delhi</strong><span class="pl-10">250 Profile Views</span></p>
-                <p><span> Nature of Business-Dealer</span></p>
-                <p><span class="pl-10"> Product Dealing-Compressor,Piston,Tools</span></p>
-                <p> <span class="pl-10"> Brand Company-Usha,Algi,Shakti,Kirlooskar</span></p><br>
+                <div>
+                    <img src="../img/banner.jpg" alt="" >
+                    <h3><strong>Dummy India Pvt. Ltd.</strong></h3>
+                    <p><strong>Location-Delhi</strong><span class="pl-10">250 Profile Views</span></p>
+                    <p><span> Nature of Business-Dealer</span></p>
+                    <p><span class="pl-10"> Product Dealing-Compressor,Piston,Tools</span></p>
+                    <p> <span class="pl-10"> Brand Company-Usha,Algi,Shakti,Kirlooskar</span></p>
+                </div>
+                <hr>
 
 
 

@@ -1930,10 +1930,12 @@ body
 	.navbar-inverse .sangvish_homepage > li > a,.navbar-inverse .sangvish_homepage > .active > a
 	{
 		color:#fff;
+        font-weight: bold;
 	}
 	.navbar-inverse .sangvish_otherpage > li > a,.navbar-inverse .sangvish_otherpage > .active > a
 	{
 		color:#000 !important;
+        font-weight: bold;
 	}
 	.navbar-inverse .sangvish_otherpage > li > a:hover,.navbar-inverse .sangvish_otherpage > .active > a:hover
 	{
@@ -2952,6 +2954,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .pt-20{padding-top:20px;}
 .pt-30{padding-top:30px;}
 .pb-30{padding-bottom:30px;}
+.pb-10{padding-bottom:10px;}
 .mt-100{margin-top:100px;}
 .mt-110{margin-top:110px;}
 .mb-20{margin-bottom:20px;}
@@ -2991,6 +2994,9 @@ footer{background:#294a5a;}
 .blog-info{padding: 10px;}
 .blog-more-btn{float:right;}
 .pin-seller{float:right;}
+.gallery-filter{padding:20px;}
+.gallery-filter img{    box-shadow: 0 0 10px 0px #040404; border-radius: 5px;	border: 2px solid #00000054;}
+.post-btn{margin-top:10px; color:black; width:100%}
 
 
 .social:hover {
@@ -3025,3 +3031,6 @@ footer{background:#294a5a;}
 #social-em:hover {
 	color: #f39c12;
 }
+
+.company-info hr{border:1px solid gray;}
+.bd-left{border-left:1px solid black;}

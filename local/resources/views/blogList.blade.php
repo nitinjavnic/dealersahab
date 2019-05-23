@@ -58,7 +58,7 @@
 
             <div class="row test">
                <?php foreach ($blog as $blog) {?>
-                <div class="row review-point m-0">
+                <div class="row review-point ">
                     <div class="col-md-2 blog-img">
                         <?php
                         $servicephoto="/blogphoto/";
@@ -77,7 +77,7 @@
 
                         <a href="<?php echo $url;?>/readmore/{{ $blog->id }}" class="btn btn-success float-right blog-more-btn">Read more</a>
                     </div>
-                </div><hr>
+                </div>
                 <?php }?>
 
             </div>

@@ -33,7 +33,9 @@ $setts = DB::table('settings')
             <ul class="nav navbar-nav navbar-right <?php if($currentPaths=="index" or $currentPaths=="/"){?>sangvish_homepage<?php } else {?>sangvish_otherpage<?php } ?>">
                 <!--<li class="active"><a href="#">Join as a pro</a></li>-->
                 <?php if (Auth::guest()) {?>
+                <li><a href="#">About Us</a></li>
                 <li><a href="<?php echo $url;?>/blogList">Blog</a></li>
+
                 <li><a href="#">Post your Requirment</a></li>
                 <li><a href="#">List your Business</a></li>
                 <li><a href="#">Contact Us</a></li>

@@ -621,22 +621,11 @@ $setid=1;
                 </p>
             </div>
             <div class="col-md-6 img-fluid">
-                <img src="{{asset('/local/images/New-idea.jpg')}}" alt="">
+                <img src="{{asset('/local/images/New-idea.jpg')}}" alt="" width="100%">
             </div>
 
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
