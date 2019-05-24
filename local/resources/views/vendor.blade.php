@@ -53,7 +53,7 @@
             <h2><?php echo $shop[0]->shop_name;?><a href="#" class="btn btn-success pin-seller " id="pinned">Pinned </a></h2>
 
 
-            <p><strong>Location-</strong> <?php echo $shop[0]->address;?> <strong>Profile View</strong></p>
+            <p><strong>Location-</strong> <?php echo $shop[0]->address;?><br/> <strong>Profile View</strong></p>
             <table class="text-center">
                 <tr>
                     <td><strong>Nature of Business</strong></td>

@@ -33,6 +33,8 @@ $setid=1;
 				<a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
 				<a href="#"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
 				<a href="#"><i id="social-tw" class="fa fa-linkedin-square fa-3x social"></i></a>
+				<a href="#"><i id="social-tw" class="fa fa-instagram-square fa-3x social"></i></a>
+				<a href="#"><i id="social-tw" class="fa fa-youtube-square fa-3x social"></i></a>
 				<a href="#"><i id="social-gp" class="fa fa-quora fa-3x social"></i></a>
 			</div>
 		

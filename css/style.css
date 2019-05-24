@@ -655,7 +655,7 @@ body
 
 .notopborder
 {
-	padding-top:30px;
+	padding-top:20px;
 	border-bottom:1px solid #E1E3E3;
 }
 
@@ -755,13 +755,16 @@ body
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
+	.filter-review1{position: unset!important;}
+	.testimons{margin-top: 10px!important;}
+	.card{margin-top: 10px!important;}
 	.company-profile{padding-right: 10px!important;}
 	.block-company1{margin-top:5em!important;}
 	.bd-left{border:0px!important;}
     .bg-company-info{display:none!important;}
 	.info-sub1{display:none;}
     .block-company{top:50px!important; margin-bottom:50px;}
-
+	.dropdown .btn{width:95%!important; height:38px!important;}
 	#myTab > li
 	{
 		margin-bottom:3px;
@@ -1038,7 +1041,7 @@ body
     {
         text-align:center;
     }*/
-
+`
 	.dropdown .btn {
 		width: 95%!important;
 		height: 38px!important;
@@ -2172,11 +2175,12 @@ footer .footerbar ul li a:hover
 .footerbottom
 {
 	background:#FAFAFA;
-	padding:20px;
+
 }
 .footerbottom p
 {
 	color:#8D9494;
+	margin-bottom: 0px;
 }
 .footerbottom a
 {
@@ -2985,12 +2989,13 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 footer{background:#294a5a;}
-.testimons{border:1px solid gray; padding-left:10px;}
+.testimons{border:1px solid gray; padding-left:10px; height:150px;}
 .well{margin-bottom:10px;}
 .review-point{border:1px solid black; margin:10px 10px; padding-top:10px; box-shadow: 0 0 9px 0px #888888;}
 .well-sm {padding: 20px;}
 .filter-review select{width:200px; box-shadow:0 0 6px 0px #294a5a; height:30px;}
-.filter-review1{border:1px solid black; box-shadow:inset 0 0 9px 0px #888888; padding:40px; margin-top:10px;}
+.filter-review1{border:1px solid black; box-shadow:inset 0 0 9px 0px #888888; padding:40px; margin-top:10px; position: sticky;
+	top: 6em;}
 .checkin-filter{padding-left:30px;}
 .company-profile {width:150px; height:150px; float:left;}
 
@@ -3053,3 +3058,4 @@ footer{background:#294a5a;}
 
 .company-info hr{border:.5px solid gray;}
 .bd-left{border-left:1px solid black;}
+.pt-15{padding-top:15px;}

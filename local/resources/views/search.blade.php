@@ -272,8 +272,8 @@
 
 
 
-	<div class="row">
-	<div class="clearfix"></div>
+	<div class="row pt-15">
+
 		<div class="col-md-3  filter-review1">
 			<h3 class="text-center filter-heading">Filter Your Need</h3>
 		<div class="filter-review">
