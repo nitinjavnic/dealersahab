@@ -25,6 +25,8 @@ Route::get('/', 'IndexController@sangvish_index');
 Route::get('/index', 'IndexController@sangvish_index');
 Route::get('/blogList', 'Admin\BlogController@blogList');
 Route::get('/readmore/{id}','Admin\BlogController@readmore');
+Route::get('/post', 'PostController@formView');
+Route::post('/save_post', ['as'=>'save_post','uses'=>'PostController@save']);
 
 
 Route::get('searchajax',array('as'=>'searchajax','uses'=>'IndexController@sangvish_autoComplete'));
@@ -36,6 +38,8 @@ Route::get('getseller',array('as'=>'getseller','uses'=>'GetsubserviceController@
 
 
 Route::get('dateavailable/{val}',array('as'=>'dateavailable','uses'=>'BookingController@dateavailable'));
+
+Route::post('pinned',array('as'=>'pinned','uses'=>'GetsubserviceController@pinnedseller'));
 
 
 Route::get('/logout', 'DashboardController@sangvish_logout');
@@ -153,6 +157,7 @@ Route::post('/contact', ['as'=>'contact','uses'=>'PageController@sangvish_mailse
 
 Route::get('/services','ServicesController@sangvish_index');
 Route::get('/pinnedseller','PinnedController@sangvish_index');
+Route::get('/deletepinned/{id}','PinnedController@sangvish_destroy');
 Route::get('/services/{id}','ServicesController@sangvish_editdata');
 
 Route::post('/services', ['as'=>'services','uses'=>'ServicesController@sangvish_savedata']);
@@ -185,6 +190,7 @@ Route::get('/subservices/{id}','SubservicesController@sangvish_servicefind');
 Route::group(['middleware' => 'admin'], function() {
 
     Route::get('/admin','Admin\DashboardController@index');
+    Route::get('/admin/requrement','Admin\RequirementController@index');
     Route::get('/admin/index','Admin\DashboardController@index');
 
     /* user */

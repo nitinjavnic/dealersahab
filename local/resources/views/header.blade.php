@@ -42,12 +42,12 @@ $setid=1;
 
 
 
-              <li><a href="#">About Us</a></li>
+              <li><a href="<?php echo $url;?>/about">About Us</a></li>
               <li><a href="<?php echo $url;?>/blogList">Blog</a></li>
 
-              <li><a href="#">Post your Requirment</a></li>
-              <li><a href="#">List your Business</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="<?php echo $url;?>/post">Post your Requirment</a></li>
+              <li><a href="<?php echo $url;?>/register">List your Business</a></li>
+              <li><a href="<?php echo $url;?>/contact">Contact Us</a></li>
             <li><a href="<?php echo $url;?>/register">Sign Up</a></li>
             <li><a href="<?php echo $url;?>/login">Login</a></li>
 
@@ -61,10 +61,13 @@ $setid=1;
 				<?php } ?>
 								
 				<?php if(Auth::user()->admin==0) {?>
-				<li><a href="<?php echo $url;?>/dashboard">My Profile</a></li>
+				<li><a href="<?php echo $url;?>/dashboard">Personal Detail</a></li>
+				<li><a href="#">Become Seller</a></li>
 				<li><a href="<?php echo $url;?>/my_bookings">My Bookings</a></li>
-				
-				<?php } ?>			
+				<li><a href="<?php echo $url;?>/pinnedseller">Pinned Seller</a></li>
+
+
+                 <?php } ?>
 								
 								
 			    <?php if(Auth::user()->admin==2) {
@@ -82,8 +85,7 @@ $setid=1;
                      <li><a href="<?php echo $url;?>/my_bookings">My Bookings</a></li>
 				<li><a href="<?php echo $url;?>/myorder">My Order</a></li>
 				<li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/pinnedseller" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Pinned Seller</a></li>
-				<li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/gallery" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Shop Gallery</a></li>
-				<li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/wallet" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Wallet</a></li>
+				<li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/wallet" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Premium Seller</a></li>
 				
 				<?php } ?>			
 								

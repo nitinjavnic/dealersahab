@@ -70,7 +70,7 @@
 				   <?php if(config('global.demosite')=="yes"){?>
 				  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span> <a href="#" class="btn btn-primary btndisable">Add Sub Service</a> 
 				  <?php } else { ?>
-				  <a href="<?php echo $url;?>/admin/addsubservice" class="btn btn-primary">Add Sub Service</a>
+				  <a href="<?php echo $url;?>/admin/addsubservice" class="btn btn-primary">Add Sub Category</a>
 				  <?php } ?>
                   <div class="x_content">
                    

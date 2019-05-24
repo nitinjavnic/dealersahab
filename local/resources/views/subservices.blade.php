@@ -60,17 +60,6 @@ else
 	 <div class="height30"></div>
 	 <div class="row">
 	 
-	 
-	 
-	 
-	 
-	 
-	
-
-
- 
-
-
 
 
 

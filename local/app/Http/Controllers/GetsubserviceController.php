@@ -5,6 +5,9 @@ namespace Responsive\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Auth;
+
 use Illuminate\Support\Facades\Route;
 use Responsive\Url;
 
@@ -99,6 +102,28 @@ class GetsubserviceController extends Controller
 
     }
 
+    public function pinnedseller(Request $request)
+    {
+        $userId = Auth::user()->id;
+        $input['shopname'] = Input::get('shopname');
+        $rules = array('shopname' => 'unique:pinned,shop_name');
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => 'false',
+            ]);
+        } else {
+            $data = $request->all();
+            $shopUrl = $data['shopUrl'];
+            $shopname = $data['shopname'];
+            DB::insert('insert into pinned (url,shop_name,user_id) values (?, ?, ?)',
+                [$shopUrl, $shopname,$userId]);
+            return response()->json([
+                'success' => 'true',
+
+            ]);
+        }
+    }
 
 
 }

@@ -85,7 +85,7 @@
 
                         <form class="form-horizontal form-label-left" role="form" method="POST" action="{{ route('admin.addsupersubservice') }}" enctype="multipart/form-data" novalidate>
                             {{ csrf_field() }}
-                            <span class="section">Add Super Sub Service</span>
+                            <span class="section">Add Super Sub Category</span>
 
 
                             <div class="item form-group">

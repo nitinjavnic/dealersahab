@@ -106,14 +106,21 @@
 							<a href="<?php echo $url;?>/dashboard">
 								<i class="fa fa-user" aria-hidden="true"></i>
 
-								Business Detail </a>
+								Beacome Seller </a>
 						</li>
 
 						<li>
-							<a href="<?php echo $url;?>/dashboard">
+							<a href="<?php echo $url;?>/my_bookings">
 								<i class="fa fa-user" aria-hidden="true"></i>
 
-								My Product </a>
+								My Booking </a>
+						</li>
+
+						<li>
+							<a href="<?php echo $url;?>/pinnedseller">
+								<i class="fa fa-user" aria-hidden="true"></i>
+
+								Pinned Seller </a>
 						</li>
 						<li>
 							<a href="<?php echo $url;?>/dashboard">

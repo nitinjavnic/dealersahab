@@ -85,7 +85,7 @@
                     
                    <form class="form-horizontal form-label-left" role="form" method="POST" action="{{ route('admin.addsubservice') }}" enctype="multipart/form-data" novalidate>
                      {{ csrf_field() }}  
-                      <span class="section">Add Sub Service</span>
+                      <span class="section">Add Sub Category</span>
 					  
 					  
 					  
@@ -118,11 +118,31 @@
                                 @endif
 					   </div>
                       </div>
-                      
-                      
-                      
-					  
-					  <div class="item form-group">
+
+                       <div class="item form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Keywords <span class="required">*</span>
+                           </label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+                               <input id="name" class="form-control col-md-7 col-xs-12"  name="keywords" value="{{ old('name') }}" required="required" type="text">
+                           </div>
+                       </div>
+
+                       <div class="item form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Short Description <span class="required">*</span>
+                           </label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                               <textarea  rows = "5" cols = "50" value="{{ old('name') }}" name ="description"></textarea>
+
+
+                           </div>
+                       </div>
+
+
+
+
+                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="photo">Image <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">

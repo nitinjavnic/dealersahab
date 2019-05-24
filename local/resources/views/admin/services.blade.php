@@ -57,7 +57,7 @@
 		 <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Services</h2>
+                    <h2>Category</h2>
                     <ul class="nav navbar-right panel_toolbox">
                      
                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -70,7 +70,7 @@
 				   <?php if(config('global.demosite')=="yes"){?>
 				  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span> <a href="#" class="btn btn-primary btndisable">Add Service</a> 
 				  <?php } else { ?>
-				  <a href="<?php echo $url;?>/admin/addservice" class="btn btn-primary">Add Service</a>
+				  <a href="<?php echo $url;?>/admin/addservice" class="btn btn-primary">Add Category</a>
 				  <?php } ?>
                   <div class="x_content">
                    

@@ -85,7 +85,7 @@
                     
                    <form class="form-horizontal form-label-left" role="form" method="POST" action="{{ route('admin.addservice') }}" enctype="multipart/form-data" novalidate>
                      {{ csrf_field() }}  
-                      <span class="section">Add Service</span>
+                      <span class="section">Add Category</span>
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>

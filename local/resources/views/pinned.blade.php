@@ -71,12 +71,42 @@ else
                             <th>Sno</th>
                             <th>Shop Name</th>
                             <th>Url</th>
-                            <th>Status</th>
-                            <?php /* ?><th>Action</th><?php */?>
+                            <th>Action</th>
+
 
                         </tr>
+
                         </thead>
                         <tbody>
+
+
+
+
+                        <?php
+
+                        $i=1;
+                        foreach ($services as $service) {?>
+
+
+
+                        <?php
+                        if(Auth::user()->id==$service->user_id){?>
+                        <tr>
+                            <td><?php echo $i;?></td>
+                            <td><?php echo $service->shop_name;?></td>
+                            <td><?php echo $service->url;?></td>
+                            <td>
+                                <?php if(config('global.demosite')=="yes"){?>
+                                <a href="#" class="btn btn-danger btndisable">Delete</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
+                                <?php } else { ?>
+                                <a href="<?php echo $url;?>/deletepinned/{{ $service->id }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
+
+                                <?php }} ?>
+                            </td>
+
+
+                        </tr>
+                        <?php $i++;} ?>
 
                         </tbody>
 

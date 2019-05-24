@@ -82,15 +82,18 @@
                                     <th>Sno</th>
                                     <th>Photo</th>
                                     <th>Username</th>
+                                    <th>Seller Type</th>
                                     <th>Email</th>
                                     <th>Phone</th>
-
                                     <th>Action</th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php
+
+
+
                                 $i=1;
                                 foreach ($users as $user) { $sta=$user->admin; if($sta==1){ $viewst="Admin"; } else if($sta==2) { $viewst="Seller"; } else if($sta==0) { $viewst="Customer"; }?>
 
@@ -107,6 +110,7 @@
                                     <td><img src="<?php echo $url.'/local/images/nophoto.jpg';?>" class="thumb" width="70"></td>
                                     <?php } ?>
                                     <td><?php echo $user->name;?></td>
+                                    <td><?php echo $user->sellertype;?></td>
                                     <td><?php echo $user->email;?></td>
                                     <td><?php echo $user->phone;?></td>
                                     <td>

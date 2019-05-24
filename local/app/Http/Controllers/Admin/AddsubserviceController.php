@@ -73,9 +73,9 @@ class AddsubserviceController extends Controller
 	 
     protected function addsubservicedata(Request $request)
     {
-        
-		
-		
+
+
+
 		 $this->validate($request, [
 
         		'name' => 'required'
@@ -150,10 +150,13 @@ class AddsubserviceController extends Controller
 		$name=$data['name'];
 		
 		$service=$data['service'];
+		$service=$data['service'];
+		$keywords=$data['keywords'];
+		$description=$data['description'];
+
 		
 		
-		
-		DB::insert('insert into subservices (subname, service, subimage) values (?, ?,?)', [$name,$service,$namef]);
+		DB::insert('insert into subservices (subname, service, keywords, description, subimage) values (?, ?,?,?,?)', [$name,$service,$namef,$keywords,$description]);
 		
 		
 			return back()->with('success', 'Sub service has been created');

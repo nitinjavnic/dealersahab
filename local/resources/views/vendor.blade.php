@@ -50,9 +50,10 @@
 
 
         <div class="col-md-6 col-8">
-            <h2><?php echo $shop[0]->shop_name;?><a href="#" class="btn btn-success pin-seller " id="pinned">Pinned </a></h2>
+            <?php if(Auth::check()) { ?>
+            <h2><?php echo $shop[0]->shop_name;?><a href="#" data="<?php echo $shop[0]->shop_name;?>" class="btn btn-success pin-seller " id="pinned">Pinned </a></h2>
 
-
+        <?php }?>
             <p><strong>Location-</strong> <?php echo $shop[0]->address;?> <strong>Profile View</strong></p>
             <table class="text-center">
                 <tr>
@@ -82,33 +83,33 @@
         <div class="col-md-4 col-12">
 
 
-            <?php foreach($rating as $newrating){?>
+
 
             <div class="well well-sm">
                 <div class="row">
                     <div class="col-xs-12 col-md-6 text-center">
                         <h1 class="rating-num">
-                            <?php echo $newrating->rating; ?>
+                            <?php echo $rating[0]->rating; ?>
                         </h1>
 
 
                         <div class="rating">
 
                             <?php
-                            if($newrating->rating=="")
+                            if($rating[0]->rating=="")
                             {
                                 $starpath = '/local/images/nostar.png';
                             }
                             else {
-                                $starpath = '/local/images/'.$newrating->rating.'star.png';
+                                $starpath = '/local/images/'.$rating[0]->rating.'star.png';
                             }
                             ?>
-                            <img src="<?php echo $url.$starpath;?>" alt="rated <?php if($newrating->rating=="")
+                            <img src="<?php echo $url.$starpath;?>" alt="rated <?php if($rating[0]->rating=="")
                             {
                                 echo "0";
                             }
                             else {
-                                echo $newrating->rating;
+                                echo $rating[0]->rating;
                             }
                             ?>
                                     stars" class="star_rates" />
@@ -123,37 +124,37 @@
                     <div class="col-xs-12 col-md-6">
                         <div class="row rating-desc">
                             <div class="col-xs-3 col-md-3 text-right">
-                                <span class="glyphicon glyphicon-star"></span><?php echo $newrating->rating; ?>    </div>
+                                <span class="glyphicon glyphicon-star"></span><?php echo $rating[0]->rating; ?>    </div>
                             <div class="col-xs-8 col-md-9">
                                 <div class="progress progress-striped">
                                     <?php
 
-                                    if($newrating->rating==5)
+                                    if($rating[0]->rating==5)
                                     {echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
                                         aria-valuemin="0" aria-valuemax="100" style="width: 100%">
                                        <span class="sr-only">80%</span>
                                     </div>';
                                     }
-                                    if($newrating->rating==4)
+                                    if($rating[0]->rating==4)
                                     {echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
                                         aria-valuemin="0" aria-valuemax="100" style="width: 80%">
                                        <span class="sr-only">80%</span>
                                     </div>';
                                     }
-                                    if($newrating->rating==3)
+                                    if($rating[0]->rating==3)
                                     {echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
                                         aria-valuemin="0" aria-valuemax="100" style="width: 60%">
                                        <span class="sr-only">80%</span>
                                     </div>';
                                     }
 
-                                    if($newrating->rating==2)
+                                    if($rating[0]->rating==2)
                                     {echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
                                         aria-valuemin="0" aria-valuemax="100" style="width: 40%">
                                        <span class="sr-only">80%</span>
                                     </div>';
                                     }
-                                    if($newrating->rating==1)
+                                    if($rating[0]->rating==1)
                                     {echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
                                         aria-valuemin="0" aria-valuemax="100" style="width: 10%">
                                        <span class="sr-only">80%</span>
@@ -174,12 +175,12 @@
                 </div>
             </div>
 
-            <?php }?>
+
 
                 <p class="pt-10">Contanct no- 9876543210</p>
                 <p>Email id- xyz@gmail.com</p>
 
-                <a href="" class="btn btn-warning btn-lg post-btn">Post Your Requirement</a>
+                <a href="" class="btn btn-warning btn-lg post-btn">Contact Seller</a>
 
         </div>
 
@@ -459,11 +460,37 @@
 </script>
 </div>
 <?php } ?>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script>
 
     $('#pinned').on('click', function() {
-                alert('hii')
+        src = "{{ route('pinned') }}";
+
+        var shopUrl = $(location).attr('href');
+        var shopname = $(this).attr("data");
+
+        $.ajax({
+            type: 'POST',
+            url: src,
+            data: {
+                "_token": "{{ csrf_token() }}",
+                shopUrl : shopUrl,
+                shopname : shopname
+            },
+            success: function(data) {
+                   if(data.success==='false'){
+
+                       swal("This Url is already Exits!");
+
+                   }else if(data.success==='true'){
+                       swal("Pinned Seller Save!");
+
+
+                   }
+
+            }
+        });
+
     });
 
 </script>
