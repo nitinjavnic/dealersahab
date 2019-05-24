@@ -27,6 +27,7 @@
 	<div class="clearfix"></div>
 
 	<div class="container">
+
 	 <div class="height30"></div>
 	<div class="container">
 	<div class="row">
@@ -35,7 +36,7 @@
 			<div class="col-md-8">
 				{!! csrf_field() !!}
 
-				<div class="col-md-3 paddingoff">
+				<div class="col-md-3 col-xs-4 paddingoff">
 					<div class="dropdown">
 						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 							location
@@ -50,10 +51,10 @@
 					</div>
 				</div>
 
-				<div class="col-md-6 paddingoff">
+				<div class="col-md-6 col-xs-4 paddingoff">
 					<input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="What service do you need?">
 				</div>
-				<div class="col-md-3 paddingoff">
+				<div class="col-md-3 col-xs-4 paddingoff">
 					<input type="submit" name="search" class="searchbtn" value="Get Started">
 				</div>
 
@@ -77,7 +78,7 @@
 	<?php if(!empty($count)){?>
 
 	<div class="row">
-	<div class="clearfix"></div>
+
 	<?php foreach($subsearches as $shop){
 
 		//print_r($shop);
@@ -274,6 +275,7 @@
 	<div class="row">
 	<div class="clearfix"></div>
 		<div class="col-md-3  filter-review1">
+			<h3 class="text-center filter-heading">Filter Your Need</h3>
 		<div class="filter-review">
 			<form action="" method="" >
 				<div class="pl-40 customerType">
@@ -282,21 +284,21 @@
 							<input type="radio" value="Manufacturer" id="Manufecturer" name="optradio">Manufecturer<br>
 						</label>
 						<label class="radio">
-							<input type="radio" value="Dealer" id="Dealer" name="optradio">Dealer
+							<input type="radio" value="Dealer" id="Dealer" name="optradio">Franchises/Dealer
 						</label>
 						<label class="radio">
-							<input type="radio" value="Seller" id="Seller" name="optradio">Seller
+							<input type="radio" value="Seller" id="Seller" name="optradio">Wholesaler/Trader
 						</label>
 
 					<label class="radio">
-						<input type="radio" value="Wholeseller" id="Wholeseller" name="optradio">Wholeseller
+						<input type="radio" value="Wholeseller" id="Wholeseller" name="optradio">Supplier/Distributor
 					</label>
-
+					<br>
 
 				</div>
-				<label class="pl-50"for="category">Category<br>
+				<label class="pl-50"for="category">
 					<select>
-						<option value="">Choose Category</option>
+						<option value="">Select Industry</option>
 						<?php foreach ($allservice as $allservice){ ?>
 
 							<option value=""><?php echo $allservice->name ?></option>
@@ -305,9 +307,9 @@
 
 					</select></label><br><br>
 
-				<label class="pl-50" for="category">SubCategory<br>
+				<label class="pl-50" for="category">
 					<select>
-						<option value="">Choose SubCategory</option>
+						<option value="">Select Sector</option>
 						<?php foreach ($allsubservice as $allsubservice ) {?>
 
 							<option value=""><?php echo $allsubservice->subname ?></option>
@@ -316,41 +318,41 @@
 
 					</select></label><br><br>
 
-				<label  class="pl-50"for="category">SuperSubCategory<br>
+				<label  class="pl-50"for="category">
 					<select>
-						<option value="">abc</option>
+						<option value="">Select Product</option>
 						<option value="">123</option>
 						<option value="">456</option>
 						<option value="">789</option>
 					</select></label><br><br>
 
-				<label  class="pl-50"for="category">Brand Name<br>
+				<label  class="pl-50"for="category">
 					<select>
-						<option value="">abc</option>
+						<option value="">Select Brand</option>
 						<option value="">123</option>
 						<option value="">456</option>
 						<option value="">789</option>
 					</select></label><br><br>
 
-				<label class="pl-50"for="category">State<br>
+				<label class="pl-50"for="category">
 					<select>
-						<option value="">abc</option>
+						<option value="">State</option>
 						<option value="">123</option>
 						<option value="">456</option>
 						<option value="">789</option>
 					</select></label><br><br>
 
-				<label class="pl-50" for="category">City<br>
+				<label class="pl-50" for="category">
 					<select>
-						<option value="">abc</option>
+						<option value="">City</option>
 						<option value="">123</option>
 						<option value="">456</option>
 						<option value="">789</option>
 					</select></label><br><br>
 
-				<label class="pl-50" for="category">Locality<br>
+				<label class="pl-50" for="category">
 					<select>
-						<option value="">abc</option>
+						<option value="">Locality</option>
 						<option value="">123</option>
 						<option value="">456</option>
 						<option value="">789</option>
@@ -380,7 +382,7 @@
 
 					<img src="<?php echo $url.$npaths;?>" alt="" >
 					<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>"><h3><strong><?php echo $shop->shop_name; ?></strong></h3></a>
-						<p>Location-<?php echo $shop->address; ?><span class="pl-10">250 Profile Views</span></p>
+						<p><b>Location-</b><?php echo $shop->address; ?><br><span>250 Profile Views</span></p>
 					<p>  Nature of Business-Dealer</p>
 					<p>Product Dealing-Compressor,Piston,Tools</p>
 					<p> Brand Company-Usha,Algi,Shakti,Kirlooskar</p><br></div>

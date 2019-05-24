@@ -89,13 +89,13 @@ $setid=1;
             <form action="{{ route('search') }}" method="post" enctype="multipart/form-data" id="formID">
                 <div class="col-md-8">
                     {!! csrf_field() !!}
-                    <div class="col-md-3 paddingoff">
+                    <div class="col-md-3 col-xs-4 paddingoff">
                         <input type="text" name="search_location" class="searchtext validate[required]" id="search_text" placeholder="Location">
                     </div>
-                    <div class="col-md-6 paddingoff">
+                    <div class="col-md-6 col-xs-4 paddingoff">
                         <input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="What service do you need?">
                     </div>
-                    <div class="col-md-3 paddingoff">
+                    <div class="col-md-3 col-xs-4 paddingoff">
                         <input type="submit" name="search" class="searchbtn" value="Get Started">
                     </div>
                 </div>

@@ -368,7 +368,7 @@
 
         <div class="row block-company1">
 
-            <div class="col-md-8 company-info pb-20 pl-80 pr-20">
+            <div class="col-md-8 company-info pb-20 pr-20">
 
 
                 <?php if($rating_count==0) {?>
