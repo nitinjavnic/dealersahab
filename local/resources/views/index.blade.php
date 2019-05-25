@@ -46,16 +46,16 @@ $setid=1;
                 <div class="col-md-6 col-6  ">
                     <div class="row info-sub pt-10">
                         <div class="col-md-4 text-center ">
-                            <p><strong>30+M</strong><br>Users Served</p>
+                            <p><strong>30+M</strong><br>Total User</p>
                         </div>
 
                         <div class="col-md-4 text-center">
-                            <p><strong>550+K</strong><br>Service Providers</p>
+                            <p><strong>550+K</strong><br>Total Manufacturer</p>
                         </div>
 
 
                         <div class="col-md-4 text-center">
-                            <p><strong>1200+</strong><br>Services</p>
+                            <p><strong>1200+</strong><br>Total Vendor</p>
                         </div>
 
 
@@ -69,14 +69,14 @@ $setid=1;
 	<div class="bannertxt">
 		<div class="col-md-12" align="center">
 		<div class="row">
-		<h1 class="headingcolor"> Consider it done. </h1>
+		<h1 class="headingcolor"> Get the Best </h1>
 		</div>
 		<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
-		<h4 class="headingcolor"> From house painting to personal training, we bring you the right pros for every project on your list. </h4>
+		<div class="col-md-2"></div>
+		<div class="col-md-8">
+		<h4 class="headingcolor"> Manufacturer | Franchises | Dealer | Trader | Wholesaler | Supplier | Distributor </h4>
 		</div>
-		<div class="col-md-3"></div>
+		<div class="col-md-2"></div>
 		</div>
 		</div>
 
@@ -90,10 +90,10 @@ $setid=1;
                 <div class="col-md-8">
                     {!! csrf_field() !!}
                     <div class="col-md-3 col-xs-4 paddingoff">
-                        <input type="text" name="search_location" class="searchtext validate[required]" id="search_text" placeholder="Location">
+                        <input type="text" name="search_location" class="searchtext validate[required]" id="search_text" placeholder="City">
                     </div>
                     <div class="col-md-6 col-xs-4 paddingoff">
-                        <input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="What service do you need?">
+                        <input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="Enter Your Product ">
                     </div>
                     <div class="col-md-3 col-xs-4 paddingoff">
                         <input type="submit" name="search" class="searchbtn" value="Get Started">
@@ -153,6 +153,9 @@ $setid=1;
    });
 </script>
 
+
+
+
 <div class="container sub-cat">
     <div class="col-md-12 nopadding">
 	
@@ -190,49 +193,6 @@ $setid=1;
 
 
 	<div class="ashbg">
-
-	<div class="clearfix"></div>
-
-
-
-
-
-	<div class="container">
-    <div class="col-md-12 nopadding">
-	<?php if(!empty($one[0]->name)){?> <h2 class="sli-head"><?php echo $one[0]->name;?></h2><?php } ?>
-	 <?php if(!empty($one_count)){?>
-    <div id="flexiselDemo3">
-	<?php
-
-		 foreach($first as $newservice){
-
-			 $subview=strtolower($newservice->subname);
-
-
-			 $results = preg_replace('/[ ,]+/', '-', trim($subview));
-			 ?>
-    <li>
-	<div class="weightbg">
-	<div>
-	<?php
-					   $subservicephoto="/subservicephoto/";
-						$path ='/local/images'.$subservicephoto.$newservice->subimage;
-						if($newservice->subimage!=""){
-						?>
-	<a href="<?php echo $url; ?>/search/<?php echo $results;?>"><img src="<?php echo $url.$path;?>" class="img-responsive"/></a>
-						<?php } else {?>
-						<a href="<?php echo $url; ?>/search/<?php echo $results;?>"><img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="img-responsive"></a>
-						<?php } ?>
-	</div>
-	<div><a href="<?php echo $url; ?>/search/<?php echo $results;?>"><?php  echo $newservice->subname;?></a></div>
-	</div>
-	</li>
-		 <?php } ?>
-
-</div>
-	 <?php } ?>
-</div>
-</div>
 
 
 
@@ -276,7 +236,45 @@ $setid=1;
         </div>
 
 
-<div class="clearfix"></div>
+
+	<div class="container">
+    <div class="col-md-12 nopadding">
+	<?php if(!empty($one[0]->name)){?> <h2 class="sli-head"><?php echo $one[0]->name;?></h2><?php } ?>
+	 <?php if(!empty($one_count)){?>
+    <div id="flexiselDemo3">
+	<?php
+
+		 foreach($first as $newservice){
+
+			 $subview=strtolower($newservice->subname);
+
+
+			 $results = preg_replace('/[ ,]+/', '-', trim($subview));
+			 ?>
+    <li>
+	<div class="weightbg">
+	<div>
+	<?php
+					   $subservicephoto="/subservicephoto/";
+						$path ='/local/images'.$subservicephoto.$newservice->subimage;
+						if($newservice->subimage!=""){
+						?>
+	<a href="<?php echo $url; ?>/search/<?php echo $results;?>"><img src="<?php echo $url.$path;?>" class="img-responsive"/></a>
+						<?php } else {?>
+						<a href="<?php echo $url; ?>/search/<?php echo $results;?>"><img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="img-responsive"></a>
+						<?php } ?>
+	</div>
+	<div><a href="<?php echo $url; ?>/search/<?php echo $results;?>"><?php  echo $newservice->subname;?></a></div>
+	</div>
+	</li>
+		 <?php } ?>
+
+</div>
+	 <?php } ?>
+</div>
+</div>
+
+
 
 
 
@@ -417,7 +415,7 @@ $setid=1;
 
     <div class="works">
         <div class="container">
-            <div class="col-md-12" align="center"><h1>Blog</h1></div>
+            <div class="col-md-12" align="center"><h1>Tips, Market & Trends</h1></div>
             <div class="height30"></div>
             <div class="row">
 
@@ -458,7 +456,7 @@ $setid=1;
 	<div class="blog">
 	<div class="clearfix"></div>
 	<div class="container">
-	 <div class="col-md-12" align="center"><h1>Customers use to get millions of projects done<br/> quickly and easily</h1></div>
+	 <div class="col-md-12" align="center"><h1>Customers Review & Ratings</h1></div>
 	 <div class="height30"></div>
 	 <div class="row">
 	<div class="col-md-12">
@@ -469,51 +467,42 @@ $setid=1;
 
 
 
-        <div class="col-md-3 col-6">
-            <div class="testimons">
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <h4>Hello</h4>
-                <p>hello</p>
-            </div>
-        </div>
-        <div class="col-md-3 col-6">
-            <div class="testimons">
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <h4>Hello</h4>
-                <p>hello</p>
-            </div>
-        </div>
-        <div class="col-md-3 col-6">
-            <div class="testimons">
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <h4>Hello</h4>
-                <p>hello</p>
-            </div>
-        </div>
-        <div class="col-md-3 col-6">
-            <div class="testimons">
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <h4>Hello</h4>
-                <p>hello</p>
-            </div>
-        </div>
+        <div class="col-md-4 col-12">
 
+            <div class="testimons">
+                <h4>Hello</h4>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <p>The Content review workshop is intended to evaluate the various Wikipedia processes that assess and improve content. </p>
+            </div>
+        </div>
+        <div class="col-md-4 col-12">
+            <div class="testimons">
+                <h4>Hello</h4>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <p>The Content review workshop is intended to evaluate the various Wikipedia processes that assess and improve content. </p>
+
+            </div>
+        </div>
+        <div class="col-md-4 col-12">
+            <div class="testimons">
+                <h4>Hello</h4>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <span class="fa fa-star text-warning"></span>
+                <p>The Content review workshop is intended to evaluate the various Wikipedia processes that assess and improve content. </p>
+
+            </div>
+        </div>
 
 	</div>
 
@@ -607,25 +596,7 @@ $setid=1;
 	</div>
 
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12" align="center">
-                <h1>About us</h1>
-            </div>
-            <div class="col-md-6" align="justify">
-                <p>
-                    Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-                    We specializes in identifying, evaluating and placing the right people to meet our client's specific requirements. Our workforce spread over India has one mission to fulfill -- to find the right people to meet our client's specific requirements - in the particular rung that you have a need and at the specific locations where you need people. From our experience we have leared that every company has its own culture, values and expectations of its employees.<br>We specializes in identifying, evaluating and placing the right people to meet our client's specific requirements. Our workforce spread over India has one mission to fulfill -- to find the right people to meet our client's specific requirements - in the particular rung that you have a need and at the specific locations where you need people. From our experience we have leared that every company has its own culture, values and expectations of its employees.
 
-
-                </p>
-            </div>
-            <div class="col-md-6 img-fluid">
-                <img src="{{asset('/local/images/New-idea.jpg')}}" alt="" width="100%">
-            </div>
-
-        </div>
-    </div>
 
 
 

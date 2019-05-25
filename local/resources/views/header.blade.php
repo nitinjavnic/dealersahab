@@ -53,9 +53,15 @@ $setid=1;
             <li><a href="<?php echo $url;?>/login">Login</a></li>
 
             <?php } else { ?>
+              <li><a href="<?php echo $url;?>/about">About Us</a></li>
+              <li><a href="<?php echo $url;?>/blogList">Blog</a></li>
 
+              <li><a href="<?php echo $url;?>/post">Post your Requirment</a></li>
+              <li><a href="<?php echo $url;?>/register">List your Business</a></li>
+              <li><a href="<?php echo $url;?>/contact">Contact Us</a></li>
 			<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->name }}<b class="caret"></b></a>
+
               <ul class="dropdown-menu">
                  <?php if(Auth::check()) { ?>
                 <?php if(Auth::user()->admin==1) {?>
@@ -105,6 +111,7 @@ $setid=1;
                                             {{ csrf_field() }}
                                         </form>
               </ul>
+
             </li>
 			<?php } ?>
           </ul>
