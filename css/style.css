@@ -755,6 +755,7 @@ body
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
+	.review-point{height:auto!important;}
 	.filter-review1{position: unset!important;}
 	.company-profile{padding-right: 10px!important;}
 	.block-company1{margin-top:5em!important;}
