@@ -42,6 +42,7 @@ $setid=1;
 
 
 
+
               <li><a href="<?php echo $url;?>/about">About Us</a></li>
               <li><a href="<?php echo $url;?>/blogList">Blog</a></li>
 
@@ -52,6 +53,7 @@ $setid=1;
             <li><a href="<?php echo $url;?>/login">Login</a></li>
 
             <?php } else { ?>
+
 			<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->name }}<b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -71,12 +73,14 @@ $setid=1;
 								
 								
 			    <?php if(Auth::user()->admin==2) {
-					
+
 					$sellmail = Auth::user()->email;
     	 $shcount = DB::table('shop')
 		 ->where('seller_email', '=',$sellmail)
 		 ->count();
 					?>
+
+
 				<li><a href="<?php echo $url;?>/dashboard">Personal Detail</a></li>
 				<li><a href="<?php echo $url;?>/business">Business Detail</a></li>
                      <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/services" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>My Product</a></li>

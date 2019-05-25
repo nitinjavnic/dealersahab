@@ -52,9 +52,9 @@ class SearchController extends Controller
 		->leftJoin('seller_services', 'seller_services.shop_id', '=', 'shop.id')
 		->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
 		->leftJoin('users', 'users.email', '=', 'shop.seller_email')
-		->where('shop.status', '=', 'approved')
+             ->where('shop.status', '=', 'approved')
 		->where('seller_services.subservice_id', '=', $services[0]->subid)
-		->groupBy('shop.id')
+        ->groupBy('shop.id')
 		->get();
 
 
@@ -96,7 +96,8 @@ class SearchController extends Controller
 		->where('seller_services.subservice_id', '=', $services[0]->subid)
 		->orderBy('shop.id','desc')
 		->groupBy('shop.id')
-		->get();
+
+              ->get();
 		  }
 		 if(empty($count))
 		  {

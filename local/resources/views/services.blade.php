@@ -40,7 +40,7 @@
 	<div class="video">
 	<div class="clearfix"></div>
 	<div class="headerbg">
-	 <div class="col-md-12" align="center"><h1>Services</h1></div>
+	 <div class="col-md-12" align="center"><h1>Add Product</h1></div>
 	 </div>
 	<div class="container">
 	 
@@ -133,10 +133,22 @@
 
 	
 	
-	<div class="form-group col-md-2 swidth">		
+	<div class="form-group col-md-4 swidth">
 		<label>Price <span class="star">*</span></label>
 		<input type="text"  name="price" required id="price" class="form-control validate[required] text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>">
 	</div>
+
+	   <div class="form-group col-md-4 swidth">
+		   <label>Company Name <span class="star">*</span></label>
+		   <input type="text"  name="comapanyname" required id="comapanyname" class="form-control validate[required] text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>">
+	   </div>
+
+	   <div class="form-group col-md-4 swidth">
+		   <label>Brochure Upload <span class="star">*</span></label>
+		   <input type="file"  name="Brochure" required id="Brochure" class="form-control validate[required] text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>">
+	   </div>
+
+
 	
 
 	<input type="hidden" name="user_id" value="<?php echo $uuid;?>">

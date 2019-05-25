@@ -103,7 +103,7 @@
 						</li>
 
 						<li>
-							<a href="<?php echo $url;?>/dashboard">
+							<a id="becomeseller" shopname = "<?php echo $editprofile[0]->name; ?>" data="<?php echo $editprofile[0]->id; ?>" href="#">
 								<i class="fa fa-user" aria-hidden="true"></i>
 
 								Beacome Seller </a>
@@ -323,13 +323,48 @@
 	
 	</div>
 	</div>
-	
-	
+
+
 	
 
       <div class="clearfix"></div>
 	   <div class="clearfix"></div>
 
       @include('footer')
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+	<script>
+		$(document).ready(function(){
+			$('#becomeseller').on('click', function() {
+				src = "{{ route('becomeseller') }}";
+				var userId = $(this).attr("data");
+				var value = '2';
+				$.ajax({
+					type: 'GET',
+					url: src,
+					data: {
+						id : userId,
+						value : value,
+					},
+					success: function(data) {
+						console.log(data);if(data.success==='false'){
+
+							swal("You are already become a seller!");
+
+						}else if(data.success==='true'){
+							swal("Thanks! Now you are become a Seller");
+
+
+						}
+					}
+				});
+
+			});
+		});
+
+	</script>
+
 </body>
+
+
 </html>

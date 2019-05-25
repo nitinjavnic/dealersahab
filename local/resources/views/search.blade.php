@@ -369,6 +369,7 @@
 
 				<?php foreach($subsearches as $shop){
 
+
 				?>
 				<div class="row review-point m-0">
 				<div class="col-md-7 company-info ">
@@ -383,7 +384,7 @@
 					<img src="<?php echo $url.$npaths;?>" alt="" >
 					<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>"><h3><strong><?php echo $shop->shop_name; ?></strong></h3></a>
 						<p><b>Location-</b><?php echo $shop->address; ?><br><span>250 Profile Views</span></p>
-					<p>  Nature of Business-Dealer</p>
+					<p>  Nature of Business-<?php   ?></p>
 					<p>Product Dealing-Compressor,Piston,Tools</p>
 					<p> Brand Company-Usha,Algi,Shakti,Kirlooskar</p><br></div>
 					<div class="col-md-5">

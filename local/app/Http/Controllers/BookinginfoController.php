@@ -103,10 +103,7 @@ class BookinginfoController extends Controller
 				
 								
 				
-				
-				$ser_name=trim($ser_name,",");
-				$price=trim($price,",").' '.$currency."<br/>";	
-				$sum+=$fet2[0]->price;
+
 				
 				
 			}
@@ -120,16 +117,8 @@ class BookinginfoController extends Controller
 					$sum=$sum+$setts[0]->commission_amt;
 					$admin_amt = $setts[0]->commission_amt;
 				}
-				else if($setts[0]->commission_mode=="percentage")
-				{
-					$sum1=($setts[0]->commission_amt * $sum) / 100;
-					$sum=$sum+$sum1;
-					$admin_amt = $sum1;
-				}
-				else
-				{
-					$sum+=$fet2[0]->price;
-				} 
+
+
 		  }
 		  if($setts[0]->commission_from == "vendor")
 		  {	
@@ -199,8 +188,7 @@ class BookinginfoController extends Controller
 	   
 	   $data = array('booking' => $booking,'final_time' => $final_time, 'shop' => $shop, 'ser_name' => $ser_name, 'price' => $price,
 	   'commission_amt' => $commission_amt, 'commission_mode' => $commission_mode, 'currency' => $currency, 'sum' => $sum, 'adminemail' => $adminemail,
-	   'useremail' => $useremail, 'usernamer' => $usernamer, 'userphone' => $userphone, 'selleremail' => $selleremail, 'commission_from' => $commission_from,
-	   'admin_amt' => $admin_amt);
+	   'useremail' => $useremail, 'usernamer' => $usernamer, 'userphone' => $userphone, 'selleremail' => $selleremail, 'commission_from' => $commission_from,);
 		return view('booking_info')->with($data);
 	   
 	   

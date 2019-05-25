@@ -105,6 +105,7 @@ class BookingController extends Controller
 	  
 	   
 	    $services=$data['services'];
+
 		$getserv="";
 		foreach($services as $getservice)
 		{
@@ -118,7 +119,7 @@ class BookingController extends Controller
 		$shop_id=$data['shop_id'];
 		$services_id=$data['services_id'];
 		$booking_date=date("Y-m-d",strtotime($data['datepicker']));
-		$time=$data['time'];
+		$time='2:00';
 		$payment_mode=$data['payment_mode'];
 		
 		$book_address=$data['book_address'];

@@ -78,7 +78,6 @@
                           <th>Category Name</th>
                           <th>Booking Date</th>
 						  
-						  <th>Booking Time</th>
 						  <th>User Phone No</th>
 						  <th>Username</th>
                           <th>Email</th>
@@ -105,17 +104,6 @@
 					  $sno=0;
 					  foreach ($booking as $viewbook) {
 						  $sno++;
-					$booking_time=$viewbook->booking_time;
-							if($booking_time>12)
-							{
-								$final_time=$booking_time-12;
-								$final_time=$final_time."PM";
-							}
-							else
-							{
-								$final_time=$booking_time."AM";
-							}
-
 
 					$ser_id=$viewbook->services_id;
 			$sel=explode("," , $ser_id);
@@ -161,8 +149,7 @@
 						   
 						   
 						   
-						   <td><?php echo $final_time;?></td>
-						   
+
 						   <td><?php echo $viewbook->phone;?></td>
 						   
 						   <td><?php echo $viewbook->name;?></td>

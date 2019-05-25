@@ -57,7 +57,11 @@ class BookingController extends Controller
       
    }
    
-   
+   public function contactSeller(Request $request){
+        $data = $request->all();
+       return view('contactseller');
+
+   }
    
    
    

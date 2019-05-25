@@ -90,7 +90,7 @@
 	$admin_enc = Crypt::encryptString($admin_email);*/
 	// echo $enc;
 	?>
-	<form class="" name="admin_s" id="formID" method="post" enctype="multipart/form-data" action="{{ route('booking_info') }}">
+	<form class="" name="admin_s" id="" method="" enctype="multipart/form-data" action="#">
 	{!! csrf_field() !!}
 	<div class="container">
 <div class="col-md-8"></div>
@@ -98,7 +98,6 @@
 <div class="col-md-4">
 <input type="hidden" name="price" value="<?php echo $sum;?>">
 
-<input type="hidden" name="admin_amt" value="<?php echo $admin_amt;?>">
 
 <input type="hidden" name="currency" value="<?php echo $currency;?>">
 
@@ -119,7 +118,7 @@
 <input type="hidden" name="booking_date" value="<?php echo $booking[0]->booking_date;?>">
 
 
-<button type="submit" value="PROCEED TO CHECKOUT" class="booknow right">PROCEED TO CHECKOUT</button>
+<button type="text" value="PROCEED TO CHECKOUT" class="booknow right">PROCEED TO CHECKOUT</button>
 
 
 </div>

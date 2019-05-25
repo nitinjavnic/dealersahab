@@ -125,5 +125,44 @@ class GetsubserviceController extends Controller
         }
     }
 
+    public function becomeseller(Request $request){
+           $data = $request->all();
+        if (Auth::user()->id===$data['id']) {
+            return response()->json([
+                'success' => 'false',
+            ]);
+        } else {
+            $data = $request->all();
+            $id = $data['id'];
+            $value=2;
+            DB::update('update users set admin="'.$value.'" where id = ?', [$id]);
+
+            return response()->json([
+                'success' => 'true',
+
+            ]);
+        }
+    }
+
+    public function productCategory(Request $request){
+        $data = $request->all();
+        $subid = $data['subid'];
+        $product = DB::table('products')
+            ->where('subcategory_id', '=', $subid)
+            ->get();
+        $data=array();
+        foreach ($product as $viewsub) {
+
+            $data[]=array('value'=>$viewsub);
+        }
+
+        if(count($data))
+            return $data;
+        else
+            return ['error'=>'No Result Found'];
+
+
+    }
+
 
 }

@@ -35,6 +35,7 @@ Route::get('getsubservices',array('as'=>'getsubservices','uses'=>'GetsubserviceC
 Route::get('getallCategory',array('as'=>'getallCategory','uses'=>'GetsubserviceController@getallCategory'));
 Route::get('getsuballCategory',array('as'=>'getsuballCategory','uses'=>'GetsubserviceController@getsuballCategory'));
 Route::get('getseller',array('as'=>'getseller','uses'=>'GetsubserviceController@getseller'));
+Route::get('getproduct',array('as'=>'getproduct','uses'=>'GetsubserviceController@productCategory'));
 
 
 Route::get('dateavailable/{val}',array('as'=>'dateavailable','uses'=>'BookingController@dateavailable'));
@@ -67,6 +68,14 @@ Route::post('/vendor', ['as'=>'vendor','uses'=>'VendorController@sangvish_saveda
 
 
 Route::get('/booking/{shop_id}/{service_id}/{userid}', 'BookingController@sangvish_showpage');
+
+
+
+
+Route::get('/booking/', 'BookingController@contactSeller');
+
+
+
 Route::post('/booking', ['as'=>'booking','uses'=>'BookingController@sangvish_savedata']);
 
 
@@ -317,6 +326,7 @@ Route::group(['middleware' => 'admin'], function() {
 Route::group(['middleware' => 'web'], function (){
 
     Route::get('/dashboard', 'DashboardController@index');
+    Route::get('becomeseller',array('as'=>'becomeseller','uses'=>'GetsubserviceController@becomeseller'));
 
 
 });
