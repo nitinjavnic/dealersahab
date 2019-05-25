@@ -148,10 +148,26 @@
 		   <input type="file"  name="Brochure" required id="Brochure" class="form-control validate[required] text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>">
 	   </div>
 
+	   <div class="container-fluid">
+		   <div class="row">
+			   <h2 class="demo-text"></h2>
+			   <div class="container">
+				   <div class="row">
+					   <div class="col-md-6 nopadding">
+						   <label class="text-center">Product Description</label>
+						   <textarea name="productdesc" id="txtEditor"></textarea>
+					   </div>
+					   <div class="col-md-6 nopadding">
+						   <label>Product Feature</label>
+						   <textarea name="productfeature" id="txtEditor1"></textarea>
+					   </div>
+				   </div>
+			   </div>
+		   </div>
+	   </div>
 
-	
 
-	<input type="hidden" name="user_id" value="<?php echo $uuid;?>">
+	   <input type="hidden" name="user_id" value="<?php echo $uuid;?>">
 	
 	<input type="hidden" name="shop_id" value="<?php echo $shopview[0]->id;?>">
 	
@@ -159,7 +175,9 @@
 	</div>
 	
 	<div class="clearboth"></div>
-	<div class="col-md-12">
+		<div class="clearfix"></div>
+
+		<div class="col-md-12">
 		                       
 							   <a href="<?php echo $url;?>/services" class="btn btn-primary radiusoff">Reset</a>
 							   
@@ -328,8 +346,12 @@
 		});
 	});
 
-
-
+	$(document).ready(function() {
+		$("#txtEditor").Editor();
+	});
+	$(document).ready(function() {
+		$("#txtEditor1").Editor();
+	});
 </script>
 
 

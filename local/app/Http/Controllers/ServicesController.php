@@ -114,8 +114,30 @@ class ServicesController extends Controller
        {
            $namef="";
        }
+
+
+
+       $image = Input::file('Brochure');
+       if($image!="")
+       {
+           $filename  = time() . '.' . $image->getClientOriginalExtension();
+           $userphoto="/Brochure/";
+           $path = base_path('images'.$userphoto.$filename);
+           $destinationPath=base_path('images'.$userphoto);
+           Image::make($image->getRealPath())->resize(300, 300)->save($path);
+           $brochure=$filename;
+       }
+       else
+       {
+           $brochure="";
+       }
+
+
        $data = $request->all();
 
+
+       print_r($data);
+       die();
 
        $service=$data['service'];
 	   $subservice=$data['subservice'];
@@ -125,14 +147,16 @@ class ServicesController extends Controller
 	   $user_id=$data['user_id'];
 	   $shop_id=$data['shop_id'];
 	   $editid=$data['editid'];
+	   $comapanyname=$data['comapanyname'];
+	   $productdesc=$data['productdesc'];
+	   $productfeature=$data['productfeature'];
 	   $servi_id=DB::table('subservices')->where('subid', $subservice)->get();
 	   $service_id = $servi_id[0]->service;
-	   
 
-	   
 	   if($editid=="")
 	   {
-                   DB::insert('insert into products (user_id,shop_id,price,product_name,category_id,subcategory_id,supersubcategory_id,photo) values (?, ?, ?, ?, ?, ? ,?, ?)', [$user_id,$shop_id,$price,$productname,$service,$subservice,$supersubservice,$namef]);
+                   DB::insert('insert into products (user_id,shop_id,price,product_name,category_id,subcategory_id,supersubcategory_id,photo,comapanyname,productdesc,productfeature,brochure) 
+                   values (?, ?, ?, ?, ?, ? ,?, ?,?,?,?,?)', [$user_id,$shop_id,$price,$productname,$service,$subservice,$supersubservice,$namef,$comapanyname,$productdesc,$productfeature,$brochure]);
            return back()->with('success', 'Products has been added');
 
 	   }
