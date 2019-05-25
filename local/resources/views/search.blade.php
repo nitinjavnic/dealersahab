@@ -52,7 +52,7 @@
 				</div>
 
 				<div class="col-md-6 col-xs-4 paddingoff">
-					<input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="What service do you need?">
+					<input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="Enter Your Product ">
 				</div>
 				<div class="col-md-3 col-xs-4 paddingoff">
 					<input type="submit" name="search" class="searchbtn" value="Get Started">
@@ -273,7 +273,7 @@
 
 
 	<div class="row">
-	<div class="clearfix"></div>
+
 		<div class="col-md-3  filter-review1">
 			<h3 class="text-center filter-heading">Filter Your Need</h3>
 		<div class="filter-review">
@@ -357,6 +357,7 @@
 						<option value="">456</option>
 						<option value="">789</option>
 					</select></label><br><br>
+				<input type="submit" class="btn btn-info filter-btn-go" value="Go"></input>
 			</form>
 		</div>
 		</div>
@@ -382,10 +383,10 @@
 
 					<img src="<?php echo $url.$npaths;?>" alt="" >
 					<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>"><h3><strong><?php echo $shop->shop_name; ?></strong></h3></a>
-						<p><b>Location-</b><?php echo $shop->address; ?><br><span>250 Profile Views</span></p>
-					<p>  Nature of Business-Dealer</p>
-					<p>Product Dealing-Compressor,Piston,Tools</p>
-					<p> Brand Company-Usha,Algi,Shakti,Kirlooskar</p><br></div>
+						<p><b>Address-</b> <?php echo $shop->address; ?><br><span>250 Profile Views</span></p>
+						<p><b>  Nature of Business-</b> Dealer</p>
+					<p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
+						<p> <b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p><br></div>
 					<div class="col-md-5">
 						<div class="well well-sm">
 							<div class="row">
@@ -465,6 +466,8 @@
 											</div>
 										</div>
 
+
+
 										<!-- end 1 -->
 									</div>
 									<!-- end row -->
@@ -530,10 +533,10 @@
 								'        <div class="col-md-7 company-info ">\n' +
 								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
 								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>Nitin Shop</strong></h3></a>\n' +
-								'            <p>Location-42, Featherstone Street LONDON EC1Y 8SY UNITED KINGDOM<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <p>Address-42, Featherstone Street LONDON EC1Y 8SY UNITED KINGDOM<span class="pl-10">250 Profile Views</span></p>\n' +
 								'            <p>  Nature of Business-Dealer</p>\n' +
 								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
-								'            <p> Brand Company-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
+								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
 								'        <div class="col-md-5">\n' +
 								'            <div class="well well-sm">\n' +
 								'                <div class="row">\n' +

@@ -30,10 +30,12 @@ $setid=1;
 
 			<div class=" center-block pb-10">
 				<br />
-				<a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-				<a href="#"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-				<a href="#"><i id="social-tw" class="fa fa-linkedin-square fa-3x social"></i></a>
-				<a href="#"><i id="social-gp" class="fa fa-quora fa-3x social"></i></a>
+				<a href="#"><i id="social-gp" class="fa fa-facebook-square fa-3x social"></i></a>
+				<a href="#"><i id="social-gp" class="fa fa-twitter-square fa-3x social"></i></a>
+				<a href="#"><i id="social-gp" class="fa fa-linkedin-square fa-3x social"></i></a>
+				<a href="#"><i id="social-gp" class="fa fa-instagram fa-3x social"></i></a>
+				<a href="#"><i id="social-gp" class="fa fa-youtube fa-3x social"></i></a>
+				<a href="#"><i id="social-gp" class="fa fa-pinterest fa-3x social"></i></a>
 			</div>
 		
 		</div>

@@ -655,7 +655,7 @@ body
 
 .notopborder
 {
-	padding-top:30px;
+	padding-top:18px;
 	border-bottom:1px solid #E1E3E3;
 }
 
@@ -755,6 +755,7 @@ body
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
+	.filter-review1{position: unset!important;}
 	.company-profile{padding-right: 10px!important;}
 	.block-company1{margin-top:5em!important;}
 	.bd-left{border:0px!important;}
@@ -1766,7 +1767,7 @@ body
 		margin-top: 10px;
 		margin-bottom: 10px;
 		max-height:150px;
-
+		display:inherit;
 	}
 
 	#flexiselDemo34 .nbs-flexisel-item img {
@@ -2172,11 +2173,12 @@ footer .footerbar ul li a:hover
 .footerbottom
 {
 	background:#FAFAFA;
-	padding:20px;
+
 }
 .footerbottom p
 {
 	color:#8D9494;
+	margin:0px;
 }
 .footerbottom a
 {
@@ -2945,11 +2947,12 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .dropdown-item{display:block; }
 .dropdown-menu{width:100%;}
 .company-info img{width:100px; height:100px; float:left; padding-right:10px;}
+.review-info1 img{width:75px; height:65px; float:left; padding-right:10px;}
 .pl-10{padding-left:10px;}
 .pl-40{padding-left:40px;}
 .checked{color:orange;}
 .mt-20{margin-top:20px;}
-.company-info1 img{width:`100px; height:100px; float:right; padding-right:70px;}
+.company-info1 img{width:100px; height:100px; float:right; padding-right:70px;}
 .ml-20{margin-left:20px;}
 .pl-80{padding-left:80px;}
 .checked{color:orange;}
@@ -2985,12 +2988,12 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 footer{background:#294a5a;}
-.testimons{border:1px solid gray; padding-left:10px;}
+.testimons{ padding: 5px 10px; height: 150px; margin-top: 1em; background: #f4f4f4; border-radius: 10px;}
 .well{margin-bottom:10px;}
-.review-point{border:1px solid black; margin:10px 10px; padding-top:10px; box-shadow: 0 0 9px 0px #888888;}
+.review-point{border:1px solid black; margin:10px 10px; padding-top:10px; box-shadow: 0 0 9px 0px #888888; height:230px;}
 .well-sm {padding: 20px;}
 .filter-review select{width:200px; box-shadow:0 0 6px 0px #294a5a; height:30px;}
-.filter-review1{border:1px solid black; box-shadow:inset 0 0 9px 0px #888888; padding:40px; margin-top:10px;}
+.filter-review1{border:1px solid black; box-shadow:inset 0 0 9px 0px #888888; padding:40px; margin-top:10px; position:sticky; top:6em;}
 .checkin-filter{padding-left:30px;}
 .company-profile {width:150px; height:150px; float:left;}
 
@@ -3012,7 +3015,7 @@ footer{background:#294a5a;}
 .blog-more-btn{float:right;}
 .pin-seller{float:right;}
 .gallery-filter{padding:20px;}
-.gallery-filter img{ box-shadow: 0 0 5px 0px #040404; border-radius: 5px;	border: 2px solid #00000054;}
+.gallery-filter img{ box-shadow: 0 0 5px 0px #040404; border-radius: 5px;	border: 2px solid #00000054; height:250px; }
 .post-btn{margin-top:10px; color:black; width:100%}
 
 .filter-heading{background:#dddddd; padding: 14px;	margin: 0 0 1em 0;
@@ -3053,3 +3056,5 @@ footer{background:#294a5a;}
 
 .company-info hr{border:.5px solid gray;}
 .bd-left{border-left:1px solid black;}
+.filter-btn-go{width:100%;}
+.review-heading{background:#dddddd; padding:.8em 1em; }

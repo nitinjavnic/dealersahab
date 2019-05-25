@@ -54,11 +54,11 @@
             <h2><?php echo $shop[0]->shop_name;?><a href="#" data="<?php echo $shop[0]->shop_name;?>" class="btn btn-success pin-seller " id="pinned">Pinned </a></h2>
 
         <?php }?>
-            <p><strong>Location-</strong> <?php echo $shop[0]->address;?> <strong>Profile View</strong></p>
+            <p><strong>Address-</strong> <?php echo $shop[0]->address;?> <br/><strong>Profile View</strong></p>
             <table class="text-center">
                 <tr>
                     <td><strong>Nature of Business</strong></td>
-                    <td><strong>Year of Estblishment</strong></td>
+                    <td><strong>Year of Establishment</strong></td>
                 </tr>
                 <tr>
                     <td><?php echo $sellertype; ?></td>
@@ -66,8 +66,8 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td><strong>legar status of Firm</strong></td>
-                    <td><strong>GST NO.</strong></td>
+                    <td><strong>Legar Status of Firm</strong></td>
+                    <td><strong>GST No.</strong></td>
                 </tr>
                 <tr>
                     <td>Manufecturer</td>
@@ -77,7 +77,8 @@
             </table>
             <br>
             <p><strong>Product Dealing-</strong> Compressor,ac Freez Motor</p>
-            <p><strong>Brand Company-</strong> Alg8i, Usha</p>
+            <p><strong>Brand- </strong> Alg8i, Usha</p>
+                <p><strong>Description</strong></p>
             <p>Concise description which, among other items of information, includes (1) firm's history, (2) number and quality of its human, financial, and physical resources (3) organizational and management structure, (4) past, current and anticipated performance, and (5) its reputation, and the standing of its goods or services.</p>
         </div>
         <div class="col-md-4 col-12">
@@ -87,6 +88,7 @@
 
             <div class="well well-sm">
                 <div class="row">
+                    <div class="col-xs-12 text-center"><h4 class="review-heading">Business Rating</h4></div>
                     <div class="col-xs-12 col-md-6 text-center">
                         <h1 class="rating-num">
                             <?php echo $rating[0]->rating; ?>
@@ -118,7 +120,7 @@
 
                         <div>
                             <span class="glyphicon glyphicon-user"></span>47 Rating
-                            <button type="button" class="btn btn-warning" name="submit">View Detail</button>
+
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-6">
@@ -177,8 +179,8 @@
 
 
 
-                <p class="pt-10">Contanct no- 9876543210</p>
-                <p>Email id- xyz@gmail.com</p>
+            <p class="pt-10"><b>Contact No-</b> 9876543210</p>
+            <p><b>Email-</b> xyz@gmail.com</p>
 
                 <a href="" class="btn btn-warning btn-lg post-btn">Contact Seller</a>
 
@@ -191,7 +193,7 @@
                     <div class="clearfix"></div>
             <div class="gallery-filter">
                     <ul class="nav nav-tabs" id="myTab">
-                        <li class="active"><a href="#freez" data-toggle="tab">Freez</a></li>
+                        <li class="active"><a href="#freez pc" data-toggle="tab">Freez</a></li>
                         <li class=""><a href="#Ac" data-toggle="tab" class="btn btn-primary"> Ac</a></li>
                         <li class=""><a href="#Cooler" data-toggle="tab"> Cooler</a></li>
                         <li class=""><a href="#Washing" data-toggle="tab">Washing </a></li>
@@ -369,7 +371,7 @@
 
         <div class="row block-company1">
 
-            <div class="col-md-8 company-info pb-20 pr-20">
+            <div class="col-md-8 review-info1 pb-20 pr-20">
 
 
                 <?php if($rating_count==0) {?>
@@ -383,8 +385,7 @@
                 </div>
                 <?php } else { ?>
 
-                <h3>
-                    <span class="">Reviews</span></h3>
+                <h3 class="review-heading"><span >Customer Rating & Comments </span></h3>
                 <?php foreach($rating as $newrating){?>
                 <img src="../img/banner.jpg" alt="">
 
@@ -407,35 +408,38 @@
                 <hr>
             </div>
 
-            <div class="col-md-4 company-info bd-left">
-                <h3><u>You Can Also Check-</u></h3>
+            <div class="col-md-4 review-info1 bd-left">
+                <h3 class="review-heading text-center"><b>You can also check-</b></h3>
                 <div>
                 <img src="../img/banner.jpg" alt="" >
-                <h3><strong>Dummy India Pvt. Ltd.</strong></h3>
-                <p><strong>Location-Delhi</strong><span class="pl-10">250 Profile Views</span></p>
-                <p><span> Nature of Business-Dealer</span></p>
-                <p><span class="pl-10"> Product Dealing-Compressor,Piston,Tools</span></p>
-                <p> <span class="pl-10"> Brand Company-Usha,Algi,Shakti,Kirlooskar</span></p>
+                <h4><strong>Dummy India Pvt. Ltd.</strong></h4>
+                <p><strong>Location-</strong> Delhi</p>
+                    <p>250 Profile Views</p>
+                <p>Nature of Business- Dealer</p>
+                <p>Product Dealing- Compressor,Piston,Tools</p>
+                <p> Brand- Usha,Algi,Shakti,Kirlooskar</p>
                 </div>
                 <hr>
 
                 <div>
                     <img src="../img/banner.jpg" alt="" >
-                    <h3><strong>Dummy India Pvt. Ltd.</strong></h3>
-                    <p><strong>Location-Delhi</strong><span class="pl-10">250 Profile Views</span></p>
-                    <p><span> Nature of Business-Dealer</span></p>
-                    <p><span class="pl-10"> Product Dealing-Compressor,Piston,Tools</span></p>
-                    <p> <span class="pl-10"> Brand Company-Usha,Algi,Shakti,Kirlooskar</span></p>
+                    <h4><strong>Dummy India Pvt. Ltd.</strong></h4>
+                    <p><strong>Location-</strong> Delhi</p>
+                    <p>250 Profile Views</p>
+                    <p>Nature of Business- Dealer</p>
+                    <p>Product Dealing- Compressor,Piston,Tools</p>
+                    <p> Brand- Usha,Algi,Shakti,Kirlooskar</p>
                 </div>
                 <hr>
 
                 <div>
                     <img src="../img/banner.jpg" alt="" >
-                    <h3><strong>Dummy India Pvt. Ltd.</strong></h3>
-                    <p><strong>Location-Delhi</strong><span class="pl-10">250 Profile Views</span></p>
-                    <p><span> Nature of Business-Dealer</span></p>
-                    <p><span class="pl-10"> Product Dealing-Compressor,Piston,Tools</span></p>
-                    <p> <span class="pl-10"> Brand Company-Usha,Algi,Shakti,Kirlooskar</span></p>
+                    <h4><strong>Dummy India Pvt. Ltd.</strong></h4>
+                    <p><strong>Location-</strong> Delhi</p>
+                    <p>250 Profile Views</p>
+                    <p>Nature of Business- Dealer</p>
+                    <p>Product Dealing- Compressor,Piston,Tools</p>
+                    <p> Brand- Usha,Algi,Shakti,Kirlooskar</p>
                 </div>
                 <hr>
 
