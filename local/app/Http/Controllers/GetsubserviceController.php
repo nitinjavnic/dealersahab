@@ -84,21 +84,69 @@ class GetsubserviceController extends Controller
 
     public function getseller(Request $request)
     {
-
         $data = $request->all();
         $sellertype = $data['sellertype'];
-        $query = DB::table('users')->select('id')->where('sellertype', $sellertype)->get();
-        $databyshop = array();
-        foreach ($query as $viewsub) {
-            $shopdata = DB::table('shop')->where('user_id', $viewsub->id)->get();
-            foreach ($shopdata as $allShop) {
-                $databyshop[]=$allShop;
+        if($sellertype==='Manufacturer'){
+            $query = DB::table('users')->select('id')->where('sellertype', $sellertype)->get();
+            $databyshop = array();
+            foreach ($query as $viewsub) {
+                $shopdata = DB::table('shop')->where('user_id', $viewsub->id)->get();
+                foreach ($shopdata as $allShop) {
+                    $databyshop[]=$allShop;
+                }
             }
-        }
-        return response()->json([
-            'shop' => $databyshop,
+            return response()->json([
+                'shop' => $databyshop,
 
-        ]);
+            ]);
+        }
+
+        if($sellertype==='Dealer'){
+            $query = DB::table('users')->select('id')->where('sellertype', $sellertype)->get();
+            $dealerShop = array();
+            foreach ($query as $viewsub) {
+                $shopdata = DB::table('shop')->where('user_id', $viewsub->id)->get();
+                foreach ($shopdata as $allShop) {
+                    $dealerShop[]=$allShop;
+                }
+            }
+            return response()->json([
+                'shop' => $dealerShop,
+
+            ]);
+        }
+
+        if($sellertype==='Wholesaler'){
+            $query = DB::table('users')->select('id')->where('sellertype', $sellertype)->get();
+            $whole = array();
+            foreach ($query as $viewsub) {
+                $shopdata = DB::table('shop')->where('user_id', $viewsub->id)->get();
+                foreach ($shopdata as $allShop) {
+                    $whole[]=$allShop;
+                }
+            }
+            return response()->json([
+                'shop' => $whole,
+
+            ]);
+        }
+
+
+        if($sellertype==='Distributer'){
+            $query = DB::table('users')->select('id')->where('sellertype', $sellertype)->get();
+            $Distributer = array();
+            foreach ($query as $viewsub) {
+                $shopdata = DB::table('shop')->where('user_id', $viewsub->id)->get();
+                foreach ($shopdata as $allShop) {
+                    $Distributer[]=$allShop;
+                }
+            }
+            return response()->json([
+                'shop' => $Distributer,
+
+            ]);
+        }
+
 
     }
 
