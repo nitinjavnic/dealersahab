@@ -82,100 +82,34 @@
             <p>Concise description which, among other items of information, includes (1) firm's history, (2) number and quality of its human, financial, and physical resources (3) organizational and management structure, (4) past, current and anticipated performance, and (5) its reputation, and the standing of its goods or services.</p>
         </div>
         <div class="col-md-4 col-12">
-
-
-
-
             <div class="well well-sm">
-                <div class="row">
-                    <div class="col-xs-12 text-center"><h4 class="review-heading">Business Rating</h4></div>
-                    <div class="col-xs-12 col-md-6 text-center">
-                        <h1 class="rating-num">
-                            <?php echo $rating[0]->rating; ?>
-                        </h1>
 
-
-                        <div class="rating">
-
-                            <?php
-                            if($rating[0]->rating=="")
-                            {
-                                $starpath = '/local/images/nostar.png';
-                            }
-                            else {
-                                $starpath = '/local/images/'.$rating[0]->rating.'star.png';
-                            }
-                            ?>
-                            <img src="<?php echo $url.$starpath;?>" alt="rated <?php if($rating[0]->rating=="")
-                            {
-                                echo "0";
-                            }
-                            else {
-                                echo $rating[0]->rating;
-                            }
-                            ?>
-                                    stars" class="star_rates" />
-                        </div>
-
-
-                        <div>
-                            <span class="glyphicon glyphicon-user"></span>47 Rating
-
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6">
-                        <div class="row rating-desc">
-                            <div class="col-xs-3 col-md-3 text-right">
-                                <span class="glyphicon glyphicon-star"></span><?php echo $rating[0]->rating; ?>    </div>
-                            <div class="col-xs-8 col-md-9">
-                                <div class="progress progress-striped">
-                                    <?php
-
-                                    if($rating[0]->rating==5)
-                                    {echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-                                       <span class="sr-only">80%</span>
-                                    </div>';
-                                    }
-                                    if($rating[0]->rating==4)
-                                    {echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                       <span class="sr-only">80%</span>
-                                    </div>';
-                                    }
-                                    if($rating[0]->rating==3)
-                                    {echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                       <span class="sr-only">80%</span>
-                                    </div>';
-                                    }
-
-                                    if($rating[0]->rating==2)
-                                    {echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                       <span class="sr-only">80%</span>
-                                    </div>';
-                                    }
-                                    if($rating[0]->rating==1)
-                                    {echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-                                       <span class="sr-only">80%</span>
-                                    </div>';
-                                    }
-                                    ?>
-
-
-                                </div>
-
-                            </div>
-
-                            <!-- end 1 -->
-                        </div>
-                        <!-- end row -->
-                    </div>
-
+                <div class="rating" >
+                    <span>5</span> <img src="http://localhost/dealersahab/local/images/3star.png" class="star_rates" alt="rated 3 stars" title="rated 3 stars">
+                </div>
+                <p style="float:left;">Php &nbsp;&nbsp; </p>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p style="float:left;">Php &nbsp;&nbsp; </p>
+                <div class="progress">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p style="float:left;">Php &nbsp;&nbsp; </p>
+                <div class="progress">
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p style="float:left;">Php &nbsp;&nbsp; </p>
+                <div class="progress">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <p style="float:left;">Php &nbsp;&nbsp; </p>
+                <div class="progress">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
+
+
 
 
 

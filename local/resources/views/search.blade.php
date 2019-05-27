@@ -387,20 +387,29 @@
 						<p> <b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p><br></div>
 					<div class="col-md-5">
 						<div class="well well-sm">
-							<div class="row">
-								<div class="col-xs-12 col-md-6 text-center">
 
-								</div>
-								<div class="col-xs-12 col-md-6">
-									<div class="row rating-desc">
-
-
-
-
-										<!-- end 1 -->
-									</div>
-									<!-- end row -->
-								</div>
+							<div class="rating" >
+								<span>5</span> <img src="http://localhost/dealersahab/local/images/3star.png" class="star_rates" alt="rated 3 stars" title="rated 3 stars">
+							</div>
+							<p style="float:left;">Php &nbsp;&nbsp; </p>
+							<div class="progress">
+								<div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+							<p style="float:left;">Php &nbsp;&nbsp; </p>
+							<div class="progress">
+								<div class="progress-bar bg-info" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+							<p style="float:left;">Php &nbsp;&nbsp; </p>
+							<div class="progress">
+								<div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+							<p style="float:left;">Php &nbsp;&nbsp; </p>
+							<div class="progress">
+								<div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+							</div>
+							<p style="float:left;">Php &nbsp;&nbsp; </p>
+							<div class="progress">
+								<div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 						</div>
 					</div>
