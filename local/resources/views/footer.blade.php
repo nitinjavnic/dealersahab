@@ -30,7 +30,7 @@ $setid=1;
 
 			<div class=" center-block pb-10">
 				<br />
-				<a href="#"><i id="social-gp" class="fa fa-facebook fa-2x social"></i></a>
+				<a href="<?php echo $setts[0]->site_facebook;?>"><i id="social-gp" class="fa fa-facebook fa-2x social"></i></a>
 				<a href="#"><i id="social-gp" class="fa fa-twitter fa-2x social"></i></a>
 				<a href="#"><i id="social-gp" class="fa fa-linkedin fa-2x social"></i></a>
 				<a href="#"><i id="social-gp" class="fa fa-instagram fa-2x social"></i></a>

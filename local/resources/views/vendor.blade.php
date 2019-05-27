@@ -204,29 +204,15 @@
 
                     <div class="tab-content">
 
-                        <div class="tab-pane active test" id="Accounting">
+                        <div class="tab-pane active test">
 
                             <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <div class="col-md-3 pt-30">
-                                        <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
-                                        <a href="#" class="">Freez</a>
-                                    </div>
+                                <div class="col-md-12 text-center" id="shopProfile">
 
-                                    <div class="col-md-3 pt-30">
-                                        <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
-                                        <a href="#" class="">Freez</a>
-                                    </div>
 
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
 
 
                     </div>
@@ -387,9 +373,24 @@
                     subid : userId,
                 },
                     success: function(data) {
+                        let profileUrl = 'http://localhost/dealerSahab/local/images/productimage/';
 
-                    console.log(data);
-                }
+                        $.each(data, function (index,value) {
+
+                                var product_name = value.value['product_name'];
+                                var subcategory = value.value['subcategory_id'];
+                                var product_image = value.value['photo'];
+                                var image = profileUrl + product_image;
+
+                            $("#shopProfile").append('<div class="col-md-3 pt-30">\n' +
+                                '                                        <img src='+ image +' class="img-responsive">\n' +
+                                '                                        <a href="#" class="">'+ product_name +'</a>\n' +
+                                '                                    </div>');
+
+
+                        });
+
+                    }
             });
 
         });
