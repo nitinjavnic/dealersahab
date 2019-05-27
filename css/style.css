@@ -2941,7 +2941,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .glyphicon { margin-right:5px;}
 .rating .glyphicon {font-size: 22px;}
 .rating-num { margin-top:0px;font-size: 54px; }
-.progress { margin-bottom: 5px;}
 .progress-bar { text-align: left; }
 .rating-desc .col-md-3 {padding-right: 0px;}
 .sr-only { margin-left: 5px;overflow: visible;clip: auto; }
@@ -2992,9 +2991,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
 
 footer{background:#f4f4f4;}
 .testimons{ padding: 5px 10px; height: 150px; margin-top: 1em; background: #f4f4f4; border-radius: 10px;}
-.well{margin-bottom:10px;}
+
 .review-point{border:1px solid black; margin:10px 10px; padding-top:10px; box-shadow: 0 0 9px 0px #888888; min-height:230px;}
-.well-sm {padding: 20px;}
+.rating span{font-size:2em; padding-right:1em; }
 .filter-review select{width:200px; box-shadow:0 0 6px 0px #294a5a; height:30px;}
 .filter-review1{border:1px solid black; box-shadow:inset 0 0 9px 0px #888888; padding:40px; margin-top:10px; position:sticky; top:6em;}
 .checkin-filter{padding-left:30px;}
@@ -3077,3 +3076,10 @@ footer{background:#f4f4f4;}
 .product-box img{}
 .product-border{border:1px solid black; padding: 2em;}
 .margin-0{margin: 0;}
+
+.progress {
+	height: 9px!important;
+	margin-bottom: 21px!important;
+}
+
+.well {	margin-bottom: 10px!important;}
