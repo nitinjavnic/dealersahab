@@ -37,7 +37,7 @@
 	
 	
 	
-	<div class="video">
+	<div class="video ">
 	<div class="clearfix"></div>
 	<div class="headerbg">
 	 <div class="col-md-12" align="center"><h1>Add Product</h1></div>
@@ -68,7 +68,7 @@
 	    </div>
 
 	@endif
-	<div class="container">
+	<div class="container ">
 	<div class="row">
 	<form class="form-horizontal" role="form" method="POST" action="{{ route('services') }}" id="formID" enctype="multipart/form-data">
    <div class="col-md-12">
@@ -78,7 +78,7 @@
    <input type="hidden" name="editid" value="<?php echo $editid;?>">
    
    
-	<div class="form-group col-md-4 swidth" >
+	<div class="form-group col-md-4 swidth " >
 	<label>Category Name<span class="star">*</span></label>
 		<select id="change_category" class="form-control validate[required]" id="subservice_id" name="service" required>
 			<option value="">Select Services</option>
@@ -258,18 +258,7 @@
 	</div>
 	
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	</div>
 	

@@ -287,11 +287,11 @@
 							<input type="radio" value="Dealer" id="Dealer" name="optradio">Franchises/Dealer
 						</label>
 						<label class="radio">
-							<input type="radio" value="Seller" id="Seller" name="optradio">Wholesaler/Trader
+							<input type="radio" value="Wholesaler" id="Wholesaler" name="optradio">Wholesaler/Trader
 						</label>
 
 					<label class="radio">
-						<input type="radio" value="Wholeseller" id="Wholeseller" name="optradio">Supplier/Distributor
+						<input type="radio" value="Distributor" id="Distributor" name="optradio">Supplier/Distributor
 					</label>
 					<br>
 
@@ -310,7 +310,7 @@
 				<label class="pl-50" for="category">
 					<select>
 						<option value="">Select Sector</option>
-						<?php foreach ($allsubservice as $allsubservice ) {?>
+					<?php foreach ($allsubservice as $allsubservice ) {?>
 
 							<option value=""><?php echo $allsubservice->subname ?></option>
 						<?php } ?>
@@ -321,41 +321,52 @@
 				<label  class="pl-50"for="category">
 					<select>
 						<option value="">Select Product</option>
-						<option value="">123</option>
-						<option value="">456</option>
-						<option value="">789</option>
+
+					<?php foreach ($allsuper as $allsuper){ ?>
+
+						<option value=""><?php echo $allsuper->subsupername ?></option>
+						<?php } ?>
+
 					</select></label><br><br>
 
 				<label  class="pl-50"for="category">
 					<select>
 						<option value="">Select Brand</option>
-						<option value="">123</option>
-						<option value="">456</option>
-						<option value="">789</option>
-					</select></label><br><br>
+						<?php foreach ($brandname as $brandname){ ?>
+						<option value=""><?php echo $brandname->comapanyname ?></option>
 
+					<?php } ?>
+
+					</select></label><br><br>
 				<label class="pl-50"for="category">
+
 					<select>
-						<option value="">State</option>
-						<option value="">123</option>
-						<option value="">456</option>
-						<option value="">789</option>
+						<option value="">Select State</option>
+						<?php foreach ($shopData as $state){?>
+						<option value=""><?php echo $state->state ?></option>
+
+					<?php } ?>
+
 					</select></label><br><br>
 
 				<label class="pl-50" for="category">
 					<select>
-						<option value="">City</option>
-						<option value="">123</option>
-						<option value="">456</option>
-						<option value="">789</option>
+						<option value="">Select City</option>
+						<?php foreach ($shopData as $city){?>
+						<option value=""><?php echo $city->city ?></option>
+
+						<?php } ?>
+
 					</select></label><br><br>
 
 				<label class="pl-50" for="category">
 					<select>
-						<option value="">Locality</option>
-						<option value="">123</option>
-						<option value="">456</option>
-						<option value="">789</option>
+						<option value="">Select PinCode</option>
+						<?php foreach ($shopData as $pincode){?>
+						<option value=""><?php echo $pincode->pin_code ?></option>
+
+						<?php } ?>
+
 					</select></label><br><br>
 				<input type="submit" class="btn btn-info filter-btn-go" value="Go"></input>
 			</form>
@@ -522,19 +533,18 @@
 				},
 				success: function(data) {
 
-					data.forEach(function (current, index) {
-						console.log(current);
-					});
+					$.each(data.shop, function(k, v) {
+						console.log(v);
+
+						var shopName = v.shop_name;
+						var address = v.address;
 
 
-                    $.each(data, function (index,value) {
-
-
-							$('#test').html('<div class="row review-point m-0">\n' +
+						$('#test').append('<div class="row review-point m-0">\n' +
 								'        <div class="col-md-7 company-info ">\n' +
 								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
-								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>Nitin Shop</strong></h3></a>\n' +
-								'            <p>Address-42, Featherstone Street LONDON EC1Y 8SY UNITED KINGDOM<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
+								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
 								'            <p>  Nature of Business-Dealer</p>\n' +
 								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
 								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
@@ -574,7 +584,8 @@
 								'            </div>\n' +
 								'        </div></div>\n');
 
-                    });
+					});
+
 				}
 
 
@@ -582,15 +593,215 @@
 		}
 		if ($("#Dealer").is(":checked")) {
 			var Dealer = $("input[name='optradio']:checked").val();
+
+			src = "{{ route('getseller') }}";
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					sellertype : Dealer
+				},
+				success: function(data) {
+
+					$.each(data.shop, function(k, v) {
+						console.log(v);
+
+						var shopName = v.shop_name;
+						var address = v.address;
+
+
+						$('#test').append('<div class="row review-point m-0">\n' +
+								'        <div class="col-md-7 company-info ">\n' +
+								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
+								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <p>  Nature of Business-Dealer</p>\n' +
+								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
+								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
+								'        <div class="col-md-5">\n' +
+								'            <div class="well well-sm">\n' +
+								'                <div class="row">\n' +
+								'                    <div class="col-xs-12 col-md-6 text-center">\n' +
+								'                        <h1 class="rating-num">\n' +
+								'                            3\t\t\t\t\t\t\t\t\t</h1>\n' +
+								'                        <div class="rating">\n' +
+								'\n' +
+								'                            <img src="http://localhost/dealerSahab/local/images/3star.png" alt="rated 3\t\t\t\t\t\t\t\t\t\t\t\t\tstars" class="star_rates">\n' +
+								'                        </div>\n' +
+								'                        <div>\n' +
+								'                            <span class="glyphicon glyphicon-user"></span>47 Rating\n' +
+								'                            <button type="button" class="btn btn-warning" name="submit">View Detail</button>\n' +
+								'                        </div>\n' +
+								'                    </div>\n' +
+								'                    <div class="col-xs-12 col-md-6">\n' +
+								'                        <div class="row rating-desc">\n' +
+								'                            <div class="col-xs-3 col-md-3 text-right">\n' +
+								'                                <span class="glyphicon glyphicon-star"></span>3\t\t\t\t\t\t\t\t\t\t</div>\n' +
+								'                            <div class="col-xs-8 col-md-9">\n' +
+								'                                <div class="progress progress-striped">\n' +
+								'                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">\n' +
+								'                                        <span class="sr-only">80%</span>\n' +
+								'                                    </div>\n' +
+								'\n' +
+								'                                </div>\n' +
+								'                            </div>\n' +
+								'\n' +
+								'                            <!-- end 1 -->\n' +
+								'                        </div>\n' +
+								'                        <!-- end row -->\n' +
+								'                    </div>\n' +
+								'                </div>\n' +
+								'            </div>\n' +
+								'        </div></div>\n');
+
+					});
+
+				}
+
+
+			});
+
 		}
 
-		if ($("#Seller").is(":checked")) {
-			var Seller = $("input[name='optradio']:checked").val();
-		}
+		if ($("#Wholesaler").is(":checked")) {
+			var Wholesaler = $("input[name='optradio']:checked").val();
 
-		if ($("#Wholeseller").is(":checked")) {
-			var Wholeseller = $("input[name='optradio']:checked").val();
-		}
+			src = "{{ route('getseller') }}";
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					sellertype : Wholesaler
+				},
+				success: function(data) {
+
+					$.each(data.shop, function(k, v) {
+						console.log(v);
+
+						var shopName = v.shop_name;
+						var address = v.address;
+
+
+						$('#test').append('<div class="row review-point m-0">\n' +
+								'        <div class="col-md-7 company-info ">\n' +
+								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
+								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <p>  Nature of Business-Dealer</p>\n' +
+								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
+								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
+								'        <div class="col-md-5">\n' +
+								'            <div class="well well-sm">\n' +
+								'                <div class="row">\n' +
+								'                    <div class="col-xs-12 col-md-6 text-center">\n' +
+								'                        <h1 class="rating-num">\n' +
+								'                            3\t\t\t\t\t\t\t\t\t</h1>\n' +
+								'                        <div class="rating">\n' +
+								'\n' +
+								'                            <img src="http://localhost/dealerSahab/local/images/3star.png" alt="rated 3\t\t\t\t\t\t\t\t\t\t\t\t\tstars" class="star_rates">\n' +
+								'                        </div>\n' +
+								'                        <div>\n' +
+								'                            <span class="glyphicon glyphicon-user"></span>47 Rating\n' +
+								'                            <button type="button" class="btn btn-warning" name="submit">View Detail</button>\n' +
+								'                        </div>\n' +
+								'                    </div>\n' +
+								'                    <div class="col-xs-12 col-md-6">\n' +
+								'                        <div class="row rating-desc">\n' +
+								'                            <div class="col-xs-3 col-md-3 text-right">\n' +
+								'                                <span class="glyphicon glyphicon-star"></span>3\t\t\t\t\t\t\t\t\t\t</div>\n' +
+								'                            <div class="col-xs-8 col-md-9">\n' +
+								'                                <div class="progress progress-striped">\n' +
+								'                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">\n' +
+								'                                        <span class="sr-only">80%</span>\n' +
+								'                                    </div>\n' +
+								'\n' +
+								'                                </div>\n' +
+								'                            </div>\n' +
+								'\n' +
+								'                            <!-- end 1 -->\n' +
+								'                        </div>\n' +
+								'                        <!-- end row -->\n' +
+								'                    </div>\n' +
+								'                </div>\n' +
+								'            </div>\n' +
+								'        </div></div>\n');
+
+					});
+
+				}
+
+
+			});		}
+
+		if ($("#Distributor").is(":checked")) {
+			src = "{{ route('getseller') }}";
+			var Distributor = $("input[name='optradio']:checked").val();
+
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					sellertype : Distributor
+				},
+				success: function(data) {
+
+					$.each(data.shop, function(k, v) {
+						console.log(v);
+
+						var shopName = v.shop_name;
+						var address = v.address;
+
+
+						$('#test').append('<div class="row review-point m-0">\n' +
+								'        <div class="col-md-7 company-info ">\n' +
+								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
+								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <p>  Nature of Business-Dealer</p>\n' +
+								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
+								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
+								'        <div class="col-md-5">\n' +
+								'            <div class="well well-sm">\n' +
+								'                <div class="row">\n' +
+								'                    <div class="col-xs-12 col-md-6 text-center">\n' +
+								'                        <h1 class="rating-num">\n' +
+								'                            3\t\t\t\t\t\t\t\t\t</h1>\n' +
+								'                        <div class="rating">\n' +
+								'\n' +
+								'                            <img src="http://localhost/dealerSahab/local/images/3star.png" alt="rated 3\t\t\t\t\t\t\t\t\t\t\t\t\tstars" class="star_rates">\n' +
+								'                        </div>\n' +
+								'                        <div>\n' +
+								'                            <span class="glyphicon glyphicon-user"></span>47 Rating\n' +
+								'                            <button type="button" class="btn btn-warning" name="submit">View Detail</button>\n' +
+								'                        </div>\n' +
+								'                    </div>\n' +
+								'                    <div class="col-xs-12 col-md-6">\n' +
+								'                        <div class="row rating-desc">\n' +
+								'                            <div class="col-xs-3 col-md-3 text-right">\n' +
+								'                                <span class="glyphicon glyphicon-star"></span>3\t\t\t\t\t\t\t\t\t\t</div>\n' +
+								'                            <div class="col-xs-8 col-md-9">\n' +
+								'                                <div class="progress progress-striped">\n' +
+								'                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">\n' +
+								'                                        <span class="sr-only">80%</span>\n' +
+								'                                    </div>\n' +
+								'\n' +
+								'                                </div>\n' +
+								'                            </div>\n' +
+								'\n' +
+								'                            <!-- end 1 -->\n' +
+								'                        </div>\n' +
+								'                        <!-- end row -->\n' +
+								'                    </div>\n' +
+								'                </div>\n' +
+								'            </div>\n' +
+								'        </div></div>\n');
+
+					});
+
+				}
+
+
+			});		}
 
 
 	});

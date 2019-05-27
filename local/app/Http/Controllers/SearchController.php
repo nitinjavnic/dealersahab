@@ -48,6 +48,10 @@ class SearchController extends Controller
         $allsubservice = DB::table('subservices')->select('subname')->get();
         $allservice = DB::table('services')->select('name')->get();
         $services = DB::table('subservices')->where('subname', $results)->get();
+        $allsuper = DB::table('subsuperservice')->select('subsupername')->get();
+        $brandname = DB::table('products')->select('comapanyname')->get();
+        $shopData = DB::table('shop')->select('state','city','pin_code')->get();
+
 		 $subsearches = DB::table('shop')
 		->leftJoin('seller_services', 'seller_services.shop_id', '=', 'shop.id')
 		->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
@@ -67,7 +71,7 @@ class SearchController extends Controller
 
 		$sub_value = $id;
 
-		$data = array('subsearches' => $subsearches, 'viewservices' => $viewservices, 'shopview' => $shopview, 'sub_value' => $sub_value, 'services' => $services,'allsubservice'=>$allsubservice,'allservice'=>$allservice);
+		$data = array('subsearches' => $subsearches, 'shopData'=>$shopData,'brandname'=>$brandname, 'allsuper'=>$allsuper, 'viewservices' => $viewservices, 'shopview' => $shopview, 'sub_value' => $sub_value, 'services' => $services,'allsubservice'=>$allsubservice,'allservice'=>$allservice);
 
             return view('search')->with($data);
 
@@ -117,14 +121,14 @@ class SearchController extends Controller
 		 
 
 		
-		$data = array('services' => $services, 'viewservices' => $viewservices, 'shopview' => $shopview, 'subsearches' => $subsearches, 'count' => $count,
+		$data = array('services' => $services,'viewservices' => $viewservices, 'shopview' => $shopview, 'subsearches' => $subsearches, 'count' => $count,
 		'search_text' => $search_text, 'sub_value' => $sub_value);
             return view('search')->with($data);
     }
 	
 	public function sangvish_search(Request $request)
 	{
-		
+
 		 $shopview=DB::table('shop')
 		 ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
 		 ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
