@@ -374,17 +374,17 @@
                 },
                     success: function(data) {
                         let profileUrl = 'http://localhost/dealerSahab/local/images/productimage/';
-
                         $.each(data, function (index,value) {
-
-                                var product_name = value.value['product_name'];
+                            var id = value.value['id'];
+                            var testurl = "/admin/subservices/"+ id;
+                            src = "{{ route('getseller')}}";
+                            var product_name = value.value['product_name'];
                                 var subcategory = value.value['subcategory_id'];
                                 var product_image = value.value['photo'];
                                 var image = profileUrl + product_image;
-
-                            $("#shopProfile").append('<div class="col-md-3 pt-30">\n' +
+                                $("#shopProfile").append('<div class="col-md-3 pt-30">\n' +
                                 '                                        <img src='+ image +' class="img-responsive">\n' +
-                                '                                        <a href="#" class="">'+ product_name +'</a>\n' +
+                                '                                        <a href='+src+' class="">'+ product_name +'</a>\n' +
                                 '                                    </div>');
 
 

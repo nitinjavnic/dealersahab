@@ -124,7 +124,8 @@
 					  <input type="hidden" name="save_gplus" value="<?php echo $settings[0]->site_gplus; ?>">
 					  <input type="hidden" name="save_pinterest" value="<?php echo $settings[0]->site_pinterest; ?>">
 					  <input type="hidden" name="save_instagram" value="<?php echo $settings[0]->site_instagram; ?>">
-					  
+					  <input type="hidden" name="save_linkedin" value="<?php echo $settings[0]->site_linkedin; ?>">
+
 					  <input type="hidden" name="save_copyright" value="<?php echo $settings[0]->site_copyright; ?>">
 					  
 					  <div class="item form-group">
@@ -147,16 +148,25 @@
 					  
 					  
 					  <div class="item form-group">
-                        <label for="keyword" class="control-label col-md-3">GPlus Link</label> 
+                        <label for="keyword" class="control-label col-md-3">YouTube Link</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="site_gplus" type="text" name="site_gplus" value="<?php echo $settings[0]->site_gplus; ?>"  class="form-control col-md-7 col-xs-12">
 						  
                         </div>
                       </div>
-					  
-					  
-					  
-					   <div class="item form-group">
+
+
+                       <div class="item form-group">
+                           <label for="keyword" class="control-label col-md-3">Linkedin Link</label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+                               <input id="site_gplus" type="text" name="site_linkedin" value="<?php echo $settings[0]->site_linkedin	; ?>"  class="form-control col-md-7 col-xs-12">
+
+                           </div>
+                       </div>
+
+
+
+                       <div class="item form-group">
                         <label for="keyword" class="control-label col-md-3">Pinterest Link</label> 
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="site_pinterest" type="text" name="site_pinterest" value="<?php echo $settings[0]->site_pinterest; ?>"  class="form-control col-md-7 col-xs-12">

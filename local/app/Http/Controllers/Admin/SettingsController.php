@@ -347,6 +347,17 @@ class SettingsController extends Controller
 		{
 			$instagram = $data['save_instagram'];
 		}
+
+            $linkdin = $data['site_linkedin'];
+
+            if($data['site_linkedin']!="")
+            {
+                $linkedin = $linkdin;
+            }
+            else
+            {
+                $linkdin = $data['save_linkedin'];
+            }
 		
 		
 		$copys = $data['site_copyright'];
@@ -372,7 +383,7 @@ class SettingsController extends Controller
 		$salt_id = $data['salt_id'];
 		
 		DB::update('update settings set site_name="'.$site_name.'",site_desc="'.$desctxt.'",site_keyword="'.$keytxt.'",
-		site_facebook="'.$facebook.'",site_twitter="'.$twitter.'",site_gplus="'.$gplus.'",site_pinterest="'.$pinterest.'",site_instagram="'.$instagram.'",site_currency="'.$currency.'",
+		site_facebook="'.$facebook.'",site_twitter="'.$twitter.' ",site_linkedin="'.$linkdin.'  ",site_gplus="'.$gplus.'    ",site_pinterest="'.$pinterest.'",site_instagram="'.$instagram.'",site_currency="'.$currency.'",
 		site_logo="'.$savefname.'",site_favicon="'.$savefav.'",site_banner="'.$savefavs.'",site_copyright="'.$copyrights.'",
 		commission_mode="'.$commission_mode.'",commission_from="'.$commission_from.'",commission_amt="'.$commission_amt.'", paypal_id="'.$paypal_id.'",
 		paypal_url="'.$paypal_url.'",stripe_mode="'.$stripe_mode.'",test_publish_key="'.$test_publish_key.'",test_secret_key="'.$test_secret_key.'",
