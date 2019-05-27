@@ -393,7 +393,8 @@
 								</div>
 								<div class="col-xs-12 col-md-6">
 									<div class="row rating-desc">
-										
+
+
 
 
 										<!-- end 1 -->

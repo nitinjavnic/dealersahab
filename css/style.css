@@ -755,6 +755,7 @@ body
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
+	.contact-info1{margin-top:20px!important;}
 	.review-point{height:auto!important;}
 	.filter-review1{position: unset!important;}
 	.company-profile{padding-right: 10px!important;}
@@ -3066,5 +3067,13 @@ footer{background:#f4f4f4;}
 .required {	color: red;}
 .emailer label{color:cornflowerblue; font-size: 12px;}
 
-.product-img img{width:100%; height:250px;
-	padding-bottom: 10px;}
+.product-img img{width:100%; height:500px;padding-bottom: 10px;}
+.product-img img{width:100%; height:500px; padding-bottom: 10px;}
+.product-info-btn button{width:200px; background: #1a3a95;}
+.product-info-btn button p{font-size: 10px;}
+
+
+.product-box{padding:2em;}
+.product-box img{}
+.product-border{border:1px solid black; padding: 2em;}
+.margin-0{margin: 0;}
