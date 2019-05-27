@@ -84,26 +84,63 @@
         <div class="col-md-4 col-12">
             <div class="well well-sm">
 
-                <div class="rating" >
-                    <span>5</span> <img src="http://localhost/dealersahab/local/images/3star.png" class="star_rates" alt="rated 3 stars" title="rated 3 stars">
+
+                <?php if($rating_count==0) {?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="rating">
+                            No Reviews
+                        </div>
+
+                    </div>
                 </div>
-                <p style="float:left;">Php &nbsp;&nbsp; </p>
+                <?php } else { ?>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="rating">
+                            <?php
+                            if($rating[0]->rating=="")
+                            {
+                                $starpath = '/local/images/nostar.png';
+                            }
+                            else {
+                                $starpath = '/local/images/'.$rating[0]->rating.'star.png';
+                            }
+                            ?>
+                                <span><?php echo $rating[0]->rating ?></span> <img src="<?php echo $url.$starpath;?>" class="star_rates" alt="rated <?php if($rating[0]->rating==""){ echo "0"; } else { echo $rating[0]->rating; }?> stars" title="rated <?php if($rating[0]->rating==""){ echo "0"; } else { echo $rating[0]->rating; }?> stars" />  - &nbsp; <?php  echo $rating_count;?> Users
+                            <?php
+
+                            ?>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <?php } ?>
+
+
+
+                <p style="float:left;">0 &nbsp;&nbsp; </p>
                 <div class="progress">
                     <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p style="float:left;">Php &nbsp;&nbsp; </p>
+                <p style="float:left;"><?php echo $rating_count; ?>  &nbsp;&nbsp; </p>
                 <div class="progress">
                     <div class="progress-bar bg-info" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p style="float:left;">Php &nbsp;&nbsp; </p>
+                <p style="float:left;">0 &nbsp;&nbsp; </p>
                 <div class="progress">
                     <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p style="float:left;">Php &nbsp;&nbsp; </p>
+                <p style="float:left;">0 &nbsp;&nbsp; </p>
                 <div class="progress">
                     <div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p style="float:left;">Php &nbsp;&nbsp; </p>
+                <p style="float:left;">0 &nbsp;&nbsp; </p>
                 <div class="progress">
                     <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
