@@ -98,12 +98,12 @@
       <li class="active"><a href="#inbox" data-toggle="tab"><span class="lnr lnr-user blok"></span> Profile</a></li>
       <li><a href="#sent" data-toggle="tab"><span class="lnr lnr-cog blok"></span> Services</a></li>
       <li><a href="#assignment" data-toggle="tab"><span class="lnr lnr-star blok"></span> Reviews</a></li>
-      
+      <li><a href="#businessDeatil" data-toggle="tab"><span class="lnr lnr-star blok"></span> Business Detail</a></li>
+
     </ul>
     
     <div class="tab-content">
-	
-	
+
 	<div class="tab-pane active" id="inbox">
        <div class="clearfix"></div>
 	   <div class="col-md-12">
@@ -143,12 +143,7 @@
 	   
 	   
       </div>
-     
-	 
-	 
-	 
-	 
-       
+
       <div class="tab-pane" id="sent">
            <div class="clearfix"></div>
 		   
@@ -173,11 +168,7 @@
 		   
       </div>
       
-	  
-	  
-	  
-	  
-      
+
       <div class="tab-pane" id="assignment">
 	 <div class="clearfix"></div>
 	 
@@ -223,12 +214,46 @@
 		
 		
      </div>
-     
-     
-    
-    
-        
-    </div>
+
+
+		<div class="tab-pane active" id="businessDeatil">
+			<div class="clearfix"></div>
+			<div class="col-md-12">
+				<div class="col-md-6">
+					<h3>Description</h3>
+					<p><?php echo $shop[0]->description;?></p><br/>
+				</div>
+				<div class="col-md-6 contact_address">
+					<h3>Contact Address</h3>
+					<p><span class="lnr lnr-map-marker"></span> <?php echo  ' '.$shop[0]->address;?><br>
+						<?php echo $shop[0]->city;?> - <?php echo $shop[0]->pin_code;?><br>
+						<?php echo $shop[0]->state;?><br>
+						<?php echo $shop[0]->country;?></p>
+					<p> <span class="lnr lnr-clock"></span> <?php echo $stime;?> - <?php echo $etime;?></p>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<div class="col-md-6 working_day">
+					<h3>Natue of Business</h3>
+					<p><?php $shop[0]->nature_of_business?></p>
+
+				</div>
+
+				<div class="col-md-6">
+					<h3>GST Number </h3>
+					<p><?php echo $shop[0]->gst_number;?></p>
+				</div>
+			</div>
+
+
+
+		</div>
+
+
+
+
+	</div>
 	
 	<div class="clearfix"></div>
 	
@@ -236,8 +261,8 @@
 		<div class="row">
 		<div class="col-md-12">
 			<div>
-					<a href="<?php echo $url;?>/editshop/<?php echo $shop[0]->id;?>" class="btn btn-success btn-md radiusoff">Edit Shop</a>
-					<a href="<?php echo $url;?>/services" class="btn btn-danger btn-md radiusoff">Edit Services</a>
+					<a href="<?php echo $url;?>/editshop/<?php echo $shop[0]->id;?>" class="btn btn-success btn-md radiusoff">Edit Business</a>
+					<a href="<?php echo $url;?>/services" class="btn btn-danger btn-md radiusoff">Edit Product</a>
 					
 				</div>
 			</div>	

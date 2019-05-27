@@ -46,10 +46,10 @@ class SearchController extends Controller
 		$subview=strtolower($id);
 		$results = preg_replace('/-+/', ' ', $subview);
         $allsubservice = DB::table('subservices')->select('subname')->get();
-        $allservice = DB::table('services')->select('name')->get();
-        $services = DB::table('subservices')->where('subname', $results)->get();
-        $allsuper = DB::table('subsuperservice')->select('subsupername')->get();
-        $brandname = DB::table('products')->select('comapanyname')->get();
+        $allservice = DB::table('services')->select('name','id')->get();
+        $services = DB::table('subservices')->select('subname', 'subid')->get();
+        $allsuper = DB::table('subsuperservice')->select('subsupername','id')->get();
+        $brandname = DB::table('products')->select('comapanyname','shop_id')->get();
         $shopData = DB::table('shop')->select('state','city','pin_code')->get();
 
 		 $subsearches = DB::table('shop')
@@ -59,7 +59,10 @@ class SearchController extends Controller
              ->where('shop.status', '=', 'approved')
 		->where('seller_services.subservice_id', '=', $services[0]->subid)
         ->groupBy('shop.id')
-		->get();
+             ->paginate(5);
+
+
+
 
 
 		$viewservices= DB::table('subservices')->orderBy('subname','asc')->get();
@@ -79,9 +82,15 @@ class SearchController extends Controller
 
     public function sangvish_index(Request $request)
     {
-		
-       
-		$datas = $request->all();
+        $allsubservice = DB::table('subservices')->select('subname')->get();
+        $allservice = DB::table('services')->select('name','id')->get();
+        $allsuper = DB::table('subsuperservice')->select('subsupername','id')->get();
+        $brandname = DB::table('products')->select('comapanyname','shop_id')->get();
+        $shopData = DB::table('shop')->select('state','city','pin_code')->get();
+
+
+        $datas = $request->all();
+
           
 		  $search_text=$datas['search_text'];
 		  $search_location=$datas['search_location'];
@@ -121,7 +130,7 @@ class SearchController extends Controller
 		 
 
 		
-		$data = array('services' => $services,'viewservices' => $viewservices, 'shopview' => $shopview, 'subsearches' => $subsearches, 'count' => $count,
+		$data = array('shopData'=>$shopData,'brandname'=>$brandname,'allsubservice'=>$allsubservice,'allservice'=>$allservice,'allsuper'=>$allsuper,'services' => $services,'viewservices' => $viewservices, 'shopview' => $shopview, 'subsearches' => $subsearches, 'count' => $count,
 		'search_text' => $search_text, 'sub_value' => $sub_value);
             return view('search')->with($data);
     }

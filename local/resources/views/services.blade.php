@@ -20,22 +20,9 @@
     @include('header')
 
     <!-- slider -->
-    
 
 	
-    
-	
-	
-	
-	
-	
-	
-	
 	<div class="clearfix"></div>
-	
-	
-	
-	
 	
 	<div class="video ">
 	<div class="clearfix"></div>
@@ -155,12 +142,13 @@
 				   <div class="row">
 					   <div class="col-md-6 nopadding">
 						   <label class="text-center">Product Description</label>
-						   <textarea name="productdesc" id="txtEditor"></textarea>
+						   <textarea id="editor" name="productdesc" value=""></textarea>
 					   </div>
-					   <div class="col-md-6 nopadding">
-						   <label>Product Feature</label>
-						   <textarea name="productfeature" id="txtEditor1"></textarea>
+					   <div class="col-md-6 nopadding ">
+						   <label class="text-center">Product Feature</label>
+						   <textarea id="editor1" name="productfeature" value=""></textarea>
 					   </div>
+
 				   </div>
 			   </div>
 		   </div>
@@ -184,7 +172,7 @@
 							   
 							   <?php if(config('global.demosite')=="yes"){?><button type="button" class="btn btn-success btn-md radiusoff btndisable">Submit</button> 
 								<span class="disabletxt">( <?php echo config('global.demotxt');?> )</span><?php } else { ?>
-                                <button type="submit" class="btn btn-success btn-md radiusoff">
+                                <button id="" type="submit" class="btn btn-success btn-md radiusoff">
                                     Submit
                                 </button>
                            <?php } ?>
@@ -215,6 +203,8 @@
       <th>Sno</th>
       <th>Category</th>
       <th>Price</th>
+      <th>Product Name</th>
+      <th>Company Name</th>
 
 	  <th>Update</th>
 	  <th>Delete</th>
@@ -230,6 +220,8 @@
       <th><?php echo $ii;?></th>
       <td><?php echo $newserve->subname;?></td>
       <td><?php echo $newserve->price.' '.$setting[0]->site_currency;?></td>
+		<td><?php echo $newserve->product_name;?></td>
+		<td><?php echo $newserve->comapanyname;?></td>
 
 	  <td>
 	  <?php if(config('global.demosite')=="yes"){?>
@@ -258,6 +250,12 @@
 	</div>
 	
 	</div>
+		<div class="container" style="text-align:right;">
+
+
+			{{ $viewservice->links() }}
+
+		</div>
 
 	
 	</div>
@@ -335,12 +333,19 @@
 		});
 	});
 
-	$(document).ready(function() {
-		$("#txtEditor").Editor();
-	});
-	$(document).ready(function() {
-		$("#txtEditor1").Editor();
-	});
+</script>
+
+<script type="text/javascript">
+	ClassicEditor
+			.create( document.querySelector( '#editor' ) )
+			.catch( error => {
+				console.error( error );
+			} );
+	ClassicEditor
+			.create( document.querySelector( '#editor1' ) )
+			.catch( error => {
+				console.error( error );
+			} );
 </script>
 
 

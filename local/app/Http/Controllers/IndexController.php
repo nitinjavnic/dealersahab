@@ -94,6 +94,21 @@ class IndexController extends Controller
             return ['value'=>'No Result Found','id'=>''];
     }
 
+    public function searchlocation(Request $request) {
+        $query = $request->get('term','');
+
+        $viewsubservice=DB::table('shop')->where('city','LIKE','%'.$query.'%')->orderBy('city', 'asc')->get();
+
+        $data=array();
+        foreach ($viewsubservice as $viewsub) {
+            $data[]=array('value'=>$viewsub->city,'id'=>$viewsub->id);
+        }
+        if(count($data))
+            return $data;
+        else
+            return ['value'=>'No Result Found','id'=>''];
+    }
+
 
 
 

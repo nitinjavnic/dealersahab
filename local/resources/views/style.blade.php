@@ -48,7 +48,7 @@ $currentPaths= Route::getFacadeRoot()->current()->uri();
 	<link href="<?php echo $url;?>/css/font-awesome.css" rel="stylesheet" type="text/css" />
 	<script src="<?php echo $url;?>/js/jquery-1.10.2.min.js"></script>
     <script src="<?php echo $url;?>/js/bootstrap.min.js"></script>
-    <script src="<?php echo $url;?>/js/editor.js"></script>
+    <script src="<?php echo $url;?>/js/ckeditor/ckeditor.js"></script>
 	<link rel="stylesheet" href="<?php echo $url;?>/css/validationEngine.jquery.css" type="text/css"/>
 	
 	<script src="<?php echo $url;?>/js/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>

@@ -72,7 +72,7 @@ class BusinessController extends Controller
 
             DB::insert('insert into shop (shop_name,legal_status,category,sub_category,super_category,nature_of_business,establishment,gst_number,profile_photo) values (?, ?, ? , ?, ?, ?, ?, ?, ?)',
             [$shop,$legal,$service,$subservice,$superSubservice,$nature,$establishment,$gst,$namepro]);
-             return back()->with('success', 'Shop has been created');
+             return back()->with('success', 'Business has been created');
 
     }
 
