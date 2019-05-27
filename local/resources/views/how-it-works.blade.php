@@ -42,7 +42,7 @@
 	
 	 <div class="height30"></div>
 		<div class="row test">
-			<div class="row m-0">
+			<div class="row margin-0">
 				<div class="col-md-4 product-img">
 					<img src="http://localhost/dealersahab/local/images/shop/1496146095.jpg" alt="" class="img-fluid"></div>
 				<div class="col-md-8 product-details">
