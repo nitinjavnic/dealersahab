@@ -85,6 +85,7 @@ class GetsubserviceController extends Controller
     public function getseller(Request $request)
     {
         $data = $request->all();
+
         $sellertype = $data['sellertype'];
         if($sellertype==='Manufacturer'){
             $query = DB::table('users')->select('id')->where('sellertype', $sellertype)->get();
@@ -132,8 +133,9 @@ class GetsubserviceController extends Controller
         }
 
 
-        if($sellertype==='Distributer'){
+        if($sellertype==='Distributor'){
             $query = DB::table('users')->select('id')->where('sellertype', $sellertype)->get();
+
             $Distributer = array();
             foreach ($query as $viewsub) {
                 $shopdata = DB::table('shop')->where('user_id', $viewsub->id)->get();
@@ -210,6 +212,109 @@ class GetsubserviceController extends Controller
             return ['error'=>'No Result Found'];
 
 
+    }
+
+
+    public function filter(Request $request){
+        $data = $request->all();
+
+        $id = $data['id'];
+        $categoryShop = DB::table('shop')->where('category', $id)->get();
+        $shop = array();
+        foreach ($categoryShop as $viewshop) {
+                $shop[]=$viewshop;
+        }
+        return response()->json([
+            'shop' => $shop,
+
+        ]);
+
+    }
+
+    public function subcategoryfilter(Request $request){
+        $data = $request->all();
+        $id = $data['id'];
+        $categoryShop = DB::table('shop')->where('sub_category', $id)->get();
+        $shop = array();
+        foreach ($categoryShop as $viewshop) {
+            $shop[]=$viewshop;
+        }
+        return response()->json([
+            'shop' => $shop,
+
+        ]);
+
+    }
+
+    public function supercategory(Request $request){
+        $data = $request->all();
+        $id = $data['id'];
+        $categoryShop = DB::table('shop')->where('super_category', $id)->get();
+        $shop = array();
+        foreach ($categoryShop as $viewshop) {
+            $shop[]=$viewshop;
+        }
+        return response()->json([
+            'shop' => $shop,
+
+        ]);
+
+    }
+
+    public function brandProduct(Request $request){
+        $data = $request->all();
+        $id = $data['id'];
+        $categoryShop = DB::table('shop')->where('id', $id)->get();
+        $shop = array();
+        foreach ($categoryShop as $viewshop) {
+            $shop[]=$viewshop;
+        }
+        return response()->json([
+            'shop' => $shop,
+
+        ]);
+    }
+
+    public function productstate(Request $request){
+        $data = $request->all();
+        $id = $data['id'];
+        $categoryShop = DB::table('shop')->where('state', $id)->get();
+        $shop = array();
+        foreach ($categoryShop as $viewshop) {
+            $shop[]=$viewshop;
+        }
+        return response()->json([
+            'shop' => $shop,
+
+        ]);
+    }
+
+    public function productcity(Request $request){
+        $data = $request->all();
+        $id = $data['id'];
+        $categoryShop = DB::table('shop')->where('city', $id)->get();
+        $shop = array();
+        foreach ($categoryShop as $viewshop) {
+            $shop[]=$viewshop;
+        }
+        return response()->json([
+            'shop' => $shop,
+
+        ]);
+    }
+
+    public function shoppincode(Request $request){
+        $data = $request->all();
+        $id = $data['id'];
+        $categoryShop = DB::table('shop')->where('pin_code', $id)->get();
+        $shop = array();
+        foreach ($categoryShop as $viewshop) {
+            $shop[]=$viewshop;
+        }
+        return response()->json([
+            'shop' => $shop,
+
+        ]);
     }
 
 

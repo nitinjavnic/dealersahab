@@ -3062,6 +3062,8 @@ footer{background:#f4f4f4;}
 .bd-left{border-left:1px solid black;}
 .filter-btn-go{width:100%;}
 .review-heading{background:#dddddd; padding:.8em 1em; }
+.ck.ck-editor{
+	margin: 20px!important;}
 .required {	color: red;}
 .emailer label{color:cornflowerblue; font-size: 12px;}
 

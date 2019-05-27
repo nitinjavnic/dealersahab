@@ -45,9 +45,10 @@ class ServicesController extends Controller
 		->where('user_id', $uuid)
 		->orderBy('id','desc')
 		->leftJoin('subservices', 'subservices.subid', '=', 'products.subcategory_id')
-		->get();
-		
-		$editid="";
+            ->paginate(2);
+
+
+        $editid="";
 		
 		
 		$data = array('services' => $services, 'setting' => $setting, 'shopview' => $shopview, 'uuid' => $uuid, 'viewservice' => $viewservice, 'editid' => $editid);
@@ -132,13 +133,7 @@ class ServicesController extends Controller
            $brochure="";
        }
 
-
        $data = $request->all();
-
-
-       print_r($data);
-       die();
-
        $service=$data['service'];
 	   $subservice=$data['subservice'];
 	   $supersubservice=$data['supersubservice'];

@@ -113,10 +113,10 @@ class ShopController extends Controller
 			  ->orderBy('rid', 'desc')
 			  
 			  ->get();
-		
-		
-		
-		$data = array('time' => $time, 'days' =>  $days, 'daytxt' => $daytxt, 'shopcount' => $shopcount, 'shop' => $shop, 'stime' => $stime,
+
+
+
+        $data = array('time' => $time, 'days' =>  $days, 'daytxt' => $daytxt, 'shopcount' => $shopcount, 'shop' => $shop, 'stime' => $stime,
 		'etime' => $etime, 'lev' => $lev, 'sel' => $sel, 'viewservice' => $viewservice, 'setting' => $setting, 'rating_count' => $rating_count, 'rating' => $rating);
             return view('shop')->with($data);
     }
@@ -186,41 +186,10 @@ class ShopController extends Controller
 
 
 
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	public function sangvish_editshop(Request $request)
     {
-       
-		
-		
-		
-		
+
 		$testimonials = DB::table('testimonials')->orderBy('id', 'desc')->get();
 
       $time = array("12:00 AM"=>"0", "01:00 AM"=>"1", "02:00 AM"=>"2", "03:00 AM"=>"3", "04:00 AM"=>"4", "05:00 AM"=>"5", "06:00 AM"=>"6", "07:00 AM"=>"7", "08:00 AM"=>"8",
@@ -244,9 +213,7 @@ class ShopController extends Controller
           $shop = DB::table('shop')
                 ->where('seller_email', '=', $sellermail)
                 ->get();				
-		
-		
-		
+
 		if($shop[0]->start_time > 12)
 					{
 						$start=$shop[0]->start_time - 12;
@@ -273,12 +240,7 @@ class ShopController extends Controller
 		$requestid = $request->id;
 		
 		$editshop = DB::select('select * from shop where id = ?',[$requestid]);
-		
-		
-		
-		
-		
-		
+
 		$data = array('time' => $time, 'days' =>  $days, 'daytxt' => $daytxt, 'shopcount' => $shopcount, 'shop' => $shop, 'stime' => $stime,
 		'etime' => $etime, 'lev' => $lev, 'sel' => $sel, 'requestid' => $requestid, 'editshop' => $editshop);
             return view('editshop')->with($data);

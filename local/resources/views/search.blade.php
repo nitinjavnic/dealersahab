@@ -35,30 +35,15 @@
 		<form action="{{ route('search') }}" method="post" enctype="multipart/form-data" id="formID">
 			<div class="col-md-8">
 				{!! csrf_field() !!}
-
 				<div class="col-md-3 col-xs-4 paddingoff">
-					<div class="dropdown">
-						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-							location
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Another action</a>
-							<a class="dropdown-item" href="#">Something else here</a>
-						</div>
-					</div>
+					<input type="text" name="search_location" class="searchtext validate[required]" id="search_text" placeholder="City">
 				</div>
-
 				<div class="col-md-6 col-xs-4 paddingoff">
 					<input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="Enter Your Product ">
 				</div>
 				<div class="col-md-3 col-xs-4 paddingoff">
 					<input type="submit" name="search" class="searchbtn" value="Get Started">
 				</div>
-
-
 			</div>
 		</form>
 	</div>
@@ -81,7 +66,6 @@
 
 	<?php foreach($subsearches as $shop){
 
-		//print_r($shop);
 	?>
 
 
@@ -297,73 +281,75 @@
 
 				</div>
 				<label class="pl-50"for="category">
-					<select>
+					<select class="selectindustry">
 						<option value="">Select Industry</option>
-						<?php foreach ($allservice as $allservice){ ?>
+						<?php foreach ($allservice as $myservices){ ?>
 
-							<option value=""><?php echo $allservice->name ?></option>
+							<option value="<?php echo $myservices->id ?>"><?php echo $myservices->name ?></option>
 
 						<?php }?>
 
 					</select></label><br><br>
 
 				<label class="pl-50" for="category">
-					<select>
+					<select class="selectsector">
 						<option value="">Select Sector</option>
-					<?php foreach ($allsubservice as $allsubservice ) {?>
+					<?php foreach ($services as $allsubservices ) {
 
-							<option value=""><?php echo $allsubservice->subname ?></option>
+						?>
+
+							<option value="<?php echo $allsubservices->subid ?>"><?php echo $allsubservices->subname ?></option>
 						<?php } ?>
 
 
 					</select></label><br><br>
 
 				<label  class="pl-50"for="category">
-					<select>
+					<select class="supercategory">
 						<option value="">Select Product</option>
 
 					<?php foreach ($allsuper as $allsuper){ ?>
 
-						<option value=""><?php echo $allsuper->subsupername ?></option>
+						<option value="<?php echo $allsuper->id ?>"><?php echo $allsuper->subsupername ?></option>
 						<?php } ?>
 
 					</select></label><br><br>
 
 				<label  class="pl-50"for="category">
-					<select>
+					<select class="prductbrand">
 						<option value="">Select Brand</option>
 						<?php foreach ($brandname as $brandname){ ?>
-						<option value=""><?php echo $brandname->comapanyname ?></option>
+						<option value="<?php echo $brandname->shop_id?>"><?php echo $brandname->comapanyname ?></option>
 
 					<?php } ?>
 
 					</select></label><br><br>
 				<label class="pl-50"for="category">
 
-					<select>
+					<select class="productstate">
 						<option value="">Select State</option>
 						<?php foreach ($shopData as $state){?>
-						<option value=""><?php echo $state->state ?></option>
+						<option value="<?php echo $state->state ?>"><?php echo $state->state ?></option>
 
 					<?php } ?>
 
 					</select></label><br><br>
 
 				<label class="pl-50" for="category">
-					<select>
+					<select class="productcity">
 						<option value="">Select City</option>
 						<?php foreach ($shopData as $city){?>
-						<option value=""><?php echo $city->city ?></option>
+						<option value="<?php echo $city->city ?>"><?php echo $city->city ?></option>
 
 						<?php } ?>
 
 					</select></label><br><br>
 
 				<label class="pl-50" for="category">
-					<select>
+					<select class="shoppincode">
 						<option value="">Select PinCode</option>
 						<?php foreach ($shopData as $pincode){?>
-						<option value=""><?php echo $pincode->pin_code ?></option>
+						<option value="<?php echo $pincode->pin_code ?>"><?php echo $pincode->pin_code ?></option>
 
 						<?php } ?>
 
@@ -373,10 +359,10 @@
 		</div>
 		</div>
 
-		<div class="col-md-9 " id="test">
+		<div class="col-md-9">
 
 
-			<div class="row ">
+			<div class="row"  id="test">
 				<?php if(!empty($sub_value)){?>
 
 				<?php foreach($subsearches as $shop){
@@ -444,6 +430,14 @@
 	</div>
 
 	</div>
+	<div class="container" style="text-align:right;">
+		@foreach ($subsearches as $shop)
+
+		@endforeach
+
+	{{ $subsearches->links() }}
+
+	</div>
 
       <div class="clearfix"></div>
 	   <div class="clearfix"></div>
@@ -465,18 +459,17 @@
 				success: function(data) {
 
 					$.each(data.shop, function(k, v) {
-						console.log(v);
-
+						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
 						var shopName = v.shop_name;
 						var address = v.address;
-
-
-						$('#test').append('<div class="row review-point m-0">\n' +
+						var profile_photo = v.profile_photo;
+						var image = profileUrl + profile_photo;
+						$('#test').prepend('<div class="row review-point m-0">\n' +
 								'        <div class="col-md-7 company-info ">\n' +
-								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <img src='+ image +' alt="">\n' +
 								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
 								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
-								'            <p>  Nature of Business-Dealer</p>\n' +
+								'            <p>  Nature of Business-'+Manufecturer+'</p>\n' +
 								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
 								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
 								'        <div class="col-md-5">\n' +
@@ -535,18 +528,19 @@
 				success: function(data) {
 
 					$.each(data.shop, function(k, v) {
-						console.log(v);
-
+						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
 						var shopName = v.shop_name;
 						var address = v.address;
+						var profile_photo = v.profile_photo;
+						var image = profileUrl + profile_photo;
 
 
-						$('#test').append('<div class="row review-point m-0">\n' +
+						$('#test').prepend('<div class="row review-point m-0">\n' +
 								'        <div class="col-md-7 company-info ">\n' +
-								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <img src='+image+' alt="">\n' +
 								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
 								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
-								'            <p>  Nature of Business-Dealer</p>\n' +
+								'            <p>  Nature of Business-'+Dealer+'</p>\n' +
 								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
 								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
 								'        <div class="col-md-5">\n' +
@@ -607,18 +601,20 @@
 				success: function(data) {
 
 					$.each(data.shop, function(k, v) {
-						console.log(v);
-
+						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
 						var shopName = v.shop_name;
 						var address = v.address;
+						var profile_photo = v.profile_photo;
+						var image = profileUrl + profile_photo;
 
 
-						$('#test').append('<div class="row review-point m-0">\n' +
+
+						$('#test').prepend('<div class="row review-point m-0">\n' +
 								'        <div class="col-md-7 company-info ">\n' +
-								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <img src='+image+' alt="">\n' +
 								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
 								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
-								'            <p>  Nature of Business-Dealer</p>\n' +
+								'            <p>  Nature of Business-'+Wholesaler+'</p>\n' +
 								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
 								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
 								'        <div class="col-md-5">\n' +
@@ -679,16 +675,20 @@
 					$.each(data.shop, function(k, v) {
 						console.log(v);
 
+						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
 						var shopName = v.shop_name;
 						var address = v.address;
+						var profile_photo = v.profile_photo;
+						var image = profileUrl + profile_photo;
 
 
-						$('#test').append('<div class="row review-point m-0">\n' +
+
+						$('#test').prepend('<div class="row review-point m-0">\n' +
 								'        <div class="col-md-7 company-info ">\n' +
 								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
 								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
 								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
-								'            <p>  Nature of Business-Dealer</p>\n' +
+								'            <p>  Nature of Business-'+Distributor+'</p>\n' +
 								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
 								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
 								'        <div class="col-md-5">\n' +
@@ -736,6 +736,546 @@
 
 
 	});
+	jQuery(document).ready(function(){
+		src = "{{ route('filter') }}";
+		$(".selectindustry").change(function() {
+			var id = $(this).val();
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					id : id
+				},
+				success: function(data) {
+					$.each(data.shop, function(k, v) {
+						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
+						var shopName = v.shop_name;
+						var address = v.address;
+						var profile_photo = v.profile_photo;
+						var image = profileUrl + profile_photo;
+
+						$('#test').prepend('<div class="row review-point m-0">\n' +
+								'        <div class="col-md-7 company-info ">\n' +
+								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
+								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <p>  Nature of Business-'+Distributor+'</p>\n' +
+								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
+								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
+								'        <div class="col-md-5">\n' +
+								'            <div class="well well-sm">\n' +
+								'                <div class="row">\n' +
+								'                    <div class="col-xs-12 col-md-6 text-center">\n' +
+								'                        <h1 class="rating-num">\n' +
+								'                            3\t\t\t\t\t\t\t\t\t</h1>\n' +
+								'                        <div class="rating">\n' +
+								'\n' +
+								'                            <img src="http://localhost/dealerSahab/local/images/3star.png" alt="rated 3\t\t\t\t\t\t\t\t\t\t\t\t\tstars" class="star_rates">\n' +
+								'                        </div>\n' +
+								'                        <div>\n' +
+								'                            <span class="glyphicon glyphicon-user"></span>47 Rating\n' +
+								'                            <button type="button" class="btn btn-warning" name="submit">View Detail</button>\n' +
+								'                        </div>\n' +
+								'                    </div>\n' +
+								'                    <div class="col-xs-12 col-md-6">\n' +
+								'                        <div class="row rating-desc">\n' +
+								'                            <div class="col-xs-3 col-md-3 text-right">\n' +
+								'                                <span class="glyphicon glyphicon-star"></span>3\t\t\t\t\t\t\t\t\t\t</div>\n' +
+								'                            <div class="col-xs-8 col-md-9">\n' +
+								'                                <div class="progress progress-striped">\n' +
+								'                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">\n' +
+								'                                        <span class="sr-only">80%</span>\n' +
+								'                                    </div>\n' +
+								'\n' +
+								'                                </div>\n' +
+								'                            </div>\n' +
+								'\n' +
+								'                            <!-- end 1 -->\n' +
+								'                        </div>\n' +
+								'                        <!-- end row -->\n' +
+								'                    </div>\n' +
+								'                </div>\n' +
+								'            </div>\n' +
+								'        </div></div>\n');
+
+					});
+
+				}
+
+
+			});
+		});
+	});
+	jQuery(document).ready(function(){
+		src = "{{ route('subcategoryfilter') }}";
+		$(".selectsector").change(function() {
+			var id = $(this).val();
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					id : id
+				},
+				success: function(data) {
+
+					$.each(data.shop, function(k, v) {
+						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
+						var shopName = v.shop_name;
+						var address = v.address;
+						var profile_photo = v.profile_photo;
+						var image = profileUrl + profile_photo;
+
+						$('#test').prepend('<div class="row review-point m-0">\n' +
+								'        <div class="col-md-7 company-info ">\n' +
+								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
+								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <p>  Nature of Business-'+Distributor+'</p>\n' +
+								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
+								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
+								'        <div class="col-md-5">\n' +
+								'            <div class="well well-sm">\n' +
+								'                <div class="row">\n' +
+								'                    <div class="col-xs-12 col-md-6 text-center">\n' +
+								'                        <h1 class="rating-num">\n' +
+								'                            3\t\t\t\t\t\t\t\t\t</h1>\n' +
+								'                        <div class="rating">\n' +
+								'\n' +
+								'                            <img src="http://localhost/dealerSahab/local/images/3star.png" alt="rated 3\t\t\t\t\t\t\t\t\t\t\t\t\tstars" class="star_rates">\n' +
+								'                        </div>\n' +
+								'                        <div>\n' +
+								'                            <span class="glyphicon glyphicon-user"></span>47 Rating\n' +
+								'                            <button type="button" class="btn btn-warning" name="submit">View Detail</button>\n' +
+								'                        </div>\n' +
+								'                    </div>\n' +
+								'                    <div class="col-xs-12 col-md-6">\n' +
+								'                        <div class="row rating-desc">\n' +
+								'                            <div class="col-xs-3 col-md-3 text-right">\n' +
+								'                                <span class="glyphicon glyphicon-star"></span>3\t\t\t\t\t\t\t\t\t\t</div>\n' +
+								'                            <div class="col-xs-8 col-md-9">\n' +
+								'                                <div class="progress progress-striped">\n' +
+								'                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">\n' +
+								'                                        <span class="sr-only">80%</span>\n' +
+								'                                    </div>\n' +
+								'\n' +
+								'                                </div>\n' +
+								'                            </div>\n' +
+								'\n' +
+								'                            <!-- end 1 -->\n' +
+								'                        </div>\n' +
+								'                        <!-- end row -->\n' +
+								'                    </div>\n' +
+								'                </div>\n' +
+								'            </div>\n' +
+								'        </div></div>\n');
+
+					});
+
+				}
+
+
+			});
+		});
+	});
+	jQuery(document).ready(function(){
+		src = "{{ route('supercategoryfilter') }}";
+		$(".supercategory").change(function() {
+			var id = $(this).val();
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					id : id
+				},
+				success: function(data) {
+
+					$.each(data.shop, function(k, v) {
+						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
+						var shopName = v.shop_name;
+						var address = v.address;
+						var profile_photo = v.profile_photo;
+						var image = profileUrl + profile_photo;
+
+						$('#test').prepend('<div class="row review-point m-0">\n' +
+								'        <div class="col-md-7 company-info ">\n' +
+								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
+								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <p>  Nature of Business-'+Distributor+'</p>\n' +
+								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
+								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
+								'        <div class="col-md-5">\n' +
+								'            <div class="well well-sm">\n' +
+								'                <div class="row">\n' +
+								'                    <div class="col-xs-12 col-md-6 text-center">\n' +
+								'                        <h1 class="rating-num">\n' +
+								'                            3\t\t\t\t\t\t\t\t\t</h1>\n' +
+								'                        <div class="rating">\n' +
+								'\n' +
+								'                            <img src="http://localhost/dealerSahab/local/images/3star.png" alt="rated 3\t\t\t\t\t\t\t\t\t\t\t\t\tstars" class="star_rates">\n' +
+								'                        </div>\n' +
+								'                        <div>\n' +
+								'                            <span class="glyphicon glyphicon-user"></span>47 Rating\n' +
+								'                            <button type="button" class="btn btn-warning" name="submit">View Detail</button>\n' +
+								'                        </div>\n' +
+								'                    </div>\n' +
+								'                    <div class="col-xs-12 col-md-6">\n' +
+								'                        <div class="row rating-desc">\n' +
+								'                            <div class="col-xs-3 col-md-3 text-right">\n' +
+								'                                <span class="glyphicon glyphicon-star"></span>3\t\t\t\t\t\t\t\t\t\t</div>\n' +
+								'                            <div class="col-xs-8 col-md-9">\n' +
+								'                                <div class="progress progress-striped">\n' +
+								'                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">\n' +
+								'                                        <span class="sr-only">80%</span>\n' +
+								'                                    </div>\n' +
+								'\n' +
+								'                                </div>\n' +
+								'                            </div>\n' +
+								'\n' +
+								'                            <!-- end 1 -->\n' +
+								'                        </div>\n' +
+								'                        <!-- end row -->\n' +
+								'                    </div>\n' +
+								'                </div>\n' +
+								'            </div>\n' +
+								'        </div></div>\n');
+
+					});
+
+				}
+
+
+			});
+		});
+	});
+	jQuery(document).ready(function(){
+		src = "{{ route('brandProduct') }}";
+		$(".prductbrand").change(function() {
+			var id = $(this).val();
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					id : id
+				},
+				success: function(data) {
+					$.each(data.shop, function(k, v) {
+						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
+						var shopName = v.shop_name;
+						var address = v.address;
+						var profile_photo = v.profile_photo;
+						var image = profileUrl + profile_photo;
+
+						$('#test').prepend('<div class="row review-point m-0">\n' +
+								'        <div class="col-md-7 company-info ">\n' +
+								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
+								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <p>  Nature of Business-'+Distributor+'</p>\n' +
+								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
+								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
+								'        <div class="col-md-5">\n' +
+								'            <div class="well well-sm">\n' +
+								'                <div class="row">\n' +
+								'                    <div class="col-xs-12 col-md-6 text-center">\n' +
+								'                        <h1 class="rating-num">\n' +
+								'                            3\t\t\t\t\t\t\t\t\t</h1>\n' +
+								'                        <div class="rating">\n' +
+								'\n' +
+								'                            <img src="http://localhost/dealerSahab/local/images/3star.png" alt="rated 3\t\t\t\t\t\t\t\t\t\t\t\t\tstars" class="star_rates">\n' +
+								'                        </div>\n' +
+								'                        <div>\n' +
+								'                            <span class="glyphicon glyphicon-user"></span>47 Rating\n' +
+								'                            <button type="button" class="btn btn-warning" name="submit">View Detail</button>\n' +
+								'                        </div>\n' +
+								'                    </div>\n' +
+								'                    <div class="col-xs-12 col-md-6">\n' +
+								'                        <div class="row rating-desc">\n' +
+								'                            <div class="col-xs-3 col-md-3 text-right">\n' +
+								'                                <span class="glyphicon glyphicon-star"></span>3\t\t\t\t\t\t\t\t\t\t</div>\n' +
+								'                            <div class="col-xs-8 col-md-9">\n' +
+								'                                <div class="progress progress-striped">\n' +
+								'                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">\n' +
+								'                                        <span class="sr-only">80%</span>\n' +
+								'                                    </div>\n' +
+								'\n' +
+								'                                </div>\n' +
+								'                            </div>\n' +
+								'\n' +
+								'                            <!-- end 1 -->\n' +
+								'                        </div>\n' +
+								'                        <!-- end row -->\n' +
+								'                    </div>\n' +
+								'                </div>\n' +
+								'            </div>\n' +
+								'        </div></div>\n');
+
+					});
+
+				}
+
+
+			});
+		});
+	});
+	jQuery(document).ready(function(){
+		src = "{{ route('productstate') }}";
+		$(".productstate").change(function() {
+			var id = $(this).val();
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					id : id
+				},
+				success: function(data) {
+					$.each(data.shop, function(k, v) {
+						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
+						var shopName = v.shop_name;
+						var address = v.address;
+						var profile_photo = v.profile_photo;
+						var image = profileUrl + profile_photo;
+
+						$('#test').prepend('<div class="row review-point m-0">\n' +
+								'        <div class="col-md-7 company-info ">\n' +
+								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
+								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <p>  Nature of Business-'+Distributor+'</p>\n' +
+								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
+								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
+								'        <div class="col-md-5">\n' +
+								'            <div class="well well-sm">\n' +
+								'                <div class="row">\n' +
+								'                    <div class="col-xs-12 col-md-6 text-center">\n' +
+								'                        <h1 class="rating-num">\n' +
+								'                            3\t\t\t\t\t\t\t\t\t</h1>\n' +
+								'                        <div class="rating">\n' +
+								'\n' +
+								'                            <img src="http://localhost/dealerSahab/local/images/3star.png" alt="rated 3\t\t\t\t\t\t\t\t\t\t\t\t\tstars" class="star_rates">\n' +
+								'                        </div>\n' +
+								'                        <div>\n' +
+								'                            <span class="glyphicon glyphicon-user"></span>47 Rating\n' +
+								'                            <button type="button" class="btn btn-warning" name="submit">View Detail</button>\n' +
+								'                        </div>\n' +
+								'                    </div>\n' +
+								'                    <div class="col-xs-12 col-md-6">\n' +
+								'                        <div class="row rating-desc">\n' +
+								'                            <div class="col-xs-3 col-md-3 text-right">\n' +
+								'                                <span class="glyphicon glyphicon-star"></span>3\t\t\t\t\t\t\t\t\t\t</div>\n' +
+								'                            <div class="col-xs-8 col-md-9">\n' +
+								'                                <div class="progress progress-striped">\n' +
+								'                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">\n' +
+								'                                        <span class="sr-only">80%</span>\n' +
+								'                                    </div>\n' +
+								'\n' +
+								'                                </div>\n' +
+								'                            </div>\n' +
+								'\n' +
+								'                            <!-- end 1 -->\n' +
+								'                        </div>\n' +
+								'                        <!-- end row -->\n' +
+								'                    </div>\n' +
+								'                </div>\n' +
+								'            </div>\n' +
+								'        </div></div>\n');
+
+					});
+
+				}
+
+
+			});
+		});
+	});
+	jQuery(document).ready(function(){
+		src = "{{ route('productcity') }}";
+		$(".productcity").change(function() {
+			var id = $(this).val();
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					id : id
+				},
+				success: function(data) {
+					$.each(data.shop, function(k, v) {
+						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
+						var shopName = v.shop_name;
+						var address = v.address;
+						var profile_photo = v.profile_photo;
+						var image = profileUrl + profile_photo;
+
+						$('#test').prepend('<div class="row review-point m-0">\n' +
+								'        <div class="col-md-7 company-info ">\n' +
+								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
+								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <p>  Nature of Business-'+Distributor+'</p>\n' +
+								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
+								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
+								'        <div class="col-md-5">\n' +
+								'            <div class="well well-sm">\n' +
+								'                <div class="row">\n' +
+								'                    <div class="col-xs-12 col-md-6 text-center">\n' +
+								'                        <h1 class="rating-num">\n' +
+								'                            3\t\t\t\t\t\t\t\t\t</h1>\n' +
+								'                        <div class="rating">\n' +
+								'\n' +
+								'                            <img src="http://localhost/dealerSahab/local/images/3star.png" alt="rated 3\t\t\t\t\t\t\t\t\t\t\t\t\tstars" class="star_rates">\n' +
+								'                        </div>\n' +
+								'                        <div>\n' +
+								'                            <span class="glyphicon glyphicon-user"></span>47 Rating\n' +
+								'                            <button type="button" class="btn btn-warning" name="submit">View Detail</button>\n' +
+								'                        </div>\n' +
+								'                    </div>\n' +
+								'                    <div class="col-xs-12 col-md-6">\n' +
+								'                        <div class="row rating-desc">\n' +
+								'                            <div class="col-xs-3 col-md-3 text-right">\n' +
+								'                                <span class="glyphicon glyphicon-star"></span>3\t\t\t\t\t\t\t\t\t\t</div>\n' +
+								'                            <div class="col-xs-8 col-md-9">\n' +
+								'                                <div class="progress progress-striped">\n' +
+								'                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">\n' +
+								'                                        <span class="sr-only">80%</span>\n' +
+								'                                    </div>\n' +
+								'\n' +
+								'                                </div>\n' +
+								'                            </div>\n' +
+								'\n' +
+								'                            <!-- end 1 -->\n' +
+								'                        </div>\n' +
+								'                        <!-- end row -->\n' +
+								'                    </div>\n' +
+								'                </div>\n' +
+								'            </div>\n' +
+								'        </div></div>\n');
+
+					});
+
+				}
+
+
+			});
+		});
+	});
+	jQuery(document).ready(function(){
+		src = "{{ route('shoppincode') }}";
+		$(".shoppincode").change(function() {
+			var id = $(this).val();
+			$.ajax({
+				type: 'GET',
+				url: src,
+				data: {
+					id : id
+				},
+				success: function(data) {
+					$.each(data.shop, function(k, v) {
+						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
+						var shopName = v.shop_name;
+						var address = v.address;
+						var profile_photo = v.profile_photo;
+						var image = profileUrl + profile_photo;
+
+						$('#test').prepend('<div class="row review-point m-0">\n' +
+								'        <div class="col-md-7 company-info ">\n' +
+								'            <img src="http://localhost/dealerSahab/local/images/shop/1496146095.jpg" alt="">\n' +
+								'            <a href="http://localhost/dealerSahab/vendor/wpchecking"><h3><strong>'+shopName+'</strong></h3></a>\n' +
+								'            <p>Address-42, '+ address +'<span class="pl-10">250 Profile Views</span></p>\n' +
+								'            <p>  Nature of Business-'+Distributor+'</p>\n' +
+								'            <p>Product Dealing-Compressor,Piston,Tools</p>\n' +
+								'            <p> Brand-Usha,Algi,Shakti,Kirlooskar</p><br></div>\n' +
+								'        <div class="col-md-5">\n' +
+								'            <div class="well well-sm">\n' +
+								'                <div class="row">\n' +
+								'                    <div class="col-xs-12 col-md-6 text-center">\n' +
+								'                        <h1 class="rating-num">\n' +
+								'                            3\t\t\t\t\t\t\t\t\t</h1>\n' +
+								'                        <div class="rating">\n' +
+								'\n' +
+								'                            <img src="http://localhost/dealerSahab/local/images/3star.png" alt="rated 3\t\t\t\t\t\t\t\t\t\t\t\t\tstars" class="star_rates">\n' +
+								'                        </div>\n' +
+								'                        <div>\n' +
+								'                            <span class="glyphicon glyphicon-user"></span>47 Rating\n' +
+								'                            <button type="button" class="btn btn-warning" name="submit">View Detail</button>\n' +
+								'                        </div>\n' +
+								'                    </div>\n' +
+								'                    <div class="col-xs-12 col-md-6">\n' +
+								'                        <div class="row rating-desc">\n' +
+								'                            <div class="col-xs-3 col-md-3 text-right">\n' +
+								'                                <span class="glyphicon glyphicon-star"></span>3\t\t\t\t\t\t\t\t\t\t</div>\n' +
+								'                            <div class="col-xs-8 col-md-9">\n' +
+								'                                <div class="progress progress-striped">\n' +
+								'                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 60%">\n' +
+								'                                        <span class="sr-only">80%</span>\n' +
+								'                                    </div>\n' +
+								'\n' +
+								'                                </div>\n' +
+								'                            </div>\n' +
+								'\n' +
+								'                            <!-- end 1 -->\n' +
+								'                        </div>\n' +
+								'                        <!-- end row -->\n' +
+								'                    </div>\n' +
+								'                </div>\n' +
+								'            </div>\n' +
+								'        </div></div>\n');
+
+					});
+
+				}
+
+
+			});
+		});
+	});
+
+	$(document).ready(function() {
+		src = "{{ route('searchajax') }}";
+		$("#search_text").autocomplete({
+			source: function(request, response) {
+				$.ajax({
+					url: src,
+					dataType: "json",
+					data: {
+						term : request.term
+					},
+					success: function(data) {
+						response(data);
+
+					}
+				});
+			},
+			minLength: 1,
+
+		});
+	});
+
+	$(document).ready(function() {
+		src = "{{ route('searchlocation') }}";
+		$("#search_location").autocomplete({
+			source: function(request, response) {
+				$.ajax({
+					url: src,
+					dataType: "json",
+					data: {
+						term : request.term
+					},
+					success: function(data) {
+						response(data);
+
+					}
+				});
+			},
+			minLength: 1,
+
+		});
+	});
+
+
+
+
+
+
 
 
 </script>
