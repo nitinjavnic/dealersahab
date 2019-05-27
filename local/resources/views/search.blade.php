@@ -389,81 +389,11 @@
 						<div class="well well-sm">
 							<div class="row">
 								<div class="col-xs-12 col-md-6 text-center">
-									<h1 class="rating-num">
-										<?php echo $shop->rating; ?>
-									</h1>
-									<div class="rating">
 
-										<?php
-										if($shop->rating=="")
-										{
-											$starpath = '/local/images/nostar.png';
-										}
-										else {
-											$starpath = '/local/images/'.$shop->rating.'star.png';
-										}
-										?>
-											<img src="<?php echo $url.$starpath;?>" alt="rated <?php if($shop->rating=="")
-											{
-												echo "0";
-											}
-											else {
-												echo $shop->rating;
-											}
-											?>
-													stars" class="star_rates" />
-									</div>
-									<div>
-										<span class="glyphicon glyphicon-user"></span>47 Rating
-										<button type="button" class="btn btn-warning" name="submit">View Detail</button>
-									</div>
 								</div>
 								<div class="col-xs-12 col-md-6">
 									<div class="row rating-desc">
-										<div class="col-xs-3 col-md-3 text-right">
-											<span class="glyphicon glyphicon-star"></span><?php echo $shop->rating; ?>
-										</div>
-										<div class="col-xs-8 col-md-9">
-											<div class="progress progress-striped">
-												<?php
-
-													if($shop->rating==5)
-													{echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-													 aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-													<span class="sr-only">80%</span>
-												</div>';
-													}
-												if($shop->rating==4)
-												{echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-													 aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-													<span class="sr-only">80%</span>
-												</div>';
-												}
-												if($shop->rating==3)
-												{echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-													 aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-													<span class="sr-only">80%</span>
-												</div>';
-												}
-
-												if($shop->rating==2)
-												{echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-													 aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-													<span class="sr-only">80%</span>
-												</div>';
-												}
-												if($shop->rating==1)
-												{echo '<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="20"
-													 aria-valuemin="0" aria-valuemax="100" style="width: 10%">
-													<span class="sr-only">80%</span>
-												</div>';
-												}
-												?>
-
-
-											</div>
-										</div>
-
+										
 
 
 										<!-- end 1 -->
@@ -472,7 +402,8 @@
 								</div>
 							</div>
 						</div>
-					</div></div>
+					</div>
+				</div>
 					<?php } ?>
 
 				<?php } ?>

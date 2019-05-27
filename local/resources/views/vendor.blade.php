@@ -181,31 +181,11 @@
 
             <p class="pt-10">Contact No- <?php echo $shop[0]->shop_phone_no ?></p>
                 <p>Email- <?php echo $shop[0]->seller_email ?></p>
-
-        </div>
-
-
-            <div class="row">
-
-
-                    <div class="clearfix"></div>
-            <div class="gallery-filter">
-                    <ul class="nav nav-tabs" id="myTab">
-                        <li class="active"><a href="#freez pc" data-toggle="tab">Freez</a></li>
-                        <li class=""><a href="#Ac" data-toggle="tab" class="btn btn-primary"> Ac</a></li>
-                        <li class=""><a href="#Cooler" data-toggle="tab"> Cooler</a></li>
-                        <li class=""><a href="#Washing" data-toggle="tab">Washing </a></li>
-                        <li class=""><a href="#Moter" data-toggle="tab">Motar </a></li>
-                    </ul>
-
-                    <div class="tab-content">
-
-
             <a href="<?php echo $url;?>/booking/<?php echo $shop[0]->id;?>/<?php echo $shop[0]->sub_category;?>/<?php echo $shop[0]->user_id;?>" class="btn btn-warning btn-lg post-btn">Contact Seller</a>
-
-
-
         </div>
+
+
+
 
 
             <div class="row">
@@ -228,9 +208,6 @@
 
                             <div class="row">
                                 <div class="col-md-12 text-center">
-
-
-
                                     <div class="col-md-3 pt-30">
                                         <img src="http://fabclap.com/local/images/gallery/1496056605.jpg" class="img-responsive">
                                         <a href="#" class="">Freez</a>
@@ -315,10 +292,10 @@
                 <img src="../img/banner.jpg" alt="" >
                 <h4><strong>Dummy India Pvt. Ltd.</strong></h4>
                 <p><strong>Location-</strong> Delhi</p>
-                    <p>250 Profile Views</p>
-                <p>Nature of Business- Dealer</p>
-                <p>Product Dealing- Compressor,Piston,Tools</p>
-                <p> Brand- Usha,Algi,Shakti,Kirlooskar</p>
+                    <p><b>250 Profile Views</b></p>
+                    <p><b>Nature of Business-</b> Dealer</p>
+                    <p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
+                    <p><b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p>
                 </div>
                 <hr>
 
@@ -326,10 +303,10 @@
                     <img src="../img/banner.jpg" alt="" >
                     <h4><strong>Dummy India Pvt. Ltd.</strong></h4>
                     <p><strong>Location-</strong> Delhi</p>
-                    <p>250 Profile Views</p>
-                    <p>Nature of Business- Dealer</p>
-                    <p>Product Dealing- Compressor,Piston,Tools</p>
-                    <p> Brand- Usha,Algi,Shakti,Kirlooskar</p>
+                    <p><b>250 Profile Views</b></p>
+                    <p><b>Nature of Business-</b> Dealer</p>
+                    <p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
+                    <p><b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p>
                 </div>
                 <hr>
 
@@ -337,10 +314,10 @@
                     <img src="../img/banner.jpg" alt="" >
                     <h4><strong>Dummy India Pvt. Ltd.</strong></h4>
                     <p><strong>Location-</strong> Delhi</p>
-                    <p>250 Profile Views</p>
-                    <p>Nature of Business- Dealer</p>
-                    <p>Product Dealing- Compressor,Piston,Tools</p>
-                    <p> Brand- Usha,Algi,Shakti,Kirlooskar</p>
+                    <p><b>250 Profile Views</b></p>
+                    <p><b>Nature of Business-</b> Dealer</p>
+                    <p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
+                    <p><b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p>
                 </div>
                 <hr>
 

@@ -32,10 +32,10 @@
 
                     <div class="text-center center-block pb-10">
                         <br />
-                        <a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                        <a href="#"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                        <a href="#"><i id="social-tw" class="fa fa-linkedin-square fa-3x social"></i></a>
-                        <a href="#"><i id="social-gp" class="fa fa-quora fa-3x social"></i></a>
+                        <a href="#"><i id="social-gp" class="fa fa-facebook fa-2x social"></i></a>
+                        <a href="#"><i id="social-gp" class="fa fa-twitter fa-2x social"></i></a>
+                        <a href="#"><i id="social-gp" class="fa fa-linkedin fa-2x social"></i></a>
+                        <a href="#"><i id="social-gp" class="fa fa-quora fa-2x social"></i></a>
                     </div>
 
 
