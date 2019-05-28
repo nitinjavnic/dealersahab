@@ -126,11 +126,11 @@
 
                 <p style="float:left;">0 &nbsp;&nbsp; </p>
                 <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p style="float:left;"><?php echo $rating_count; ?>  &nbsp;&nbsp; </p>
                 <div class="progress">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p style="float:left;">0 &nbsp;&nbsp; </p>
                 <div class="progress">
@@ -142,7 +142,7 @@
                 </div>
                 <p style="float:left;">0 &nbsp;&nbsp; </p>
                 <div class="progress">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
 

@@ -3083,3 +3083,22 @@ footer{background:#f4f4f4;}
 }
 
 .well {	margin-bottom: 10px!important;}
+.bg-danger{background:#dc3545!important;}
+.bg-success{background: #28a745!important;}
+.bg-info {
+    background-color: #17a2b8!important;
+}
+.bg-primary {
+    background-color: #007bff!important;
+}
+.bg-warning {
+    background-color: #ffc107!important;
+}
+.bg-secondary {
+    background-color: #6c757d!important;
+}
+.form-row{width:100%; height:auto;}
+.border-shadow{border: 1px solid black; box-shadow: 0 0 5px 0px #040404; padding: 0px;  }
+.heading-0{padding:0px; background: #dddddd;     padding: 15px;
+    background: #dddddd;
+    margin: 0; }

@@ -42,7 +42,7 @@
 					<input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="Enter Your Product ">
 				</div>
 				<div class="col-md-3 col-xs-4 paddingoff">
-					<input type="submit" name="search" class="searchbtn" value="Get Started">
+					<input type="submit" name="search" class="searchbtn" value="Search">
 				</div>
 			</div>
 		</form>
@@ -407,11 +407,11 @@
 							</div>
 							<p style="float:left;">Php &nbsp;&nbsp; </p>
 							<div class="progress">
-								<div class="progress-bar bg-success" role="progressbar" style="width: 20%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+								<div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 							<p style="float:left;">Php &nbsp;&nbsp; </p>
 							<div class="progress">
-								<div class="progress-bar bg-info" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+								<div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 							<p style="float:left;">Php &nbsp;&nbsp; </p>
 							<div class="progress">
@@ -423,7 +423,7 @@
 							</div>
 							<p style="float:left;">Php &nbsp;&nbsp; </p>
 							<div class="progress">
-								<div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+								<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 						</div>
 					</div>
