@@ -43,11 +43,13 @@ Route::get('getallCategory',array('as'=>'getallCategory','uses'=>'GetsubserviceC
 Route::get('getsuballCategory',array('as'=>'getsuballCategory','uses'=>'GetsubserviceController@getsuballCategory'));
 Route::get('getseller',array('as'=>'getseller','uses'=>'GetsubserviceController@getseller'));
 Route::get('getproduct',array('as'=>'getproduct','uses'=>'GetsubserviceController@productCategory'));
+Route::get('productDetail',array('as'=>'productDetail','uses'=>'GetsubserviceController@productDetail'));
 
 
 Route::get('dateavailable/{val}',array('as'=>'dateavailable','uses'=>'BookingController@dateavailable'));
 
 Route::post('pinned',array('as'=>'pinned','uses'=>'GetsubserviceController@pinnedseller'));
+Route::get('findRole',array('as'=>'findRole','uses'=>'GetsubserviceController@findRole'));
 
 
 Route::get('/logout', 'DashboardController@sangvish_logout');
@@ -208,6 +210,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin','Admin\DashboardController@index');
     Route::get('/admin/requrement','Admin\RequirementController@index');
     Route::get('/admin/index','Admin\DashboardController@index');
+    Route::get('/admin/email','Admin\EmailController@email');
 
     /* user */
     Route::get('/admin/users','Admin\UsersController@index');
@@ -217,6 +220,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/addsubadmin','Admin\AddsubadminController@formview');
     Route::post('/admin/adduser', ['as'=>'admin.adduser','uses'=>'Admin\AdduserController@adduserdata']);
     Route::post('/admin/addsubadmin', ['as'=>'admin.addsubadmin','uses'=>'Admin\AddsubadminController@addsubuserdata']);
+    Route::post('/admin/addemail', ['as'=>'admin.addemail','uses'=>'Admin\EmailController@addemail']);
 
     Route::get('/admin/users/{id}','Admin\UsersController@destroy');
     Route::get('/admin/edituser/{id}','Admin\EdituserController@showform');

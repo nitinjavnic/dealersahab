@@ -61,12 +61,17 @@ class SearchController extends Controller
 		->where('seller_services.subservice_id', '=', $services[0]->subid)
         ->groupBy('shop.id')
              ->paginate(5);
-		$viewservices= DB::table('subservices')->orderBy('subname','asc')->get();
+
+
+
+
+        $viewservices= DB::table('subservices')->orderBy('subname','asc')->get();
 
 		$shopview=DB::table('shop')
 		         ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
 		         ->where('shop.status', '=', 'approved')
 				 ->orderBy('shop.id','desc')->get();
+
 
 		$sub_value = $id;
 
