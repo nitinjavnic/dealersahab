@@ -388,8 +388,22 @@
 					<div class="col-md-5">
 						<div class="well well-sm">
 
+							<?php
+
+
+
+
+							if($shop->rating=="")
+							{
+								$starpath = '/local/images/nostar.png';
+							}
+							else {
+								$starpath = '/local/images/'.$shop->rating.'star.png';
+							}
+							?>
 							<div class="rating" >
-								<span>5</span> <img src="http://localhost/dealersahab/local/images/3star.png" class="star_rates" alt="rated 3 stars" title="rated 3 stars">
+								<span><?php echo $shop->rating; ?></span><img src="<?php echo $url.$starpath;?>" alt="rated <?php if($shop->rating==""){ echo "0"; } else { echo $shop->rating; }?> stars" class="star_rates" />
+
 							</div>
 							<p style="float:left;">Php &nbsp;&nbsp; </p>
 							<div class="progress">

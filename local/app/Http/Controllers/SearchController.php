@@ -44,6 +44,7 @@ class SearchController extends Controller
 	{
 
 		$subview=strtolower($id);
+
 		$results = preg_replace('/-+/', ' ', $subview);
         $allsubservice = DB::table('subservices')->select('subname')->get();
         $allservice = DB::table('services')->select('name','id')->get();
@@ -60,11 +61,6 @@ class SearchController extends Controller
 		->where('seller_services.subservice_id', '=', $services[0]->subid)
         ->groupBy('shop.id')
              ->paginate(5);
-
-
-
-
-
 		$viewservices= DB::table('subservices')->orderBy('subname','asc')->get();
 
 		$shopview=DB::table('shop')
