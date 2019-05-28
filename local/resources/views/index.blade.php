@@ -209,6 +209,8 @@ $setid=1;
                     <?php
 
                     foreach($second as $newservice){
+
+
                     $subview=strtolower($newservice->subname);
                     $results = preg_replace('/[ ,]+/', '-', trim($subview));
                     ?>

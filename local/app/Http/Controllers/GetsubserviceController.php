@@ -317,5 +317,22 @@ class GetsubserviceController extends Controller
         ]);
     }
 
+    public function findRole(Request $request){
+        $data =$request->all();
+        $id = $data['id'];
+        $product = DB::table('users')
+            ->where('admin', '=', $id)
+            ->get();
+        $data=array();
+        foreach ($product as $viewsub) {
+            $data[]=array('value'=>$viewsub);
+        }
+        if(count($data))
+            return $data;
+        else
+            return ['error'=>'No Result Found'];
+
+    }
+
 
 }

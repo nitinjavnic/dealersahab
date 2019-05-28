@@ -101,6 +101,15 @@
 
                         <div class="rating">
                             <?php
+                            $items = array();
+                            foreach ($rating as $ratingitmes){
+                                $items[] = $ratingitmes->rating;
+                                ?>
+                           <?php }?>
+                            <?php
+                            $totalrating = array_sum($items);
+                            $totalCount = count($rating);
+                            $sum = $totalrating/$totalCount;
                             if($rating[0]->rating=="")
                             {
                                 $starpath = '/local/images/nostar.png';
@@ -109,7 +118,17 @@
                                 $starpath = '/local/images/'.$rating[0]->rating.'star.png';
                             }
                             ?>
-                                <span><?php echo $rating[0]->rating ?></span> <img src="<?php echo $url.$starpath;?>" class="star_rates" alt="rated <?php if($rating[0]->rating==""){ echo "0"; } else { echo $rating[0]->rating; }?> stars" title="rated <?php if($rating[0]->rating==""){ echo "0"; } else { echo $rating[0]->rating; }?> stars" />  - &nbsp; <?php  echo $rating_count;?> Users
+                                <span>
+
+                                    <?php echo $sum ?>
+                                </span>
+                                <img src="<?php echo $url.$starpath;?>" class="star_rates" alt="rated <?php if($rating[0]->rating==""){ echo "0"; } else
+                                    { echo $rating[0]->rating; }?>
+                                        stars" title="rated <?php if($rating[0]->rating==""){ echo "0"; }
+                                        else { echo $rating[0]->rating; }?> stars" />  - &nbsp;
+
+
+                                <?php  echo $rating_count;?> Users
                             <?php
 
                             ?>
@@ -122,25 +141,114 @@
 
                 <?php } ?>
 
+                    <?php
+                    $items = array();
+                    foreach ($rating as $ratingitmes){
+                        $items[] = $ratingitmes->rating;
 
+                        ?>
+                    <?php }?>
 
                 <p style="float:left;">0 &nbsp;&nbsp; </p>
                 <div class="progress">
                     <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p style="float:left;"><?php echo $rating_count; ?>  &nbsp;&nbsp; </p>
+
+
+                    <p style="float:left;">
+                        <?php
+
+                        if (in_array("1", $items))
+                        {
+                            echo "1";
+                        }
+                        else
+                        {
+                            echo "0";
+                        }
+
+
+                        ?>
+
+                        &nbsp;&nbsp; </p>
+                    <div class="progress">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+
+                <p style="float:left;">
+                    <?php
+                    if (in_array("2", $items))
+                    {
+                        echo "1";
+                    }
+                    else
+                    {
+                        echo "0";
+                    }
+
+                    ?>
+
+
+                    &nbsp;&nbsp; </p>
                 <div class="progress">
                     <div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p style="float:left;">0 &nbsp;&nbsp; </p>
+                <p style="float:left;">
+
+                    <?php
+                    if (in_array("3", $items))
+                    {
+                        echo "1";
+                    }
+                    else
+                    {
+                        echo "0";
+                    }
+
+                    ?>
+
+
+                    &nbsp;&nbsp; </p>
                 <div class="progress">
                     <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p style="float:left;">0 &nbsp;&nbsp; </p>
+                <p style="float:left;">
+
+                    <?php
+                    if (in_array("4", $items))
+                    {
+                        echo "1";
+                    }
+                    else
+                    {
+                        echo "0";
+                    }
+
+                    ?>
+
+
+                    &nbsp;&nbsp; </p>
                 <div class="progress">
                     <div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
-                <p style="float:left;">0 &nbsp;&nbsp; </p>
+                <p style="float:left;">
+
+                    <?php
+                    if (in_array("5", $items))
+                    {
+                        echo "1";
+                    }
+                    else
+                    {
+                        echo "0";
+                    }
+
+                    ?>
+
+
+                    &nbsp;&nbsp; </p>
                 <div class="progress">
                     <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
@@ -348,14 +456,14 @@
                         $.each(data, function (index,value) {
                             var id = value.value['id'];
                             var testurl = "/admin/subservices/"+ id;
-                            src = "{{ route('getseller')}}";
+                            src1 = "{{ route('productDetail')}}" + id;
                             var product_name = value.value['product_name'];
                                 var subcategory = value.value['subcategory_id'];
                                 var product_image = value.value['photo'];
                                 var image = profileUrl + product_image;
                                 $("#shopProfile").append('<div class="col-md-3 pt-30">\n' +
                                 '                                        <img src='+ image +' class="img-responsive">\n' +
-                                '                                        <a href='+src+' class="">'+ product_name +'</a>\n' +
+                                '                                        <a href='+src1+' class="">'+ product_name +'</a>\n' +
                                 '                                    </div>');
 
 

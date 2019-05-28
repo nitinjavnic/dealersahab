@@ -116,13 +116,14 @@
 				  <?php } else { ?>
 						  
 						  <a href="<?php echo $url;?>/admin/edituser/{{ $user->id }}" class="btn btn-success">Edit</a>
+						  <a href="<?php echo $url;?>/admin/edituser/{{ $user->id }}" class="btn btn-info">SendEmail</a>
 				  <?php } ?>
 				   <?php if(config('global.demosite')=="yes"){?>
 				    <a href="#" class="btn btn-danger btndisable">Delete</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
 				  <?php } else { ?>
 						  
 						  @if($sta!=1)<a href="<?php echo $url;?>/admin/users/{{ $user->id }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a> @endif
-						  
+
 				  <?php } ?>
 						  </td>
                         </tr>
