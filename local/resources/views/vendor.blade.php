@@ -50,9 +50,10 @@
 
 
         <div class="col-md-6 col-8">
-            <?php if(Auth::check()) { ?>
-            <h2><?php echo $shop[0]->shop_name;?><a href="#" data="<?php echo $shop[0]->shop_name;?>" class="btn btn-success pin-seller " id="pinned">Pinned </a></h2>
+            <h2><?php echo $shop[0]->shop_name;?></h2>
 
+                <?php if(Auth::check()) { ?>
+                <a href="#" data="<?php echo $shop[0]->shop_name;?>" class="btn btn-success pin-seller " id="pinned">Pinned </a>
         <?php }?>
             <p><strong>Address-</strong> <?php echo $shop[0]->address;?> <br/><strong>Profile View</strong></p>
             <table class="text-center">
