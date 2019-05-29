@@ -116,7 +116,7 @@
 				  <?php } else { ?>
 						  
 						  <a href="<?php echo $url;?>/admin/edituser/{{ $user->id }}" class="btn btn-success">Edit</a>
-						  <a href="<?php echo $url;?>/admin/edituser/{{ $user->id }}" class="btn btn-info">SendEmail</a>
+						  <a href="<?php echo $url;?>/admin/email/{{ $user->id }}" class="btn btn-info">SendEmail</a>
 				  <?php } ?>
 				   <?php if(config('global.demosite')=="yes"){?>
 				    <a href="#" class="btn btn-danger btndisable">Delete</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>

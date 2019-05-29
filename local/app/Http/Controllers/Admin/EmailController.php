@@ -29,15 +29,17 @@ class EmailController extends Controller
     }
 
 
-    public function email()
+    public function email($id)
     {
-        $seller = DB::table('users')->select('name')->where('admin', '2')->get();
-        return view('admin/email', ['seller' => $seller]);
-
+        $users = DB::select('select * from users where id = ?',[$id]);
+        $userid = $id;
+        return view('admin.email',['users'=>$users, 'userid' => $userid]);
 
     }
 
     public function addemail(Request $request){
+
+
 
         $this->validate($request, [
             'subject' => 'required',
@@ -54,8 +56,8 @@ class EmailController extends Controller
 
         $messages = array(
 
-            'email' => 'Required',
-            'name' => 'Required'
+            'subject' => 'Required',
+            'body' => 'Required'
 
         );
 
@@ -69,12 +71,14 @@ class EmailController extends Controller
         else
         {
             $image = Input::file('photo');
+
             if($image!="")
+
             {
                 $filename  = time() . '.' . $image->getClientOriginalExtension();
                 $userphoto="/Emailattachment/";
-                $path = base_path('images'.$userphoto.$filename);
-                Image::make($image->getRealPath())->save($path);
+                $path = base_path('images'.$userphoto);
+                $image->move($path,$image->getClientOriginalName());
                 $namef=$filename;
             }
             else
@@ -83,11 +87,10 @@ class EmailController extends Controller
             }
 
             $data = $request->all();
-        $role = $data['role'];
         $subject = $data['subject'];
-        $users = $data['users'];
+        $users = $data['id'];
         $body = $data['body'];
-        DB::insert('insert into email (users,role,subject,body,attachment) values (?, ?,?,?,?)', [$users,$role,$subject,$body,$namef]);
+        DB::insert('insert into email (users,subject,body,attachment) values (?, ?,?,?)', [$users,$subject,$body,$namef]);
         return back()->with('success', 'Email Notification has been send');
 
     }

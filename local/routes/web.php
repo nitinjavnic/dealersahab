@@ -43,7 +43,6 @@ Route::get('getallCategory',array('as'=>'getallCategory','uses'=>'GetsubserviceC
 Route::get('getsuballCategory',array('as'=>'getsuballCategory','uses'=>'GetsubserviceController@getsuballCategory'));
 Route::get('getseller',array('as'=>'getseller','uses'=>'GetsubserviceController@getseller'));
 Route::get('getproduct',array('as'=>'getproduct','uses'=>'GetsubserviceController@productCategory'));
-Route::get('productDetail',array('as'=>'productDetail','uses'=>'GetsubserviceController@productDetail'));
 
 
 Route::get('dateavailable/{val}',array('as'=>'dateavailable','uses'=>'BookingController@dateavailable'));
@@ -61,6 +60,12 @@ Route::get('/shop', 'ShopController@sangvish_viewshop');
 Route::get('/addshop', 'ShopController@sangvish_addshop');
 
 Route::get('/editshop/{id}', 'ShopController@sangvish_editshop');
+
+Route::get('productDetail/{id}',array('as'=>'productDetail','uses'=>'GetsubserviceController@productDetail'));
+
+
+
+
 Route::get('/business', 'BusinessController@sangvish_editshop');
 
 Route::post('/editshop', ['as'=>'editshop','uses'=>'ShopController@sangvish_savedata']);
@@ -210,7 +215,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin','Admin\DashboardController@index');
     Route::get('/admin/requrement','Admin\RequirementController@index');
     Route::get('/admin/index','Admin\DashboardController@index');
-    Route::get('/admin/email','Admin\EmailController@email');
+    Route::get('/admin/email/{id}','Admin\EmailController@email');
 
     /* user */
     Route::get('/admin/users','Admin\UsersController@index');

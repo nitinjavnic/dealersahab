@@ -149,11 +149,7 @@
                         ?>
                     <?php }?>
 
-                <p style="float:left;">0 &nbsp;&nbsp; </p>
-                <div class="progress">
-                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p style="float:left;"><?php echo $rating_count; ?>  &nbsp;&nbsp; </p>
+
 
 
                     <p style="float:left;">
@@ -455,15 +451,15 @@
                         let profileUrl = 'http://localhost/dealerSahab/local/images/productimage/';
                         $.each(data, function (index,value) {
                             var id = value.value['id'];
-                            var testurl = "/admin/subservices/"+ id;
-                            src1 = "{{ route('productDetail')}}" + id;
+                            var url = '{{ route("productDetail", ":id") }}';
+                            url = url.replace(':id', id);
                             var product_name = value.value['product_name'];
                                 var subcategory = value.value['subcategory_id'];
                                 var product_image = value.value['photo'];
                                 var image = profileUrl + product_image;
                                 $("#shopProfile").append('<div class="col-md-3 pt-30">\n' +
                                 '                                        <img src='+ image +' class="img-responsive">\n' +
-                                '                                        <a href='+src1+' class="">'+ product_name +'</a>\n' +
+                                '                                        <a href="'+url+'" class="">'+ product_name +'</a>\n' +
                                 '                                    </div>');
 
 

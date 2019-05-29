@@ -396,128 +396,121 @@
 								$starpath = '/local/images/'.$shop->rating.'star.png';
 							}
 							?>
-							<div class="rating" >
-								<span><?php echo $shop->rating; ?></span><img src="<?php echo $url.$starpath;?>" alt="rated <?php if($shop->rating==""){ echo "0"; } else { echo $shop->rating; }?> stars" class="star_rates" />
 
-							</div>
-
-								<?php
-								$items = array();
-								foreach ($subsearches as $ratingitmes){
-
-									$items[] = $ratingitmes->rating;
-									?>
+							<?php
+							$rating = DB::table('rating')
+									->leftJoin('users', 'users.email', '=', 'rating.email')
+									->where('rshop_id', '=', $shop->shop_id)
+									->get();
+							$items = array();
+							foreach ($rating as $ratingitmes){
+								$items[] = $ratingitmes->rating;
+								$totalrating = array_sum($items);
+								$totalCount = count($rating);
+								$sum = $totalrating/$totalCount;
+								?>
                                 <?php }?>
 
-							<p style="float:left;">
+							<div class="rating" >
+								<span><?php echo $sum ?></span><img src="<?php echo $url.$starpath;?>" alt="rated <?php if($shop->rating==""){ echo "0"; } else { echo $shop->rating; }?> stars" class="star_rates" />
 
-								<?php
-
-								if (in_array("1", $items))
-								{
-									echo "1";
-								}
-								else
-								{
-									echo "0";
-								}
-
-
-								?>
-								&nbsp;&nbsp; </p>
-
-
-							<div class="progress">
-								<div class="progress-bar bg-secondary" role="progressbar" style="width: 20%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
 							</div>
 
 
+								<p style="float:left;">
+									<?php
 
-							<p style="float:left;">
-
-								<?php
-
-								if (in_array("2", $items))
-								{
-									echo "1";
-								}
-								else
-								{
-									echo "0";
-								}
+									if (in_array("1", $items))
+									{
+										echo "1";
+									}
+									else
+									{
+										echo "0";
+									}
 
 
-								?>
+									?>
 
-								&nbsp;&nbsp; </p>
-							<div class="progress">
-								<div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<p style="float:left;">
+									&nbsp;&nbsp; </p>
+								<div class="progress">
+									<div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<p style="float:left;">
+									<?php
+									if (in_array("2", $items))
+									{
+										echo "1";
+									}
+									else
+									{
+										echo "0";
+									}
 
-
-								<?php
-
-								if (in_array("3", $items))
-								{
-									echo "1";
-								}
-								else
-								{
-									echo "0";
-								}
-
-
-								?>
+									?>
 
 
+									&nbsp;&nbsp; </p>
+								<div class="progress">
+									<div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<p style="float:left;">
 
-								&nbsp;&nbsp; </p>
-							<div class="progress">
-								<div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<p style="float:left;">
+									<?php
+									if (in_array("3", $items))
+									{
+										echo "1";
+									}
+									else
+									{
+										echo "0";
+									}
 
-								<?php
-
-								if (in_array("3", $items))
-								{
-									echo "1";
-								}
-								else
-								{
-									echo "0";
-								}
-
-
-								?>
+									?>
 
 
-								&nbsp;&nbsp; </p>
-							<div class="progress">
-								<div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
-							<p style="float:left;">
+									&nbsp;&nbsp; </p>
+								<div class="progress">
+									<div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<p style="float:left;">
 
-								<?php
+									<?php
+									if (in_array("4", $items))
+									{
+										echo "1";
+									}
+									else
+									{
+										echo "0";
+									}
 
-								if (in_array("5", $items))
-								{
-									echo "1";
-								}
-								else
-								{
-									echo "0";
-								}
-
-
-								?>
+									?>
 
 
-								&nbsp;&nbsp; </p>
-							<div class="progress">
-								<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-							</div>
+									&nbsp;&nbsp; </p>
+								<div class="progress">
+									<div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
+								<p style="float:left;">
+
+									<?php
+									if (in_array("5", $items))
+									{
+										echo "1";
+									}
+									else
+									{
+										echo "0";
+									}
+
+									?>
+
+
+									&nbsp;&nbsp; </p>
+								<div class="progress">
+									<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+								</div>
 						</div>
 					</div>
 				</div>

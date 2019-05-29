@@ -334,5 +334,12 @@ class GetsubserviceController extends Controller
 
     }
 
+    public function productDetail($id){
+
+        $products = DB::table('products')->where('id', $id)->get();
+        return view('productdetail', ['products' => $products]);
+
+    }
+
 
 }

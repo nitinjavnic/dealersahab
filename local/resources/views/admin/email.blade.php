@@ -89,29 +89,6 @@
                                 {{ csrf_field() }}
                                 <span class="section">Send Email</span>
 
-                                <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="school_id">Role <span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <select id="selectrole" class="form-control col-md-7 col-xs-12 fn_school_id" name="role" id="#" required="required">
-                                            <option value="">--Select--</option>
-                                            <option value="2">Seller</option>
-                                            <option value="0">Customer</option>
-                                        </select>
-                                        <div class="help-block"></div>
-                                    </div>
-                                </div>
-
-
-                                <div class="item form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="school_id">User <span class="required">*</span></label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <select class="form-control col-md-7 col-xs-12 fn_school_id" name="users" id="sellerppend" required="required">
-
-                                        </select>
-                                        <div class="help-block"></div>
-                                    </div>
-                                </div>
-
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="subject">Subject <span class="required">*</span></label>
@@ -127,7 +104,12 @@
                                         <div class="help-block"></div>
                                     </div>
                                 </div>
-                                <div class="form-group">
+
+                                    <input type="hidden" name="id" value="<?php echo $users[0]->id; ?>">
+
+
+
+                                    <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12">Attachment</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                         <div class="btn btn-default btn-file">
@@ -169,34 +151,6 @@
     </div>
     </div>
 
-<script>
-    jQuery(document).ready(function(){
-        src = "{{ route('findRole') }}";
-        $("#selectrole").change(function() {
-            var id = $(this).val();
-            $.ajax({
-                type: 'GET',
-                url: src,
-                data: {
-                    id : id
-                },
-                success: function(data) {
-                    if(data.error=='No Result Found'){
-                        $("#subsuperservice").append("<option>" + 'No Result Found' + "</option>");
-                    }else {
-                        $.each(data, function (index,value) {
-                            $("#sellerppend").append("<option value="+ value.value.id +">" + value.value.name + "</option>");
-
-                        });
-                    }
-                }
-
-
-            });
-        });
-    });
-
-</script>
 
 </body>
 </html>
