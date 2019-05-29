@@ -96,7 +96,7 @@ $setid=1;
                         <input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="Enter Your Product ">
                     </div>
                     <div class="col-md-3 col-xs-4 paddingoff">
-                        <input type="submit" name="search" class="searchbtn" value="Get Started">
+                        <input type="submit" name="search" class="searchbtn" value="Search">
                     </div>
                 </div>
             </form>

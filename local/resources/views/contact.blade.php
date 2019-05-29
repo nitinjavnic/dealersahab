@@ -76,13 +76,13 @@
             <input type="submit" class="btn btn-primary" value="Send">
           </div>
 		  
-		 </div> 
+		 </div>
         </form>
-	
-	
-	
+
+
+
 	</div>
-	
+
 	<div class="col-md-4">
 	<?php
 	echo trim($contact[0]->page_desc,"'");
