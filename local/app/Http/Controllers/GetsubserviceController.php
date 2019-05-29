@@ -335,9 +335,12 @@ class GetsubserviceController extends Controller
     }
 
     public function productDetail($id){
+        $randomProduct = DB::table('products')
+            ->limit(4)
+            ->get();
 
         $products = DB::table('products')->where('id', $id)->get();
-        return view('productdetail', ['products' => $products]);
+        return view('productdetail', ['products' => $products,'randomProduct'=>$randomProduct]);
 
     }
 

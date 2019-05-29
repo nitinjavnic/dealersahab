@@ -84,46 +84,36 @@
             <div class="col-md-12">
                 <h3 class="">You may also like</h3>
             </div>
+
+            <?php foreach ($randomProduct as $random) {?>
+
             <div class="col-md-3 col-12 text-center product-box">
                 <div class="product-border">
-                    <img src="http://localhost/dealersahab/local/images/shop/1496146095.jpg"  alt="Mobile and Desktop">
-                    <p class="pt-10"><a href="#">Paper Coffee cup making Machin</a></p>
-                    <p>Rs 5.6Lakh/Unit</p>
+
+                    <?php $shopphoto="/productimage/";
+                    $paths ='/local/images'.$shopphoto.$random->photo;
+                    if($random->photo!=""){?>
+                    <img src="<?php echo $url.$paths;?>" class="img-fluid">
+
+                <?php } else { ?>
+
+
+                <img src="<?php echo $url.'/local/images/nophoto.jpg';?>" alt="" class="img-fluid"></div>
+
+
+            <?php } ?>
+                    <p class="pt-10"><a href="#"><?php echo $random->product_name ?></a></p>
+                    <p>Rs <?php echo $random->price ?>Lakh/Unit</p>
                     <p class="text-gray">Aman Impex</p>
                     <h4>Delhi</h4>
-                    <input type="button" value="Get latest Price" class="btn btn-info">
-                </div>
+                    <a href="<?php echo $url;?>/productDetail/{{ $random->id }}"  value="Get latest Price" class="btn btn-info" >Get latest Price</a>
             </div>
-            <div class="col-md-3 col-12 text-center product-box">
-                <div class="product-border">
-                    <img src="http://localhost/dealersahab/local/images/shop/1496146095.jpg"  alt="Mobile and Desktop">
-                    <p class="pt-10"><a href="#">Paper Coffee cup making Machin</a></p>
-                    <p>Rs 5.6Lakh/Unit</p>
-                    <p class="text-gray">Aman Impex</p>
-                    <h4>Delhi</h4>
-                    <input type="button" value="Get latest Price" class="btn btn-info">
-                </div>
             </div>
-            <div class="col-md-3 col-12 text-center product-box">
-                <div class="product-border">
-                    <img src="http://localhost/dealersahab/local/images/shop/1496146095.jpg"  alt="Mobile and Desktop">
-                    <p class="pt-10"><a href="#">Paper Coffee cup making Machin</a></p>
-                    <p>Rs 5.6Lakh/Unit</p>
-                    <p class="text-gray">Aman Impex</p>
-                    <h4>Delhi</h4>
-                    <input type="button" value="Get latest Price" class="btn btn-info">
-                </div>
-            </div>
-            <div class="col-md-3 col-12 text-center product-box">
-                <div class="product-border">
-                    <img src="http://localhost/dealersahab/local/images/shop/1496146095.jpg"  alt="Mobile and Desktop">
-                    <p class="pt-10"><a href="#">Paper Coffee cup making Machin</a></p>
-                    <p>Rs 5.6Lakh/Unit</p>
-                    <p class="text-gray">Aman Impex</p>
-                    <h4>Delhi</h4>
-                    <input type="button" value="Get latest Price" class="btn btn-info">
-                </div>
-            </div>
+
+
+        <?php } ?>
+</div>
+
         </div>
     </div>
 </div>
