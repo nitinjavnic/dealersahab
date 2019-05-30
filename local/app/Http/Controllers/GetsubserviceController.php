@@ -198,7 +198,7 @@ class GetsubserviceController extends Controller
         $data = $request->all();
         $subid = $data['subid'];
         $product = DB::table('products')
-            ->where('subcategory_id', '=', $subid)
+            ->where('supersubcategory_id', '=', $subid)
             ->get();
         $data=array();
         foreach ($product as $viewsub) {

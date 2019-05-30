@@ -102,7 +102,7 @@ $url = URL::to("/"); ?>
 
                             <?php foreach($service as $service){ ?>
 
-                                <option value="<?php echo $service->name ?>"><?php echo $service->name ?></option>
+                                <option value="<?php echo $service->id ?>"><?php echo $service->name ?></option>
                                 <?php } ?>
                             </select>
 
@@ -116,8 +116,7 @@ $url = URL::to("/"); ?>
                                 <option value="">Select SubCategory</option>
 
                             <?php foreach ($subservices as $subservices){?>
-                                <option value="">Select Services</option>
-                                <option value="<?php echo $subservices->subname ?>"><?php echo $subservices->subname ?></option>
+                                <option value="<?php echo $subservices->subid ?>"><?php echo $subservices->subname ?></option>
                                 <?php }?>
                             </select>
 
@@ -178,7 +177,7 @@ $url = URL::to("/"); ?>
 
                             <?php foreach ($subsuperservice as $subsuperservice) {?>
 
-                                <option value="<?php echo $subsuperservice->subsupername ?>"><?php echo $subsuperservice->subsupername ?></option>
+                                <option value="<?php echo $subsuperservice->id ?>"><?php echo $subsuperservice->subsupername ?></option>
 
                                 <?php }?>
 

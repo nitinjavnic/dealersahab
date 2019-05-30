@@ -74,7 +74,7 @@ class EditserviceController extends Controller
          $id=$data['id'];
         			
 		$input['name'] = Input::get('name');
-       
+
 		
 		$rules = array(
 		
@@ -104,7 +104,9 @@ class EditserviceController extends Controller
 		{ 
 
 		$name=$data['name'];
-		
+		$keywords=$data['keywords'];
+		$description=$data['description'];
+
 		
 		$currentphoto=$data['currentphoto'];
 		
@@ -132,7 +134,7 @@ class EditserviceController extends Controller
 		
 		
 		/* DB::insert('insert into users (name, email,password,phone,admin) values (?, ?,?, ?,?)', [$name,$email,$password,$phone,$admin]);*/
-		DB::update('update services set name="'.$name.'",image="'.$savefname.'" where id = ?', [$id]);
+		DB::update('update services set name="'.$name.'",image="'.$savefname.'",keywords="'.$keywords.'" ,description="'.$description.'"  where id = ?', [$id]);
 		
 			return back()->with('success', 'Service has been updated');
         }

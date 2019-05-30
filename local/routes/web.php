@@ -26,7 +26,10 @@ Route::get('/index', 'IndexController@sangvish_index');
 Route::get('/blogList', 'Admin\BlogController@blogList');
 Route::get('/readmore/{id}','Admin\BlogController@readmore');
 Route::get('/post', 'PostController@formView');
+Route::get('/contactseller/{id}/{user_id}', 'PostController@contactseller');
 Route::post('/save_post', ['as'=>'save_post','uses'=>'PostController@save']);
+Route::post('/save_query', ['as'=>'save_query','uses'=>'PostController@save_query']);
+Route::get('/showinquery', ['as'=>'showinquery','uses'=>'PostController@showinquery']);
 
 
 Route::get('searchajax',array('as'=>'searchajax','uses'=>'IndexController@sangvish_autoComplete'));
@@ -75,7 +78,7 @@ Route::post('/addbusiness', ['as'=>'addbusiness','uses'=>'BusinessController@san
 
 
 
-Route::get('/vendor/{id}', 'VendorController@sangvish_showpage');
+Route::get('/vendor/{shop_id}/{id}', 'VendorController@sangvish_showpage');
 Route::post('/vendor', ['as'=>'vendor','uses'=>'VendorController@sangvish_savedata']);
 
 

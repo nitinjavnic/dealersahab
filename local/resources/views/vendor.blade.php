@@ -254,10 +254,16 @@
 
 
 
-
+            <?php if(Auth::check()) { ?>
             <p class="pt-10">Contact No- <?php echo $shop[0]->shop_phone_no ?></p>
-                <p>Email- <?php echo $shop[0]->seller_email ?></p>
-            <a href="<?php echo $url;?>/booking/<?php echo $shop[0]->id;?>/<?php echo $shop[0]->sub_category;?>/<?php echo $shop[0]->user_id;?>" class="btn btn-warning btn-lg post-btn">Contact Seller</a>
+            <p>Email- <?php echo $shop[0]->seller_email ?></p>
+
+            <?php }
+
+            ?>
+
+
+            <a href="<?php echo $url;?>/contactseller/<?php echo $shop[0]->id;?>/<?php echo $shop[0]->user_id;?>" class="btn btn-warning btn-lg post-btn">Contact Seller</a>
         </div>
 
 
@@ -271,7 +277,7 @@
             <div class="gallery-filter">
                     <ul class="nav nav-tabs" id="myTab">
                         <?php foreach ($allsubcategory as $allsubcategory) {?>
-                            <li class=""><a href="#<?php echo $allsubcategory->subname ?>" class="productCategory"  data="<?php echo $allsubcategory->subid ?>" data-toggle="tab"><?php echo $allsubcategory->subname ?></a></li>
+                            <li class=""><a href="#<?php echo $allsubcategory->subsupername ?>" class="productCategory"  data="<?php echo $allsubcategory->id ?>" data-toggle="tab"><?php echo $allsubcategory->subsupername ?></a></li>
 
                         <?php } ?>
 

@@ -100,10 +100,27 @@
                         
 					   </div>
                       </div>
-                      
-                      
-                     
-                      
+
+
+                       <div class="item form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Keywords <span class="required">*</span>
+                           </label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+                               <input id="name" class="form-control col-md-7 col-xs-12"  name="keywords" value="<?php echo $services[0]->keywords; ?>" required="required" type="text">
+                           </div>
+                       </div>
+
+                       <div class="item form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Short Description <span class="required">*</span>
+                           </label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                               <textarea  rows = "5" cols = "50"  name ="description"><?php echo $services[0]->description ?></textarea>
+
+
+                           </div>
+                       </div>
                      
 					  <input type="hidden" name="id" value="<?php echo $services[0]->id; ?>">
 					  

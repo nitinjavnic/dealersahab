@@ -367,7 +367,6 @@
 
 				<?php foreach($subsearches as $shop){
 
-
 				?>
 				<div class="row review-point m-0">
 				<div class="col-md-7 company-info ">
@@ -380,7 +379,7 @@
 
 
 					<img src="<?php echo $url.$npaths;?>" alt="" >
-					<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>"><h3><strong><?php echo $shop->shop_name; ?></strong></h3></a>
+					<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>/<?php echo $shop->super_category;?>"><h3><strong><?php echo $shop->shop_name; ?></strong></h3></a>
 						<p><b>Address-</b> <?php echo $shop->address; ?><br><span>250 Profile Views</span></p>
 						<p><b>  Nature of Business-</b> Dealer</p>
 					<p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
@@ -846,9 +845,10 @@
 
 
 	});
-	jQuery(document).ready(function(){
-		src = "{{ route('filter') }}";
+
+
 		$(".selectindustry").change(function() {
+			src = "{{ route('filter') }}";
 			var id = $(this).val();
 			$.ajax({
 				type: 'GET',
@@ -857,6 +857,7 @@
 					id : id
 				},
 				success: function(data) {
+					console.log(data);
 					$.each(data.shop, function(k, v) {
 						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
 						var shopName = v.shop_name;
@@ -915,10 +916,11 @@
 
 			});
 		});
-	});
-	jQuery(document).ready(function(){
-		src = "{{ route('subcategoryfilter') }}";
+
+
 		$(".selectsector").change(function() {
+			src = "{{ route('subcategoryfilter') }}";
+
 			var id = $(this).val();
 			$.ajax({
 				type: 'GET',
@@ -986,10 +988,11 @@
 
 			});
 		});
-	});
-	jQuery(document).ready(function(){
-		src = "{{ route('supercategoryfilter') }}";
+
+
+
 		$(".supercategory").change(function() {
+			src = "{{ route('supercategoryfilter') }}";
 			var id = $(this).val();
 			$.ajax({
 				type: 'GET',
@@ -1057,10 +1060,10 @@
 
 			});
 		});
-	});
-	jQuery(document).ready(function(){
-		src = "{{ route('brandProduct') }}";
+
+
 		$(".prductbrand").change(function() {
+			src = "{{ route('brandProduct') }}";
 			var id = $(this).val();
 			$.ajax({
 				type: 'GET',
@@ -1127,10 +1130,11 @@
 
 			});
 		});
-	});
-	jQuery(document).ready(function(){
-		src = "{{ route('productstate') }}";
+
+
+
 		$(".productstate").change(function() {
+			src = "{{ route('productstate') }}";
 			var id = $(this).val();
 			$.ajax({
 				type: 'GET',
@@ -1197,10 +1201,11 @@
 
 			});
 		});
-	});
-	jQuery(document).ready(function(){
-		src = "{{ route('productcity') }}";
-		$(".productcity").change(function() {
+
+
+	$(".productcity").change(function() {
+			src = "{{ route('productcity') }}";
+
 			var id = $(this).val();
 			$.ajax({
 				type: 'GET',
@@ -1267,10 +1272,12 @@
 
 			});
 		});
-	});
-	jQuery(document).ready(function(){
-		src = "{{ route('shoppincode') }}";
+
+
+
+
 		$(".shoppincode").change(function() {
+			src = "{{ route('shoppincode') }}";
 			var id = $(this).val();
 			$.ajax({
 				type: 'GET',
@@ -1337,7 +1344,7 @@
 
 			});
 		});
-	});
+
 
 	$(document).ready(function() {
 		src = "{{ route('searchajax') }}";

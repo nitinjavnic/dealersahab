@@ -24,7 +24,7 @@ class VendorController extends Controller
 
 
 
-    public function sangvish_showpage($id) {
+    public function sangvish_showpage($id,$shop_id) {
 
         $uber = DB::table('users')->where('name', '=', $id)->get();
         $sellertype= $uber[0]->sellertype;
@@ -33,7 +33,9 @@ class VendorController extends Controller
             ->where('seller_email', '=', $uber[0]->email)
             ->count();
 
-        $allsubcategory = DB::table('subservices')->get();
+        //$allsubcategory = DB::table('subservices')->get();
+
+        $allsubcategory = DB::table('subsuperservice')->where('id', '=', $shop_id)->get();
 
 
 

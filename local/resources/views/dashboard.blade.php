@@ -129,6 +129,15 @@
 								Account Settings </a>
 						</li>
 
+
+
+						<li>
+							<a href="<?php echo $url;?>/showinquery">
+								<i class="fa fa-user" aria-hidden="true"></i>
+
+								My Inquery </a>
+						</li>
+
 						<?php if($sta!=1){?>
 						<li>
 						<?php if(config('global.demosite')=="yes"){?>

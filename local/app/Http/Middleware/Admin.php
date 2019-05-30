@@ -63,8 +63,8 @@ class Admin
 		
          if(auth()->check() && auth()->user()->id == 1)
 		 {
-            
-			}
+
+		 }
 		 else
 		 {
 			  return redirect('index');
