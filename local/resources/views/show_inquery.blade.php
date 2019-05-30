@@ -23,6 +23,7 @@
 
 <div class="clearfix"></div>
 
+<?php $url = URL::to("/"); ?>
 
 
 
@@ -52,7 +53,7 @@
                     <td><?php echo $contact_seller->name ?> </td>
                     <td> <?php echo $contact_seller->query ?></td>
                     <td> <?php echo $contact_seller->phone ?></td>
-                    <td><a href="#!" class="btn btn-danger" role="button" aria-pressed="true">Delete</a></td>
+                    <td><a href="<?php echo $url;?>/deleteContact/{{ $contact_seller->user_id }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')" role="button" aria-pressed="true">Delete</a></td>
                 </tr>
                 <?php }?>
                 </tbody>

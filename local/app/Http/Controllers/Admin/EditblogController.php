@@ -120,4 +120,26 @@ class EditblogController extends Controller
 
 
     }
+
+
+    public function activeblog($id){
+
+        $blog = DB::select('select * from blog where id = ?',[$id]);
+        $blog_active = $blog[0]->is_active;
+        if($blog_active==0){
+            $blog_text = 1;
+            DB::update('update blog set is_active="'.$blog_text.'" where id = ?', [$id]);
+            return back()->with('success', 'Blog has been active successfully!');
+
+        }else if ($blog_active==1){
+            $blog_text = 0;
+            DB::update('update blog set is_active="'.$blog_text.'" where id = ?', [$id]);
+            return back()->with('success', 'Blog has been active successfully!');
+
+        }
+
+
+
+
+    }
 }

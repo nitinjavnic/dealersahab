@@ -72,6 +72,7 @@
                     <p><?php echo $products[0]->productdesc ?></p>
                     <div class="text-center row product-info-btn">
                         <a href="<?php echo $url;?>/booking/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->subcategory_id;?>/<?php echo $products[0]->user_id;?>" class="btn btn-info ">Contact seller<p>Ask for best deal</p></a>
+                        <a href="<?php echo $url;?>/contactseller/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->user_id;?>" class="btn btn-info ">Checkout<p>Ask for best deal</p></a>
                     </div>
 
                 </div>

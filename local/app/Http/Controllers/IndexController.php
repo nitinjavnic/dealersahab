@@ -65,7 +65,9 @@ class IndexController extends Controller
 
         $testimonials = DB::table('testimonials')->orderBy('id', 'desc')->get();
 
-        $blog = DB::table('blog')->orderBy('id', 'desc') ->limit(3)->get();
+        $blog = DB::table('blog')->orderBy('id', 'desc')
+            ->where('is_active','1')
+            ->limit(3)->get();
 
 
 

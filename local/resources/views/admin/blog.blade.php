@@ -78,7 +78,7 @@
                             <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                 <thead>
                                 <tr>
-                                    <th>Sno</th>
+
                                     <th>Image</th>
                                     <th>Name</th>
 
@@ -88,12 +88,11 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                $i=1;
+
                                 foreach ($blog as $service) { ?>
 
 
                                 <tr>
-                                    <td><?php echo $i;?></td>
                                     <?php
                                     $servicephoto="/blogphoto/";
                                     $path ='/local/images'.$servicephoto.$service->photo;
@@ -117,10 +116,19 @@
                                         <?php } else { ?>
                                         <a href="<?php echo $url;?>/admin/blog/{{ $service->id }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
 
-                                        <?php } ?>
+                                            <?php if($service->is_active==1){ ?>
+                                            <a href="<?php echo $url;?>/admin/activeblog/{{ $service->id }}" class="btn btn-info">Active</a>
+
+                                        <?php }else if($service->is_active==0){ ?>
+                                            <a href="<?php echo $url;?>/admin/activeblog/{{ $service->id }}" class="btn btn-info">Deactive</a>
+                                              <?php } ?>
+
+
+
+                                        <?php } }?>
                                     </td>
                                 </tr>
-                                <?php $i++;} ?>
+
 
                                 </tbody>
                             </table>

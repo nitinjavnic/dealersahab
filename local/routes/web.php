@@ -46,6 +46,7 @@ Route::get('getallCategory',array('as'=>'getallCategory','uses'=>'GetsubserviceC
 Route::get('getsuballCategory',array('as'=>'getsuballCategory','uses'=>'GetsubserviceController@getsuballCategory'));
 Route::get('getseller',array('as'=>'getseller','uses'=>'GetsubserviceController@getseller'));
 Route::get('getproduct',array('as'=>'getproduct','uses'=>'GetsubserviceController@productCategory'));
+Route::get('deleteContact/{id}',array('as'=>'deleteContact','uses'=>'GetsubserviceController@deleteContact'));
 
 
 Route::get('dateavailable/{val}',array('as'=>'dateavailable','uses'=>'BookingController@dateavailable'));
@@ -247,6 +248,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/blog/{id}','Admin\BlogController@destroy');
     Route::get('/admin/editservice/{id}','Admin\EditserviceController@showform');
     Route::get('/admin/editblog/{id}','Admin\EditblogController@showform');
+    Route::get('/admin/activeblog/{id}','Admin\EditblogController@activeblog');
     Route::post('/admin/editservice', ['as'=>'admin.editservice','uses'=>'Admin\EditserviceController@editservicedata']);
     Route::post('/admin/editblog', ['as'=>'admin.editblog','uses'=>'Admin\EditblogController@editblogedata']);
 

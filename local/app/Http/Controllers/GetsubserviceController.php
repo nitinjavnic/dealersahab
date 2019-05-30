@@ -344,5 +344,11 @@ class GetsubserviceController extends Controller
 
     }
 
+    public function deleteContact($id){
+        DB::delete('delete from contact_seller where user_id = ?',[$id]);
+        return back();
+
+
+    }
 
 }

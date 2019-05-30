@@ -129,7 +129,7 @@
 								Account Settings </a>
 						</li>
 
-
+				     	<?php if(Auth::user()->admin==2) { ?>
 
 						<li>
 							<a href="<?php echo $url;?>/showinquery">
@@ -137,6 +137,7 @@
 
 								My Inquery </a>
 						</li>
+						<?php } ?>
 
 						<?php if($sta!=1){?>
 						<li>
