@@ -46,16 +46,16 @@ $setid=1;
                 <div class="col-md-6 col-6  ">
                     <div class="row info-sub pt-10">
                         <div class="col-md-4 text-center ">
-                            <p><strong>30+M</strong><br>Total User</p>
+                            <p><strong>110</strong><br>Total User</p>
                         </div>
 
                         <div class="col-md-4 text-center">
-                            <p><strong>550+K</strong><br>Total Manufacturer</p>
+                            <p><strong>45</strong><br>Total Manufacturer</p>
                         </div>
 
 
                         <div class="col-md-4 text-center">
-                            <p><strong>1200+</strong><br>Total Vendor</p>
+                            <p><strong>80</strong><br>Total Seller</p>
                         </div>
 
 
@@ -89,13 +89,13 @@ $setid=1;
             <form action="{{ route('search') }}" method="post" enctype="multipart/form-data" id="formID">
                 <div class="col-md-8">
                     {!! csrf_field() !!}
-                    <div class="col-md-3 col-xs-4 paddingoff">
+                    <div class="col-md-3 col-xs-3 paddingoff">
                         <input type="text" name="search_location" class="searchtext validate[required]" id="search_text" placeholder="City">
                     </div>
-                    <div class="col-md-6 col-xs-4 paddingoff">
+                    <div class="col-md-6 col-xs-6 paddingoff">
                         <input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="Enter Your Product ">
                     </div>
-                    <div class="col-md-3 col-xs-4 paddingoff">
+                    <div class="col-md-3 col-xs-3 paddingoff">
                         <input type="submit" name="search" class="searchbtn" value="Search">
                     </div>
                 </div>

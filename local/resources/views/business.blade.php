@@ -41,8 +41,10 @@ $url = URL::to("/"); ?>
 <div class="video">
     <div class="clearfix"></div>
     <div class="container">
-        <h1>Add Business Details</h1>
-
+        <div class="clearfix"></div>
+        <div class="panel panel-default border-shadow">
+            <div class="panel-heading">Add Business Details</div>
+            <div class="panel-body">
         <div class="clearfix"></div>
 
         <form class="form-horizontal" role="form" method="POST" action="{{ route('addbusiness') }}" id="formID" enctype="multipart/form-data">
@@ -212,7 +214,8 @@ $url = URL::to("/"); ?>
 
 
         </form>
-
+            </div>
+            </div>
 
 
 
@@ -232,11 +235,6 @@ $url = URL::to("/"); ?>
     </div>
 </div>
 
-
-
-
-<div class="clearfix"></div>
-<div class="clearfix"></div>
 
 @include('footer')
 </body>

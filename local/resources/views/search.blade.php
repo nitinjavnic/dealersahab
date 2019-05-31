@@ -35,13 +35,13 @@
 		<form action="{{ route('search') }}" method="post" enctype="multipart/form-data" id="formID">
 			<div class="col-md-8">
 				{!! csrf_field() !!}
-				<div class="col-md-3 col-xs-4 paddingoff">
+				<div class="col-md-3 col-xs-3 paddingoff">
 					<input type="text" name="search_location" class="searchtext validate[required]" id="search_text" placeholder="City">
 				</div>
-				<div class="col-md-6 col-xs-4 paddingoff">
+				<div class="col-md-6 col-xs-6 paddingoff">
 					<input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="Enter Your Product ">
 				</div>
-				<div class="col-md-3 col-xs-4 paddingoff">
+				<div class="col-md-3 col-xs-3 paddingoff">
 					<input type="submit" name="search" class="searchbtn" value="Search">
 				</div>
 			</div>
@@ -280,6 +280,7 @@
 					<br>
 
 				</div>
+				<div class="text-center">
 				<label class="pl-50"for="category">
 					<select class="selectindustry">
 						<option value="">Select Industry</option>
@@ -354,7 +355,7 @@
 						<?php } ?>
 
 					</select></label><br><br>
-				<input type="submit" class="btn btn-info filter-btn-go" value="Go"></input>
+				</div>
 			</form>
 		</div>
 		</div>
@@ -368,7 +369,7 @@
 				<?php foreach($subsearches as $shop){
 
 				?>
-				<div class="row review-point m-0">
+				<div class="row review-point ">
 				<div class="col-md-7 company-info ">
 
 
@@ -383,9 +384,12 @@
 						<p><b>Address-</b> <?php echo $shop->address; ?><br><span>250 Profile Views</span></p>
 						<p><b>  Nature of Business-</b> Dealer</p>
 					<p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
-						<p> <b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p><br></div>
+						<p><b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p>
+						<a href="#" class="btn btn-warning">View Details</a>
+				</div>
 					<div class="col-md-5">
 						<div class="well well-sm">
+
 							<?php
 							if($shop->rating=="")
 							{
@@ -416,7 +420,7 @@
 							</div>
 
 
-								<p style="float:left;">
+								<p style="float:left; font-weight: bold;">
 									<?php
 
 									if (in_array("1", $items))
@@ -433,9 +437,9 @@
 
 									&nbsp;&nbsp; </p>
 								<div class="progress">
-									<div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
-								<p style="float:left;">
+								<p style="float:left; font-weight: bold;">
 									<?php
 									if (in_array("2", $items))
 									{
@@ -451,9 +455,9 @@
 
 									&nbsp;&nbsp; </p>
 								<div class="progress">
-									<div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar bg-rating2" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
-								<p style="float:left;">
+								<p style="float:left; font-weight: bold;">
 
 									<?php
 									if (in_array("3", $items))
@@ -470,9 +474,9 @@
 
 									&nbsp;&nbsp; </p>
 								<div class="progress">
-									<div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar bg-rating3" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
-								<p style="float:left;">
+								<p style="float:left; font-weight: bold;">
 
 									<?php
 									if (in_array("4", $items))
@@ -489,9 +493,9 @@
 
 									&nbsp;&nbsp; </p>
 								<div class="progress">
-									<div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar bg-rating4" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
-								<p style="float:left;">
+								<p style="float:left; font-weight: bold;">
 
 									<?php
 									if (in_array("5", $items))
@@ -511,6 +515,9 @@
 									<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
 						</div>
+						<div class="text-center mb-10">
+
+					</div>
 					</div>
 				</div>
 					<?php } ?>
