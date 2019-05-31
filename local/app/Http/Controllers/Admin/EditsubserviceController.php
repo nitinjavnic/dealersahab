@@ -151,6 +151,7 @@ class EditsubserviceController extends Controller
 		$name=$data['name'];
 		$keywords=$data['keywords'];
 		$description=$data['description'];
+		$title=$data['title'];
 
 		
 		$currentphoto=$data['currentphoto'];
@@ -182,7 +183,7 @@ class EditsubserviceController extends Controller
 		
 		
 		/* DB::insert('insert into users (name, email,password,phone,admin) values (?, ?,?, ?,?)', [$name,$email,$password,$phone,$admin]);*/
-		DB::update('update subservices set subname="'.$name.'", service="'.$service.'",subimage="'.$savefname.'" ,keywords="'.$keywords.'" ,description="'.$description.'"where subid = ?', [$subid]);
+		DB::update('update subservices set subname="'.$name.'", service="'.$service.'",subimage="'.$savefname.'" ,keywords="'.$keywords.'" ,description="'.$description.',", title= "'.$title.',"    where subid = ?', [$subid]);
 		
 			return back()->with('success', 'Sub service has been updated');
         }

@@ -139,24 +139,15 @@ class AddsubserviceController extends Controller
 		
 		  $data = $request->all();
 
-			/*User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-			'admin' => '0',
-            'password' => bcrypt($data['password']),
-			'phone' => $data['phone']
-			
-        ]);*/
 		$name=$data['name'];
-		
-		$service=$data['service'];
 		$service=$data['service'];
 		$keywords=$data['keywords'];
 		$description=$data['description'];
+		$title=$data['title'];
+
 
 		
-		
-		DB::insert('insert into subservices (subname, service, keywords, description, subimage) values (?, ?,?,?,?)', [$name,$service,$namef,$keywords,$description]);
+		DB::insert('insert into subservices (subname,description,keywords,service,subimage,title) values (?, ?,?,?,?,?)', [$name,$description,$keywords,$service,$namef,$title]);
 		
 		
 			return back()->with('success', 'Sub service has been created');

@@ -123,10 +123,11 @@ class AddserviceController extends Controller
 		$name=$data['name'];
 		$description=$data['description'];
 		$keywords=$data['keywords'];
+		$title=$data['title'];
 
 
 
-		DB::insert('insert into services (name, image ,description,keywords) values (?, ?, ?, ?)', [$name,$namef,$description,$keywords]);
+		DB::insert('insert into services (name, image ,description,keywords,title) values (?, ?, ?, ?,?)', [$name,$namef,$description,$keywords,$title]);
 		
 		
 			return back()->with('success', 'Service has been created');
