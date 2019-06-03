@@ -18,7 +18,7 @@ $url = URL::to("/");
                   <li><a href="<?php echo $url;?>/admin"><i class="fa fa-laptop"></i> Dashboard </a></li>
 				  <li><a href="<?php echo $url;?>/admin/subadmin"><i class="fa fa-user"></i> SubAdmin </a></li>
 				  <li><a href="<?php echo $url;?>/admin/users"><i class="fa fa-user"></i> Users </a></li>
-				  <li><a href="<?php echo $url;?>/admin/vendors"><i class="fa fa-cog"></i> Vendor </a></li>
+				  <li><a href="<?php echo $url;?>/admin/vendors"><i class="fa fa-cog"></i> Seller </a></li>
 				  <li><a href="<?php echo $url;?>/admin/services"><i class="fa fa-cog"></i> Category</a></li>
 				  <li><a href="<?php echo $url;?>/admin/subservices"><i class="fa fa-cog"></i> Sub Category </a></li>
 				  <li><a href="<?php echo $url;?>/admin/supersubservices"><i class="fa fa-cog"></i> SuperSub Category </a></li>

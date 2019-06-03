@@ -57,7 +57,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Users</h2>
+                        <h2>Seller</h2>
                         <ul class="nav navbar-right panel_toolbox">
 
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -70,7 +70,7 @@
                         <?php if(config('global.demosite')=="yes"){?>
                         <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span> <a href="#" class="btn btn-primary btndisable">Add User</a>
                         <?php } else { ?>
-                        <a href="<?php echo $url;?>/admin/adduser" class="btn btn-primary">Add Vendor</a>
+                        <a href="<?php echo $url;?>/admin/adduser" class="btn btn-primary">Add Seller</a>
                         <?php } ?>
 
                         <div class="x_content">
@@ -119,6 +119,8 @@
                                         <?php } else { ?>
 
                                         <a href="<?php echo $url;?>/admin/edituser/{{ $user->id }}" class="btn btn-success">Edit</a>
+                                            <a href="<?php echo $url;?>/admin/email/{{ $user->id }}" class="btn btn-info">SendEmail</a>
+
                                         <?php } ?>
                                         <?php if(config('global.demosite')=="yes"){?>
                                         <a href="#" class="btn btn-danger btndisable">Delete</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
