@@ -99,7 +99,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-
+                        <h3 class="filter-heading text-center">Business Rating</h3>
                         <div class="rating">
                             <?php
                             $items = array();
@@ -170,7 +170,7 @@
 
                         &nbsp;&nbsp; </p>
                     <div class="progress">
-                        <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
 
 
@@ -190,7 +190,7 @@
 
                     &nbsp;&nbsp; </p>
                 <div class="progress">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-rating2" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p style="float:left;">
 
@@ -209,7 +209,7 @@
 
                     &nbsp;&nbsp; </p>
                 <div class="progress">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-rating3" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p style="float:left;">
 
@@ -228,7 +228,7 @@
 
                     &nbsp;&nbsp; </p>
                 <div class="progress">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-rating4" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <p style="float:left;">
 
