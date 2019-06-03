@@ -59,9 +59,10 @@ $url = URL::to("/"); ?>
                                 <label for="name" class="col-md-12">Business Name <span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="shop_name" type="text" class="form-control validate[required] text-input" name="businessName" value="<?php echo $editshop[0]->shop_name;?>" autofocus="">
+                                    <input id="shop_name" type="text" class="form-control validate[required] text-input" name="shop_name" value="<?php echo $editshop[0]->shop_name;?>" autofocus="">
                                 </div>
                             </div>
+                            <input type="hidden" name="current_photo" value="<?php echo $editshop[0]->profile_photo;?>">
 
 
 
@@ -69,7 +70,7 @@ $url = URL::to("/"); ?>
                                 <label for="name" class="col-md-12">Business Logo <span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="shop_country" type="file" class="form-control validate[required] text-input" name="shop_logo" value="">
+                                    <input id="shop_country" type="file" class="form-control validate[required] text-input" name="shop_profile_photo" value="">
 
 
                                 </div>
@@ -85,7 +86,7 @@ $url = URL::to("/"); ?>
                                 <label for="name" class="col-md-12">Address<span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="shop_phone_no" type="text" class="form-control validate[required] text-input" name="address" value="<?php echo $editshop[0]->address;?>">
+                                    <input id="shop_phone_no" type="text" class="form-control validate[required] text-input" name="shop_address" value="<?php echo $editshop[0]->address;?>">
 
 
                                 </div>
@@ -95,7 +96,7 @@ $url = URL::to("/"); ?>
                                 <label for="name" class="col-md-12">State<span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="shop_phone_no" type="text" class="form-control validate[required] text-input" name="state" value="<?php echo $editshop[0]->state;?>">
+                                    <input id="shop_phone_no" type="text" class="form-control validate[required] text-input" name="shop_state" value="<?php echo $editshop[0]->state;?>">
 
 
                                 </div>
@@ -105,7 +106,7 @@ $url = URL::to("/"); ?>
                                 <label for="name" class="col-md-12">Pin Code<span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="shop_phone_no" type="text" class="form-control validate[required] text-input" name="pincode" value="<?php echo $editshop[0]->country;?>">
+                                    <input id="shop_phone_no" type="text" class="form-control validate[required] text-input" name="shop_pin_code" value="<?php echo $editshop[0]->country;?>">
 
 
                                 </div>
@@ -132,15 +133,6 @@ $url = URL::to("/"); ?>
 
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="name" class="col-md-12">Business mail <span class="require">*</span></label>
-
-                                <div class="col-md-12">
-                                    <input id="" type="text" class="form-control validate[required] text-input" name="businessmail" value="">
-
-
-                                </div>
-                            </div>
 
                             <div class="webheight"></div>
 
@@ -160,12 +152,13 @@ $url = URL::to("/"); ?>
                                 </div>
                             </div>
 
+                            <input type="hidden" name="current_cover" value="<?php echo $editshop[0]->cover_photo;?>">
 
                             <div class="form-group">
                                 <label for="name" class="col-md-12">Cover Image <span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="shop_country" type="file" class="form-control validate[required] text-input" name="coverimage" value="">
+                                    <input id="shop_country" type="file" class="form-control validate[required] text-input" name="shop_cover_photo" value="">
 
 
                                 </div>
@@ -176,7 +169,7 @@ $url = URL::to("/"); ?>
                                 <label for="name" class="col-md-12">City<span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="shop_pin_code" type="text" class="form-control validate[required] text-input" name="city" value="<?php echo $editshop[0]->city;?>">
+                                    <input id="shop_pin_code" type="text" class="form-control validate[required] text-input" name="shop_city" value="<?php echo $editshop[0]->city;?>">
 
 
                                 </div>
@@ -186,7 +179,7 @@ $url = URL::to("/"); ?>
                                 <label for="name" class="col-md-12">Country<span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="shop_pin_code" type="text" class="form-control validate[required] text-input" name="country" value="<?php echo $editshop[0]->country;?>">
+                                    <input id="shop_pin_code" type="text" class="form-control validate[required] text-input" name="shop_country" value="<?php echo $editshop[0]->country;?>">
 
 
                                 </div>
@@ -215,19 +208,6 @@ $url = URL::to("/"); ?>
 
                                 </div>
                             </div>
-
-
-                            <div class="form-group">
-                                <label for="name" class="col-md-12">Business Contact <span class="require">*</span></label>
-
-                                <div class="col-md-12">
-                                    <input id="" type="text" class="form-control validate[required] text-input" name="businesscontact" value="">
-
-
-                                </div>
-                            </div>
-
-
 
 
 

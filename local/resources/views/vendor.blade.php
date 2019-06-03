@@ -103,6 +103,7 @@
                         <div class="rating">
                             <?php
                             $items = array();
+                            $tyy = "";
                             foreach ($rating as $ratingitmes){
                                 $items[] = $ratingitmes->rating;
                                 ?>

@@ -246,17 +246,7 @@ class ShopController extends Controller
             return view('editshop')->with($data);
     }
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	
@@ -291,7 +281,7 @@ class ShopController extends Controller
 		
 		
 		 $data = $request->all();
-		
+
 		 $editid=$data['editid'];
 		
 
@@ -350,7 +340,6 @@ class ShopController extends Controller
 		 {
 			 if($editid!="")
 			 {
-				 $namef=$data['current_cover'];
 			 }
 			 else
 			 {
@@ -387,7 +376,7 @@ class ShopController extends Controller
 			 }
 			 else
 			 {
-				 
+
 			 $namepro="";
 			 }
 		 }
@@ -398,7 +387,6 @@ class ShopController extends Controller
 		$shop_pin_code=$data['shop_pin_code'];
 		$shop_country=$data['shop_country'];
 		$shop_state=$data['shop_state'];
-		$shop_phone_no=$data['shop_phone_no'];
 		$legal=$data['legal'];
 		$establishment=$data['establishment'];
 		$sellermail = Auth::user()->email;
@@ -418,16 +406,15 @@ class ShopController extends Controller
 			if($shopcnt==0)
 			{
 
-		DB::insert('insert into shop (shop_name,address,city,pin_code,country,state,shop_phone_no,cover_photo,profile_photo,seller_email,user_id,legal_status,nature_of_business,gst_number,establishment) values (? , ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?,?)',
-		[$shop_name,$shop_address,$shop_city,$shop_pin_code,$shop_country,$shop_state,$shop_phone_no,$namef,$namepro,$sellermail,$sellerid,$legal,$nature,$gst,$establishment]);
+		DB::insert('insert into shop (shop_name,address,city,pin_code,country,state,cover_photo,profile_photo,seller_email,user_id,legal_status,nature_of_business,gst_number,establishment) values (? , ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?,?)',
+		[$shop_name,$shop_address,$shop_city,$shop_pin_code,$shop_country,$shop_state,$namef,$namepro,$sellermail,$sellerid,$legal,$nature,$gst,$establishment]);
 
 			}
 
 		}
 		else if($editid!="")
 		{
-			DB::update('update shop set shop_name="'.$shop_name.'",address="'.$shop_address.'",city="'.$shop_city.'",pin_code="'.$shop_pin_code.'",country="'.$shop_country.'",
-			shop_phone_no="'.$shop_phone_no.'",cover_photo="'.$namef.'",profile_photo="'.$namepro.'",seller_email="'.$sellermail.'",user_id="'.$sellerid.'",legal_status= "'.$legal.'", nature_of_business=  "'.$nature.'" ,gst_number= "'.$gst.'" , establishment="'.$gst.'"  where id = ?', [$editid]);
+			DB::update('update shop set shop_name="'.$shop_name.'",address="'.$shop_address.'",city="'.$shop_city.'",pin_code="'.$shop_pin_code.'",country="'.$shop_country.'",cover_photo="'.$namef.'",profile_photo="'.$namepro.'",seller_email="'.$sellermail.'",user_id="'.$sellerid.'",legal_status= "'.$legal.'", nature_of_business=  "'.$nature.'" ,gst_number= "'.$gst.'" , establishment="'.$gst.'"  where id = ?', [$editid]);
 		}
 		
 		
