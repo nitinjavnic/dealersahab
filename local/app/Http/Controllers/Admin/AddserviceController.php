@@ -129,12 +129,12 @@ class AddserviceController extends Controller
 
 		DB::insert('insert into services (name, image ,description,keywords,title) values (?, ?, ?, ?,?)', [$name,$namef,$description,$keywords,$title]);
 		
-		
-			return back()->with('success', 'Service has been created');
-        
-		
-		
-		}
+		    $url1= 'admin/services';
+            return redirect($url1)->with('success', 'Service has been created');
+
+
+
+        }
 		
 		
 		

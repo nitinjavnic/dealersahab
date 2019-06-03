@@ -128,9 +128,9 @@ class AddsupersubserviceController extends Controller
             $subservice=$data['subservice'];
 
             DB::insert('insert into subsuperservice (subsupername, service, subservice, supersubimage) values (?, ?,? ,?)', [$name,$service,$subservice,$namef]);
+            $url1= 'admin/supersubservices';
+            return redirect($url1)->with('success', 'Super Sub service has been created');
 
-
-            return back()->with('success', 'Super Sub service has been created');
         }
 
 

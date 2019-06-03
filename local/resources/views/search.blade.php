@@ -385,7 +385,7 @@
 						<p><b>  Nature of Business-</b> Dealer</p>
 					<p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
 						<p><b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p>
-						<a href="#" class="btn btn-warning">View Details</a>
+						<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>/<?php echo $shop->super_category;?>" class="btn btn-warning">View Details</a>
 				</div>
 					<div class="col-md-5">
 						<div class="well well-sm">

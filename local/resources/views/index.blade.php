@@ -436,8 +436,14 @@ $setid=1;
                         <div class="card-body">
                             <h6 class="card-subtitle mb-2 text-muted"><?php echo $blog->date_time; ?> <span class="f-right">By Admin</span> </h6>
                             <h4 class="card-title"><?php  echo $blog->blog_titile;?></h4>
-                            <p class="card-text"><?php echo $blog->blog_text ?></p>
-                            <a href="#!" class="card-link">MORE</a>
+                            <p class="card-text">
+                                <?php
+                                 echo  str_limit($blog->blog_text, 100);
+
+                                ?>
+
+                            </p>
+                            <a href="<?php echo $url;?>/blogList" class="card-link">MORE</a>
                         </div>
                     </div>
                 </div>

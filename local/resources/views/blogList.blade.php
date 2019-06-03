@@ -57,13 +57,13 @@
 
 
             <div class="row test">
-               <?php foreach ($blog as $blog) {?>
+               <?php foreach ($blog as $blogs) {?>
                 <div class="row review-point ">
                     <div class="col-md-2 blog-img">
                         <?php
                         $servicephoto="/blogphoto/";
-                        $path ='/local/images'.$servicephoto.$blog->photo;
-                        if($blog->photo!=""){
+                        $path ='/local/images'.$servicephoto.$blogs->photo;
+                        if($blogs->photo!=""){
                         ?>
                         <td><img src="<?php echo $url.$path;?>"></td>
                         <?php } else { ?>
@@ -72,10 +72,10 @@
 
                     </div>
                     <div class="col-md-10 blog-info ">
-                        <a href="http://localhost/dealersahab/vendor/wpchecking"><h3><strong><?php echo $blog->blog_titile ?></strong></h3></a>
-                        <p><?php echo $blog->blog_text; ?></p>
+                        <a href="http://localhost/dealersahab/vendor/wpchecking"><h3><strong><?php echo $blogs->blog_titile ?></strong></h3></a>
+                        <p><?php echo $blogs->blog_text; ?></p>
 
-                        <a href="<?php echo $url;?>/readmore/{{ $blog->id }}" class="btn btn-success float-right blog-more-btn">Read more</a>
+                        <a href="<?php echo $url;?>/readmore/{{ $blogs->id }}" class="btn btn-success float-right blog-more-btn">Read more</a>
                     </div>
                 </div>
                 <?php }?>
@@ -93,7 +93,12 @@
 
 
 </div>
+<div class="container" style="text-align:right;">
+    @foreach ($blog as $shop)
+    @endforeach
+    {{ $blog->links() }}
 
+</div>
 
 
 

@@ -148,9 +148,10 @@ class AddsubserviceController extends Controller
 
 		
 		DB::insert('insert into subservices (subname,description,keywords,service,subimage,title) values (?, ?,?,?,?,?)', [$name,$description,$keywords,$service,$namef,$title]);
-		
-		
-			return back()->with('success', 'Sub service has been created');
+
+            $url1= 'admin/subservices';
+            return redirect($url1)->with('success', 'Sub service has been created');
+
         }
 		
 		

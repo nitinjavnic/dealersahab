@@ -69,9 +69,11 @@ class BusinessController extends Controller
             $shop=$data['businessName'];
             $establishment=$data['establishment'];
             $gst=$data['gst'];
+            $user_id = Auth::user()->id;
 
-            DB::insert('insert into shop (shop_name,legal_status,category,sub_category,super_category,nature_of_business,establishment,gst_number,profile_photo) values (?, ?, ? , ?, ?, ?, ?, ?, ?)',
-            [$shop,$legal,$service,$subservice,$superSubservice,$nature,$establishment,$gst,$namepro]);
+
+        DB::insert('insert into shop (shop_name,legal_status,category,sub_category,super_category,nature_of_business,establishment,gst_number,profile_photo,user_id) values (?, ?, ? , ?, ?, ?, ?, ?, ?,?)',
+            [$shop,$legal,$service,$subservice,$superSubservice,$nature,$establishment,$gst,$namepro,$user_id]);
              return back()->with('success', 'Business has been created');
 
     }

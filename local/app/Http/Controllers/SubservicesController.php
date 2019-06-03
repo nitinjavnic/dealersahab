@@ -41,23 +41,23 @@ class SubservicesController extends Controller
 	
 	public function sangvish_servicefind($id)
 	{
+
 		$subview=strtolower($id);
 			$results = preg_replace('/-+/', ' ', $subview);
 			
 			 $service_id = DB::table('services')
 			           ->where('name','=', $results)
 					   ->get();
+
 					   
 			$services = DB::table('subservices')
-			           
 			           ->where('service','=', $service_id[0]->id)
-					   ->get();	
+					   ->get();
 
 			$serv_count = DB::table('subservices')
-			           
 			           ->where('service','=', $service_id[0]->id)
-					   ->count();		   
-		
+					   ->count();
+
 		$data = array('services' => $services, 'serv_count' => $serv_count, 'service_id' => $service_id, 'id' => $id);
 
         return view('subservices')->with($data); 

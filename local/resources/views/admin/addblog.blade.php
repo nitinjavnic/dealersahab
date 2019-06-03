@@ -89,20 +89,55 @@
 
 
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Blog title <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Title <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input id="blog_titile" class="form-control col-md-7 col-xs-12"  name="blog_titile" value="{{ old('blog_titile') }}" required="required" type="text">
                                 </div>
                             </div>
 
+
+
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Blog Description <span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Article Name<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="blog_titile" class="form-control col-md-7 col-xs-12"  name="article_name" value="{{ old('blog_titile') }}" required="required" type="text">
+                                </div>
+                            </div>
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">keywords<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="blog_titile" class="form-control col-md-7 col-xs-12"  name="keywords" value="{{ old('blog_titile') }}" required="required" type="text">
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Description <span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
 
                                     <textarea  rows = "5" cols = "50" value="{{ old('blog_text') }}" name ="blog_text"></textarea>
+
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Full Description <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    <textarea  rows = "5" cols = "50" value="{{ old('blog_text') }}" name ="full_description"></textarea>
 
 
                                 </div>

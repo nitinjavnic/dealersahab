@@ -11,6 +11,7 @@
 @include('header')
 
 <!-- slider -->
+<?php $url = URL::to("/"); ?>
 
 <div class="clearfix"></div>
 
@@ -24,10 +25,22 @@
 
 
         <div class="height30"></div>
+        <?php foreach ($blog as $newblog) {?>
         <div class="row test">
+
             <div class="row review-point m-0">
                 <div class="col-md-4 blog-img">
-                    <img src="http://localhost/dealersahab/local/images/shop/1496146095.jpg" alt="">
+
+
+                    <?php
+                    $servicephoto="/blogphoto/";
+                    $path ='/local/images'.$servicephoto.$newblog->photo;
+                    if($newblog->photo!=""){
+                    ?>
+                    <td><img src="<?php echo $url.$path;?>"></td>
+                    <?php } else { ?>
+                    <td><img src="<?php echo $url.'/local/images/noimage.jpg';?>"></td>
+                    <?php } ?>
 
 
                     <div class="text-center center-block pb-10">
@@ -41,7 +54,7 @@
 
                 </div>
 
-                <?php foreach ($blog as $newblog) {?>
+
 
                 <div class="col-md-8 blog-info ">
                     <a href=""><h3><strong><?php echo $newblog->blog_titile; ?></strong></h3></a>
@@ -49,12 +62,12 @@
 
                 </div>
 
-              <?php } ?>
+
 
             </div>
 
         </div>
-
+        <?php } ?>
     </div>
 </div>
 

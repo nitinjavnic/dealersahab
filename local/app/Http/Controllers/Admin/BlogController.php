@@ -34,7 +34,7 @@ class BlogController extends Controller
 
     public function  blogList(){
         $blog = DB::table('blog')
-            ->get();
+        ->paginate(3);
         return view('blogList', ['blog' => $blog]);
 
     }

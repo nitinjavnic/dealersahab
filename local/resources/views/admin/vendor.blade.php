@@ -96,8 +96,6 @@
 
                                 $i=1;
                                 foreach ($users as $user) { $sta=$user->admin; if($sta==1){ $viewst="Admin"; } else if($sta==2) { $viewst="Seller"; } else if($sta==0) { $viewst="Customer"; }?>
-
-
                                 <tr>
                                     <td><?php echo $i;?></td>
                                     <?php
@@ -113,6 +111,11 @@
                                     <td><?php echo $user->sellertype;?></td>
                                     <td><?php echo $user->email;?></td>
                                     <td><?php echo $user->phone;?></td>
+                                    <?php
+                                    $seller = DB::table('shop')
+                                        ->where('user_id', '=', $user->id)
+                                        ->get();
+                                   ?>
                                     <td>
                                         <?php if(config('global.demosite')=="yes"){?>
                                         <a href="#" class="btn btn-success btndisable">Edit</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>

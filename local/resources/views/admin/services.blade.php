@@ -41,8 +41,8 @@
        @include('admin.top')
 		
 		<?php $url = URL::to("/"); ?>
-		
-		
+
+
         <!-- /top navigation -->
 
         <!-- page content -->
@@ -50,12 +50,11 @@
           <!-- top tiles -->
          
 		 
-		 
-		 
-		 
+
 		 
 		 <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
+
                   <div class="x_title">
                     <h2>Category</h2>
                     <ul class="nav navbar-right panel_toolbox">
