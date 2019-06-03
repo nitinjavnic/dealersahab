@@ -97,9 +97,9 @@
 
 						<li>
 							<a href="<?php echo $url;?>/dashboard">
-								<i class="fa fa-user" aria-hidden="true"></i>
+								<i class="fa fa-cogs" aria-hidden="true"></i>
 
-								Personal Detail </a>
+								Account Settings </a>
 						</li>
 
 						<li>
@@ -111,29 +111,24 @@
 
 						<li>
 							<a href="<?php echo $url;?>/my_bookings">
-								<i class="fa fa-user" aria-hidden="true"></i>
+								<i class="fa fa-list-alt" aria-hidden="true"></i>
 
 								My Booking </a>
 						</li>
 
 						<li>
 							<a href="<?php echo $url;?>/pinnedseller">
-								<i class="fa fa-user" aria-hidden="true"></i>
+								<i class="fa fa-thumb-tack" aria-hidden="true"></i>
 
 								Pinned Seller </a>
 						</li>
-						<li>
-							<a href="<?php echo $url;?>/dashboard">
-								<i class="fa fa-user" aria-hidden="true"></i>
 
-								Account Settings </a>
-						</li>
 
 				     	<?php if(Auth::user()->admin==2) { ?>
 
 						<li>
 							<a href="<?php echo $url;?>/showinquery">
-								<i class="fa fa-user" aria-hidden="true"></i>
+								<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 
 								My Inquery </a>
 						</li>
