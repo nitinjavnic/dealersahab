@@ -1857,7 +1857,7 @@ body
 	}
 	.migrateshop_othernav
 	{
-		background:#fff !important;
+		background:#f4f4f4 !important;
 		border-bottom:1px solid #e1e3e3;
 
 
@@ -3110,6 +3110,10 @@ footer{background:#f4f4f4;}
 .p-20{padding:20px;}
 
 .mb-10{margin-bottom: 10px;}
-.bg-rating4{background: #a0ff07;}
-.bg-rating3{background: #c9ea46;}
-.bg-rating2{background: #e6f500;}
+.bg-rating4{background: #9ace6a;}
+.bg-rating3{background: #ffcf02;}
+.bg-rating2{background: #ff9f02;}
+.bg-rating2{background: #ff9f02;}
+.bg-rating1{background: #ff6f31;}
+.bg-rating5{background: #57bb8a;}
+.panel{border-radius: 0px!important;}

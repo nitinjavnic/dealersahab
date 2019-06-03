@@ -48,7 +48,7 @@
         </div>
 	
 	<div class="col-md-4 border-shadow">
-        <h2 class="heading-0"><?php echo $contact[0]->page_title;?></h2>
+        <h3 class="heading-0"><?php echo $contact[0]->page_title;?></h3>
 	<form class="form-horizontal" role="form" method="POST" action="{{ route('contact') }}" id="formID" enctype="multipart/form-data">
                         {{ csrf_field() }}
 	
