@@ -75,6 +75,12 @@ $url = URL::to("/"); ?>
                                 </div>
                             </div>
 
+
+
+
+
+
+
                             <div class="form-group">
                                 <label for="name" class="col-md-12">Address<span class="require">*</span></label>
 
