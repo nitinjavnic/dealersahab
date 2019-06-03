@@ -292,11 +292,9 @@ class ShopController extends Controller
 		
 		 $data = $request->all();
 		
-		$editid=$data['editid'];
+		 $editid=$data['editid'];
 		
-		
-         
-		 
+
 		 
 		 $rules = array(
                
@@ -393,98 +391,23 @@ class ShopController extends Controller
 			 $namepro="";
 			 }
 		 }
-		 
-	      
-		  
-		
-	
-		
 
-			
 		$shop_name=$data['shop_name'];
 		$shop_address=$data['shop_address'];
-		
 		$shop_city=$data['shop_city'];
 		$shop_pin_code=$data['shop_pin_code'];
-		
-		
 		$shop_country=$data['shop_country'];
 		$shop_state=$data['shop_state'];
-		
 		$shop_phone_no=$data['shop_phone_no'];
-		$shop_desc=$data['shop_desc'];
-		$shop_working_days=$data['shop_working_days'];
-		
-		$shop_start_time=$data['shop_start_time'];
-		$shop_end_time=$data['shop_end_time'];
-		
-		
-		
-		
-					if($shop_start_time > 12)
-					{
-						$start=$shop_start_time - 12;
-						$stime=$start."PM";
-					}
-					else
-					{
-						$stime=$shop_start_time."AM";
-					}
-					if($shop_end_time > 12)
-					{
-						$end=$shop_end_time-12;
-						$etime=$end."PM";
-					}
-					else
-					{
-						$etime=$shop_end_time."AM";
-					}
-		
-		
-		
-		
-		
-		$shop_booking_upto=$data['shop_booking_upto'];
-		$shop_booking_hour=$data['shop_booking_hour'];
-		
-		
-		
-		
-		$workdays="";
-		foreach($shop_working_days as $working_days)
-		{
-			$workdays .=$working_days.',';
-		}
-		$workingdays=rtrim($workdays,",");
-		
+		$legal=$data['legal'];
 		$sellermail = Auth::user()->email;
-		
+		$nature=$data['nature'];
+		$gst=$data['gst'];
+
 		$sellerid = Auth::user()->id;
 		
-		
-		$featured="no"; 
-		
-		$status="unapproved"; 
-		
-		$admin_email_status=0;
-		
-		$adminid=1;
-		
-		if(!empty($data['status']))
-		{
-		$editstatus=$data['status'];
-		}
-		else
-		{
-			$editstatus="";
-		}
-		
-		$site_logo=$data['site_logo'];
-		
-		$site_name=$data['site_name'];
-		
-		
 		$sellermaile = Auth::user()->email;
+
     	 $shopcnt = DB::table('shop')
 		 ->where('seller_email', '=', $sellermaile)
 		 ->count();
@@ -493,79 +416,25 @@ class ShopController extends Controller
 		{
 			if($shopcnt==0)
 			{
-		
-		 
-		
-		DB::insert('insert into shop (shop_name,address,city,pin_code,country,state,shop_phone_no,description,shop_date,start_time,end_time,cover_photo,
-		profile_photo,seller_email,user_id,featured,status,admin_email_status,booking_opening_days,booking_per_hour) values (?, ? , ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', 
-		[$shop_name,$shop_address,$shop_city,$shop_pin_code,$shop_country,$shop_state,$shop_phone_no,$shop_desc,$workingdays,$shop_start_time,
-		$shop_end_time,$namef,$namepro,$sellermail,$sellerid,$featured,$status,$admin_email_status,$shop_booking_upto,$shop_booking_hour]);
-		
-		
-		
-		
 
-       Mail::send('shopuseremail', ['shop_name' => $shop_name, 'address' => $shop_address, 'city' => $shop_city, 'pin_code' => $shop_pin_code, 'country' => $shop_country,
-	   'state' => $shop_state, 'shop_phone_no' => $shop_phone_no, 'description' => $shop_desc, 'booking_opening_days' => $shop_booking_upto,
-	   'booking_per_hour' => $shop_booking_hour, 'stime' => $stime, 'etime' => $etime, 'site_logo' => $site_logo, 'site_name' => $site_name ], function ($message)
-        {
-            $message->subject('Shop Created Successfully');
-			
-           /* $message->from(Auth::user()->email, Auth::user()->name);
-
-            $message->to(Input::get('admin_email_id')); */
-			
-			
-			$message->from(Input::get('admin_email_id'), 'Admin');
-
-            $message->to(Input::get('admin_email_id'));
-			
-			
-
-        });
-		
-		
-		
-		
-		Mail::send('shopadminemail', ['shop_name' => $shop_name, 'address' => $shop_address, 'city' => $shop_city, 'pin_code' => $shop_pin_code, 'country' => $shop_country,
-	   'state' => $shop_state, 'shop_phone_no' => $shop_phone_no, 'description' => $shop_desc, 'booking_opening_days' => $shop_booking_upto,
-	   'booking_per_hour' => $shop_booking_hour, 'stime' => $stime, 'etime' => $etime, 'site_logo' => $site_logo, 'site_name' => $site_name ], function ($message)
-        {
-            $message->subject('New Shop Created');
-			
-            $message->from(Input::get('admin_email_id'), 'Admin');
-
-            $message->to(Auth::user()->email);
-
-        });
-		
-		
-		
-		
-		
-		
+		DB::insert('insert into shop (shop_name,address,city,pin_code,country,state,shop_phone_no,cover_photo,profile_photo,seller_email,user_id,legal_status,nature_of_business,gst_number) values (? , ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+		[$shop_name,$shop_address,$shop_city,$shop_pin_code,$shop_country,$shop_state,$shop_phone_no,$namef,$namepro,$sellermail,$sellerid,$legal,$nature,$gst]);
 
 			}
-		
-		
-		
-		
+
 		}
 		else if($editid!="")
 		{
 			DB::update('update shop set shop_name="'.$shop_name.'",address="'.$shop_address.'",city="'.$shop_city.'",pin_code="'.$shop_pin_code.'",country="'.$shop_country.'",
-			state="'.$shop_state.'",shop_phone_no="'.$shop_phone_no.'",description="'.$shop_desc.'",shop_date="'.$workingdays.'",start_time="'.$shop_start_time.'",
-			end_time="'.$shop_end_time.'",cover_photo="'.$namef.'",profile_photo="'.$namepro.'",seller_email="'.$sellermail.'",user_id="'.$sellerid.'",featured="'.$featured.'",
-			status="'.$editstatus.'",admin_email_status="'.$admin_email_status.'",booking_opening_days="'.$shop_booking_upto.'",booking_per_hour="'.$shop_booking_hour.'" where id = ?', [$editid]);
+			shop_phone_no="'.$shop_phone_no.'",cover_photo="'.$namef.'",profile_photo="'.$namepro.'",seller_email="'.$sellermail.'",user_id="'.$sellerid.'",legal_status= "'.$legal.'", nature_of_business=  "'.$nature.'" ,gst_number= "'.$gst.'"where id = ?', [$editid]);
 		}
 		
 		
-			/* return back()->with('success', 'Shop has been created');*/
+			 return back()->with('success', 'Shop has been created');
 			
 			
         
-		return redirect('shop');
-		
+
 		
 		
       }

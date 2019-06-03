@@ -88,7 +88,6 @@ $setts = DB::table('settings')
 
 
                         <li><a href="<?php echo $url;?>/dashboard">Personal Detail</a></li>
-                        <li><a href="<?php echo $url;?>/business">Business Detail</a></li>
                         <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/services" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>My Product</a></li>
                         <li><a href="<?php if(empty($shcount)){?><?php echo $url;?>/addshop<?php } else { ?><?php echo $url;?>/shop<?php } ?>">My Business</a></li>
 
