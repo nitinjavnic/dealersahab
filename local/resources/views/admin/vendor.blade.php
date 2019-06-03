@@ -118,15 +118,16 @@
                                         <a href="#" class="btn btn-success btndisable">Edit</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
                                         <?php } else { ?>
 
-                                        <a href="<?php echo $url;?>/admin/edituser/{{ $user->id }}" class="btn btn-success">Edit</a>
-                                            <a href="<?php echo $url;?>/admin/email/{{ $user->id }}" class="btn btn-info">SendEmail</a>
-
+                                        <a href="<?php echo $url;?>/admin/edituser/{{ $user->id }}" class="btn btn-success btn-xs">Edit</a>
+                                            <a href="<?php echo $url;?>/admin/email/{{ $user->id }}" class="btn btn-info btn-xs">SendEmail</a>
+                                            <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".bd-example-modal-lg">View More</a>
                                         <?php } ?>
                                         <?php if(config('global.demosite')=="yes"){?>
                                         <a href="#" class="btn btn-danger btndisable">Delete</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
-                                        <?php } else { ?>
 
-                                        @if($sta!=1)<a href="<?php echo $url;?>/admin/users/{{ $user->id }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a> @endif
+                                            <?php } else { ?>
+
+                                        @if($sta!=1)<a href="<?php echo $url;?>/admin/users/{{ $user->id }}" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete this?')">Delete</a> @endif
 
                                         <?php } ?>
                                     </td>
@@ -142,6 +143,33 @@
                 </div>
 
 
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-md">
+                        <div class="modal-content admin-table">
+                            <div class="modal-header">
+
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <table class="table table-bordered" style="width:96%; margin:2%;">
+                                <tbody>
+                                <tr>
+
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                </tr>
+                                <tr>
+
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
 
 
