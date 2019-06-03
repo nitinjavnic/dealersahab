@@ -8,13 +8,7 @@
             display: none;
         }
     </style>
-    <div class="headerbg">
-        <div class="row">
-            <div class="col-md-12" align="center"><h1>Post Your Requirement</h1>
 
-            </div>
-        </div>
-    </div>
 
     <div class="height30"></div>
 
@@ -23,7 +17,7 @@
             <div class="col-md-4 "></div>
             <div class="col-md-4">
                 <div class="panel panel-default border-shadow">
-                    <div class="panel-heading">Requirement</div>
+                    <h3 class=" heading-0">Post Your Requirement</h3>
 
                     <div class="panel-body">
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('save_post') }}">

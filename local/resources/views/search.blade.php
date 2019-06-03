@@ -437,7 +437,7 @@
 
 									&nbsp;&nbsp; </p>
 								<div class="progress">
-									<div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar bg-rating1" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
 								<p style="float:left; font-weight: bold;">
 									<?php
@@ -512,7 +512,7 @@
 
 									&nbsp;&nbsp; </p>
 								<div class="progress">
-									<div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+									<div class="progress-bar bg-rating5 " role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 								</div>
 						</div>
 						<div class="text-center mb-10">
