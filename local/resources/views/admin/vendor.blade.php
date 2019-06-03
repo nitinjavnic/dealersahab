@@ -95,7 +95,20 @@
 
 
                                 $i=1;
-                                foreach ($users as $user) { $sta=$user->admin; if($sta==1){ $viewst="Admin"; } else if($sta==2) { $viewst="Seller"; } else if($sta==0) { $viewst="Customer"; }?>
+                                foreach ($users as $user)
+                                {
+                                    $sta=$user->admin; if($sta==1){
+                                    $viewst="Admin";
+                                }
+                                else if($sta==2) {
+                                    $viewst="Seller"; }
+                                else if($sta==0) {
+                                    $viewst="Customer";
+                                }
+                                $term_arr[]=$user->id;;
+
+
+                                ?>
                                 <tr>
                                     <td><?php echo $i;?></td>
                                     <?php
@@ -156,26 +169,50 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
+
                             <table class="table table-bordered" style="width:96%; margin:2%;">
                                 <tbody>
                                 <tr>
-
-                                    <td>Mark</td>
-                                    <td>Otto</td>
+                                    <td>Seller Name</td>
+                                    <td><?php echo $seller[0]->shop_name ?></td>
                                 </tr>
                                 <tr>
 
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
+                                    <td>Seller phone_no</td>
+                                    <td><?php echo $seller[0]->shop_phone_no ?></td>
                                 </tr>
+
+                                <tr>
+
+                                    <td>Seller Email</td>
+                                    <td><?php echo $seller[0]->seller_email ?></td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>Nature of business</td>
+                                    <td><?php echo $seller[0]->nature_of_business ?></td>
+                                </tr>
+
+                                <tr>
+
+                                    <td>Establishment</td>
+                                    <td><?php echo $seller[0]->establishment ?></td>
+                                </tr>
+
+
+                                <tr>
+
+                                    <td>GST Number</td>
+                                    <td><?php echo $seller[0]->gst_number ?></td>
+                                </tr>
+
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-
-
-
 
 
             </div>

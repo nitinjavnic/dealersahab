@@ -118,7 +118,7 @@
 							  
 							  <option value=""></option>
 							   <option value="0">Customer</option>
-							   <option value="2">Vendor</option>
+							   <option value="2">Seller</option>
 							</select>
                                
                             </div>

@@ -99,6 +99,29 @@
                                 @endif
 					   </div>
                       </div>
+
+
+
+                       <div class="item form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Nature Of business <span class="required">*</span>
+                           </label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+                               <input id="name" class="form-control col-md-7 col-xs-12"  name="nature_of_business" value="<?php echo $seller[0]->nature_of_business; ?>" required="required" type="text">
+
+                           </div>
+                       </div>
+
+
+                       <div class="item form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Business Name <span class="required">*</span>
+                           </label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+                               <input id="name" class="form-control col-md-7 col-xs-12"  name="businessname" value="<?php echo $seller[0]->nature_of_business; ?>" required="required" type="text">
+
+                           </div>
+                       </div>
+
+
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
                         </label>

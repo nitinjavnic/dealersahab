@@ -33,8 +33,9 @@ class EdituserController extends Controller
 	
 	public function showform($id) {
       $users = DB::select('select * from users where id = ?',[$id]);
+      $seller = DB::select('select * from shop where user_id = ?',[$id]);
 	  $userid = $id;
-      return view('admin.edituser',['users'=>$users, 'userid' => $userid]);
+      return view('admin.edituser',['users'=>$users, 'userid' => $userid,'seller'=>$seller]);
    }
 	
     /**
