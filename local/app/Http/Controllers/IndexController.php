@@ -63,11 +63,16 @@ class IndexController extends Controller
             ->count();
         $fourth = DB::select('select * from subservices where service = ?',[$four[0]->id]);
 
-        $testimonials = DB::table('testimonials')->orderBy('id', 'desc')->get();
 
         $blog = DB::table('blog')->orderBy('id', 'desc')
             ->where('is_active','1')
             ->limit(3)->get();
+
+
+        $testimonials = DB::table('testimonials')->orderBy('id', 'desc')
+            ->where('is_active','1')
+            ->limit(3)->get();
+
 
 
 

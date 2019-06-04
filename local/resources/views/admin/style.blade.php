@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	{!!Html::script('local/resources/assets/admin/vendors/jquery/dist/jquery.min.js')!!}
+	{!!Html::script('local/resources/assets/admin/ckeditor/ckeditor.js')!!}
 
 
 	<!-- Bootstrap -->

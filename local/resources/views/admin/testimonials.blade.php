@@ -82,6 +82,7 @@
 						  <th>Image</th>
                           <th>Name</th>
                           <th>Description</th>
+                          <th>Rating</th>
                           <th>Action</th>
                           
                         </tr>
@@ -106,6 +107,7 @@
                           <td><?php echo $testimonial->name;?></td>
                           
 						  <td><?php echo substr($testimonial->description,0,70).'...';?></td>
+						  <td><?php echo $testimonial->star;?></td>
 						  <td>
 						  
 						   <?php if(config('global.demosite')=="yes"){?>
@@ -118,7 +120,18 @@
 				    <a href="#" class="btn btn-danger btndisable">Delete</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
 				  <?php } else { ?>
 						 <a href="<?php echo $url;?>/admin/testimonials/{{ $testimonial->id }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
-						  <?php } ?>
+
+                               <?php if($testimonial->is_active==1){ ?>
+                               <a href="<?php echo $url;?>/admin/activetestmonial/{{ $testimonial->id }}" class="btn btn-info">Active</a>
+
+                               <?php }else if($testimonial->is_active==0){ ?>
+                               <a href="<?php echo $url;?>/admin/activetestmonial/{{ $testimonial->id }}" class="btn btn-info">Deactive</a>
+                               <?php } ?>
+
+
+
+
+                               <?php } ?>
 						  </td>
                         </tr>
                         <?php $i++;} ?>

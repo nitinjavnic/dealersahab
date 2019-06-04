@@ -132,12 +132,6 @@ class ShopController extends Controller
 
  public function sangvish_addshop()
     {
-       
-		
-		
-		
-		
-		
 
       $time = array("12:00 AM"=>"0", "01:00 AM"=>"1", "02:00 AM"=>"2", "03:00 AM"=>"3", "04:00 AM"=>"4", "05:00 AM"=>"5", "06:00 AM"=>"6", "07:00 AM"=>"7", "08:00 AM"=>"8",
 	 "09:00 AM"=>"9", "10:00 AM"=>"10", "11:00 AM"=>"11", "12:00 PM"=>"12", "01:00 PM"=>"13", "02:00 PM"=>"14", "03:00 PM"=>"15", "04:00 PM"=>"16", "05:00 PM"=>"17", "06:00 PM"=>"18",
@@ -167,17 +161,19 @@ class ShopController extends Controller
 		$admin_email_id = DB::table('users')
                 ->where('id', '=', $admin_idd)
                 ->get();
-		
-		
-		
-		$siteid=1;
+        $userid = Auth::user()->id;
+        $editshop = DB::select('select * from shop where user_id = ?',[$userid]);
+
+
+
+        $siteid=1;
 		$site_setting=DB::select('select * from settings where id = ?',[$siteid]);
 		
 		
 		
 		
 		
-		$data = array('time' => $time, 'days' =>  $days, 'daytxt' => $daytxt, 'shopcount' => $shopcount, 'shop' => $shop, 'admin_email_id' => $admin_email_id,
+		$data = array('time' => $time, 'editshop'=>$editshop,'days' =>  $days, 'daytxt' => $daytxt, 'shopcount' => $shopcount, 'shop' => $shop, 'admin_email_id' => $admin_email_id,
 		'site_setting' => $site_setting);
             return view('addshop')->with($data);
     }
@@ -190,73 +186,21 @@ class ShopController extends Controller
 	public function sangvish_editshop(Request $request)
     {
 
-		$testimonials = DB::table('testimonials')->orderBy('id', 'desc')->get();
-
-      $time = array("12:00 AM"=>"0", "01:00 AM"=>"1", "02:00 AM"=>"2", "03:00 AM"=>"3", "04:00 AM"=>"4", "05:00 AM"=>"5", "06:00 AM"=>"6", "07:00 AM"=>"7", "08:00 AM"=>"8",
-	 "09:00 AM"=>"9", "10:00 AM"=>"10", "11:00 AM"=>"11", "12:00 PM"=>"12", "01:00 PM"=>"13", "02:00 PM"=>"14", "03:00 PM"=>"15", "04:00 PM"=>"16", "05:00 PM"=>"17", "06:00 PM"=>"18",
-	 "07:00 PM"=>"19", "08:00 PM"=>"20", "09:00 PM"=>"21", "10:00 PM"=>"22", "11:00 PM"=>"23");
-	 
-	 $days=array("1 Day" => "1", "2 Days" => "2", "3 Days" => "3", "4 Days" => "4", "5 Days" => "5", "6 Days" => "6", "7 Days" => "7", "8 Days" => "8", "9 Days" => "9",
-			"10 Days" => "10", "11 Days" => "11", "12 Days" => "12", "13 Days" => "13", "14 Days" => "14", "15 Days" => "15", "16 Days" => "16", "17 Days" => "17", "18 Days" => "18",
-			"19 Days" => "19", "20 Days" => "20", "21 Days" => "21", "22 Days" => "22", "23 Days" => "23", "24 Days" => "24", "25 Days" => "25", "26 Days" => "26", "27 Days" => "27",
-			"28 Days" => "28", "29 Days" => "29", "30 Days" => "30");
-		
-		
-	$daytxt=array("Sunday" => "0", "Monday" => "1", "Tuesday" => "2", "Wednesday" => "3", "Thursday" => "4", "Friday" => "5", "Saturday" => "6");
-
-	    $sellermail = Auth::user()->email;
-    	 $shopcount = DB::table('shop')
-		 ->where('seller_email', '=', $sellermail)
-		 ->count();
-
-   
-          $shop = DB::table('shop')
-                ->where('seller_email', '=', $sellermail)
-                ->get();				
-
-		if($shop[0]->start_time > 12)
-					{
-						$start=$shop[0]->start_time - 12;
-						$stime=$start."PM";
-					}
-					else
-					{
-						$stime=$shop[0]->start_time."AM";
-					}
-					if($shop[0]->end_time>12)
-					{
-						$end=$shop[0]->end_time-12;
-						$etime=$end."PM";
-					}
-					else
-					{
-						$etime=$shop[0]->end_time."AM";
-					}
-		
-		$sel=explode(",",$shop[0]->shop_date);
-		$lev=count($sel);
-		
-		
-		$requestid = $request->id;
-		
-		$editshop = DB::select('select * from shop where id = ?',[$requestid]);
-
-		$data = array('time' => $time, 'days' =>  $days, 'daytxt' => $daytxt, 'shopcount' => $shopcount, 'shop' => $shop, 'stime' => $stime,
-		'etime' => $etime, 'lev' => $lev, 'sel' => $sel, 'requestid' => $requestid, 'editshop' => $editshop);
-            return view('editshop')->with($data);
+        $userid = Auth::user()->id;
+        $editshop = DB::select('select * from shop where user_id = ?',[$userid]);
+        $data = array('editshop'=> $editshop);
+        return view('editshop')->with($data);
     }
 	
 
 
 	protected function sangvish_savedata(Request $request)
     {
-        
-		
-		
+
 		 $data = $request->all();
 
 		 $editid=$data['editid'];
-		
+
 
 		 
 		 $rules = array(
@@ -381,7 +325,7 @@ class ShopController extends Controller
 			if($shopcnt==0)
 			{
 
-		DB::insert('insert into shop (shop_name,address,city,pin_code,country,state,cover_photo,profile_photo,seller_email,user_id,legal_status,nature_of_business,gst_number,establishment) values (? , ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?,?)',
+		DB::insert('insert into shop (shop_name,address,city,pin_code,country,state,cover_photo,profile_photo,seller_email,user_id,legal_status,nature_of_business,gst_number,establishment) values (? , ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?)',
 		[$shop_name,$shop_address,$shop_city,$shop_pin_code,$shop_country,$shop_state,$namef,$namepro,$sellermail,$sellerid,$legal,$nature,$gst,$establishment]);
 
 			}

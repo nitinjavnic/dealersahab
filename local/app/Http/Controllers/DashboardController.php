@@ -95,18 +95,14 @@ class DashboardController extends Controller
 	 protected function sangvish_edituserdata(Request $request)
     {
        
-		
-		
-		
+
 		 $this->validate($request, [
 
         		'name' => 'required',
 
         		'email' => 'required|email'
 
-        		
-				
-				
+
 
         	]);
          

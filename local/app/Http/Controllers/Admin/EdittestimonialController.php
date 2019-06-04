@@ -125,7 +125,8 @@ class EdittestimonialController extends Controller
 			
         ]);*/
 		$name=$data['name'];
-		
+		$star=$data['star'];
+
 		
 		$currentphoto=$data['currentphoto'];
 		
@@ -153,7 +154,7 @@ class EdittestimonialController extends Controller
 		
 		$desc=$data['desc'];
 		
-		DB::update('update testimonials set name="'.$name.'",description="'.$desc.'",image="'.$savefname.'" where id = ?', [$id]);
+		DB::update('update testimonials set name="'.$name.'",description="'.$desc.'",image="'.$savefname.'", star= "'.$star.'" where id = ?', [$id]);
 		
 			return back()->with('success', 'Testimonial has been updated');
         }
@@ -162,4 +163,28 @@ class EdittestimonialController extends Controller
 		
 		
     }
+
+
+
+    public function activetestmonial($id){
+
+        $blog = DB::select('select * from testimonials where id = ?',[$id]);
+        $blog_active = $blog[0]->is_active;
+        if($blog_active==0){
+            $blog_text = 1;
+            DB::update('update testimonials set is_active="'.$blog_text.'" where id = ?', [$id]);
+            return back()->with('success', 'Testimonials has been active successfully!');
+
+        }else if ($blog_active==1){
+            $blog_text = 0;
+            DB::update('update testimonials set is_active="'.$blog_text.'" where id = ?', [$id]);
+            return back()->with('success', 'Testimonials has been active successfully!');
+
+        }
+
+
+
+
+    }
+
 }

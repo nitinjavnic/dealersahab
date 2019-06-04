@@ -474,43 +474,21 @@ $setid=1;
 	<div class="col-md-10 nopadding  ">
 
 
+        <?php foreach ($testimonials as $testimonials){ ?>
+            <div class="col-md-4 col-12">
 
-        <div class="col-md-4 col-12">
-
-            <div class="testimons">
-                <h4>Hello</h4>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <p>The Content review workshop is intended to evaluate the various Wikipedia processes that assess and improve content. </p>
+                <div class="testimons">
+                    <h4><?php echo $testimonials->name ?></h4>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <p><?php echo $testimonials->description ?></p>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4 col-12">
-            <div class="testimons">
-                <h4>Hello</h4>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <p>The Content review workshop is intended to evaluate the various Wikipedia processes that assess and improve content. </p>
 
-            </div>
-        </div>
-        <div class="col-md-4 col-12">
-            <div class="testimons">
-                <h4>Hello</h4>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <span class="fa fa-star text-warning"></span>
-                <p>The Content review workshop is intended to evaluate the various Wikipedia processes that assess and improve content. </p>
-
-            </div>
-        </div>
+        <?php } ?>
 
 	</div>
 

@@ -151,10 +151,11 @@ class AddtestimonialController extends Controller
 		$name=$data['name'];
 		
 		$desc=$data['desc'];
+		$star=$data['star'];
+
 		
 		
-		
-		DB::insert('insert into testimonials (name, description , image) values (?, ? ,?)', [$name,$desc,$namef]);
+		DB::insert('insert into testimonials (name, description , image,star) values (?, ? ,?,?)', [$name,$desc,$namef,$star]);
 		
 		
 			return back()->with('success', 'Testimonial has been created');

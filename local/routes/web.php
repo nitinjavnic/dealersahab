@@ -63,7 +63,7 @@ Route::get('/shop', 'ShopController@sangvish_viewshop');
 
 Route::get('/addshop', 'ShopController@sangvish_addshop');
 
-Route::get('/editshop/{id}', 'ShopController@sangvish_editshop');
+Route::get('/editshop', 'ShopController@sangvish_editshop');
 
 Route::get('productDetail/{id}',array('as'=>'productDetail','uses'=>'GetsubserviceController@productDetail'));
 
@@ -249,6 +249,7 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/editservice/{id}','Admin\EditserviceController@showform');
     Route::get('/admin/editblog/{id}','Admin\EditblogController@showform');
     Route::get('/admin/activeblog/{id}','Admin\EditblogController@activeblog');
+    Route::get('/admin/activetestmonial/{id}','Admin\EdittestimonialController@activetestmonial');
     Route::post('/admin/editservice', ['as'=>'admin.editservice','uses'=>'Admin\EditserviceController@editservicedata']);
     Route::post('/admin/editblog', ['as'=>'admin.editblog','uses'=>'Admin\EditblogController@editblogedata']);
 

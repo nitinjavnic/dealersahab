@@ -111,9 +111,23 @@
                         <textarea id="desc" class="form-control col-md-7 col-xs-12" required="required" name="desc">{{ old('desc') }}</textarea>
 					   </div>
                       </div>
-					  
-                      
-                      
+
+
+                       <div class="item form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="usertype">Rating <span class="required">*</span>
+                           </label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+                               <select name="star" required="required" class="form-control col-md-7 col-xs-12">
+                                   <option value="">Choose rating</option>
+                                   <option value="1">1</option>
+                                   <option value="2">2</option>
+                                   <option value="3">3</option>
+                                   <option value="5">4</option>
+                                   <option value="5">5</option>
+                               </select>
+
+                           </div>
+                       </div>
 					  
 					  <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="photo">Image <span class="required">*</span>

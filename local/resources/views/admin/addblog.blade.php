@@ -137,7 +137,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
 
-                                    <textarea  rows = "5" cols = "50" value="{{ old('blog_text') }}" name ="full_description"></textarea>
+                                    <textarea id="editor1" name="blog_text" value=""></textarea>
 
 
                                 </div>

@@ -52,7 +52,7 @@ $url = URL::to("/"); ?>
                     {{ csrf_field() }}
 
 
-                    <input type="hidden" name="editid" value="<?php echo $requestid;?>">
+                    <input type="hidden" name="editid" value="<?php echo $editshop[0]->id;?>">
 
                     <div class="row profile shop">
                         <div class="col-md-6">
