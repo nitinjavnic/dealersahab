@@ -64,8 +64,8 @@
 
                 <div class="col-md-8 product-details">
                     <h3><?php echo $products[0]->product_name ?></h3>
-                    <h5 class="text-dark">Rs <?php echo $products[0]->price ?>/Unit <span class="text-info"> Get Latest Price</span></h5>
-                    <p>Product Brochure</p>
+                    <h5 class="text-dark">Rs <?php echo $products[0]->price ?>/Unit <a class="text-info" href="<?php echo $url;?>/contactseller/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->user_id;?>"> Get Latest Price</a></h5>
+ spaaduct Brochure</p>
                     <h4>Product Features</h4>
                    <p><?php echo $products[0]->productfeature ?></p>
                     <h4>Product Description</h4>

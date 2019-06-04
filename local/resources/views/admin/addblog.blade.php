@@ -122,8 +122,8 @@
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
+                                    <textarea id="editor" name="blog_text" value=""></textarea>
 
-                                    <textarea  rows = "5" cols = "50" value="{{ old('blog_text') }}" name ="blog_text"></textarea>
 
 
                                 </div>
@@ -178,7 +178,18 @@
     </div>
     </div>
 
-
+<script type="text/javascript">
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    ClassicEditor
+        .create( document.querySelector( '#editor1' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
 
 </body>

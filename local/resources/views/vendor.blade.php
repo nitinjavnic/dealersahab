@@ -153,6 +153,92 @@
 
 
 
+                    <p style="float:left;">
+
+                        <?php
+                        if (in_array("5", $items))
+                        {
+                            echo "1";
+                        }
+                        else
+                        {
+                            echo "0";
+                        }
+
+                        ?>
+
+
+                        &nbsp;&nbsp; </p>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+
+                    <p style="float:left;">
+
+                        <?php
+                        if (in_array("4", $items))
+                        {
+                            echo "1";
+                        }
+                        else
+                        {
+                            echo "0";
+                        }
+
+                        ?>
+
+
+                        &nbsp;&nbsp; </p>
+                    <div class="progress">
+                        <div class="progress-bar bg-rating4" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+
+
+                    <p style="float:left;">
+
+                        <?php
+                        if (in_array("3", $items))
+                        {
+                            echo "1";
+                        }
+                        else
+                        {
+                            echo "0";
+                        }
+
+                        ?>
+
+
+                        &nbsp;&nbsp; </p>
+                    <div class="progress">
+                        <div class="progress-bar bg-rating3" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+
+
+                    <p style="float:left;">
+                        <?php
+                        if (in_array("2", $items))
+                        {
+                            echo "1";
+                        }
+                        else
+                        {
+                            echo "0";
+                        }
+
+                        ?>
+
+
+                        &nbsp;&nbsp; </p>
+                    <div class="progress">
+                        <div class="progress-bar bg-rating2" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+
+
 
                     <p style="float:left;">
                         <?php
@@ -175,93 +261,29 @@
                     </div>
 
 
-                <p style="float:left;">
-                    <?php
-                    if (in_array("2", $items))
-                    {
-                        echo "1";
-                    }
-                    else
-                    {
-                        echo "0";
-                    }
-
-                    ?>
 
 
-                    &nbsp;&nbsp; </p>
-                <div class="progress">
-                    <div class="progress-bar bg-rating2" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p style="float:left;">
-
-                    <?php
-                    if (in_array("3", $items))
-                    {
-                        echo "1";
-                    }
-                    else
-                    {
-                        echo "0";
-                    }
-
-                    ?>
 
 
-                    &nbsp;&nbsp; </p>
-                <div class="progress">
-                    <div class="progress-bar bg-rating3" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p style="float:left;">
-
-                    <?php
-                    if (in_array("4", $items))
-                    {
-                        echo "1";
-                    }
-                    else
-                    {
-                        echo "0";
-                    }
-
-                    ?>
-
-
-                    &nbsp;&nbsp; </p>
-                <div class="progress">
-                    <div class="progress-bar bg-rating4" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p style="float:left;">
-
-                    <?php
-                    if (in_array("5", $items))
-                    {
-                        echo "1";
-                    }
-                    else
-                    {
-                        echo "0";
-                    }
-
-                    ?>
-
-
-                    &nbsp;&nbsp; </p>
-                <div class="progress">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
             </div>
 
 
 
 
             <?php if(Auth::check()) { ?>
-            <p class="pt-10">Contact No- <?php echo $shop[0]->shop_phone_no ?></p>
+            <p class="pt-10">Contact No-
+
+                <?php echo $shop[0]->shop_phone_no ?>
+
+            </p>
             <p>Email- <?php echo $shop[0]->seller_email ?></p>
 
-            <?php }
+            <?php }else{?>
 
-            ?>
+            <p class="pt-10">Contact No- xxxxxxxxxx</p>
+            <p>Email- xxx@x.com</p>
+
+        <?php }?>
 
 
             <a href="<?php echo $url;?>/contactseller/<?php echo $shop[0]->id;?>/<?php echo $shop[0]->user_id;?>" class="btn btn-warning btn-lg post-btn">Contact Seller</a>

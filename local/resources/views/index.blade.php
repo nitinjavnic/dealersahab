@@ -443,7 +443,7 @@ $setid=1;
                                 ?>
 
                             </p>
-                            <a href="<?php echo $url;?>/blogList" class="card-link">MORE</a>
+                            <a href="<?php echo $url;?>/readmore/{{ $blog->id }}" class="card-link">MORE</a>
                         </div>
                     </div>
                 </div>

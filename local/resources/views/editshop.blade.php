@@ -62,7 +62,6 @@ $url = URL::to("/"); ?>
                                     <input id="shop_name" type="text" class="form-control validate[required] text-input" name="shop_name" value="<?php echo $editshop[0]->shop_name;?>" autofocus="">
                                 </div>
                             </div>
-                            <input type="hidden" name="current_photo" value="<?php echo $editshop[0]->profile_photo;?>">
 
 
 
@@ -70,7 +69,7 @@ $url = URL::to("/"); ?>
                                 <label for="name" class="col-md-12">Business Logo <span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="shop_country" type="file" class="form-control validate[required] text-input" name="shop_profile_photo" value="">
+                                    <input id="shop_country" type="file" class="form-control col-md-7 col-xs-12" name="shop_profile_photo" value="">
 
 
                                 </div>
@@ -78,6 +77,27 @@ $url = URL::to("/"); ?>
 
 
 
+                            <?php
+                            $servicephoto="/shop/";
+                            $path ='/local/images'.$servicephoto.$editshop[0]->profile_photo;
+                            if($editshop[0]->profile_photo!=""){
+                            ?>
+                            <div class="item form-group" align="center">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <img src="<?php echo $url.$path;?>" class="thumb " width="100" style="float:left" height="100">
+                                </div>
+                            </div>
+                            <?php } else { ?>
+                            <div class="item form-group" align="center">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="thumb " width="100" height="100" style="float:left">
+                                </div>
+                            </div>
+                            <?php } ?>
+
+
+
+                            <input type="hidden" name="current_photo" value="<?php echo $editshop[0]->profile_photo;?>">
 
 
 
@@ -123,12 +143,15 @@ $url = URL::to("/"); ?>
 
                                     <select id="change_category" class="form-control validate[required]" name="legal" required="">
 
-                                        <option value="">Select Legal status</option>
-                                        <option value="registered">Registered</option>
-                                        <option value="unregistered">Unregistered</option>
+                                        <option value="registered"<?php if($editshop[0]->legal_status == 'registered') { ?> selected="selected"<?php } ?>>registered</option>
+                                        <option value="unregistered"<?php if($editshop[0]->legal_status == 'unregistered') { ?> selected="selected"<?php } ?>>unregistered</option>
+
+
 
 
                                     </select>
+
+
 
 
                                 </div>
@@ -152,17 +175,43 @@ $url = URL::to("/"); ?>
                                 </div>
                             </div>
 
-                            <input type="hidden" name="current_cover" value="<?php echo $editshop[0]->cover_photo;?>">
 
                             <div class="form-group">
                                 <label for="name" class="col-md-12">Cover Image <span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="shop_country" type="file" class="form-control validate[required] text-input" name="shop_cover_photo" value="">
+                                    <input id="shop_country" type="file" class="form-control col-md-7 col-xs-12" name="shop_cover_photo" value="">
 
 
                                 </div>
                             </div>
+
+
+                            <?php
+                            $servicephoto="/shop/";
+                            $path ='/local/images'.$servicephoto.$editshop[0]->cover_photo;
+                            if($editshop[0]->cover_photo!=""){
+                            ?>
+                            <div class="item form-group" align="center">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <img src="<?php echo $url.$path;?>" class="thumb" width="100" style="float:left" height="100">
+                                </div>
+                            </div>
+                            <?php } else { ?>
+                            <div class="item form-group" align="center">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="thumb" width="100" style="float:left" height="100">
+                                </div>
+                            </div>
+                            <?php } ?>
+
+
+                            <input type="hidden" name="current_cover" value="<?php echo $editshop[0]->cover_photo;?>">
+
+
+
+
+
 
 
                             <div class="form-group">
@@ -192,7 +241,7 @@ $url = URL::to("/"); ?>
                                 <label for="name" class="col-md-12"> Year Of Establishment<span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="shop_pin_code" type="text" class="form-control validate[required] text-input" name="establishment" value="">
+                                    <input id="shop_pin_code" type="text" class="form-control validate[required] text-input" name="establishment" value="<?php echo $editshop[0]->establishment;?>">
 
 
                                 </div>
@@ -203,7 +252,7 @@ $url = URL::to("/"); ?>
                                 <label for="name" class="col-md-12">GST Number <span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="" type="text" class="form-control validate[required] text-input" name="gst" value="">
+                                    <input id="" type="text" class="form-control validate[required] text-input" name="gst" value="<?php echo $editshop[0]->gst_number;?>">
 
 
                                 </div>
@@ -222,7 +271,7 @@ $url = URL::to("/"); ?>
                     <div class="row">
                         <div class="col-md-12">
 
-                            <a href="http://localhost/dealerSahab/shop" class="btn btn-primary radiusoff">
+                            <a href="#" class="btn btn-primary radiusoff">
                                 Reset
                             </a>
 

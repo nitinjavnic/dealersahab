@@ -217,7 +217,6 @@ class GetsubserviceController extends Controller
 
     public function filter(Request $request){
         $data = $request->all();
-
         $id = $data['id'];
         $categoryShop = DB::table('shop')->where('category', $id)->get();
         $shop = array();

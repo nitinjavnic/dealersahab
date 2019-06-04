@@ -247,34 +247,7 @@ class ShopController extends Controller
     }
 	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	protected function sangvish_savedata(Request $request)
     {
         
@@ -340,7 +313,9 @@ class ShopController extends Controller
 		 {
 			 if($editid!="")
 			 {
-			 }
+                 $namef=$data['current_cover'];
+
+             }
 			 else
 			 {
 			 $namef="";
