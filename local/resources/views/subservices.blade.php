@@ -50,10 +50,10 @@ else
 
 <div class="video">
     <div class="clearfix"></div>
-    <div class="headerbg">
-        <div class="col-md-12" align="center"><h1><?php if(!empty($service_id[0]->name)){?><?php echo $service_id[0]->name; ?><?php } else { ?>Services<?php } ?></h1></div>
-    </div>
 
+    <div class="">
+        <div class="col-md-12 fancy" align="center"><h2><?php if(!empty($service_id[0]->name)){?><?php echo $service_id[0]->name; ?><?php } else { ?>Services<?php } ?></h1></h2></div>
+    </div>
 
     <div class="container">
 

@@ -43,7 +43,8 @@ $url = URL::to("/"); ?>
     <div class="container">
         <div class="clearfix"></div>
         <div class="panel panel-default border-shadow">
-            <div class="panel-heading">Add Business Details</div>
+
+            <h3 class="heading-0">Add Business Details</h3>
             <div class="panel-body">
                 <div class="clearfix"></div>
 
@@ -134,7 +135,7 @@ $url = URL::to("/"); ?>
                                 </div>
                             </div>
 
-                            <div class="webheight"></div>
+
 
                         </div>
 
