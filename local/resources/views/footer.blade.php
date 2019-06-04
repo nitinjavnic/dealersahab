@@ -30,12 +30,12 @@ $setid=1;
 
 			<div class=" center-block pb-10">
 				<br />
-				<a href="<?php echo $setts[0]->site_facebook;?>"><i id="social-gp" class="fa fa-facebook fa-2x social"></i></a>
-				<a href="<?php echo $setts[0]->site_twitter;?>"><i id="social-gp" class="fa fa-twitter fa-2x social"></i></a>
-				<a href="<?php echo $setts[0]->site_linkedin;?>"><i id="social-gp" class="fa fa-linkedin fa-2x social"></i></a>
-				<a href="<?php echo $setts[0]->site_instagram;?>"><i id="social-gp" class="fa fa-instagram fa-2x social"></i></a>
-				<a href="<?php echo $setts[0]->site_gplus;?>"><i id="social-gp" class="fa fa-youtube fa-2x social"></i></a>
-				<a href="<?php echo $setts[0]->site_pinterest;?>"><i id="social-gp" class="fa fa-pinterest-p fa-2x social"></i></a>
+				<a href="<?php echo $setts[0]->site_facebook;?>"><i id="social-gp" class="fa fa-facebook-square fa-3x social"></i></a>
+				<a href="<?php echo $setts[0]->site_twitter;?>"><i id="social-gp" class="fa fa-twitter-square fa-3x social"></i></a>
+				<a href="<?php echo $setts[0]->site_linkedin;?>"><i id="social-gp" class="fa fa-linkedin-square fa-3x social"></i></a>
+				<a href="<?php echo $setts[0]->site_instagram;?>"><i id="social-gp" class="fa fa-instagram fa-3x social"></i></a>
+				<a href="<?php echo $setts[0]->site_gplus;?>"><i id="social-gp" class="fa fa-youtube-square fa-3x social"></i></a>
+				<a href="<?php echo $setts[0]->site_pinterest;?>"><i id="social-gp" class="fa fa-pinterest-square fa-3x social"></i></a>
 			</div>
 		
 		</div>

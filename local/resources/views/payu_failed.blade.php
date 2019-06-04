@@ -37,8 +37,8 @@
 	
 	<div class="video">
 	<div class="clearfix"></div>
-	<div class="headerbg">
-	 <div class="col-md-12" align="center"><h1>Transaction Failed</h1></div>
+	<div class="">
+	 <div class="col-md-12 fancy" align="center"><h2>Transaction Failed</h2></div>
 	 </div>
 	<div class="container">
 	 

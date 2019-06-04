@@ -38,8 +38,8 @@
 	
 	<div class="video">
 	<div class="clearfix"></div>
-	<div class="headerbg">
-	 <div class="col-md-12" align="center"><h1>About</h1></div>
+	<div class="">
+        <div class="col-md-12 fancy" align="center"><h2 >About Us</h2></div>
 	 </div>
 	</div>
 

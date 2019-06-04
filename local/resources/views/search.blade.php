@@ -379,7 +379,7 @@
 
 								<img src="<?php echo $url.$npaths;?>" alt="" >
 								<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>/<?php echo $shop->supersubcategory_id;?>"><h3><strong><?php echo $shop->shop_name; ?></strong></h3></a>
-								<p><b>Address-</b> <?php echo $shop->address; ?><br><span>250 Profile Views</span></p>
+									<p><b>Address-</b> <?php echo $shop->address; ?><br><span><b>250 Profile Views</b></span></p>
 								<p><b>  Nature of Business-</b> Dealer</p>
 								<p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
 								<p><b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p>

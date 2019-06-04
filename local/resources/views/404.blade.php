@@ -38,9 +38,11 @@
 	
 	<div class="video">
 	<div class="clearfix"></div>
-	<div class="headerbg">
-	 <div class="col-md-12" align="center"><h1>404 Page not found!</h1></div>
-	 </div>
+
+
+		<div class="">
+			<div class="col-md-12 fancy" align="center"><h2 >404 Page not found!</h2></div>
+		</div>
 	<div class="container">
 	
 	 <div class="height30"></div>

@@ -38,8 +38,8 @@
 	
 	<div class="video">
 	<div class="clearfix"></div>
-	<div class="headerbg">
-	 <div class="col-md-12" align="center"><h1><?php echo $stories[0]->page_title;?></h1></div>
+	<div class="">
+	 <div class="col-md-12 fancy" align="center"><h2><?php echo $stories[0]->page_title;?></h2></div>
 	 </div>
 	<div class="container">
 	

@@ -39,8 +39,11 @@
 	<div class="video">
 	<div class="clearfix"></div>
 	<div class="container">
-	 
-	 <div class="height30"></div>
+
+        <div class="height30"></div>
+
+
+
 	 <div class="row">
 	<div class="col-md-12">
         <div class="col-md-4 ">

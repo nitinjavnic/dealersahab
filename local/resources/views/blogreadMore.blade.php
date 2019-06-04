@@ -17,14 +17,15 @@
 
 <div class="video">
     <div class="clearfix"></div>
-    <div class="headerbg">
-        <div class="col-md-12" align="center"><h1>Blog View</h1></div>
+    <div class="">
+        <div class="col-md-12 fancy" align="center"><h2>Blog View</h2></div>
+
+        <div class="height30"></div>
     </div>
     <div class="container">
 
 
 
-        <div class="height30"></div>
         <?php foreach ($blog as $newblog) {?>
         <div class="row test">
 
@@ -45,9 +46,9 @@
 
                     <div class="text-center center-block pb-10">
                         <br />
-                        <a href="#"><i id="social-gp" class="fa fa-facebook fa-2x social"></i></a>
-                        <a href="#"><i id="social-gp" class="fa fa-twitter fa-2x social"></i></a>
-                        <a href="#"><i id="social-gp" class="fa fa-linkedin fa-2x social"></i></a>
+                        <a href="#"><i id="social-gp" class="fa fa-facebook-square fa-2x social"></i></a>
+                        <a href="#"><i id="social-gp" class="fa fa-twitter-square fa-2x social"></i></a>
+                        <a href="#"><i id="social-gp" class="fa fa-linkedin-square fa-2x social"></i></a>
                         <a href="#"><i id="social-gp" class="fa fa-quora fa-2x social"></i></a>
                     </div>
 

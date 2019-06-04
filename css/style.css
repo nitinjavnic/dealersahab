@@ -3117,3 +3117,23 @@ footer{background:#f4f4f4;}
 .bg-rating1{background: #ff6f31;}
 .bg-rating5{background: #57bb8a;}
 .panel{border-radius: 0px!important;}
+
+ .fancy h2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.fancy h2:before,
+.fancy h2:after {
+    content: '';
+    border-top: 3px solid orange;
+    margin: 0 20px 0 0;
+    flex: 0 0 20px;
+}
+
+.fancy h2:after {
+    margin: 0 0 0 20px;
+}
