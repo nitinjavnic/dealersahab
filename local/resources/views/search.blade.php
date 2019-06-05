@@ -173,7 +173,6 @@
 
 				?>
 
-
 				<div class="col-md-3">
 					<div class="shop-list-page">
 						<div class="shop_pic">
@@ -383,7 +382,7 @@
 								<p><b>  Nature of Business-</b> Dealer</p>
 								<p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
 								<p><b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p>
-								<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>/<?php echo $shop->subservice_id;?>" class="btn btn-warning">View Details</a>
+								<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>/<?php echo $shop->supersubcategory_id;?>" class="btn btn-warning">View Details</a>
 							</div>
 							<div class="col-md-5">
 								<div class="well well-sm">
@@ -438,9 +437,26 @@
 
 
 										&nbsp;&nbsp; </p>
-									<div class="progress">
+
+									<?php
+									if (in_array("5", $items))
+									{
+										echo '<div class="progress">
 										<div class="progress-bar bg-rating5 " role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+									</div>';
+									}
+									else
+									{
+										echo '<div class="progress">
+										<div class="progress-bar bg-rating5 " role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>';
+									}
+
+									?>
+
+
+
+
 
 
 
@@ -461,9 +477,26 @@
 
 
 										&nbsp;&nbsp; </p>
-									<div class="progress">
+
+
+									<?php
+									if (in_array("4", $items))
+									{
+										echo '<div class="progress">
 										<div class="progress-bar bg-rating4" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+									</div>';
+									}
+									else
+									{
+										echo '<div class="progress">
+										<div class="progress-bar bg-rating4" role="progressbar" style="width: 0" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>';
+									}
+
+									?>
+
+
+
 
 
 
@@ -480,12 +513,29 @@
 										}
 
 										?>
-
-
 										&nbsp;&nbsp; </p>
-									<div class="progress">
+
+
+									<?php
+									if (in_array("3", $items))
+									{
+										echo '	<div class="progress">
 										<div class="progress-bar bg-rating3" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+									</div>';
+									}
+									else
+									{
+										echo '<div class="progress">
+										<div class="progress-bar bg-rating3" role="progressbar" style="width: 0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>';
+									}
+
+									?>
+
+
+
+
+
 
 
 
@@ -501,15 +551,23 @@
 										}
 
 										?>
-
-
 										&nbsp;&nbsp; </p>
-									<div class="progress">
+
+									<?php
+									if (in_array("2", $items))
+									{
+										echo '<div class="progress">
 										<div class="progress-bar bg-rating2" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+									</div>';
+									}
+									else
+									{
+										echo '<div class="progress">
+										<div class="progress-bar bg-rating2" role="progressbar" style="width: 0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>';
+									}
 
-
-
+									?>
 
 
 
@@ -530,9 +588,30 @@
 										?>
 
 										&nbsp;&nbsp; </p>
-									<div class="progress">
+
+
+
+									<?php
+
+									if (in_array("1", $items))
+									{
+										echo '<div class="progress">
 										<div class="progress-bar bg-rating1" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-									</div>
+									</div>';
+									}
+									else
+									{
+										echo '<div class="progress">
+										<div class="progress-bar bg-rating1" role="progressbar" style="width: 0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>';
+									}
+
+
+									?>
+
+
+
+
 
 
 

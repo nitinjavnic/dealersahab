@@ -28,6 +28,10 @@ class VendorController extends Controller
 
         $uber = DB::table('users')->where('name', '=', $id)->get();
         $sellertype= $uber[0]->sellertype;
+        $checkshop = DB::table('shop')
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
 
         $shopcount = DB::table('shop')
             ->where('seller_email', '=', $uber[0]->email)
@@ -111,7 +115,7 @@ class VendorController extends Controller
         $admin_email = $admindetails->email;
 
 
-        $data = array('sellertype'=>$sellertype, 'allsubcategory'=>$allsubcategory, 'shopcount' => $shopcount, 'shop' => $shop, 'stime' => $stime, 'etime' => $etime, 'lev' => $lev, 'sel' => $sel, 'viewservice' => $viewservice,
+        $data = array('sellertype'=>$sellertype, 'checkshop'=>$checkshop, 'allsubcategory'=>$allsubcategory, 'shopcount' => $shopcount, 'shop' => $shop, 'stime' => $stime, 'etime' => $etime, 'lev' => $lev, 'sel' => $sel, 'viewservice' => $viewservice,
             'setting' => $setting, 'viewgallery' => $viewgallery, 'shop_id' => $shop_id, 'vendor_email' => $vendor_email , 'site_setting' => $site_setting, 'vendor' => $vendor,
             'userid' => $userid, 'rating_count' => $rating_count, 'rating' => $rating,'admin_email' => $admin_email);
         return view('vendor')->with($data);

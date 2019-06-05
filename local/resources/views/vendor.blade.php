@@ -169,9 +169,25 @@
 
 
                         &nbsp;&nbsp; </p>
-                    <div class="progress">
+                    <?php
+                    if (in_array("5", $items))
+                    {
+                        echo ' <div class="progress">
                         <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    </div>';
+                    }
+                    else
+                    {
+                        echo ' <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 0" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>';
+                    }
+
+                    ?>
+
+
+
+
 
 
                     <p style="float:left;">
@@ -190,9 +206,26 @@
 
 
                         &nbsp;&nbsp; </p>
-                    <div class="progress">
+
+                    <?php
+                    if (in_array("4", $items))
+                    {
+                        echo ' <div class="progress">
                         <div class="progress-bar bg-rating4" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    </div>';
+                    }
+                    else
+                    {
+                        echo ' <div class="progress">
+                        <div class="progress-bar bg-rating4" role="progressbar" style="width: 0" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>';
+                    }
+
+                    ?>
+
+
+
+
 
 
 
@@ -212,9 +245,27 @@
 
 
                         &nbsp;&nbsp; </p>
-                    <div class="progress">
+
+                    <?php
+                    if (in_array("3", $items))
+                    {
+                        echo ' <div class="progress">
                         <div class="progress-bar bg-rating3" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    </div>';
+                    }
+                    else
+                    {
+                        echo ' <div class="progress">
+                        <div class="progress-bar bg-rating3" role="progressbar" style="width: 0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>';
+                    }
+
+                    ?>
+
+
+
+
+
 
 
 
@@ -233,9 +284,28 @@
 
 
                         &nbsp;&nbsp; </p>
+
+                    <?php
+                    if (in_array("2", $items))
+                    {
+                        echo '
                     <div class="progress">
                         <div class="progress-bar bg-rating2" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    </div>';
+                    }
+                    else
+                    {
+                        echo '
+                    <div class="progress">
+                        <div class="progress-bar bg-rating2" role="progressbar" style="width: 0%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>';
+                    }
+
+                    ?>
+
+
+
+
 
 
 
@@ -256,9 +326,28 @@
                         ?>
 
                         &nbsp;&nbsp; </p>
-                    <div class="progress">
+
+
+                    <?php
+
+                    if (in_array("1", $items))
+                    {
+                        echo '<div class="progress">
                         <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    </div>';
+                    }
+                    else
+                    {
+                        echo '<div class="progress">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>';
+                    }
+
+
+                    ?>
+
+
+
 
 
 
@@ -379,40 +468,33 @@
 
             <div class="col-md-4 review-info1 bd-left">
                 <h3 class="review-heading text-center"><b>You can also check-</b></h3>
+
+                <?php foreach ($checkshop as $checkshops) {?>
                 <div>
-                <img src="../img/banner.jpg" alt="" >
-                <h4><strong>Dummy India Pvt. Ltd.</strong></h4>
-                <p><strong>Location-</strong> Delhi</p>
+
+                    <?php $shopphoto="/shop/";
+                    $paths ='/local/images'.$shopphoto.$checkshops->profile_photo;
+                    if($checkshops->profile_photo!=""){?>
+                    <img src="<?php echo $url.$paths;?>">
+
+                <?php } else { ?>
+
+                <img src="<?php echo $url.'/local/images/nophoto.jpg';?>">
+
+
+            <?php } ?>
+
+
+                    <h4><strong><?php echo $checkshops->shop_name ?></strong></h4>
+                    <p><strong>Location-</strong> <?php echo $checkshops->city ?></p>
                     <p><b>250 Profile Views</b></p>
-                    <p><b>Nature of Business-</b> Dealer</p>
+                    <p><b>Nature of Business-</b> <?php echo $checkshops->nature_of_business ?></p>
                     <p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
                     <p><b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p>
                 </div>
+                <?php } ?>
+
                 <hr>
-
-                <div>
-                    <img src="../img/banner.jpg" alt="" >
-                    <h4><strong>Dummy India Pvt. Ltd.</strong></h4>
-                    <p><strong>Location-</strong> Delhi</p>
-                    <p><b>250 Profile Views</b></p>
-                    <p><b>Nature of Business-</b> Dealer</p>
-                    <p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
-                    <p><b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p>
-                </div>
-                <hr>
-
-                <div>
-                    <img src="../img/banner.jpg" alt="" >
-                    <h4><strong>Dummy India Pvt. Ltd.</strong></h4>
-                    <p><strong>Location-</strong> Delhi</p>
-                    <p><b>250 Profile Views</b></p>
-                    <p><b>Nature of Business-</b> Dealer</p>
-                    <p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
-                    <p><b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p>
-                </div>
-                <hr>
-
-
 
             </div>
         </div>

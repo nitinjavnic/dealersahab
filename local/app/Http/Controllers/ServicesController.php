@@ -157,7 +157,7 @@ class ServicesController extends Controller
 	   }
        else if($editid!="")
        {
-		   DB::update('update seller_services set service_id="'.$service_id.'",subservice_id="'.$subservice_id.'",price="'.$price.'",time="'.$time.'",shop_id="'.$shop_id.'" where id = ?', [$editid]);
+		   DB::update('update products set user_id= "'.$user_id.'",price="'.$price.'",product_name= "'.$productname.'",subcategory_id="'.$subservice.'",supersubcategory_id="'.$supersubservice.'",photo="'.$namef.'",comapanyname="'.$comapanyname.'",productfeature="'.$productfeature.'",productdesc="'.$productdesc.'",brochure="'.$brochure.'",category_id="'.$service.'",product_name="'.$productname.'",shop_id="'.$shop_id.'" where id = ?', [$editid]);
 			return back()->with('success', 'Products has been updated');
 	   }		   
 	   

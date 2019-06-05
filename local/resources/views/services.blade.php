@@ -73,6 +73,10 @@
 			   <option value="<?php echo $disp->id;?>"><?php echo $disp->name;?></option>
 		<?php }  ?>
 		</select>
+
+
+
+
 	</div>
 
 
@@ -102,7 +106,30 @@
 	   <div class="form-group col-md-4 swidth" >
 		   <label>Product Image<span class="star">*</span></label>
 		   <input type="file" id="photo" name="photo" class="form-control col-md-7 col-xs-12">
+		   <?php if(!empty($sellservices)) {
 
+		   $servicephoto="/productimage/";
+		   $path ='/local/images'.$servicephoto.$sellservices[0]->photo;
+		   if($sellservices[0]->photo!=""){
+		   ?>
+		   <div class="item form-group" align="center">
+			   <div class="col-md-6 col-sm-6 col-xs-12">
+				   <img src="<?php echo $url.$path;?>" class="thumb " width="100" style="float:left" height="100">
+			   </div>
+		   </div>
+		   <?php } else {?>
+		   <div class="item form-group" align="center">
+			   <div class="col-md-6 col-sm-6 col-xs-12">
+				   <img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="thumb " width="100" height="100" style="float:left">
+			   </div>
+		   </div>
+		   <?php ?>
+
+
+
+		   <input type="hidden" name="photo" value="<?php echo $sellservices[0]->photo;?>">
+
+		   <?php }}?>
 	   </div>
 
 	   <div class="item form-group">
@@ -127,13 +154,44 @@
 
 	   <div class="form-group col-md-4 swidth">
 		   <label>Company Name <span class="star">*</span></label>
-		   <input type="text"  name="comapanyname" required id="comapanyname" class="form-control validate[required] text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->comapanyname; }?>">
+		   <input type="text"  name="comapanyname"  id="comapanyname" class="form-control validate[required] text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->comapanyname; }?>">
 	   </div>
 
 	   <div class="form-group col-md-4 swidth">
 		   <label>Brochure Upload <span class="star">*</span></label>
-		   <input type="file"  name="Brochure" required id="Brochure" class="form-control validate[required] text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>">
+		   <input type="file"  name="Brochure"  id="Brochure" class="form-control  text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>">
+
+
+      <?php if(!empty($sellservices)) {
+
+      $servicephoto="/Brochure/";
+	   $path ='/local/images'.$servicephoto.$sellservices[0]->brochure;
+	   if($sellservices[0]->brochure!=""){
+	   ?>
+	   <div class="item form-group" align="center">
+		   <div class="col-md-6 col-sm-6 col-xs-12">
+			   <img src="<?php echo $url.$path;?>" class="thumb " width="100" style="float:left" height="100">
+		   </div>
 	   </div>
+	   <?php } else {?>
+		   <div class="item form-group" align="center">
+               <div class="col-md-6 col-sm-6 col-xs-12">
+                   <img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="thumb " width="100" height="100" style="float:left">
+		   </div>
+	   </div>
+	   <?php ?>
+
+
+
+		   <input type="hidden" name="Brochure" value="<?php echo $sellservices[0]->brochure;?>">
+
+     <?php }}?>
+	   </div>
+
+
+
+
+
 
 	   <div class="container-fluid">
 		   <div class="row">
@@ -142,11 +200,11 @@
 				   <div class="row">
 					   <div class="col-md-6 nopadding">
 						   <label class="text-center">Product Description</label>
-						   <textarea id="editor" name="productdesc" value=""></textarea>
+						   <textarea id="editor" name="productdesc"><?php if(!empty($sellservices)) { echo $sellservices[0]->productdesc; }?></textarea>
 					   </div>
 					   <div class="col-md-6 nopadding ">
 						   <label class="text-center">Product Feature</label>
-						   <textarea id="editor1" name="productfeature" value=""></textarea>
+						   <textarea id="editor1" name="productfeature"><?php if(!empty($sellservices)) { echo $sellservices[0]->productfeature	; }?></textarea>
 					   </div>
 
 				   </div>
