@@ -167,12 +167,13 @@
 
 
 
-                    </div>
+
 
 
                     <?php if (Auth::guest()) {?>
 
                     <div class="container form-account">
+
                         <h3 class="left">Create New Account</h3>
                         <br/>
                         <div class="form-group col-md-3">
