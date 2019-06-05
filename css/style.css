@@ -755,6 +755,10 @@ body
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px)
 {
+	.bg-company-info1{display: none!important;}
+	.shop-image{display: none!important;}
+	.form-account{padding:0px!important;}
+	.buss-pro {top:40px!important;}
 	.company-profile{width:100px!important; height:100px!important;}
 	.contact-info1{margin-top:20px!important;}
 	.review-point{height:auto!important; margin: 10px 0px!important;}
@@ -2614,7 +2618,7 @@ footer .footerbar ul li a:hover
 	margin-bottom: 0px;
 }
 .booking-main {
-	border-bottom: 1px solid #eee;
+
 	padding-bottom: 20px;
 }
 
@@ -3015,6 +3019,18 @@ footer{background:#f4f4f4;}
     position:relative;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+.bg-company-info1 {
+
+	height: 300px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position:relative;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+
 .info-review{border-left:1px solid black;}
 .blog-img img{width:100%; height:185px; margin-top:1.5em;}
 .blog-info{padding: 10px;}
@@ -3137,3 +3153,17 @@ footer{background:#f4f4f4;}
 .fancy h2:after {
     margin: 0 0 0 20px;
 }
+.pd-lr-35{padding:0 35px;}
+.buss-pro {
+	background: white!important;
+	position: relative;
+	top: -100px;
+	padding: 20px 0;
+	box-shadow: 0 0 9px 0px #040404;
+	border-radius: 10px;
+	border: 1px solid black;
+	margin: 0;
+}
+.form-account{padding-right: 45px;}
+.shop-image{width:100%; height: 300px;}
+.pro-img-head{width:100%; height:300px;}

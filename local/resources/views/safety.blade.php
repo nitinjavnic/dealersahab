@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 
-    
+
 
    @include('style')
-	
+
 
 
 
@@ -13,20 +13,20 @@
 </head>
 <body>
 
-    
+
 
     <!-- fixed navigation bar -->
     @include('header')
 
     <!-- slider -->
 
-	
+
 	<div class="clearfix"></div>
-	
-	
-	
-	
-	
+
+
+
+
+
 	<div class="video">
 	<div class="clearfix"></div>
 	<div class="">
@@ -35,9 +35,9 @@
 
 	</div>
 	</div>
-	
-	
-	
+
+
+
 
       <div class="clearfix"></div>
 	   <div class="clearfix"></div>
