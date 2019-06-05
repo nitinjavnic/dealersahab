@@ -50,9 +50,14 @@ else
 	
 	<div class="video">
 	<div class="clearfix"></div>
-			<div class="">
-			<div class="col-md-12 fancy" align="center"><h2 >My Bookings</h2></div>
-		</div>
+
+
+
+
+
+
+
+
 	<div class="container">
 	
 	 <div class="height30"></div>
