@@ -88,7 +88,7 @@ class ServicesController extends Controller
 		$sellservices = DB::select('select * from products where id = ?',[$id]);
 		$editid=$id;
 
-      $data = array('services' => $services, 'setting' => $setting, 'shopview' => $shopview, 'uuid' => $uuid, 'viewservice' => $viewservice , 'sellservices' => $sellservices,
+       $data = array('services' => $services, 'setting' => $setting, 'shopview' => $shopview, 'uuid' => $uuid, 'viewservice' => $viewservice , 'sellservices' => $sellservices,
 	  'editid' => $editid);
 
         return view('services')->with($data);

@@ -109,7 +109,7 @@
 		   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> Product Name <span class="required">*</span>
 		   </label>
 		   <div class="col-md-6 col-sm-6 col-xs-12">
-			   <input id="name" class="form-control col-md-7 col-xs-12"  name="productname" value="{{ old('name') }}" required="required" type="text">
+			   <input id="name" class="form-control col-md-7 col-xs-12"  name="productname" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>" required="required" type="text">
 			   @if ($errors->has('name'))
 				   <span class="help-block" style="color:red;">
                                         <strong>That product name is already exists</strong>
@@ -127,7 +127,7 @@
 
 	   <div class="form-group col-md-4 swidth">
 		   <label>Company Name <span class="star">*</span></label>
-		   <input type="text"  name="comapanyname" required id="comapanyname" class="form-control validate[required] text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>">
+		   <input type="text"  name="comapanyname" required id="comapanyname" class="form-control validate[required] text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->comapanyname; }?>">
 	   </div>
 
 	   <div class="form-group col-md-4 swidth">
@@ -250,12 +250,12 @@
 	</div>
 	
 	</div>
-		<div class="container" style="text-align:right;">
+		{{--<div class="container" style="text-align:right;">
 
 
 			{{ $viewservice->links() }}
 
-		</div>
+		</div>--}}
 
 	
 	</div>

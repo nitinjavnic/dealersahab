@@ -474,16 +474,43 @@ $setid=1;
 	<div class="col-md-10 nopadding  ">
 
 
-        <?php foreach ($testimonials as $testimonials){ ?>
+        <?php foreach ($testimonials as $testimonials){
+            ?>
             <div class="col-md-4 col-12">
 
                 <div class="testimons">
                     <h4><?php echo $testimonials->name ?></h4>
+
+
+                    <?php if($testimonials->star==1){ ?>
+                    <span class="fa fa-star text-warning"></span>
+                    <?php } ?>
+
+                    <?php if($testimonials->star==2){ ?>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <?php } ?>
+
+                    <?php if($testimonials->star==3){ ?>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <?php } ?>
+
+                    <?php if($testimonials->star==4){ ?>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <span class="fa fa-star text-warning"></span>
+                    <?php } ?>
+
+                    <?php if($testimonials->star==5){ ?>
                     <span class="fa fa-star text-warning"></span>
                     <span class="fa fa-star text-warning"></span>
                     <span class="fa fa-star text-warning"></span>
                     <span class="fa fa-star text-warning"></span>
                     <span class="fa fa-star text-warning"></span>
+                    <?php } ?>
                     <p><?php echo $testimonials->description ?></p>
                 </div>
             </div>

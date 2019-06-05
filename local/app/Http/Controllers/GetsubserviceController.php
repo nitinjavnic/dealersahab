@@ -350,4 +350,14 @@ class GetsubserviceController extends Controller
 
     }
 
+    public function sellerdata(Request $request){
+        $data = $request->all();
+        $user_id = $data['user_id'];
+        $seller = DB::table('shop')
+            ->where('user_id', '=', $user_id)
+            ->get();
+
+        return view('admin/sellerdetails', ['seller' => $seller]);
+    }
+
 }

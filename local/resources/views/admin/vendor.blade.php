@@ -128,6 +128,7 @@
                                     $seller = DB::table('shop')
                                         ->where('user_id', '=', $user->id)
                                         ->get();
+
                                    ?>
                                     <td>
                                         <?php if(config('global.demosite')=="yes"){?>
@@ -136,7 +137,7 @@
 
                                         <a href="<?php echo $url;?>/admin/edituser/{{ $user->id }}" class="btn btn-success btn-xs">Edit</a>
                                             <a href="<?php echo $url;?>/admin/email/{{ $user->id }}" class="btn btn-info btn-xs">SendEmail</a>
-                                            <a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".bd-example-modal-lg">View More</a>
+                                            <a href=""  onclick="get_seller_data(<?php echo $user->id; ?>);" class="btn btn-warning btn-xs" data-toggle="modal" data-target=".bd-example-modal-lg">View More</a>
                                         <?php } ?>
                                         <?php if(config('global.demosite')=="yes"){?>
                                         <a href="#" class="btn btn-danger btndisable">Delete</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
@@ -169,47 +170,10 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
+                            <div class="modal-body fn_seller_data">
 
-                            <table class="table table-bordered" style="width:96%; margin:2%;">
-                                <tbody>
-                                <tr>
-                                    <td>Seller Name</td>
-                                    <td><?php echo $seller[0]->shop_name ?></td>
-                                </tr>
-                                <tr>
+                            </div>
 
-                                    <td>Seller phone_no</td>
-                                    <td><?php echo $seller[0]->shop_phone_no ?></td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>Seller Email</td>
-                                    <td><?php echo $seller[0]->seller_email ?></td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>Nature of business</td>
-                                    <td><?php echo $seller[0]->nature_of_business ?></td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>Establishment</td>
-                                    <td><?php echo $seller[0]->establishment ?></td>
-                                </tr>
-
-
-                                <tr>
-
-                                    <td>GST Number</td>
-                                    <td><?php echo $seller[0]->gst_number ?></td>
-                                </tr>
-
-
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
@@ -223,7 +187,29 @@
     </div>
     </div>
 
+<script type="text/javascript">
 
+    function get_seller_data(user_id){
+        src = "{{ route('sellerdata') }}";
+        $.ajax({
+            type   : "POST",
+            url    : src,
+            data   : {
+                "_token": "{{ csrf_token() }}",
+                user_id : user_id
+            },
+            success: function(response){
+                if(response)
+                {
+                   $('.fn_seller_data').html(response);
+                }
+            },
+            error: function (request, status, error) {
+                $('.fn_seller_data').html(error);
+            }
+        });
+    }
+</script>
 
 </body>
 </html>

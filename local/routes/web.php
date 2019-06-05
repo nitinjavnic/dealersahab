@@ -46,6 +46,7 @@ Route::get('getallCategory',array('as'=>'getallCategory','uses'=>'GetsubserviceC
 Route::get('getsuballCategory',array('as'=>'getsuballCategory','uses'=>'GetsubserviceController@getsuballCategory'));
 Route::get('getseller',array('as'=>'getseller','uses'=>'GetsubserviceController@getseller'));
 Route::get('getproduct',array('as'=>'getproduct','uses'=>'GetsubserviceController@productCategory'));
+Route::post('sellerdata',array('as'=>'sellerdata','uses'=>'GetsubserviceController@sellerdata'));
 Route::get('deleteContact/{id}',array('as'=>'deleteContact','uses'=>'GetsubserviceController@deleteContact'));
 
 
