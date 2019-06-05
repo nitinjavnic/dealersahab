@@ -111,6 +111,7 @@
                             <?php
                             $totalrating = array_sum($items);
                             $totalCount = count($rating);
+
                             $sum = $totalrating/$totalCount;
                             if($rating[0]->rating=="")
                             {
@@ -143,9 +144,18 @@
 
                 <?php } ?>
 
+                        <?php
+
+                    $test = 100/$rating_count;
+                  
+
+                    ?>
+
                     <?php
                     $items = array();
                     foreach ($rating as $ratingitmes){
+
+
                         $items[] = $ratingitmes->rating;
 
                         ?>
