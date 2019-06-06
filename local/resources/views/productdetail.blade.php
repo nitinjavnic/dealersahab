@@ -38,12 +38,14 @@
 
 
 <div class="video">
+
     <div class="clearfix"></div>
     <div class="container">
 
         <div class="height30"></div>
-        <div class="row test">
+        <div class="row test border-shadow">
 
+            <div class="clearfix"></div>
 
             <div class="row margin-0">
                 <div class="col-md-4 product-img">
@@ -71,20 +73,20 @@
                     <h4>Product Description</h4>
                     <p><?php echo $products[0]->productdesc ?></p>
                     <div class="text-center row product-info-btn">
-                        <a href="<?php echo $url;?>/contactseller/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->user_id;?>" class="btn btn-info ">Contact seller<p>Ask for best deal</p></a>
+                        <a href="<?php echo $url;?>/contactseller/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->user_id;?>" class="btn btn-info mt-20">Contact seller<p>Ask for best deal</p></a>
                         <a href="<?php echo $url;?>/booking/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->subcategory_id;?>/<?php echo $products[0]->user_id;?>
-                                "class="btn btn-info ">Checkout<p>Ask for best deal</p></a>
+                                "class="btn btn-info mt-20">Checkout<p>Ask for best deal</p></a>
                     </div>
 
                 </div>
 
-            </div>
 
-        </div>
+
+
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-12">
-                <h3 class="">You may also like</h3>
+                <h3 class="pl-10">You may also like</h3>
             </div>
 
             <?php foreach ($randomProduct as $random) {?>
@@ -115,10 +117,9 @@
 
         <?php } ?>
 </div>
-
-        </div>
-    </div>
 </div>
+</div>
+
 
 
 

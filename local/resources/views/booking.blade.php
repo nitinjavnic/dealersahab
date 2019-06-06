@@ -108,6 +108,15 @@
                                     <h5><strong>City <span class="require">*</span></strong></h5>
                                     <input type="text" class="form-control validate[required]" id="book_city" name="book_city" >
 
+                                    <br/>
+                                    <h5><strong></strong>Quantity <span class="require">*</span></strong></h5>
+                                    <select id="payment_mode" name="payment_mode" class="form-control validate[required]">
+                                        <option value="">1</option>
+                                        <option value="">2</option>
+                                        <option value="">3</option>
+                                        <option value="">4</option>
+                                    </select>
+
                                 </div>
 
                                 <div class="col-md-4">
@@ -142,15 +151,21 @@
                                     <input type="number" class="form-control validate[required]" id="book_pincode" name="book_pincode" >
 
                                 </div>
-                                <div class="clearfix"></div>
+                              <div class="clearfix-2"></div>
 
 
-                                <div class="col-md-12">
-                                    <h5><strong>Note </strong></h5>
+                                <div class="col-md-6">
+                                    <h5><strong>Price </strong></h5>
+                                    <input type="text" class="form-control" id="price" name="price" >
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h5><strong>Booking Note </strong></h5>
                                     <textarea name="book_note" id="book_note" class="form-control"></textarea>
                                 </div>
 
-                                @if(Session::has('error'))
+
+                            @if(Session::has('error'))
 
                                     <div class="alert alert-danger">
 
@@ -173,7 +188,7 @@
                     <?php if (Auth::guest()) {?>
 
                     <div class="container form-account">
-
+                        <div class="clearfix-2"></div>
                         <h3 class="left">Create New Account</h3>
                         <br/>
                         <div class="form-group col-md-3">
