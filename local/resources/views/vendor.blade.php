@@ -147,7 +147,6 @@
                         <?php
 
                     $test = 100/$rating_count;
-                  
 
                     ?>
 
@@ -183,7 +182,7 @@
                     if (in_array("5", $items))
                     {
                         echo ' <div class="progress">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success" role="progressbar" style="width:'.$test.'%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>';
                     }
                     else
@@ -221,7 +220,7 @@
                     if (in_array("4", $items))
                     {
                         echo ' <div class="progress">
-                        <div class="progress-bar bg-rating4" role="progressbar" style="width: 80%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-rating4" role="progressbar" style="width:'.$test.'%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>';
                     }
                     else
@@ -260,7 +259,7 @@
                     if (in_array("3", $items))
                     {
                         echo ' <div class="progress">
-                        <div class="progress-bar bg-rating3" role="progressbar" style="width: 60%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-rating3" role="progressbar" style="width:'.$test.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>';
                     }
                     else
@@ -300,7 +299,7 @@
                     {
                         echo '
                     <div class="progress">
-                        <div class="progress-bar bg-rating2" role="progressbar" style="width: 40%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-rating2" role="progressbar" style="width:'.$test.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>';
                     }
                     else
@@ -343,7 +342,7 @@
                     if (in_array("1", $items))
                     {
                         echo '<div class="progress">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-danger" role="progressbar" style="width:'.$test.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>';
                     }
                     else

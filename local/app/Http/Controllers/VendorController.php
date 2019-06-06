@@ -97,7 +97,6 @@ class VendorController extends Controller
 
         $rating_count = DB::table('rating')
             ->where('rshop_id', '=', $shop_id)
-
             ->count();
 
         $rating = DB::table('rating')

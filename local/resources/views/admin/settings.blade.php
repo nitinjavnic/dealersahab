@@ -530,9 +530,11 @@
 						
 						
 						$arrays =  explode(',', $settings[0]->payment_option);
+
 						
-						
-						foreach($paymentopt as $draw){?>
+						foreach($paymentopt as $draw){
+
+						    ?>
 						<input type="checkbox" name="payment_opt[]"  value="<?php echo $draw;?>" <?php  if(in_array($draw,$arrays)){?> checked <?php } ?> > <?php echo $draw;?><br/>
 						<?php } ?>
 						</div>
@@ -626,6 +628,7 @@
 
       @include('admin.footer')
       </div>
+    </div>
     </div>
 
     

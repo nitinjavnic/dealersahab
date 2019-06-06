@@ -37,7 +37,7 @@ class SettingsController extends Controller
 							"AOA","XCD","ARS","AMD","AWG","SHP","AZN","BSD","BHD","BDT","INR");
 		
 		$withdraw=array("paypal","bank","stripe","payumoney");
-		$paymentopt=array("paypal","stripe","payumoney");
+		$paymentopt=array("paypal","stripe","cash");
 		
 	  $data=array('settings'=>$settings, 'currency' => $currency, 'withdraw' => $withdraw, 'paymentopt' => $paymentopt);
       return view('admin.settings')->with($data);

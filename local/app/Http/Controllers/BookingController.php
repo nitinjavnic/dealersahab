@@ -98,224 +98,34 @@ class BookingController extends Controller
    
 	
 	public function sangvish_savedata(Request $request) {
-       
-        
-       $data = $request->all();
-	   
-	  
-	   
-	    $services=$data['services'];
 
-		$getserv="";
-		foreach($services as $getservice)
-		{
-			$getserv .=$getservice.',';
-		}
-		$viewservicee=rtrim($getserv,",");
-		
-		$booking_per_hour=$data['booking_per_hour'];
-		$start_time=$data['start_time'];
-		$end_time=$data['end_time'];
-		$shop_id=$data['shop_id'];
-		$services_id=$data['services_id'];
-		$booking_date=date("Y-m-d",strtotime($data['datepicker']));
-		$time='2:00';
-		$payment_mode=$data['payment_mode'];
-		
+        $data = $request->all();
 		$book_address=$data['book_address'];
+		$shop_id=$data['shop_id'];
+		$price=$data['price'];
 		$book_city=$data['book_city'];
 		$book_pincode=$data['book_pincode'];
-		
 		$book_note = $data['book_note'];
-		
-		if($book_note!="")
-		{
-			$booknote = $book_note;
-		}
-		else
-		{
-			$booknote = "";
-		}
-		
-		
-		$status ='pending';
-		$cur_date=date("Y-m-d");
-		
-		
-		$setid=1;
-		$setts = DB::table('settings')
-		->where('id', '=', $setid)
-		->get();
-		
-		$currency=$setts[0]->site_currency;
-		
-		
-		
-		if (Auth::guest()) 
-		{
-		$name=$data['name'];
-		$email=$data['email'];
-		
-		$phoneno=$data['phoneno'];
-		$password=bcrypt($data['password']);
-		$gender=$data['gender'];
-		$usertype=$data['usertype'];
-		}
-		else if (Auth::check())
-		{
-			$idd = Auth::user()->id;
-		
-		$userdetails = DB::table('users')
-		 ->where('id', '=', $idd)
-		 ->get();
-			$email=$userdetails[0]->email;
-			$userid=$userdetails[0]->id;
-		}
-		$token=$data['_token'];
-		
-		
-		$count = DB::table('booking')
-		         ->where('booking_date', '=', $booking_date)
-				 ->where('booking_time', '=', $time)
-				 ->count();
-		$count_two =DB::table('booking')
-		            ->where('status', '=', 'pending')
-					->where('token', '=', $token)
-					->where('user_email', '=', $email)
-                    ->orderBy('book_id', 'desc')
-                    ->count();	
+		$payment_mode = $data['payment_mode'];
+		$status = 'Paid';
 
-		$usercount = DB::table('users')
-	                 ->where('email', '=', $email)
-					 ->count(); 
-		if(	$count < $booking_per_hour )
-		{
-			
-			
-			
-			
-					  
-					  
-			if (Auth::guest()) 
-			{
-				$getidvals =DB::table('users')
-			          ->orderBy('id', 'desc')
-					  ->get();
-            $usernewids = $getidvals[0]->id+1;				
-			}
-			else if (Auth::check())
-			{
-				$userdetails = DB::table('users')
-		 ->where('id', '=', $idd)
-		 ->get();
-			
-			$usernewids=$userdetails[0]->id;
-			}
-			
-			
-		   	if($count_two==0)
-			{
-				DB::insert('insert into booking (token,services_id,booking_date,booking_time,user_email,booking_address,booking_city,booking_pincode,booking_note,user_id,payment_mode,status,shop_id,currency,curr_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [$token,
-				$viewservicee,$booking_date,$time,$email,$book_address,$book_city,$book_pincode,$booknote,$usernewids,$payment_mode,$status,$shop_id,$currency,$cur_date]);
-			}
-			else
-			{
-				DB::update('update booking set services_id="'.$viewservicee.'",booking_date="'.$booking_date.'",booking_time="'.$time.'",booking_address="'.$book_address.'",
-				booking_city="'.$book_city.'",booking_pincode="'.$book_pincode.'",booking_note="'.$booknote.'",payment_mode="'.$payment_mode.'",user_id="'.$usernewids.'",shop_id="'.$shop_id.'",currency="'.$currency.'",curr_date="'.$cur_date.'" where user_email ="'.$email.'" and status="pending" and token="'.$token.'"');
-			
-			
-			}
-			
-			
-			
-			
-			if($usercount==0)
-			{
-				$input['email'] = $data['email'];
-                $input['name'] = $data['name'];
-				$rules = array(
-        'email'=>'required|email|unique:users,email',
-		'name' => 'required|regex:/^[\w-]*$/|max:255|unique:users,name'
-		);
-				$validator = Validator::make($input, $rules);
-				if ($validator->fails())
-				{
-					return redirect()->back()->with('message', 'Username or email address invalid');
-				}
-				else
-				{
-				
-				DB::insert('insert into users (name,email,password,phone,admin,gender,remember_token) values (?, ?, ?, ?, ?, ?, ?)', [$name,$email,$password,$phoneno,
-				$usertype,$gender,$token]);
-				
-				
-				if (Auth::guest()) 
-				{
-					if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']]))
-						{
-	               
-				   return redirect('booking_info');
-				   }
-				}
-				else if (Auth::check())
-				{
-					return redirect('booking_info');
-				}
-				
-				
-				
-				
-				
-				
-				
-				
-				}
-			}
-			else
-			{
-			
-				if (Auth::guest()) 
-				{
-					if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']]))
-						{
-	   
-				   return redirect('booking_info');
-				   }
-				}
-				else if (Auth::check())
-				{
-					return redirect('booking_info');
-				}
-			
-			} 
-			
-			
-			
-			
-			
-			
-			
-			
-						
-			
-			 
-			
-		}
-		else
-		{
-			/*return back()->with('error', 'That time already booked.Please select another time');*/
-			return redirect()->back()->with('message', 'That time already booked.Please select another time');
-		}
+		DB::insert('insert into booking (booking_address,booking_city,booking_pincode,booking_note,payment_mode,status,shop_id,total_amt) 
+        values (?, ?, ?, ?, ?, ?,?,?)', [$book_address,$book_city,$book_pincode,$book_note,$payment_mode,$status,$shop_id,$price]);
+
+
+
+
+
+
+        return redirect()->back()->with('message', 'Booking Successfully!');
+
+
+
+    }
+
 				 
 		
 		
-		
-		
-    }
-	
-	
-	
-	
-	
+
 	
 }

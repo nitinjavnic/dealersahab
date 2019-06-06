@@ -61,7 +61,6 @@
 
                     {!! csrf_field() !!}
 
-
                         <div class="col-md-4">
                             <?php $shopphoto="/shop/";
                             $paths ='/local/images'.$shopphoto.$shop[0]->profile_photo;
@@ -70,36 +69,19 @@
                             <?php } else { ?>
                             <img align="left" class="pro-img-head thumbnail" src="<?php echo $url.'/local/images/nophoto.jpg';?>" alt="Profile Photo"/>
                             <?php } ?>
-
                         </div>
 
-
-
                         <div class="col-md-8">
-
                             <div class="col-md-12">
-
-
                                 <div class="col-md-4">
-                                    <input type="hidden" id="booking_per_hour" name="booking_per_hour" value="<?php echo $booking_per_hour; ?>">
-                                    <input type="hidden" id="start_time" name="start_time" value="<?php echo $start_time; ?>">
-                                    <input type="hidden" id="end_time" name="end_time" value="<?php echo $end_time; ?>">
-
-
                                     <input type="hidden" id="shop_id" name="shop_id" value="<?php echo $shop_id; ?>">
 
-
-
-                                    <input type="hidden" id="services_id" name="services_id" value="<?php echo $subservice[0]->subid; ?>">
-
-
-                                    <h5><strong>Select Date <span class="require">*</span></strong></h5>
-
-                                    <input type="date" class="form-control validate[required]" id="datepicker" name="datepicker" >
-                                    <br/>
                                     <h5><strong>Address <span class="require">*</span></strong></h5>
                                     <input type="text" class="form-control validate[required]" id="book_address" name="book_address" >
 
+                                    <br/>
+                                    <h5><strong>Price </strong></h5>
+                                    <input type="text" class="form-control" id="price" name="price" >
                                 </div>
 
 
@@ -109,8 +91,8 @@
                                     <input type="text" class="form-control validate[required]" id="book_city" name="book_city" >
 
                                     <br/>
-                                    <h5><strong></strong>Quantity <span class="require">*</span></strong></h5>
-                                    <select id="payment_mode" name="payment_mode" class="form-control validate[required]">
+                                    <h5><strong>Quantity </strong></h5>
+                                    <select id="payment_mode" name="payment_mode" class="form-control">
                                         <option value="">1</option>
                                         <option value="">2</option>
                                         <option value="">3</option>
@@ -154,12 +136,7 @@
                               <div class="clearfix-2"></div>
 
 
-                                <div class="col-md-6">
-                                    <h5><strong>Price </strong></h5>
-                                    <input type="text" class="form-control" id="price" name="price" >
-                                </div>
-
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <h5><strong>Booking Note </strong></h5>
                                     <textarea name="book_note" id="book_note" class="form-control"></textarea>
                                 </div>
