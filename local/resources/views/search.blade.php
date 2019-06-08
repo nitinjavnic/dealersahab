@@ -441,26 +441,26 @@
 									</div>
 
 
-
-
-
+									<div class="row">
+									<div class="col-md-5">
 									<p style="float:left; font-weight: bold;">
-
+										<span>Excelient</span>
 										<?php
 										if (in_array("5", $items))
 										{
-											echo "1";
+											echo "(1)";
 										}
 										else
 										{
-											echo "0";
+											echo "(0)";
 										}
 
 										?>
 
 
 										&nbsp;&nbsp; </p>
-
+								</div>
+									<div class="col-md-7">
 									<?php
 									if (in_array("5", $items))
 									{
@@ -476,6 +476,8 @@
 									}
 
 									?>
+								</div>
+							</div>
 
 
 
@@ -484,24 +486,26 @@
 
 
 
+							<div class="row">
+										<div class="col-md-5">
 									<p style="float:left; font-weight: bold;">
-
+										<span>Good</span>
 										<?php
 										if (in_array("4", $items))
 										{
-											echo "1";
+											echo "(1)";
 										}
 										else
 										{
-											echo "0";
+											echo "(0)";
 										}
 
 										?>
 
 
-										&nbsp;&nbsp; </p>
+										&nbsp;&nbsp; </p></div>
 
-
+									<div class="col-md-7">
 									<?php
 									if (in_array("4", $items))
 									{
@@ -517,28 +521,30 @@
 									}
 
 									?>
+									</div>
+								</div>
 
 
 
 
-
-
-									<p style="float:left; font-weight: bold;">
-
+									<div class="row">
+										<div class="col-md-5">
+											<p style="float:left; font-weight: bold;">
+												<span>Average</span>
 										<?php
 										if (in_array("3", $items))
 										{
-											echo "1";
+											echo "(1)";
 										}
 										else
 										{
-											echo "0";
+											echo '(0)';
 										}
 
 										?>
-										&nbsp;&nbsp; </p>
+										&nbsp;&nbsp; </p></div>
 
-
+									<div class="col-md-7">
 									<?php
 									if (in_array("3", $items))
 									{
@@ -554,6 +560,8 @@
 									}
 
 									?>
+									</div>
+									</div>
 
 
 
@@ -561,20 +569,25 @@
 
 
 
-
+								<div class="row">
+									<div class="col-md-5">
 									<p style="float:left; font-weight: bold;">
+										<span>bad</span>
 										<?php
 										if (in_array("2", $items))
 										{
-											echo "1";
+											echo "(1)";
 										}
 										else
 										{
-											echo "0";
+											echo "(0)";
 										}
 
 										?>
 										&nbsp;&nbsp; </p>
+									</div>
+
+									<div class="col-md-7">
 
 									<?php
 									if (in_array("2", $items))
@@ -591,29 +604,34 @@
 									}
 
 									?>
+									</div>
+								</div>
 
 
 
-
+								<div class="row">
+									<div class="col-md-5">
 									<p style="float:left; font-weight: bold;">
+										<span>Very Bad</span>
 										<?php
 
 										if (in_array("1", $items))
 										{
-											echo "1";
+											echo "(1)";
 										}
 										else
 										{
-											echo "0";
+											echo "(0)";
 										}
 
 
 										?>
 
 										&nbsp;&nbsp; </p>
+									</div>
 
 
-
+								<div class="col-md-7">
 									<?php
 
 									if (in_array("1", $items))
@@ -631,11 +649,8 @@
 
 
 									?>
-
-
-
-
-
+								</div>
+								</div>
 
 
 
