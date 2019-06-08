@@ -57,7 +57,7 @@
 		 <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Shop</h2>
+                    <h2>Business</h2>
                     <ul class="nav navbar-right panel_toolbox">
                      
                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -74,9 +74,9 @@
                       <thead>
                         <tr>
                           <th>Sno</th>
-						  <th>Shop Name</th>
+						  <th>Business Name</th>
                           <th>Address</th>
-                          <th>Shop Phone No</th>
+                          <th>Phone No</th>
 						  <th>Featured</th>
 						  <th>Status</th>
 						  <th>Total Balance</th>
@@ -106,13 +106,14 @@
 						   <td> - </td>
 						  
 						  <td>
-						  
-			<?php if(config('global.demosite')=="yes"){?>
-						  <a href="#" class="btn btn-success btndisable">Edit</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
-				  <?php } else { ?>			  
-						  <a href="<?php echo $url;?>/admin/edit-shop/{{ $viewshop->id }}" class="btn btn-success">Edit</a>
-						  <?php } ?>
-				   <?php if(config('global.demosite')=="yes"){?>
+                              <?php if($viewshop->is_active==1){ ?>
+                              <a href="<?php echo $url;?>/admin/activeshop/{{ $viewshop->id }}" class="btn btn-info">Active Business</a>
+
+                              <?php }else if($viewshop->is_active==0){ ?>
+                              <a href="<?php echo $url;?>/admin/activeshop/{{ $viewshop->id }}" class="btn btn-info">Deactivate Business</a>
+                              <?php } ?>
+
+                              <?php if(config('global.demosite')=="yes"){?>
 				   <a href="#" class="btn btn-danger btndisable">Delete</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
 				  <?php } else { ?>
 						 <a href="<?php echo $url;?>/admin/shop/{{ $viewshop->id }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>

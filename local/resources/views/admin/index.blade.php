@@ -56,6 +56,17 @@
             </div>
 
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Total Customers</span>
+              <div class="count"><?php echo $total_customer;?></div>
+
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fa fa-user"></i> Total Seller</span>
+              <div class="count"><?php echo $total_seller;?></div>
+
+            </div>
+
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-user"></i> Total Manufacturer</span>
               <div class="count green"><?php echo $totalManufacturer;?></div>
 
@@ -79,16 +90,7 @@
 
             </div>
 
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Vendor</span>
-              <div class="count"><?php echo $total_seller;?></div>
-              
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Customers</span>
-              <div class="count"><?php echo $total_customer;?></div>
-              
-            </div>
+
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-book"></i> Total Booking</span>
               <div class="count"><?php echo $total_booking;?></div>

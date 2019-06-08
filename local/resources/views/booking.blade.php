@@ -38,7 +38,6 @@
 
 
 
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 col-12 bg-company-info1">
@@ -62,10 +61,10 @@
                     {!! csrf_field() !!}
 
                         <div class="col-md-4">
-                            <?php $shopphoto="/shop/";
-                            $paths ='/local/images'.$shopphoto.$shop[0]->profile_photo;
-                            if($shop[0]->profile_photo!=""){?>
-                            <img align="left" class="pro-img-head thumbnail" src="<?php echo $url.$paths;?>" alt="Profile Photo"/>
+                            <?php $shopphoto="/productimage/";
+                            $paths ='/local/images'.$shopphoto.$products[0]->photo;
+                            if($products[0]->photo!=""){?>
+                            <img align="left" class="pro-img-head thumbnail" src="<?php echo $url.$paths;?>" alt="Product Image"/>
                             <?php } else { ?>
                             <img align="left" class="pro-img-head thumbnail" src="<?php echo $url.'/local/images/nophoto.jpg';?>" alt="Profile Photo"/>
                             <?php } ?>
@@ -75,6 +74,8 @@
                             <div class="col-md-12">
                                 <div class="col-md-4">
                                     <input type="hidden" id="shop_id" name="shop_id" value="<?php echo $shop_id; ?>">
+                                    <input type="hidden" id="product_id" name="product_id" value="<?php echo $products[0]->id; ?>">
+                                    <input type="hidden" id="user_email" name="user_email" value="<?php echo $user_email; ?>">
 
                                     <h5><strong>Address <span class="require">*</span></strong></h5>
                                     <input type="text" class="form-control validate[required]" id="book_address" name="book_address" >
@@ -92,12 +93,8 @@
 
                                     <br/>
                                     <h5><strong>Quantity </strong></h5>
-                                    <select id="payment_mode" name="payment_mode" class="form-control">
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                        <option value="">4</option>
-                                    </select>
+                                    <input type="text" class="form-control validate[required]" name="qty" >
+
 
                                 </div>
 

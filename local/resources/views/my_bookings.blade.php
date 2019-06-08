@@ -81,7 +81,7 @@ else
 				$iq=1;
 			foreach($booking as $book)
 			{
-				
+
 				$ser_id=$book->services_id;
 				$sel=explode("," , $ser_id);
 				$lev=count($sel);
@@ -96,7 +96,7 @@ else
 					$fet1 = DB::table('subservices')
 								 ->where('subid', '=', $id)
 								 ->get();
-				$ser_name.='<div class="book-profile radiusoff">'.$fet1[0]->subname.'</div>';
+				$ser_name.='<div class="book-profile radiusoff">'.$book->product_name.'</div>';
 				$ser_name.=",";				 
 				
 				
@@ -207,7 +207,9 @@ $(function(){
 						<?php echo $final_time; ?></p>
 					
 					<h5>Booking Id : <?php echo $book->book_id; ?></h5>
-					
+					<h5>Quantiy : <?php echo $book->qty; ?></h5>
+					<h5>Booking Note : <?php echo $book->booking_note; ?></h5>
+
 					  <?php echo $ser_name; ?>
 				
 				<div class="total-price radiusoff">Total Price - <?php if($book->total_amt=="") { echo "0"; } else { echo $book->total_amt; }?>&nbsp;<?php echo $book->currency; ?></div>

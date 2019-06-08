@@ -26,5 +26,14 @@ class RequirementController extends Controller
         return view('admin.requirement', ['services' => $services]);
     }
 
+    public function seller_req()
+    {
+        $seller_req = DB::table('contact_seller')
+            ->orderBy('id','desc')
+            ->get();
+
+        return view('admin.seller_req', ['services' => $seller_req]);
+    }
+
 }
 ?>

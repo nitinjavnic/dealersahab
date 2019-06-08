@@ -34,9 +34,31 @@ class ShopController extends Controller
 
         return view('admin.shop')->with($data);
     }
-	
-	
-	public function showform($id) {
+
+    public function activeshop($id){
+
+        $shop = DB::select('select * from shop where id = ?',[$id]);
+        $shop_active = $shop[0]->is_active;
+        if($shop_active==0){
+            $shop_text = 1;
+            DB::update('update shop set is_active="'.$shop_text.'" where id = ?', [$id]);
+            return back()->with('success', 'Shop has been active successfully!');
+
+        }else if ($shop_active==1){
+            $shop_text = 0;
+            DB::update('update shop set is_active="'.$shop_text.'" where id = ?', [$id]);
+            return back()->with('success', 'Shop has been active successfully!');
+
+        }
+
+
+
+
+    }
+
+
+
+    public function showform($id) {
       $editshop = DB::select('select * from shop where id = ?',[$id]);
 	  
 	 $usermail=$editshop[0]->seller_email;

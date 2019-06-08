@@ -115,11 +115,7 @@
 						   </div>
 					   </div>
 
-					   <div class="profile-userbuttons">
-						   <a href="<?php echo $url;?>/my_bookings" class="btn btn-success btn-sm">My Bookings</a>
-						   <?php /* ?><a href="{{ route('logout') }}" class="btn btn-danger btn-sm">Sign Out</a><?php */?>
 
-					   </div>
 
 				   </div>
 
@@ -281,38 +277,7 @@
 	   <div class="clearfix"></div>
 
       @include('footer')
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
-	<script>
-		$(document).ready(function(){
-			$('#becomeseller').on('click', function() {
-				src = "{{ route('becomeseller') }}";
-				var userId = $(this).attr("data");
-				var value = '2';
-				$.ajax({
-					type: 'GET',
-					url: src,
-					data: {
-						id : userId,
-						value : value,
-					},
-					success: function(data) {
-						console.log(data);if(data.success==='false'){
-
-							swal("You are already become a seller!");
-
-						}else if(data.success==='true'){
-							swal("Thanks! Now you are become a Seller");
-
-
-						}
-					}
-				});
-
-			});
-		});
-
-	</script>
 
 </body>
 

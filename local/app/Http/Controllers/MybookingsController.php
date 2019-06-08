@@ -39,17 +39,13 @@ class MybookingsController extends Controller
 		
         $booking = DB::table('booking')
 		          ->leftJoin('shop', 'shop.id', '=', 'booking.shop_id')
-				   
-				   
+		          ->leftJoin('products', 'shop.id', '=', 'booking.shop_id')
 				  ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
-				 ->where('booking.user_email', '=', $email)
+				  ->where('booking.user_email', '=', $email)
 				  ->where('booking.status', '=', 'paid')
 				  ->where('shop.status', '=', 'approved')
-				  
 				  ->orderBy('booking.book_id', 'desc')
-				  /*->groupBy('booking.shop_id')*/
-				  
-				 ->get();
+                  ->get();
 				 
 		$count = DB::table('booking')
 		          ->leftJoin('shop', 'shop.id', '=', 'booking.shop_id')

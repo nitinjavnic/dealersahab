@@ -66,9 +66,9 @@
    
    
 	<div class="form-group col-md-4 swidth " >
-	<label>Category Name<span class="star">*</span></label>
+	<label>Select Industry<span class="star">*</span></label>
 		<select id="change_category" class="form-control validate[required]" id="subservice_id" name="service" required>
-			<option value="">Select Services</option>
+			<option value="">Select Industry</option>
 			<?php foreach($services as $disp){?>
 			   <option value="<?php echo $disp->id;?>"><?php echo $disp->name;?></option>
 		<?php }  ?>
@@ -81,7 +81,7 @@
 
 
 	   <div class="form-group col-md-4 swidth" >
-		   <label>Subcategory Name<span class="star">*</span></label>
+		   <label>Select Sector<span class="star">*</span></label>
 		   <select  class="form-control col-md-7 col-xs-12" id="subservice" name="subservice" required="required">
 			   <option value="">
 
@@ -92,7 +92,7 @@
 
 
 	   <div class="form-group col-md-4 swidth" >
-		   <label>SuperSub category Name<span class="star">*</span></label>
+		   <label>Select Product Type<span class="star">*</span></label>
 		   <select  class="form-control col-md-7 col-xs-12" id="subsuperservice" name="supersubservice" required="required">
 			   <option value="">
 
@@ -296,6 +296,10 @@
 	  <?php } else { ?>
 	  <a href="<?php echo $url;?>/services/<?php echo $newserve->id;?>/delete" onclick="return confirm('Are you sure you want to delete this?')">
 	  <img src="<?php echo $url.'/local/images/delete.png';?>" alt="Delete" border="0"></a></td>
+
+
+
+
 	  <?php } ?>
     </tr>
   <?php $ii++; } ?>

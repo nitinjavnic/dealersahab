@@ -68,6 +68,7 @@ class EditblogController extends Controller
         ]);
 
         $data = $request->all();
+
         $id=$data['id'];
         $input['blog_titile'] = Input::get('blog_titile');
         $rules = array(
@@ -86,8 +87,13 @@ class EditblogController extends Controller
         }
         else
         {
+
+
             $blog_text=$data['blog_text'];
             $blog_title=$data['blog_titile'];
+            $article_name=$data['article_name'];
+            $keywords=$data['keywords'];
+            $full_description=$data['full_description'];
             $currentphoto=$data['currentphoto'];
 
             $image = Input::file('photo');
@@ -111,7 +117,7 @@ class EditblogController extends Controller
             }
 
             /* DB::insert('insert into users (name, email,password,phone,admin) values (?, ?,?, ?,?)', [$name,$email,$password,$phone,$admin]);*/
-            DB::update('update blog set blog_titile="'.$blog_title.'",blog_text="'.$blog_text.'",photo="'.$savefname.'" where id = ?', [$id]);
+            DB::update('update blog set article_name ="'.$article_name.'",full_description="'.$full_description.'",keywords="'.$keywords.'",blog_titile="'.$blog_title.'",blog_text="'.$blog_text.'",photo="'.$savefname.'" where id = ?', [$id]);
 
             return back()->with('success', 'Blog has been updated');
         }

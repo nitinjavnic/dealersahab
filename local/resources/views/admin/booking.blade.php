@@ -75,7 +75,6 @@
                         <tr>
                           <th>Sno</th>
 						  <th>Business Name</th>
-                          <th>Category Name</th>
                           <th>Booking Date</th>
 						  
 						  <th>User Phone No</th>
@@ -105,30 +104,8 @@
 					  foreach ($booking as $viewbook) {
 						  $sno++;
 
-					$ser_id=$viewbook->services_id;
-			$sel=explode("," , $ser_id);
-			$lev=count($sel);
-			$ser_name="";
-			$sum="";
-			$price="";		
-		for($i=0;$i<$lev;$i++)
-			{
-				$id=$sel[$i];	
-                
-				
-				
-				$fet1 = DB::table('subservices')
-								 ->where('subid', '=', $id)
-								 ->get();
-				$ser_name.=$fet1[0]->subname.'<br>';
-				$ser_name.=",";				 
-				
-				
-				
-				$ser_name=trim($ser_name,",");
-				
-			}		
-			
+
+
 			$bookid= $viewbook->book_id;
 			$newbook = DB::table('booking')
 								 ->where('book_id', '=', $bookid)
@@ -139,23 +116,18 @@
 						
                         <tr>
 						 <td><?php echo $sno; ?></td>
-						 
+
                           <td><?php echo $viewbook->shop_name;?></td>
-                          
-						  <td><?php echo $ser_name;?></td>
-						  
+
 						   <td><?php echo $viewbook->booking_date;?></td>
-						   
-						   
-						   
-						   
+
 
 						   <td><?php echo $viewbook->phone;?></td>
-						   
+
 						   <td><?php echo $viewbook->name;?></td>
-						   
+
 						   <td><?php echo $viewbook->user_email;?></td>
-						   
+
 						   
 						   <td><?php echo $viewbook->booking_address;?></td>
 						   
@@ -165,16 +137,17 @@
 						   
 						   <td><?php echo $viewbook->booking_note;?></td>
 						   
-						   
+
 						   <td><?php echo $viewbook->total_amt - $viewbook->admin_commission.' '.$setting[0]->site_currency;?></td>
-						   
+
 						   <td><?php echo $viewbook->admin_commission.' '.$setting[0]->site_currency;?></td>
-						   
+
 						   <td><?php echo $viewbook->payment_mode;?></td>
-						   
-						   <?php if($newbook[0]->status=="pending"){ $color="#FB6704"; } else if($newbook[0]->status=="paid")  { $color="#0DE50D"; }?> 
+                            <?php $color = 'FB6704'; ?>
+
+						   <?php if($newbook[0]->status=="pending"){ $color="#FB6704"; } else if($newbook[0]->status=="paid")  { $color="#0DE50D"; }?>
 						   <td style="color:<?php echo $color;?>;"><?php echo $newbook[0]->status;?></td>
-						  
+
 						  <td>
 					<?php if(config('global.demosite')=="yes"){?>
 				    <a href="#" class="btn btn-danger btndisable">Delete</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>

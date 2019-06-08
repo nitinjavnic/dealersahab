@@ -86,21 +86,7 @@
 						
 						
 						
-						<div class="form-group">
 
-
-                            <div class="col-md-12">
-                                <label for="gender">Gender</label>
-							<select name="gender" class="form-control" required>
-							  
-							  <option value=""></option>
-							   <option value="male">Male</option>
-							   <option value="female">Female</option>
-							</select>
-                               
-                            </div>
-                        </div>
-						
 						
 						
 						<div class="form-group">
@@ -111,7 +97,7 @@
 							<select name="usertype" onchange="showDiv('hidden_div', this)" class="form-control" required>
 							  
 							  <option value=""></option>
-							   <option value="0">Customer</option>
+							   <option value="0">Buyer</option>
 							   <option value="2">Seller</option>
 							</select>
                                

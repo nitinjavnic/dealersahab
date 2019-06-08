@@ -137,7 +137,7 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
 
-                                    <textarea id="editor1" name="blog_text" value=""></textarea>
+                                    <textarea id="editor1" name="full_description" value=""></textarea>
 
 
                                 </div>

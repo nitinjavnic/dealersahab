@@ -70,15 +70,15 @@ else
             <thead>
                 <tr>
                     <th>Sno</th>
-					<th>Shop Name</th>
-					 <th>Services Name</th>
+					<th>Business Name</th>
+					 <th>Product Name</th>
 					 <th>Booking date</th>
-					 <th>Booking time</th>
+					 <th>Quantity</th>
+					 <th>Address</th>
 					 <th>Booking Note</th>
-					 
-					 <th>User Name</th>
-					 <th>User Email</th>
-					 <th>User Phone No</th>
+					 <th>Booked By</th>
+					 <th>Email</th>
+					 <th>Phone No</th>
 					 <th>Total Amount</th>
 					 <th>Status</th>
 					 <?php /* ?><th>Action</th><?php */?>
@@ -91,17 +91,6 @@ else
 					  $sno=0;
 					  foreach ($booking as $viewbook) {
 						  $sno++;
-					$booking_time=$viewbook->booking_time;
-							if($booking_time>12)
-							{
-								$final_time=$booking_time-12;
-								$final_time=$final_time."PM";
-							}
-							else
-							{
-								$final_time=$booking_time."AM";
-							}
-
 
 					$ser_id=$viewbook->services_id;
 			$sel=explode("," , $ser_id);
@@ -115,10 +104,10 @@ else
                 
 				
 				
-				$fet1 = DB::table('subservices')
-								 ->where('subid', '=', $id)
+				$fet1 = DB::table('products')
+								 ->where('id', '=', $id)
 								 ->get();
-				$ser_name.=$fet1[0]->subname.'<br>';
+				$ser_name.=$fet1[0]->product_name.'<br>';
 				$ser_name.=",";				 
 				
 				
@@ -143,8 +132,8 @@ else
 				<td><?php echo $viewbook->shop_name;?></td>
 				<td><?php echo $ser_name;?></td>
 				<td><?php echo $viewbook->booking_date;?></td>
-				<td><?php echo $final_time;?></td>
-				
+				<td><?php echo $viewbook->qty;?></td>
+				<td><?php echo $viewbook->booking_address;?></td>
 				<td><?php echo $viewbook->booking_note;?></td>
 				<td><?php echo $userdetail[0]->name;?></td>
 				<td><?php echo $viewbook->user_email;?></td>

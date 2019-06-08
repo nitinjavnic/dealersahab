@@ -29,7 +29,8 @@ class MyorderController extends Controller
 	
 	
 	public function sangvish_showpage() {
-		
+
+
 		 $email = Auth::user()->email;
 		 
 		 
@@ -43,25 +44,16 @@ class MyorderController extends Controller
 				   ->where('shop.seller_email', '=', $email)
 				   ->orderBy('booking.book_id', 'desc')
 				 ->get();
-				
-				 
+
 				$count = DB::table('booking')
 		           ->leftJoin('shop', 'shop.id', '=', 'booking.shop_id')
-				   ->where('shop.status', '=', 'approved')
 				   ->where('shop.seller_email', '=', $email)
 				   ->orderBy('booking.book_id', 'desc')
-				 ->count(); 
-				 
+				 ->count();
+
 		
 		$data=array('booking' => $booking, 'setting' => $setting, 'email' => $email, 'count' => $count);
-		 
-		 
-		
-		
-		
-		
-		
-	 
+
 	  
       return view('myorder')->with($data);
    }

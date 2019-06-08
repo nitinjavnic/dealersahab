@@ -569,7 +569,8 @@
                     subid : userId,
                 },
                     success: function(data) {
-                        let profileUrl = 'http://localhost/dealerSahab/local/images/productimage/';
+                        var baseUrl = '{{URL::to('/')}}/local/images/productimage/';
+                        var profileUrl = baseUrl;
                         $.each(data, function (index,value) {
                             var id = value.value['id'];
                             var url = '{{ route("productDetail", ":id") }}';

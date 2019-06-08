@@ -127,6 +127,29 @@ $url = URL::to("/"); ?>
                                 </div>
                             </div>
 
+
+                            <div class="form-group">
+                                <label for="name" class="col-md-12">Product Dealing<span class="require">*</span></label>
+
+                                <div class="col-md-12">
+                                    <input id="product_dealing" type="text" class="form-control validate[required] text-input" name="product_dealing" value="">
+
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name" class="col-md-12">Brand Name<span class="require">*</span></label>
+
+                                <div class="col-md-12">
+                                    <input id="product_name" type="text" class="form-control validate[required] text-input" name="product_name" value="">
+
+
+                                </div>
+                            </div>
+
+
+
                             <div class="webheight"></div>
 
                         </div>
@@ -139,7 +162,18 @@ $url = URL::to("/"); ?>
                                 <label for="name" class="col-md-12">Nature of Business <span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="shop_address" type="text" class="form-control validate[required] text-input" name="nature" value="">
+
+                                    <select id="change_category" class="form-control validate[required]" name="nature" required="">
+
+                                        <option value="">Select Business</option>
+                                        <option value="Manufacturer">Manufacturer</option>
+                                        <option value="Dealer">Dealer</option>
+                                        <option value="Wholesaler">Wholesaler</option>
+                                        <option value="Supplier">Supplier</option>
+
+
+                                    </select>
+
 
 
                                 </div>
@@ -211,6 +245,8 @@ $url = URL::to("/"); ?>
 
                                 </div>
                             </div>
+
+
 
 
 

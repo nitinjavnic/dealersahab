@@ -23,8 +23,9 @@ $url = URL::to("/");
 				  <li><a href="<?php echo $url;?>/admin/subservices"><i class="fa fa-cog"></i> Sub Category </a></li>
 				  <li><a href="<?php echo $url;?>/admin/supersubservices"><i class="fa fa-cog"></i> SuperSub Category </a></li>
 				  <li><a href="<?php echo $url;?>/admin/requrement"><i class="fa fa-cog"></i>Admin Requrement</a></li>
+				  <li><a href="<?php echo $url;?>/admin/seller_req"><i class="fa fa-cog"></i>Seller Requirements</a></li>
 
-				   <li><a href="<?php echo $url;?>/admin/booking"><i class="fa fa-book" aria-hidden="true"></i> Submitted Requirement </a></li>
+				   <li><a href="<?php echo $url;?>/admin/booking"><i class="fa fa-book" aria-hidden="true"></i> Product Booking </a></li>
 				   
 				    <li><a href="<?php echo $url;?>/admin/pending_withdraw"><i class="fa fa-money" aria-hidden="true"></i> Pending Withdrawal </a></li>
 					

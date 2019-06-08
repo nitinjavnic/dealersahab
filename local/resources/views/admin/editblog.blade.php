@@ -87,6 +87,7 @@
                             {{ csrf_field() }}
                             <span class="section">Edit Blog</span>
 
+
                             <div class="item form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="blog_titile">Blog Title <span class="required">*</span>
                                 </label>
@@ -101,17 +102,56 @@
                                 </div>
                             </div>
 
+
                             <div class="item form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Blog Description<span class="required">*</span>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Article Name<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="blog_titile" class="form-control col-md-7 col-xs-12"  name="article_name" value="<?php echo $services[0]->article_name; ?>" required="required" type="text">
+                                </div>
+                            </div>
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">keywords<span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input id="blog_titile" class="form-control col-md-7 col-xs-12"  name="keywords" value="<?php echo $services[0]->keywords; ?>" required="required" type="text">
+                                </div>
+                            </div>
+
+
+
+
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Description<span class="required">*</span>
                                 </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                                    <textarea  rows = "5" cols = "50" value="" required="required" name ="blog_text"><?php echo $services[0]->blog_text; ?></textarea>
+                                    <textarea id="editor" name="blog_text" value=""><?php echo $services[0]->blog_text; ?></textarea>
 
 
 
                                 </div>
                             </div>
+
+
+
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Full Description <span class="required">*</span>
+                                </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+
+
+                                    <textarea id="editor1" name="full_description" value=""><?php echo $services[0]->full_description; ?></textarea>
+
+
+                                </div>
+                            </div>
+
+
 
                             <input type="hidden" name="id" value="<?php echo $services[0]->id; ?>">
 
@@ -181,7 +221,20 @@
             @include('admin.footer')
         </div>
     </div>
+    </div>
 
+<script type="text/javascript">
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+    ClassicEditor
+        .create( document.querySelector( '#editor1' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
 
 </body>

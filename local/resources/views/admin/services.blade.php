@@ -103,8 +103,8 @@
 						  <td><img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="thumb" width="70"></td>
 						 <?php } ?>
                           <td><?php echo $service->name;?></td>
-                          
-						  
+
+
 						  <td>
 						   <?php if(config('global.demosite')=="yes"){?>
 						  <a href="#" class="btn btn-success btndisable">Edit</a>  <span class="disabletxt">( <?php echo config('global.demotxt');?> )</span>
@@ -117,7 +117,18 @@
 						 <a href="<?php echo $url;?>/admin/services/{{ $service->id }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this?')">Delete</a>
 						 
 					 <?php } ?>
-						 </td>
+                               <?php if($service->is_active==1){ ?>
+                               <a href="<?php echo $url;?>/admin/activeservices/{{ $service->id }}" class="btn btn-info">Active</a>
+
+                               <?php }else if($service->is_active==0){ ?>
+                               <a href="<?php echo $url;?>/admin/activeservices/{{ $service->id }}" class="btn btn-info">Deactive</a>
+                               <?php } ?>
+
+
+
+                          </td>
+
+
                         </tr>
                         <?php $i++;} ?>
                        

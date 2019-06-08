@@ -51,7 +51,6 @@ class RegisterController extends Controller
             'name' => 'required|regex:/^[\w-]*$/|unique:users|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-			'gender' => 'required|string|max:255',
 			'usertype' => 'required|string|max:255',
         ]);
     }
@@ -69,7 +68,6 @@ class RegisterController extends Controller
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
-                'gender' => $data['gender'],
                 'phone' => $data['phoneno'],
                 'photo' => '',
                 'admin' => $data['usertype'],
@@ -79,7 +77,6 @@ class RegisterController extends Controller
                 'name' => $data['name'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
-                'gender' => $data['gender'],
                 'phone' => $data['phoneno'],
                 'photo' => '',
                 'admin' => $data['usertype'],

@@ -67,4 +67,24 @@ class PostController extends Controller
 
     }
 
+    public function buyer_query(Request $request){
+        $count = DB::table('contact_seller')
+            ->count();
+        $seller_query = DB::table('contact_seller')
+            ->get();
+
+        $data=array('count'=>$count,'seller_query'=>$seller_query);
+        return view('buyerquery')->with($data);
+
+
+    }
+
+
+
+    public function sangvish_destroy($did) {
+        DB::delete('delete from contact_seller where id = ?',[$did]);
+        return redirect('buyer_query');
+
+    }
+
 }

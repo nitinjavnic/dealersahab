@@ -30,7 +30,7 @@ class SearchController extends Controller
         $shopview=DB::table('shop')
             ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
             ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
-            ->where('shop.status', 'approved')->orderBy('shop.id','desc')
+            ->where('shop.is_active', 'approved')->orderBy('shop.id','desc')
             ->groupBy('shop.id')
             ->get();
 
@@ -65,7 +65,7 @@ class SearchController extends Controller
             ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
             ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
             ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
-            ->where('shop.status', '=', 'approved')
+            ->where('shop.is_active', '=', '1')
             ->where('seller_services.subservice_id', '=', $services[0]->subid)
             ->groupBy('shop.id')
             ->paginate(5);

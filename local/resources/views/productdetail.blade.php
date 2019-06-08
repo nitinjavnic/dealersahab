@@ -66,8 +66,7 @@
 
                 <div class="col-md-8 product-details">
                     <h3><?php echo $products[0]->product_name ?></h3>
-                    <h5 class="text-dark">Rs <?php echo $products[0]->price ?>/Unit <a class="text-info" href="<?php echo $url;?>/contactseller/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->user_id;?>"> Get Latest Price</a></h5>
- spaaduct Brochure</p>
+                    <h5 class="text-dark">Rs <?php echo $products[0]->price ?>/Unit <a class="text-info" href="<?php echo $url;?>/contactseller/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->user_id;?>"> Get Latest Price</a></h5>Product Brochure</p>
                     <h4>Product Features</h4>
                    <p><?php echo $products[0]->productfeature ?></p>
                     <h4>Product Description</h4>
@@ -75,7 +74,7 @@
                     <div class="text-center row product-info-btn">
                         <a href="<?php echo $url;?>/contactseller/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->user_id;?>" class="btn btn-info mt-20">Contact seller<p>Ask for best deal</p></a>
                         <a href="<?php echo $url;?>/booking/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->subcategory_id;?>/<?php echo $products[0]->user_id;?>
-                                "class="btn btn-info mt-20">Checkout<p>Ask for best deal</p></a>
+                                "class="btn btn-info mt-20">Order Now<p>Ask for best deal</p></a>
                     </div>
 
                 </div>

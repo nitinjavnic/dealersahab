@@ -26,17 +26,18 @@ class BookingController extends Controller
      */
     public function index()
     {
-		
+
 		$set_id=1;
 		$setting = DB::table('settings')->where('id', $set_id)->get();
-		
-		
+
+
         $booking = DB::table('booking')
 		           ->leftJoin('users', 'users.email', '=', 'booking.user_email')
 				   ->leftJoin('shop', 'shop.id', '=', 'booking.shop_id')
 				   ->orderBy('booking.book_id','desc')
 				 ->get();
-		
+
+
 		$data=array('booking' => $booking, 'setting' => $setting);
 
         return view('admin.booking')->with($data);

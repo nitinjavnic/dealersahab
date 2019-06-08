@@ -27,6 +27,8 @@ Route::get('/blogList', 'Admin\BlogController@blogList');
 Route::get('/readmore/{id}','Admin\BlogController@readmore');
 Route::get('/post', 'PostController@formView');
 Route::get('/contactseller/{id}/{user_id}', 'PostController@contactseller');
+Route::get('/delete_query/{id}','PostController@sangvish_destroy');
+Route::get('/buyer_query', 'PostController@buyer_query');
 Route::post('/save_post', ['as'=>'save_post','uses'=>'PostController@save']);
 Route::post('/save_query', ['as'=>'save_query','uses'=>'PostController@save_query']);
 Route::get('/showinquery', ['as'=>'showinquery','uses'=>'PostController@showinquery']);
@@ -86,7 +88,7 @@ Route::post('/vendor', ['as'=>'vendor','uses'=>'VendorController@sangvish_saveda
 
 
 
-Route::get('/booking/{shop_id}/{service_id}/{userid}', 'BookingController@sangvish_showpage');
+Route::get('/booking/{shop_id}/{product_id}/{userid}', 'BookingController@sangvish_showpage');
 
 
 
@@ -219,6 +221,7 @@ Route::group(['middleware' => 'admin'], function() {
 
     Route::get('/admin','Admin\DashboardController@index');
     Route::get('/admin/requrement','Admin\RequirementController@index');
+    Route::get('/admin/seller_req','Admin\RequirementController@seller_req');
     Route::get('/admin/index','Admin\DashboardController@index');
     Route::get('/admin/email/{id}','Admin\EmailController@email');
 
@@ -250,6 +253,8 @@ Route::group(['middleware' => 'admin'], function() {
     Route::get('/admin/editservice/{id}','Admin\EditserviceController@showform');
     Route::get('/admin/editblog/{id}','Admin\EditblogController@showform');
     Route::get('/admin/activeblog/{id}','Admin\EditblogController@activeblog');
+    Route::get('/admin/activeshop/{id}','Admin\ShopController@activeshop');
+    Route::get('/admin/activeservices/{id}','Admin\ServicesController@activeservices');
     Route::get('/admin/activetestmonial/{id}','Admin\EdittestimonialController@activetestmonial');
     Route::post('/admin/editservice', ['as'=>'admin.editservice','uses'=>'Admin\EditserviceController@editservicedata']);
     Route::post('/admin/editblog', ['as'=>'admin.editblog','uses'=>'Admin\EditblogController@editblogedata']);

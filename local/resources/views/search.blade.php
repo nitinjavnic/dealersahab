@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<?php $url = URL::to("/"); ?>
+<?php $url = URL::to("/");?>
 
 <!-- fixed navigation bar -->
 @include('header')
@@ -671,6 +671,7 @@
 </div>
 
 </div>
+{{--
 <div class="container" style="text-align:right;">
 	@foreach ($subsearches as $shop)
 
@@ -679,6 +680,7 @@
 	{{ $subsearches->links() }}
 
 </div>
+--}}
 
 <div class="clearfix"></div>
 <div class="clearfix"></div>
@@ -700,7 +702,8 @@
 				success: function(data) {
 
 					$.each(data.shop, function(k, v) {
-						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
+						var baseUrl = '{{URL::to('/')}}/local/images/shop/';
+						var profileUrl = baseUrl;
 						var shopName = v.shop_name;
 						var address = v.address;
 						var profile_photo = v.profile_photo;
@@ -769,7 +772,8 @@
 				success: function(data) {
 
 					$.each(data.shop, function(k, v) {
-						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
+						var baseUrl = '{{URL::to('/')}}/local/images/shop/';
+						var profileUrl = baseUrl;
 						var shopName = v.shop_name;
 						var address = v.address;
 						var profile_photo = v.profile_photo;
@@ -842,7 +846,8 @@
 				success: function(data) {
 
 					$.each(data.shop, function(k, v) {
-						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
+						var baseUrl = '{{URL::to('/')}}/local/images/shop/';
+						var profileUrl = baseUrl;
 						var shopName = v.shop_name;
 						var address = v.address;
 						var profile_photo = v.profile_photo;
@@ -914,9 +919,9 @@
 				success: function(data) {
 
 					$.each(data.shop, function(k, v) {
-						console.log(v);
 
-						let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
+						var baseUrl = '{{URL::to('/')}}/local/images/shop/';
+						var profileUrl = baseUrl;
 						var shopName = v.shop_name;
 						var address = v.address;
 						var profile_photo = v.profile_photo;
@@ -991,8 +996,8 @@
 			success: function(data) {
 				console.log(data);
 				$.each(data.shop, function(k, v) {
-					let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
-					var shopName = v.shop_name;
+					var baseUrl = '{{URL::to('/')}}/local/images/shop/';
+					var profileUrl = baseUrl;					var shopName = v.shop_name;
 					var address = v.address;
 					var profile_photo = v.profile_photo;
 					var image = profileUrl + profile_photo;
@@ -1063,8 +1068,8 @@
 			success: function(data) {
 
 				$.each(data.shop, function(k, v) {
-					let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
-					var shopName = v.shop_name;
+					var baseUrl = '{{URL::to('/')}}/local/images/shop/';
+					var profileUrl = baseUrl;					var shopName = v.shop_name;
 					var address = v.address;
 					var profile_photo = v.profile_photo;
 					var image = profileUrl + profile_photo;
@@ -1135,8 +1140,8 @@
 			success: function(data) {
 
 				$.each(data.shop, function(k, v) {
-					let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
-					var shopName = v.shop_name;
+					var baseUrl = '{{URL::to('/')}}/local/images/shop/';
+					var profileUrl = baseUrl;					var shopName = v.shop_name;
 					var address = v.address;
 					var profile_photo = v.profile_photo;
 					var image = profileUrl + profile_photo;
@@ -1205,8 +1210,8 @@
 			},
 			success: function(data) {
 				$.each(data.shop, function(k, v) {
-					let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
-					var shopName = v.shop_name;
+					var baseUrls = '{{URL::to('/')}}/local/images/shop/';
+					var profileUrl = baseUrls;					var shopName = v.shop_name;
 					var address = v.address;
 					var profile_photo = v.profile_photo;
 					var image = profileUrl + profile_photo;
@@ -1276,8 +1281,8 @@
 			},
 			success: function(data) {
 				$.each(data.shop, function(k, v) {
-					let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
-					var shopName = v.shop_name;
+					var baseUrlp = '{{URL::to('/')}}/local/images/shop/';
+					var profileUrl = baseUrlp;					var shopName = v.shop_name;
 					var address = v.address;
 					var profile_photo = v.profile_photo;
 					var image = profileUrl + profile_photo;
@@ -1347,8 +1352,8 @@
 			},
 			success: function(data) {
 				$.each(data.shop, function(k, v) {
-					let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
-					var shopName = v.shop_name;
+					var baseUrlc = '{{URL::to('/')}}/local/images/shop/';
+					var profileUrl = baseUrlc;					var shopName = v.shop_name;
 					var address = v.address;
 					var profile_photo = v.profile_photo;
 					var image = profileUrl + profile_photo;
@@ -1419,7 +1424,8 @@
 			},
 			success: function(data) {
 				$.each(data.shop, function(k, v) {
-					let profileUrl = 'http://localhost/dealerSahab/local/images/shop/';
+					var baseUrlts = '{{URL::to('/')}}/local/images/shop/';
+					var profileUrl = baseUrlts;
 					var shopName = v.shop_name;
 					var address = v.address;
 					var profile_photo = v.profile_photo;
