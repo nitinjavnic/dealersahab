@@ -48,29 +48,19 @@ else
 
 
 
-<div class="video">
+<div class="video ">
+    <div class="clearfix"></div>
     <div class="clearfix"></div>
 
-    <div class="">
+    <div class="container ">
+    <div class="row border-shadow p-25">
         <div class="col-md-12 fancy" align="center"><h2><?php if(!empty($service_id[0]->name)){?><?php echo $service_id[0]->name; ?><?php } else { ?>Services<?php } ?></h1></h2></div>
-    </div>
+        <hr style="border: .5px solid #868282!important;">
 
-    <div class="container">
+
 
         <div class="height30"></div>
-        <div class="row">
-
-
-
-
-
-
-
-
-
-
-
-
+        <div class="row ">
 
 
 
@@ -166,7 +156,7 @@ else
 
 
         </div>
-
+    </div>
     </div>
 </div>
 
