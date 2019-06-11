@@ -137,7 +137,9 @@ class EditserviceController extends Controller
 		/* DB::insert('insert into users (name, email,password,phone,admin) values (?, ?,?, ?,?)', [$name,$email,$password,$phone,$admin]);*/
 		DB::update('update services set name="'.$name.'",image="'.$savefname.'",keywords="'.$keywords.'" ,description="'.$description.'" ,title="'.$title.'" where id = ?', [$id]);
 		
-			return back()->with('success', 'Service has been updated');
+            $url1= 'admin/services';
+            return redirect($url1)->with('success', 'Category has been updated');
+
         }
 		
 		

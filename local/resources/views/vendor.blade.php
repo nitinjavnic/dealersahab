@@ -493,15 +493,17 @@
 
                 </div>
                 <p class="mt-20"><?php echo $newrating->comment; ?></p>
+                    <hr>
                 <?php } ?>
                 <?php } ?>
-                <hr>
+
             </div>
 
             <div class="col-md-4 review-info1 bd-left">
                 <h3 class="review-heading text-center"><b>You can also check-</b></h3>
 
                 <?php foreach ($checkshop as $checkshops) {?>
+
                 <div>
 
                     <?php $shopphoto="/shop/";
@@ -515,8 +517,6 @@
 
 
             <?php } ?>
-
-
                     <h4><strong><?php echo $checkshops->shop_name ?></strong></h4>
                     <p><strong>Location-</strong> <?php echo $checkshops->city ?></p>
                     <p><b>250 Profile Views</b></p>
@@ -524,9 +524,9 @@
                     <p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
                     <p><b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p>
                 </div>
+                <hr>
                 <?php } ?>
 
-                <hr>
 
             </div>
         </div>

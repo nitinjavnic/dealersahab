@@ -25,28 +25,17 @@ class IndexController extends Controller
     public function sangvish_index()
     {
 
-        $services = DB::table('services')
-            ->where('is_active', '=', '1')
-            ->limit(7)->get();
+        $services = DB::table('services')->limit(7)->get();
 
-        $one = DB::table('services')
-            ->orderBy('name', 'asc')
-            ->limit(1)
-            ->offset(0)
-            ->where('is_active', '=', '1')
-            ->get();
 
+        $one = DB::table('services')->orderBy('name', 'asc')->limit(1)->offset(0)->get();
         $one_count = DB::table('subservices')
             ->where('service', '=', $one[0]->id)
             ->count();
-
         $first = DB::select('select * from subservices where service = ?',[$one[0]->id]);
 
 
-        $two = DB::table('services')->orderBy('name', 'asc')
-            ->limit(1)
-            ->where('is_active', '=', '1')
-            ->get();
+        $two = DB::table('services')->orderBy('name', 'asc')->limit(1)->offset(1)->get();
         $two_count = DB::table('subservices')
             ->where('service', '=', $two[0]->id)
             ->count();
@@ -70,16 +59,9 @@ class IndexController extends Controller
             ->count();
         $fourth = DB::select('select * from subservices where service = ?',[$four[0]->id]);
 
+        $testimonials = DB::table('testimonials')->orderBy('id', 'desc')->get();
 
-        $blog = DB::table('blog')->orderBy('id', 'desc')
-            ->where('is_active','1')
-            ->limit(3)->get();
-
-
-        $testimonials = DB::table('testimonials')->orderBy('id', 'desc')
-            ->where('is_active','1')
-            ->limit(3)->get();
-
+        $blog = DB::table('blog')->orderBy('id', 'desc') ->limit(3)->get();
 
 
 
@@ -108,24 +90,5 @@ class IndexController extends Controller
             return ['value'=>'No Result Found','id'=>''];
     }
 
-    public function searchlocation(Request $request) {
-        $query = $request->get('term','');
-
-        $viewsubservice=DB::table('shop')->where('city','LIKE','%'.$query.'%')->orderBy('city', 'asc')->get();
-
-        $data=array();
-        foreach ($viewsubservice as $viewsub) {
-            $data[]=array('value'=>$viewsub->city,'id'=>$viewsub->id);
-        }
-        if(count($data))
-            return $data;
-        else
-            return ['value'=>'No Result Found','id'=>''];
-    }
-
-
-
-
-
-
+    
 }
