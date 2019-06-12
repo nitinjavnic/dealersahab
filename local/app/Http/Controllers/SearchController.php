@@ -45,6 +45,7 @@ class SearchController extends Controller
 
         $subview=strtolower($id);
 
+
         $results = preg_replace('/-+/', ' ', $subview);
         $allservice = DB::table('services')->select('name','id')->get();
 
@@ -98,15 +99,12 @@ class SearchController extends Controller
         $allsuper = DB::table('subsuperservice')->select('subsupername','id')->get();
         $brandname = DB::table('products')->select('comapanyname','shop_id')->get();
         $shopData = DB::table('shop')->select('state','city','pin_code')->get();
-
-
         $datas = $request->all();
-
-
         $search_text=$datas['search_text'];
         $search_location=$datas['search_location'];
-
         $count= DB::table('subservices')->where('subname', $search_text)->count();
+
+
 
         if(!empty($count))
         {

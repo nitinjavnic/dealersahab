@@ -45,17 +45,35 @@ $setts = DB::table('settings')
                 <li><a href="<?php echo $url;?>/register">Sign Up</a></li>
                 <li><a href="<?php echo $url;?>/login">Login</a></li>
                 <?php } else { ?>
+
+                <li><a href="<?php echo $url;?>/about">About Us</a></li>
+                <li><a href="<?php echo $url;?>/blogList">Blog</a></li>
+
+                <li><a href="<?php echo $url;?>/post">Post your Requirment</a></li>
+                <li><a href="<?php echo $url;?>/register">List your Business</a></li>
+                <li><a href="<?php echo $url;?>/contact">Contact Us</a></li>
+
                 <li class="dropdown">
+
+
+
+
 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->name }}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout</a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                         <?php if(Auth::check()) { ?>
+
+
                         <?php if(Auth::user()->admin==1) {?>
                         <li><a href="{{ url('admin/') }}" target="_blank">Admin Dashboard</a></li>
                         <?php } ?>
 
                         <?php if(Auth::user()->admin==0) {?>
-                        <li><a href="<?php echo $url;?>/dashboard">Account Setting</a></li>
+                        <li><a href="<?php echo $url;?>/dashboard">My Profile</a></li>
                             <li><a id="becomeseller" data="{{ Auth::user()->id }}" >Become Seller</a></li>
                             <li>
                                 <?php if(config('global.demosite')=="yes"){?>
@@ -85,7 +103,6 @@ $setts = DB::table('settings')
                             ->count();
                         ?>
                         <li><a href="<?php echo $url;?>/dashboard">Account Setting</a></li>
-                        <li><a href="<?php echo $url;?>/business">Business Detail</a></li>
                             <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/services" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Product Detail</a></li>
                             <li><a href="<?php if(empty($shcount)){?><?php echo $url;?>/addshop<?php } else { ?><?php echo $url;?>/editshop<?php } ?>">My Business</a></li>
 
@@ -107,10 +124,7 @@ $setts = DB::table('settings')
 
 
                         <?php } ?>
-                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout</a></li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
+
                     </ul>
                 </li>
                 <?php } ?>

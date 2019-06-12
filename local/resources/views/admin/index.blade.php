@@ -102,7 +102,7 @@
               
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-shopping-cart"></i> Total Shop</span>
+              <span class="count_top"><i class="fa fa-shopping-cart"></i> Total Business</span>
               <div class="count"><?php echo $total_shop;?></div>
               
             </div>

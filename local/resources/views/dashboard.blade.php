@@ -183,21 +183,7 @@
 						
 						
 						
-						<div class="form-group">
 
-
-                            <div class="col-md-12">
-								<label for="gender">Gender</label>
-							<select name="gender" class="form-control validate[required] text-input">
-							  
-							  <option value=""></option>
-							   <option value="male" <?php if($editprofile[0]->gender=='male'){?> selected="selected" <?php } ?>>Male</option>
-							   <option value="female" <?php if($editprofile[0]->gender=='female'){?> selected="selected" <?php } ?>>Female</option>
-							</select>
-                               
-                            </div>
-                        </div>
-						
 						
 						
 						

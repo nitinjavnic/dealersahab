@@ -61,13 +61,17 @@ $setts = DB::table('settings')
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->name }}<b class="caret"></b></a>
 
                     <ul class="dropdown-menu">
+                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout</a></li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
                         <?php if(Auth::check()) { ?>
                         <?php if(Auth::user()->admin==1) {?>
                         <li><a href="{{ url('admin/') }}" target="_blank">Admin Dashboard</a></li>
                         <?php } ?>
 
                         <?php if(Auth::user()->admin==0) {?>
-                        <li><a href="<?php echo $url;?>/dashboard">Account Setting</a></li>
+                        <li><a href="<?php echo $url;?>/dashboard">My Profile</a></li>
                         <li><a id="becomeseller" data="{{ Auth::user()->id }}" >Become Seller</a></li>
                         <li><a href="<?php echo $url;?>/my_bookings">My Bookings</a></li>
                         <li><a href="<?php echo $url;?>/pinnedseller">Pinned Seller</a></li>
@@ -98,17 +102,18 @@ $setts = DB::table('settings')
                         ?>
 
 
-                            <li><a href="<?php echo $url;?>/dashboard">Account Setting</a></li>
-                            <li><a href="<?php echo $url;?>/business">Business Detail</a></li>
-                            <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/services" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Product Detail</a></li>
+                            <li><a href="<?php echo $url;?>/dashboard">My Profile</a></li>
+                            <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/services" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>My Product</a></li>
                             <li><a href="<?php if(empty($shcount)){?><?php echo $url;?>/addshop<?php } else { ?><?php echo $url;?>/editshop<?php } ?>">My Business</a></li>
 
-                            <li><a href="<?php echo $url;?>/my_bookings">My Bookings</a></li>
                             <li><a href="<?php echo $url;?>/myorder">My Order</a></li>
+                            <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/buyer_query" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>My Query</a></li>
+                            <li><a href="<?php echo $url;?>/my_bookings">My Bookings</a></li>
+
+
                             <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/pinnedseller" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Pinned Seller</a></li>
                             <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="#" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Get Featured</a></li>
                             <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/wallet" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Premium Seller</a></li>
-                            <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/buyer_query" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Buyer Query</a></li>
                             <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/delete-account"  onclick="return confirm('Are you sure you want to delete your account?');" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Delete Account</a></li>
 
                         <?php } ?>
@@ -120,10 +125,7 @@ $setts = DB::table('settings')
 
 
                         <?php } ?>
-                        <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout</a></li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
+
                     </ul>
 
                 </li>

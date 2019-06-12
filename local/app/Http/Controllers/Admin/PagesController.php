@@ -40,12 +40,6 @@ class PagesController extends Controller
    
    protected function pagedata(Request $request)
     {
-       
-		
-		
-		
-		
-         
 		 $data = $request->all();
 			
          $page_id=$data['page_id'];

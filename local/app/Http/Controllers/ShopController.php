@@ -309,8 +309,10 @@ class ShopController extends Controller
 		$legal=$data['legal'];
 		$establishment=$data['establishment'];
 		$sellermail = Auth::user()->email;
-		$nature=$data['nature'];
 		$gst=$data['gst'];
+		$productdesc=$data['productdesc'];
+		$brand_name=$data['brand_name'];
+		$product_dealing=$data['product_dealing'];
 
 		$sellerid = Auth::user()->id;
 		
@@ -325,19 +327,22 @@ class ShopController extends Controller
 			if($shopcnt==0)
 			{
 
-		DB::insert('insert into shop (shop_name,address,city,pin_code,country,state,cover_photo,profile_photo,seller_email,user_id,legal_status,nature_of_business,gst_number,establishment) values (? , ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-		[$shop_name,$shop_address,$shop_city,$shop_pin_code,$shop_country,$shop_state,$namef,$namepro,$sellermail,$sellerid,$legal,$nature,$gst,$establishment]);
+		DB::insert('insert into shop (shop_name,address,city,pin_code,country,state,cover_photo,profile_photo,seller_email,user_id,legal_status,gst_number,establishment,brand_name,product_dealing,productdesc) values (?, ?, ?, ? , ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?)',
+		[$shop_name,$shop_address,$shop_city,$shop_pin_code,$shop_country,$shop_state,$namef,$namepro,$sellermail,$sellerid,$legal,$gst,$establishment,$brand_name,$product_dealing,$productdesc]);
 
 			}
 
 		}
+
+
+
 		else if($editid!="")
 		{
-			DB::update('update shop set shop_name="'.$shop_name.'",address="'.$shop_address.'",city="'.$shop_city.'",pin_code="'.$shop_pin_code.'",country="'.$shop_country.'",cover_photo="'.$namef.'",profile_photo="'.$namepro.'",seller_email="'.$sellermail.'",user_id="'.$sellerid.'",legal_status= "'.$legal.'", nature_of_business=  "'.$nature.'" ,gst_number= "'.$gst.'" , establishment="'.$gst.'"  where id = ?', [$editid]);
+			DB::update('update shop set shop_name="'.$shop_name.'",address="'.$shop_address.'",city="'.$shop_city.'",pin_code="'.$shop_pin_code.'",country="'.$shop_country.'",cover_photo="'.$namef.'",profile_photo="'.$namepro.'",seller_email="'.$sellermail.'",user_id="'.$sellerid.'",legal_status= "'.$legal.'",gst_number= "'.$gst.'" , establishment="'.$gst.'" ,brand_name="'.$brand_name.'" ,product_dealing="'.$product_dealing.'",productdesc="'.$productdesc.'" where id = ?', [$editid]);
 		}
 		
 		
-			 return back()->with('success', 'Shop has been created');
+			 return back()->with('success', 'Business update Successfully!');
 			
 			
         

@@ -55,7 +55,7 @@ $setid=1;
 		<div class="col-md-2">
 		<h4>Customers </h4>
 		<ul>
-		<li><a href="<?php echo $url;?>/how-it-works">How it works </a></li>
+			<li><a href="<?php echo $url;?>/how-it-works">How it works </a></li>
 		<li><a href="<?php echo $url;?>/safety">Safety </a></li>
 		<li><a href="<?php echo $url;?>/service-guide">Service Guide </a></li>
 		<li><a href="<?php echo $url;?>/how-to-pages">How To Pages </a></li>
@@ -75,7 +75,7 @@ $setid=1;
 		<div class="col-md-2">
 		<h4>Questions? </h4>
 		<ul>
-		<li><a href="<?php echo $url;?>/contact">Contact </a></li>
+			<li><a href="<?php echo $url;?>/contact">Contact </a></li>
 		<li><a href="#">Android </a></li>
 		<li><a href="#">Iphone </a></li>
 

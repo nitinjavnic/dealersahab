@@ -18,7 +18,7 @@
 <div class="video">
     <div class="clearfix"></div>
     <div class="">
-        <div class="col-md-12 fancy" align="center"><h2>Tips, Market Trends</h2></div>
+        <div class="col-md-12 fancy" align="center"><h2>Tips, Market & Trends</h2></div>
 
         <div class="height30"></div>
     </div>

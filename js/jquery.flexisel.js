@@ -511,8 +511,7 @@ $(window).load(function() {
 	
 	$("#flexiselDemo34").flexisel({
         visibleItems: 6,
-		
-        itemsToScroll: 1,         
+        itemsToScroll: 1,
         autoPlay: {
             enable: false,
             interval: 5000,

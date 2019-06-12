@@ -139,23 +139,11 @@
 				</div>
 
 
-
-
-
 				<?php } ?>
 			</div>
 
 
-
-
-
-
-
-
 			<?php } ?>
-
-
-
 
 
 
@@ -430,13 +418,14 @@
 										$totalrating = array_sum($items);
 										$totalCount = count($rating);
 										$sum = $totalrating/$totalCount;
+
 										$tyy .= $totalrating/$totalCount;
 
 										?>
                                 <?php }?>
 
 									<div class="rating" >
-										<span><?php echo $sum; ?></span><img src="<?php echo $url.$starpath;?>" alt="rated <?php if($shop->rating==""){ echo "0"; } else { echo $shop->rating; }?> stars" class="star_rates" />
+										<span><?php echo $tyy; ?></span><img src="<?php echo $url.$starpath;?>" alt="rated <?php if($shop->rating==""){ echo "0"; } else { echo $shop->rating; }?> stars" class="star_rates" />
 
 									</div>
 

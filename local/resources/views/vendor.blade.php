@@ -517,8 +517,10 @@
 
 
             <?php } ?>
-                    <h4><strong><?php echo $checkshops->shop_name ?></strong></h4>
-                    <p><strong>Location-</strong> <?php echo $checkshops->city ?></p>
+
+
+                        <a href="<?php echo $url; ?>/vendor/<?php echo $checkshops->name;?>/<?php echo $checkshops->supersubcategory_id;?>"><h3><strong><?php echo $checkshops->shop_name; ?></strong></h3></a>
+                        <p><strong>Location-</strong> <?php echo $checkshops->city ?></p>
                     <p><b>250 Profile Views</b></p>
                     <p><b>Nature of Business-</b> <?php echo $checkshops->nature_of_business ?></p>
                     <p><b>Product Dealing-</b> Compressor,Piston,Tools</p>

@@ -40,7 +40,7 @@
 <div class="video">
     <div class="clearfix"></div>
     <div class="">
-        <div class="col-md-12 fancy" align="center"><h2 >Blog</h2></div>
+        <div class="col-md-12 fancy" align="center"><h2 >Tips, Market & Trends</h2></div>
     </div>
 </div>
 
@@ -72,9 +72,8 @@
 
                     </div>
                     <div class="col-md-10 blog-info ">
-                        <a href="http://localhost/dealersahab/vendor/wpchecking"><h3><strong><?php echo $blogs->blog_titile ?></strong></h3></a>
-                        <p><?php echo $blogs->blog_text; ?></p>
-
+                        <a href="<?php echo $url;?>/readmore/{{ $blogs->id }}"><h3><strong><?php echo $blogs->blog_titile ?></strong></h3></a>
+                        <p><?php echo  str_limit($blogs->blog_text, 500);?></p>
                         <a href="<?php echo $url;?>/readmore/{{ $blogs->id }}" class="btn btn-success float-right blog-more-btn">Read more</a>
                     </div>
                 </div>

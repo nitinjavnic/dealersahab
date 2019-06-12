@@ -1,20 +1,22 @@
 <?php
 use Illuminate\Support\Facades\Route;
-$currentPaths= Route::getFacadeRoot()->current()->uri();	
+$currentPaths= Route::getFacadeRoot()->current()->uri();
 $url = URL::to("/");
 $setid=1;
 		$setts = DB::table('settings')
 		->where('id', '=', $setid)
 		->get();
+
+
 if($currentPaths=="/")
  {
 	 $pagetitle="Home";
  }
- else 
+ else
  {
 	 $pagetitle=$currentPaths;
  }
-?>	
+?>
 <!DOCTYPE html>
 <html lang="{{ config('app.locale') }}">
 <head>
@@ -26,11 +28,15 @@ if($currentPaths=="/")
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title><?php echo $setts[0]->site_name;?> - <?php echo $pagetitle;?></title>
-	
+
 
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+
+
 </head>
 <body>
     <div id="app">
@@ -94,6 +100,6 @@ if($currentPaths=="/")
     </div>
 
     <!-- Scripts -->
-    
+
 </body>
 </html>

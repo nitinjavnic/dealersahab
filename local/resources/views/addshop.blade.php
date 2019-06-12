@@ -41,6 +41,29 @@ $url = URL::to("/"); ?>
 <div class="video">
     <div class="clearfix"></div>
     <div class="container">
+
+        @if(Session::has('success'))
+
+            <div class="alert alert-success">
+
+                {{ Session::get('success') }}
+
+            </div>
+
+        @endif
+
+
+
+
+        @if(Session::has('error'))
+
+            <div class="alert alert-danger">
+
+                {{ Session::get('error') }}
+
+            </div>
+
+        @endif
         <div class="clearfix"></div>
         <div class="panel panel-default border-shadow">
             <div class="panel-heading">Add Business Details</div>
@@ -138,15 +161,7 @@ $url = URL::to("/"); ?>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="name" class="col-md-12">Brand Name<span class="require">*</span></label>
 
-                                <div class="col-md-12">
-                                    <input id="product_name" type="text" class="form-control validate[required] text-input" name="product_name" value="">
-
-
-                                </div>
-                            </div>
 
 
 
@@ -158,26 +173,6 @@ $url = URL::to("/"); ?>
 
                         <div class="col-md-6 moves20">
 
-                            <div class="form-group">
-                                <label for="name" class="col-md-12">Nature of Business <span class="require">*</span></label>
-
-                                <div class="col-md-12">
-
-                                    <select id="change_category" class="form-control validate[required]" name="nature" required="">
-
-                                        <option value="">Select Business</option>
-                                        <option value="Manufacturer">Manufacturer</option>
-                                        <option value="Dealer">Dealer</option>
-                                        <option value="Wholesaler">Wholesaler</option>
-                                        <option value="Supplier">Supplier</option>
-
-
-                                    </select>
-
-
-
-                                </div>
-                            </div>
 
 
                             <div class="form-group">
@@ -237,18 +232,14 @@ $url = URL::to("/"); ?>
 
 
                             <div class="form-group">
-                                <label for="name" class="col-md-12">Business Contact <span class="require">*</span></label>
+                                <label for="name" class="col-md-12">Brand Name<span class="require">*</span></label>
 
                                 <div class="col-md-12">
-                                    <input id="" type="text" class="form-control validate[required] text-input" name="shop_phone_no" value="">
+                                    <input id="product_name" type="text" class="form-control validate[required] text-input" name="brand_name" value="">
 
 
                                 </div>
                             </div>
-
-
-
-
 
                         </div>
 
@@ -258,6 +249,16 @@ $url = URL::to("/"); ?>
                     </div>
 
                     <div class="row">
+                        <div class="form-group">
+                            <label for="name" class="col-md-12">&nbsp;&nbsp;&nbsp;&nbsp;  Product Description<span class="require">*</span></label>
+
+                            <div class="col-md-12">
+
+                                <textarea id="editor" name="productdesc"></textarea>
+
+
+                            </div>
+                        </div>
                         <div class="col-md-12">
 
                             <a href="http://localhost/dealerSahab/shop" class="btn btn-primary radiusoff">
@@ -278,22 +279,21 @@ $url = URL::to("/"); ?>
         </div>
 
 
-
-
-
-
-
         <div class="height30"></div>
         <div class="row">
-
-
-
-
 
         </div>
 
     </div>
 </div>
+<script type="text/javascript">
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
 
 
 @include('footer')

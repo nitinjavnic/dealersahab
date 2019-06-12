@@ -46,8 +46,6 @@ class ServicesController extends Controller
 		->orderBy('id','desc')
 		->leftJoin('subservices', 'subservices.subid', '=', 'products.subcategory_id')
             ->paginate(2);
-
-
         $editid="";
 		
 		

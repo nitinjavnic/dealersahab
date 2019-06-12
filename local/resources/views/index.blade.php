@@ -90,10 +90,10 @@ $setid=1;
                 <div class="col-md-8">
                     {!! csrf_field() !!}
                     <div class="col-md-3 col-xs-3 paddingoff">
-                        <input type="text" name="search_location" class="searchtext validate[required]" id="search_text" placeholder="City">
+                        <input type="text" name="search_location" class="searchtext validate" id="search_text" placeholder="City">
                     </div>
                     <div class="col-md-6 col-xs-6 paddingoff">
-                        <input type="text" name="search_text" class="searchtext validate[required]" id="search_text" placeholder="Enter Your Product ">
+                        <input type="text" name="search_text" class="searchtext validate" id="search_text" placeholder="Enter Your Product ">
                     </div>
                     <div class="col-md-3 col-xs-3 paddingoff">
                         <input type="submit" name="search" class="searchbtn" value="Search">
@@ -162,9 +162,13 @@ $setid=1;
 	
     <div id="flexiselDemo34">
 	<?php foreach ($services as $service) {
+
+
      $subserve=strtolower($service->name);
-			$result_url = preg_replace('/[ ,]+/', '-', trim($subserve));
+     $result_url = preg_replace('/[ ,]+/', '-', trim($subserve));
 	?>
+
+
 	<li>
 	<div class="move10">
 	<?php

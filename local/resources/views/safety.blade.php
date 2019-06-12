@@ -4,7 +4,7 @@
 
 
 
-   @include('style')
+	@include('style')
 
 
 
@@ -15,33 +15,55 @@
 
 
 
-    <!-- fixed navigation bar -->
-    @include('header')
+<!-- fixed navigation bar -->
+@include('header')
 
-    <!-- slider -->
+<!-- slider -->
 
 
+
+
+
+
+
+
+
+
+
+<div class="clearfix"></div>
+
+
+
+
+
+<div class="video">
 	<div class="clearfix"></div>
+	<div class="headerbg">
+		<div class="col-md-12" align="center"><h1><?php echo $safety[0]->page_title;?></h1></div>
+	</div>
+	<div class="container">
+
+		<div class="height30"></div>
+		<div class="row">
+			<div class="col-md-12">
+
+				<?php echo str_replace("'","",$safety[0]->page_desc);?>
+			</div>
 
 
 
 
-
-	<div class="video">
-	<div class="clearfix"></div>
-	<div class="">
-        <div class="col-md-12 fancy" align="center"><h2 >safety</h2></div>
-	 </div>
+		</div>
 
 	</div>
-	</div>
+</div>
 
 
 
 
-      <div class="clearfix"></div>
-	   <div class="clearfix"></div>
+<div class="clearfix"></div>
+<div class="clearfix"></div>
 
-      @include('footer')
+@include('footer')
 </body>
 </html>

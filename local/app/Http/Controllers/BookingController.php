@@ -30,49 +30,29 @@ class BookingController extends Controller
 	
 	
 	public function sangvish_showpage($shop_id,$product_id,$userid) {
-		 $uber = DB::table('users')->where('id', '=', $userid)->get();
+
+        print_r($product_id);
+
+
+        $uber = DB::table('users')->where('id', '=', $userid)->get();
+
+
+
 		 $user_email = $uber[0]->email;
 		 $products=DB::table('products')->where('id', '=', $product_id)->get();
 		  $shop = DB::table('shop')
                ->where('id', '=', $shop_id)
                 ->get();
-		 $seller_services=DB::table('seller_services')
-		 ->leftJoin('subservices', 'subservices.subid', '=', 'seller_services.subservice_id')
-		 ->where('seller_services.user_id', '=', $userid)->get();
 
 		  $shop_id = $shop[0]->id;
-		$booking_days=$shop[0]->booking_opening_days;
-		$booking_per_hour=$shop[0]->booking_per_hour;
-		$cur_date=date("Y-m-d");
-		$exp_date=date("Y-m-d",strtotime($cur_date.'+'.$booking_days.'days'));
-		$start_time=$shop[0]->start_time;
-		$end_time=$shop[0]->end_time;
-		$shop_days=$shop[0]->shop_date;
-		$days="";
-		$sel=explode("," , $shop_days);
-		$lev=count($sel);
-		for($i=0;$i<$lev;$i++)
-		{
-			$date_id=$sel[$i];
-			$days.="day==".$date_id;
-			$days.="||";		
-		}
-		 $days=trim($days,"||");
-		
-		
-
 		$set_id=1;
 		$setting = DB::table('settings')->where('id', $set_id)->get();
-		
 
-	  $data = array( 'shop' => $shop, 'user_email'=>$user_email,  'setting' => $setting, 'seller_services' => $seller_services, 'products' => $products,
-	  'booking_per_hour' => $booking_per_hour, 'start_time' => $start_time, 'end_time' => $end_time, 'shop_id' => $shop_id, 'userid' => $userid,
-	  'days' => $days, 'exp_date' => $exp_date);
+
+	  $data = array( 'shop' => $shop, 'user_email'=>$user_email,  'setting' => $setting,'products' => $products,
+	   'shop_id' => $shop_id, 'userid' => $userid);
       return view('booking')->with($data);
    }
-
-
-
 
 
 

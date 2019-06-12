@@ -44,8 +44,8 @@
 	@endif
 
 
-	
-	
+
+
  	@if(Session::has('error'))
 
 	    <div class="alert alert-danger">
@@ -259,8 +259,11 @@
   <thead>
     <tr>
       <th>Sno</th>
-      <th>Category</th>
-      <th>Price</th>
+      <th>Product Price</th>
+      <th>Industry</th>
+      <th>SubCategory</th>
+		<th>Product Type</th>
+		<th>Product Image</th>
       <th>Product Name</th>
       <th>Company Name</th>
 
@@ -272,12 +275,40 @@
   <?php 
   $ii=1;
   foreach($viewservice as $newserve){
+  $category = DB::table('services')->where('id', $newserve->category_id)->get();
+  $supercategory = DB::table('subsuperservice')->where('id', $newserve->supersubcategory_id)->get();
 
-  	?>
+  ?>
     <tr>
       <th><?php echo $ii;?></th>
-      <td><?php echo $newserve->subname;?></td>
       <td><?php echo $newserve->price.' '.$setting[0]->site_currency;?></td>
+		<td><?php echo  $category[0]->name;?></td>
+        <td><?php echo $newserve->subname;?></td>
+		<td><?php echo $supercategory[0]->subsupername;?></td>
+		<td>
+
+            <?php
+			$servicephoto="/productimage/";
+			$path ='/local/images'.$servicephoto.$newserve->photo;
+			if($newserve->photo!=""){
+			?>
+			<div class="item form-group" align="center">
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<img src="<?php echo $url.$path;?>" class="thumb " width="100" style="float:left" height="100">
+				</div>
+			</div>
+			<?php } else {?>
+			<div class="item form-group" align="center">
+				<div class="col-md-6 col-sm-6 col-xs-12">
+					<img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="thumb " width="100" height="100" style="float:left">
+				</div>
+			</div>
+			<?php ?>
+
+			<?php }?>
+
+		</td>
+
 		<td><?php echo $newserve->product_name;?></td>
 		<td><?php echo $newserve->comapanyname;?></td>
 

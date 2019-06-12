@@ -29,9 +29,12 @@ class VendorController extends Controller
         $uber = DB::table('users')->where('name', '=', $id)->get();
         $sellertype= $uber[0]->sellertype;
         $checkshop = DB::table('shop')
+            ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+            ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
             ->inRandomOrder()
             ->limit(3)
             ->get();
+
 
         $shopcount = DB::table('shop')
             ->where('seller_email', '=', $uber[0]->email)

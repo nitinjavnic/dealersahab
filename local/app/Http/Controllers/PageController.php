@@ -78,7 +78,7 @@ class PageController extends Controller
 			   ->get();
 	
 		$data = array('contact' => $contact);
-            return view('contact')->with($data);
+            return view('contacts')->with($data);
     }
 	
 	

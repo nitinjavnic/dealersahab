@@ -59,7 +59,7 @@ class IndexController extends Controller
             ->count();
         $fourth = DB::select('select * from subservices where service = ?',[$four[0]->id]);
 
-        $testimonials = DB::table('testimonials')->orderBy('id', 'desc')->get();
+        $testimonials = DB::table('testimonials')->orderBy('id', 'desc')->limit(3)->get();
 
         $blog = DB::table('blog')->orderBy('id', 'desc') ->limit(3)->get();
 
@@ -83,6 +83,21 @@ class IndexController extends Controller
         $data=array();
         foreach ($viewsubservice as $viewsub) {
             $data[]=array('value'=>$viewsub->subname,'id'=>$viewsub->subid);
+        }
+        if(count($data))
+            return $data;
+        else
+            return ['value'=>'No Result Found','id'=>''];
+    }
+
+    public function searchlocation(Request $request) {
+        $query = $request->get('term','');
+
+        $viewsubservice=DB::table('shop')->where('city','LIKE','%'.$query.'%')->orderBy('city', 'asc')->get();
+
+        $data=array();
+        foreach ($viewsubservice as $viewsub) {
+            $data[]=array('value'=>$viewsub->city,'id'=>$viewsub->id);
         }
         if(count($data))
             return $data;
