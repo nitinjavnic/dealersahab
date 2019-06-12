@@ -51,7 +51,6 @@ class RegisterController extends Controller
             'name' => 'required|regex:/^[\w-]*$/|unique:users|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-			'usertype' => 'required|string|max:255',
         ]);
     }
 
@@ -63,7 +62,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if($data['sellertype']==''){
             return User::create([
                 'name' => $data['name'],
                 'email' => $data['email'],
@@ -72,18 +70,9 @@ class RegisterController extends Controller
                 'photo' => '',
                 'admin' => $data['usertype'],
             ]);
-        }else{
-            return User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => bcrypt($data['password']),
-                'phone' => $data['phoneno'],
-                'photo' => '',
-                'admin' => $data['usertype'],
-                'sellertype' => $data['sellertype'],
-            ]);
+
         }
 
 
-    }
+
 }

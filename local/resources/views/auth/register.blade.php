@@ -94,7 +94,7 @@
 
                             <div class="col-md-12">
                                 <label for="usertype">User Type</label>
-							<select name="usertype" onchange="showDiv('hidden_div', this)" class="form-control" required>
+							<select name="usertype" class="form-control" required>
 							  
 							  <option value=""></option>
 							   <option value="0">Buyer</option>
@@ -104,23 +104,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group " id="hidden_div">
-
-
-                            <div class="col-md-12">
-                                <label for="usertype">Seller Type</label>
-                                <select name="sellertype"  class="form-control">
-                                    <option value=""></option>
-                                    <option value="Manufacturer">Manufacturer</option>
-                                    <option value="Dealer">Dealer</option>
-                                    <option value="Wholesaler">Wholesaler</option>
-                                    <option value="Distributer">Distributer</option>
-                                </select>
-
-                            </div>
-                        </div>
-						
-						
 
                         <div class="form-group">
                             <div class="col-md-12 ">
@@ -141,15 +124,6 @@
     </div>
     <div class="col-md-4"></div>
 </div>
-<script>
-
-    function showDiv(divId, element)
-    {   console.log(element);
-
-        document.getElementById(divId).style.display = element.value == 2 ? 'block' : 'none';
-    }
-
-</script>
 
 @include('footer')
 @endsection

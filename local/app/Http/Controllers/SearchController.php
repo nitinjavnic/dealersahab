@@ -102,46 +102,85 @@ class SearchController extends Controller
         $datas = $request->all();
         $search_text=$datas['search_text'];
         $search_location=$datas['search_location'];
-        $count= DB::table('subservices')->where('subname', $search_text)->count();
 
 
+        if($search_text){
+            $count= DB::table('subservices')->where('subname', $search_text)->count();
 
-        if(!empty($count))
-        {
-            $services = DB::table('subservices')->where('subname', $search_text)->get();
+            if(!empty($count))
+            {
+                $services = DB::table('subservices')->where('subname', $search_text)->get();
 
-            $subsearches = DB::table('shop')
-                ->leftJoin('seller_services', 'seller_services.shop_id', '=', 'shop.id')
+                $subsearches = DB::table('shop')
+                    ->leftJoin('seller_services', 'seller_services.shop_id', '=', 'shop.id')
+                    ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+                    ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+                    ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+                    ->where('shop.status', '=', 'approved')
+                    ->where('seller_services.subservice_id', '=', $services[0]->subid)
+                    ->orderBy('shop.id','desc')
+                    ->groupBy('shop.id')
+
+                    ->get();
+            }
+            if(empty($count))
+            {
+                $services = "";
+                $subsearches = "";
+            }
+
+            $viewservices= DB::table('subservices')->orderBy('subname','asc')->get();
+
+            $shopview=DB::table('shop')
                 ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
-                ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
                 ->where('shop.status', '=', 'approved')
-                ->where('seller_services.subservice_id', '=', $services[0]->subid)
-                ->orderBy('shop.id','desc')
-                ->groupBy('shop.id')
+                ->orderBy('shop.id','desc')->get();
 
-                ->get();
+
+            $sub_value="";
+
+            $data = array('shopData'=>$shopData,'brandname'=>$brandname,'allsubservice'=>$allsubservice,'allservice'=>$allservice,'allsuper'=>$allsuper,'services' => $services,'viewservices' => $viewservices, 'shopview' => $shopview, 'subsearches' => $subsearches, 'count' => $count,
+                'search_text' => $search_text, 'sub_value' => $sub_value);
+            return view('search_filter')->with($data);
+
+        }else if ($search_location){
+
+            $location_count= DB::table('shop')->where('city', $search_location)->count();
+            if(!empty($location_count))
+            {
+                $shop = DB::table('shop')->where('city', $search_location)->get();
+                $location_services = DB::table('subservices')->where('subname', $shop[0]->sub_category)->get();
+
+                $locationdata = DB::table('shop')
+                    ->leftJoin('seller_services', 'seller_services.shop_id', '=', 'shop.id')
+                    ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+                    ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+                    ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+                    ->where('shop.city', '=', $search_location)
+                    ->orderBy('shop.id','desc')
+                    ->groupBy('shop.id')
+                    ->get();
+            }
+
+            if(empty($location_count))
+            {
+                $location_services = "";
+                $locationdata = "";
+            }
+
+            $view_location= DB::table('subservices')->orderBy('subname','asc')->get();
+
+            $shop_location=DB::table('shop')
+                ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+                ->orderBy('shop.id','desc')->get();
+
+            $data = array('shopData'=>$shopData,'brandname'=>$brandname,'allsubservice'=>$allsubservice,'allservice'=>$allservice,'allsuper'=>$allsuper,'services' => $location_services,'viewservices' => $view_location, 'shopview' => $shop_location, 'subsearches' => $locationdata, 'count' => $location_count,
+                'search_text' => $search_location);
+            return view('search_filter')->with($data);
+
         }
-        if(empty($count))
-        {
-            $services = "";
-            $subsearches = "";
-        }
-
-        $viewservices= DB::table('subservices')->orderBy('subname','asc')->get();
-
-        $shopview=DB::table('shop')
-            ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
-            ->where('shop.status', '=', 'approved')
-            ->orderBy('shop.id','desc')->get();
 
 
-        $sub_value="";
-
-
-
-        $data = array('shopData'=>$shopData,'brandname'=>$brandname,'allsubservice'=>$allsubservice,'allservice'=>$allservice,'allsuper'=>$allsuper,'services' => $services,'viewservices' => $viewservices, 'shopview' => $shopview, 'subsearches' => $subsearches, 'count' => $count,
-            'search_text' => $search_text, 'sub_value' => $sub_value);
-        return view('search')->with($data);
     }
 
     public function sangvish_search(Request $request)
