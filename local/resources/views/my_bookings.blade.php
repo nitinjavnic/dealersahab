@@ -185,7 +185,8 @@ $(function(){
 </script>
 	
 			
-			<div class="row booking_page">
+			<div class="row booking_page border-shadow margin-0 " >
+				<div class="">
 				<div class="shop_pic col-lg-4">
 				<?php
 				 $shopphoto="/shop/";
@@ -201,8 +202,8 @@ $(function(){
 				</div>
 				
 				<div class="col-lg-4 paddingleft20">
-				<h3 class="sv_shop_style"><a href="<?php echo $url; ?>/vendor/<?php echo $book->name;?>" target="_blank"><?php echo $book->shop_name; ?></a></h3>
-					
+				<h3 class="sv_shop_style "><a href="<?php echo $url; ?>/vendor/<?php echo $book->name;?>" target="_blank" class="text-info"><?php echo $book->shop_name; ?> </a></h3>
+
 					<p><span class="lnr lnr-calendar-full"></span>	<?php echo $book->booking_date; ?> - <span class="lnr lnr-clock"></span>
 						<?php echo $final_time; ?></p>
 					
@@ -213,7 +214,7 @@ $(function(){
 					  <?php echo $ser_name; ?>
 				
 				<div class="total-price radiusoff">Total Price - <?php if($book->total_amt=="") { echo "0"; } else { echo $book->total_amt; }?>&nbsp;<?php echo $book->currency; ?></div>
-				
+
 				</div>
 				
 				<div class="col-lg-4 book_content">
@@ -222,6 +223,7 @@ $(function(){
     	<div class="well-sm mtop10">
             <div class="revbtn">
                 <a class="btn btn-success btn-green radiusoff" href="#reviews-anchor" id="open-review-box<?php echo $bookk; ?>">Leave a Review</a>
+				<div class="clearfix-2"></div>
             </div>
        
             <div class="row" id="post-review-box<?php echo $bookk; ?>" style="display:none;">
@@ -254,7 +256,8 @@ $(function(){
 		</div>
 			</div>		
 </div>
-		
+</div>
+
 			<?php } } ?>
 
 	

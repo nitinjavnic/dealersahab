@@ -28,9 +28,9 @@
 	<div class="clearfix"></div>
 	<div class="clearfix"></div>
 		<div class="container">
-	<div class="row border-shadow p-25">
+	<div class="row border-shadow ">
 
-	 <div class="col-md-12 fancy" align="center"><h3 class=" heading-0">Add Product</h3></div>
+	 <div class="col-md-12" style="padding:0px;"><h3 class=" heading-0">Add Product</h3></div>
 
 
 	 
@@ -60,7 +60,7 @@
 	@endif
 	<div class="container ">
 	<div class="row">
-	<form class="form-horizontal" role="form" method="POST" action="{{ route('services') }}" id="formID" enctype="multipart/form-data">
+	<form class="" role="form" method="POST" action="{{ route('services') }}" id="formID" enctype="multipart/form-data">
    <div class="col-md-12">
    {!! csrf_field() !!}
    
@@ -85,7 +85,7 @@
 
 	   <div class="form-group col-md-4 swidth" >
 		   <label>Select Sector<span class="star">*</span></label>
-		   <select  class="form-control col-md-7 col-xs-12" id="subservice" name="subservice" required="required">
+		   <select  class="form-control " id="subservice" name="subservice" required="required">
 			   <option value="">
 
 			   </option>
@@ -96,7 +96,7 @@
 
 	   <div class="form-group col-md-4 swidth" >
 		   <label>Select Product Type<span class="star">*</span></label>
-		   <select  class="form-control col-md-7 col-xs-12" id="subsuperservice" name="supersubservice" required="required">
+		   <select  class="form-control " id="subsuperservice" name="supersubservice" required="required">
 			   <option value="">
 
 			   </option>
@@ -106,7 +106,9 @@
 	   </div>
 
 
-	   <div class="form-group col-md-6 swidth" >
+
+
+	   <div class="form-group col-md-6 " >
 		   <label>Product Image<span class="star">*</span></label>
 		   <input type="file" id="photo" name="photo" class="form-control col-md-8 col-xs-12">
 		   <?php if(!empty($sellservices)) {
@@ -136,7 +138,7 @@
 	   </div>
 
 	   <div class="item form-group">
-		   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"  > Product Name <span class="required">*</span>
+		   <label class="control-label col-md-6 col-sm-6 col-xs-12" for="name"  > Product Name <span class="required">*</span>
 		   </label>
 		   <div class="col-md-6 col-sm-6 col-xs-12">
 			   <input id="name" class="form-control col-md-12 col-xs-12"  name="productname" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>" required="required" type="text">
@@ -148,7 +150,7 @@
 		   </div>
 	   </div>
 
-	
+
 	
 	<div class="form-group col-md-4 swidth">
 		<label>Price <span class="star">*</span></label>
@@ -196,24 +198,25 @@
 
 
 
-	   <div class="container-fluid">
+
+
 		   <div class="row">
 			   <h2 class="demo-text"></h2>
 			   <div class="container ">
 				   <div class="row">
 					   <div class="col-md-6 ">
 						   <label class="text-center">Product Description</label><br/>
-						   <textarea id="editor" name="productdesc" style="border-left:.5px solid gray;" ><?php if(!empty($sellservices)) { echo $sellservices[0]->productdesc; }?></textarea>
+						   <textarea id="editor" name="productdesc" style="border-left:.5px solid gray; " ><?php if(!empty($sellservices)) { echo $sellservices[0]->productdesc; }?></textarea>
 					   </div>
 					   <div class="col-md-6  ">
 						   <label class="text-center">Product Feature</label><br/>
-						   <textarea id="editor1" name="productfeature" style="border-left:.5px solid gray;" ><?php if(!empty($sellservices)) { echo $sellservices[0]->productfeature	; }?></textarea>
+						   <textarea id="editor1" name="productfeature" style="border-left:.5px solid gray; " ><?php if(!empty($sellservices)) { echo $sellservices[0]->productfeature	; }?></textarea>
 					   </div>
 
 				   </div>
 			   </div>
 		   </div>
-	   </div>
+
 
 
 	   <input type="hidden" name="user_id" value="<?php echo $uuid;?>">
@@ -257,7 +260,7 @@
 	 </div>
 	 
 	<div class="row">
-		<div class="col-md-12 tbl-right-pd">
+		<div class="col-md-12 ">
 	<div class="table-responsive">
 	<table class="table table-bordered">
   <thead>
