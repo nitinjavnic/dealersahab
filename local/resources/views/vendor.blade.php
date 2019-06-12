@@ -50,7 +50,7 @@
 
 
         <div class="col-md-6 col-8">
-            <h2><?php echo $shop[0]->shop_name;?></h2>
+            <h2 class="text-info"><?php echo $shop[0]->shop_name;?></h2>
 
                 <?php if(Auth::check()) { ?>
                 <a href="#" data="<?php echo $shop[0]->shop_name;?>" class="btn btn-success pin-seller " id="pinned">Pinned </a>
