@@ -295,6 +295,29 @@ $url = URL::to("/"); ?>
                             </div>
 
 
+                            <div class="form-group">
+                                <label for="name" class="col-md-12">Select Seller Type<span class="require">*</span></label>
+
+                                <div class="col-md-12">
+
+
+                                    <select id="change_category" class="form-control validate[required]" name="sellertype" required="">
+
+                                        <option value="Manufacturer"<?php if($editshop[0]->sellertype == 'Manufacturer') { ?> selected="selected"<?php } ?>>Manufacturer</option>
+                                        <option value="Dealer"<?php if($editshop[0]->sellertype == 'Dealer') { ?> selected="selected"<?php } ?>>Franchises/Dealer</option>
+                                        <option value="Wholesaler"<?php if($editshop[0]->sellertype == 'Wholesaler') { ?> selected="selected"<?php } ?>>Wholesaler/Trader</option>
+                                        <option value="Distributor"<?php if($editshop[0]->sellertype == 'Distributor') { ?> selected="selected"<?php } ?>>Supplier/Distributor</option>
+
+
+
+
+
+                                    </select>
+
+
+                                </div>
+                            </div>
+
 
 
 
@@ -308,7 +331,7 @@ $url = URL::to("/"); ?>
 
                     <div class="row">
                         <div class="form-group">
-                            <label for="name" class="col-md-12">&nbsp;&nbsp;&nbsp;&nbsp;  Product Description<span class="require">*</span></label>
+                            <label for="name" class="col-md-12">&nbsp;&nbsp;&nbsp;&nbsp;  Business Description<span class="require">*</span></label>
 
                             <div class="col-md-12">
 
@@ -354,11 +377,24 @@ $url = URL::to("/"); ?>
     </div>
 </div>
 <script type="text/javascript">
+
     ClassicEditor
-        .create( document.querySelector( '#editor' ) )
+        .create( document.querySelector( '#editor' ), {
+            toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+            heading: {
+                options: [
+                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+                ]
+            }
+        } )
         .catch( error => {
-            console.error( error );
+            console.log( error );
         } );
+
+
+
 </script>
 
 

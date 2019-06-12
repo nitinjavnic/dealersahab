@@ -36,19 +36,19 @@ class DashboardController extends AdminController {
 
 
 
-        $totalManufacturer = DB::table('users')
+        $totalManufacturer = DB::table('shop')
             ->where('sellertype','=', 'Manufacturer')
             ->count();
 
-        $totalDealer = DB::table('users')
+        $totalDealer = DB::table('shop')
             ->where('sellertype','=', 'Dealer')
             ->count();
 
-        $totalWholesaler = DB::table('users')
+        $totalWholesaler = DB::table('shop')
             ->where('sellertype','=', 'Wholesaler')
             ->count();
 
-        $totalDistributer = DB::table('users')
+        $totalDistributer = DB::table('shop')
             ->where('sellertype','=', 'Distributer')
             ->count();
 					   

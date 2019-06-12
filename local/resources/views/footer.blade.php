@@ -72,16 +72,7 @@ $setid=1;
 		</ul>
 		</div>
 		
-		<div class="col-md-2">
-		<h4>Questions? </h4>
-		<ul>
-			<li><a href="<?php echo $url;?>/contact">Contact </a></li>
-		<li><a href="#">Android </a></li>
-		<li><a href="#">Iphone </a></li>
 
-		</ul>
-		</div>
-		
 		</div>
 		<div class="col-md-1"></div>
 	  </div>

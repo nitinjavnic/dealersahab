@@ -59,7 +59,7 @@
 
                 <div class="col-md-8 blog-info ">
                     <a href=""><h3><strong><?php echo $newblog->blog_titile; ?></strong></h3></a>
-                    <p><?php echo $newblog->blog_text; ?></p>
+                    <p><?php echo $newblog->full_description; ?></p>
 
                 </div>
 

@@ -72,7 +72,7 @@ $setts = DB::table('settings')
 
                         <?php if(Auth::user()->admin==0) {?>
                         <li><a href="<?php echo $url;?>/dashboard">My Profile</a></li>
-                        <li><a id="becomeseller" data="{{ Auth::user()->id }}" >Become Seller</a></li>
+                        <li><a href="<?php echo $url;?>/addshop">Become Seller</a></li>
                         <li><a href="<?php echo $url;?>/my_bookings">My Bookings</a></li>
                         <li><a href="<?php echo $url;?>/pinnedseller">Pinned Seller</a></li>
                             <li>

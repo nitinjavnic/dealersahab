@@ -113,8 +113,8 @@ class AddblogController extends Controller
             DB::insert('insert into blog (blog_titile, photo ,blog_text,date_time,article_name,keywords,full_description) values (?, ?, ?, ?,?,?,?)', [$blog_titile,$namef,$blog_text,$ldate,$article_name,$keywords,$full_description]);
 
 
-            return back()->with('success', 'Blog has been created');
-
+            $url1= 'admin/blog';
+            return redirect($url1)->with('success', 'Blog has been created');
 
 
         }

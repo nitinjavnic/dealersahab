@@ -55,12 +55,13 @@ class PagesController extends Controller
 		
 		DB::update('update pages set page_title="'.$page_title.'",page_desc="'.$page_desc.'" where page_id = ?', [$page_id]);
 		
-			return back()->with('success', 'Page has been updated');
-        
-		
-		
-		
-		
+        $url1= 'admin/pages';
+        return redirect($url1)->with('success', 'Page has been updated');
+
+
+
+
+
     }
    
    

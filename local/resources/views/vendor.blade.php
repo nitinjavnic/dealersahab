@@ -53,7 +53,12 @@
             <h2 class="text-info"><?php echo $shop[0]->shop_name;?></h2>
 
                 <?php if(Auth::check()) { ?>
+                <?php if($pinned==0) { ?>
                 <a href="#" data="<?php echo $shop[0]->shop_name;?>" class="btn btn-success pin-seller " id="pinned">Pinned </a>
+        <?php }else if($pinned!=0){ ?>
+            <a href="#" data="<?php echo $shop[0]->shop_name;?>" class="btn btn-success pin-seller " id="pinned">Unpinned </a>
+
+        <?php } ?>
         <?php }?>
             <p><strong>Address-</strong> <?php echo $shop[0]->address;?> <br/><strong>Profile View</strong></p>
             <table class="text-center">
@@ -62,7 +67,7 @@
                     <td><strong>Year of Establishment</strong></td>
                 </tr>
                 <tr>
-                    <td><?php echo $sellertype; ?></td>
+                    <td>sellertype</td>
                     <td>2010</td>
                     <td></td>
                 </tr>
@@ -557,6 +562,8 @@
 
         var shopUrl = $(location).attr('href');
         var shopname = $(this).attr("data");
+        var self= $(this); //Store the refence in another variable like
+
 
         $.ajax({
             type: 'POST',
@@ -568,12 +575,12 @@
             },
             success: function(data) {
                    if(data.success==='false'){
-
-                       swal("This Url is already Exits!");
+                       swal("Unpinned Successfully!");
+                       self.html('Pinned');
 
                    }else if(data.success==='true'){
-                       swal("Pinned Seller Save!");
-
+                       swal("Pinned Successfully!");
+                       self.html('Unpinned');
 
                    }
 

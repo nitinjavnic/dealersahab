@@ -156,7 +156,10 @@ class EdittestimonialController extends Controller
 		
 		DB::update('update testimonials set name="'.$name.'",description="'.$desc.'",image="'.$savefname.'", star= "'.$star.'" where id = ?', [$id]);
 		
-			return back()->with('success', 'Testimonial has been updated');
+            $url1= 'admin/testimonials';
+            return redirect($url1)->with('success', 'Testimonial has been updated');
+
+
         }
 		
 		

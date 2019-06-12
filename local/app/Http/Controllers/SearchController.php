@@ -79,11 +79,6 @@ class SearchController extends Controller
             ->where('shop.status', '=', 'approved')
             ->orderBy('shop.id','desc')->get();
 
-
-
-
-
-
         $sub_value = $id;
 
         $data = array('subsearches' => $subsearches, 'shopData'=>$shopData,'brandname'=>$brandname, 'allsuper'=>$allsuper, 'viewservices' => $viewservices, 'shopview' => $shopview, 'sub_value' => $sub_value, 'services' => $services,'allsubservice'=>$allsubservice,'allservice'=>$allservice);
@@ -116,12 +111,12 @@ class SearchController extends Controller
                     ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
                     ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
                     ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
-                    ->where('shop.status', '=', 'approved')
-                    ->where('seller_services.subservice_id', '=', $services[0]->subid)
                     ->orderBy('shop.id','desc')
                     ->groupBy('shop.id')
 
                     ->get();
+
+
             }
             if(empty($count))
             {

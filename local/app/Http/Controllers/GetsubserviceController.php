@@ -88,65 +88,50 @@ class GetsubserviceController extends Controller
 
         $sellertype = $data['sellertype'];
         if($sellertype==='Manufacturer'){
-            $query = DB::table('users')->select('id')->where('sellertype', $sellertype)->get();
-            $databyshop = array();
-            foreach ($query as $viewsub) {
-                $shopdata = DB::table('shop')->where('user_id', $viewsub->id)->get();
-                foreach ($shopdata as $allShop) {
-                    $databyshop[]=$allShop;
-                }
-            }
-            return response()->json([
-                'shop' => $databyshop,
 
-            ]);
+            $subsearches = DB::table('shop')
+                ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+                ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+                ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+                ->where('shop.sellertype', '=', $sellertype)
+                ->groupBy('shop.id')
+                ->get();
+            return view('filter_data', ['subsearches' => $subsearches]);
+
         }
 
         if($sellertype==='Dealer'){
-            $query = DB::table('users')->select('id')->where('sellertype', $sellertype)->get();
-            $dealerShop = array();
-            foreach ($query as $viewsub) {
-                $shopdata = DB::table('shop')->where('user_id', $viewsub->id)->get();
-                foreach ($shopdata as $allShop) {
-                    $dealerShop[]=$allShop;
-                }
-            }
-            return response()->json([
-                'shop' => $dealerShop,
-
-            ]);
+            $subsearches = DB::table('shop')
+                ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+                ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+                ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+                ->where('shop.sellertype', '=', $sellertype)
+                ->groupBy('shop.id')
+                ->get();
+            return view('filter_data', ['subsearches' => $subsearches]);
         }
 
         if($sellertype==='Wholesaler'){
-            $query = DB::table('users')->select('id')->where('sellertype', $sellertype)->get();
-            $whole = array();
-            foreach ($query as $viewsub) {
-                $shopdata = DB::table('shop')->where('user_id', $viewsub->id)->get();
-                foreach ($shopdata as $allShop) {
-                    $whole[]=$allShop;
-                }
-            }
-            return response()->json([
-                'shop' => $whole,
-
-            ]);
+            $subsearches = DB::table('shop')
+                ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+                ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+                ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+                ->where('shop.sellertype', '=', $sellertype)
+                ->groupBy('shop.id')
+                ->get();
+            return view('filter_data', ['subsearches' => $subsearches]);
         }
 
 
         if($sellertype==='Distributor'){
-            $query = DB::table('users')->select('id')->where('sellertype', $sellertype)->get();
-
-            $Distributer = array();
-            foreach ($query as $viewsub) {
-                $shopdata = DB::table('shop')->where('user_id', $viewsub->id)->get();
-                foreach ($shopdata as $allShop) {
-                    $Distributer[]=$allShop;
-                }
-            }
-            return response()->json([
-                'shop' => $Distributer,
-
-            ]);
+            $subsearches = DB::table('shop')
+                ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+                ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+                ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+                ->where('shop.sellertype', '=', $sellertype)
+                ->groupBy('shop.id')
+                ->get();
+            return view('filter_data', ['subsearches' => $subsearches]);
         }
 
 
@@ -159,6 +144,7 @@ class GetsubserviceController extends Controller
         $rules = array('shopname' => 'unique:pinned,shop_name');
         $validator = Validator::make($input, $rules);
         if ($validator->fails()) {
+            DB::delete('delete from pinned where user_id = ?',[$userId]);
             return response()->json([
                 'success' => 'false',
             ]);

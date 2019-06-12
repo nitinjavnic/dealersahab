@@ -82,7 +82,6 @@
                                     <th>Sno</th>
                                     <th>Photo</th>
                                     <th>Username</th>
-                                    <th>Seller Type</th>
                                     <th>Email</th>
                                     <th>Phone</th>
                                     <th>Action</th>
@@ -121,7 +120,6 @@
                                     <td><img src="<?php echo $url.'/local/images/nophoto.jpg';?>" class="thumb" width="70"></td>
                                     <?php } ?>
                                     <td><?php echo $user->name;?></td>
-                                    <td><?php echo $user->sellertype;?></td>
                                     <td><?php echo $user->email;?></td>
                                     <td><?php echo $user->phone;?></td>
                                     <?php

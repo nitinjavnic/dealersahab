@@ -186,10 +186,10 @@ class EdituserController extends Controller
 		
 			
 			DB::update('update shop set seller_email="'.$email.'" where user_id = ?', [$id]);
-		
-		
-		
-			return back()->with('success', 'Account has been updated');
+
+            $url1= 'admin/users';
+            return redirect($url1)->with('success', 'Account has been updated');
+
         }
 		
 		

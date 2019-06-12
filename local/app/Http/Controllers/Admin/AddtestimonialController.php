@@ -156,9 +156,11 @@ class AddtestimonialController extends Controller
 		
 		
 		DB::insert('insert into testimonials (name, description , image,star) values (?, ? ,?,?)', [$name,$desc,$namef,$star]);
-		
-		
-			return back()->with('success', 'Testimonial has been created');
+
+            $url1= 'admin/testimonials';
+            return redirect($url1)->with('success', 'Add successfully!');
+
+
         }
 		
 		

@@ -31,8 +31,6 @@ class BookingController extends Controller
 	
 	public function sangvish_showpage($shop_id,$product_id,$userid) {
 
-        print_r($product_id);
-
 
         $uber = DB::table('users')->where('id', '=', $userid)->get();
 

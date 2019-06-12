@@ -88,7 +88,6 @@ class EditsupersubserviceController extends Controller
 
         $rules = array(
 
-            'name' => 'unique:subsuperservice,subsupername',
             'photo' => 'max:1024|mimes:jpg,jpeg,png'
         );
 
@@ -149,8 +148,11 @@ class EditsupersubserviceController extends Controller
             DB::update('update subsuperservice set subsupername="'.$name.'",service="'.$service.'",supersubimage="'.$savefname.'",subservice="'.$subservice.'" where id = ?', [$subid]);
 
 
+            $url1= 'admin/supersubservices';
+            return redirect($url1)->with('success', 'Sub service has been created');
 
-            return back()->with('success', 'Super Sub service has been updated');
+
+
         }
 
 

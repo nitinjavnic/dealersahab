@@ -197,6 +197,7 @@ class ShopController extends Controller
 	protected function sangvish_savedata(Request $request)
     {
 
+
 		 $data = $request->all();
 
 		 $editid=$data['editid'];
@@ -231,8 +232,8 @@ class ShopController extends Controller
 			return back()->withErrors($validator);
 		}
 		else
-		{ 
-		
+		{
+
 	     $shop_cover_photo = Input::file('shop_cover_photo');
 		 if($shop_cover_photo!="")
 		 {
@@ -242,15 +243,15 @@ class ShopController extends Controller
 			$delpath = base_path('images'.$shophoto.$data['current_cover']);
 			File::delete($delpath);
 			}
-			 
+
             $filename  = time() . '.' . $shop_cover_photo->getClientOriginalExtension();
             $shopphoto="/shop/";
             $path = base_path('images'.$shopphoto.$filename);
 			$destinationPath=base_path('images'.$shopphoto);
- 
-        
+
+
                Image::make($shop_cover_photo->getRealPath())->resize(1400, 300)->save($path);
-				
+
 				$namef=$filename;
 		 }
 		 else
@@ -265,8 +266,8 @@ class ShopController extends Controller
 			 $namef="";
 			 }
 		 }
-		 
-		 
+
+
 		 $shop_profile_photo = Input::file('shop_profile_photo');
 		 if($shop_profile_photo!="")
 		 {
@@ -276,15 +277,15 @@ class ShopController extends Controller
 			$delpaths = base_path('images'.$shopro.$data['current_photo']);
 			File::delete($delpaths);
 			}
-			 
+
             $profilename  = time() . '.' . $shop_profile_photo->getClientOriginalExtension();
             $shopphoto="/shop/";
             $paths = base_path('images'.$shopphoto.$profilename);
-			
- 
-        
+
+
+
                Image::make($shop_profile_photo->getRealPath())->resize(150, 150)->save($paths);
-				
+
 				$namepro=$profilename;
 		 }
 		 else
@@ -313,36 +314,44 @@ class ShopController extends Controller
 		$productdesc=$data['productdesc'];
 		$brand_name=$data['brand_name'];
 		$product_dealing=$data['product_dealing'];
+		$sellertype=$data['sellertype'];
+		$seller=2;
 
 		$sellerid = Auth::user()->id;
-		
+
 		$sellermaile = Auth::user()->email;
 
     	 $shopcnt = DB::table('shop')
 		 ->where('seller_email', '=', $sellermaile)
 		 ->count();
-		
-		if($editid=="")
-		{
-			if($shopcnt==0)
-			{
 
-		DB::insert('insert into shop (shop_name,address,city,pin_code,country,state,cover_photo,profile_photo,seller_email,user_id,legal_status,gst_number,establishment,brand_name,product_dealing,productdesc) values (?, ?, ?, ? , ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?)',
-		[$shop_name,$shop_address,$shop_city,$shop_pin_code,$shop_country,$shop_state,$namef,$namepro,$sellermail,$sellerid,$legal,$gst,$establishment,$brand_name,$product_dealing,$productdesc]);
+            if($editid=="")
+            {
+                if($shopcnt==0)
+                {
+                    if(Auth::user()->admin==0){
+                        DB::insert('insert into shop (shop_name,address,city,pin_code,country,state,cover_photo,profile_photo,seller_email,user_id,legal_status,gst_number,establishment,brand_name,product_dealing,productdesc,sellertype) values (?, ?, ?, ?, ? , ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?)',
+                            [$shop_name,$shop_address,$shop_city,$shop_pin_code,$shop_country,$shop_state,$namef,$namepro,$sellermail,$sellerid,$legal,$gst,$establishment,$brand_name,$product_dealing,$productdesc,$sellertype]);
+                        DB::update('update users set admin = 2 where id = ?',[Auth::user()->id]);
 
-			}
+                    }
 
-		}
+                    DB::insert('insert into shop (shop_name,address,city,pin_code,country,state,cover_photo,profile_photo,seller_email,user_id,legal_status,gst_number,establishment,brand_name,product_dealing,productdesc,sellertype) values (?, ?, ?, ?, ? , ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?)',
+                        [$shop_name,$shop_address,$shop_city,$shop_pin_code,$shop_country,$shop_state,$namef,$namepro,$sellermail,$sellerid,$legal,$gst,$establishment,$brand_name,$product_dealing,$productdesc,$sellertype]);
+
+                }
+
+            }
 
 
 
 		else if($editid!="")
 		{
-			DB::update('update shop set shop_name="'.$shop_name.'",address="'.$shop_address.'",city="'.$shop_city.'",pin_code="'.$shop_pin_code.'",country="'.$shop_country.'",cover_photo="'.$namef.'",profile_photo="'.$namepro.'",seller_email="'.$sellermail.'",user_id="'.$sellerid.'",legal_status= "'.$legal.'",gst_number= "'.$gst.'" , establishment="'.$gst.'" ,brand_name="'.$brand_name.'" ,product_dealing="'.$product_dealing.'",productdesc="'.$productdesc.'" where id = ?', [$editid]);
+			DB::update('update shop set sellertype = "'.$sellertype.'",shop_name="'.$shop_name.'",address="'.$shop_address.'",city="'.$shop_city.'",pin_code="'.$shop_pin_code.'",country="'.$shop_country.'",cover_photo="'.$namef.'",profile_photo="'.$namepro.'",seller_email="'.$sellermail.'",user_id="'.$sellerid.'",legal_status= "'.$legal.'",gst_number= "'.$gst.'" , establishment="'.$gst.'" ,brand_name="'.$brand_name.'" ,product_dealing="'.$product_dealing.'",productdesc="'.$productdesc.'" where id = ?', [$editid]);
 		}
 		
 		
-			 return back()->with('success', 'Business update Successfully!');
+			 return back()->with('success', 'Business Save Successfully!');
 			
 			
         

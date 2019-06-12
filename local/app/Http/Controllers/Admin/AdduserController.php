@@ -163,9 +163,10 @@ class AdduserController extends Controller
 		
 		
 		DB::insert('insert into users (name,email,password,phone,photo,admin,gender) values (?, ?,?, ?,?,?,?)', [$name,$email,$password,$phone,$namef,$admin,$gender]);
-		
-		
-			return back()->with('success', 'Account has been created');
+
+            $url1= 'admin/users';
+            return redirect($url1)->with('success', 'Account has been created');
+
         }
 		
 		
