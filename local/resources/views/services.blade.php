@@ -26,10 +26,13 @@
 	
 	<div class="video ">
 	<div class="clearfix"></div>
-	<div class="">
-	 <div class="col-md-12 fancy" align="center"><h2>Add Product</h2></div>
-	 </div>
-	<div class="container">
+	<div class="clearfix"></div>
+		<div class="container">
+	<div class="row border-shadow p-25">
+
+	 <div class="col-md-12 fancy" align="center"><h3 class=" heading-0">Add Product</h3></div>
+
+
 	 
 	 <div class="height30"></div>
 	 
@@ -103,9 +106,9 @@
 	   </div>
 
 
-	   <div class="form-group col-md-4 swidth" >
+	   <div class="form-group col-md-6 swidth" >
 		   <label>Product Image<span class="star">*</span></label>
-		   <input type="file" id="photo" name="photo" class="form-control col-md-7 col-xs-12">
+		   <input type="file" id="photo" name="photo" class="form-control col-md-8 col-xs-12">
 		   <?php if(!empty($sellservices)) {
 
 		   $servicephoto="/productimage/";
@@ -133,10 +136,10 @@
 	   </div>
 
 	   <div class="item form-group">
-		   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> Product Name <span class="required">*</span>
+		   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"  > Product Name <span class="required">*</span>
 		   </label>
 		   <div class="col-md-6 col-sm-6 col-xs-12">
-			   <input id="name" class="form-control col-md-7 col-xs-12"  name="productname" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>" required="required" type="text">
+			   <input id="name" class="form-control col-md-12 col-xs-12"  name="productname" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>" required="required" type="text">
 			   @if ($errors->has('name'))
 				   <span class="help-block" style="color:red;">
                                         <strong>That product name is already exists</strong>
@@ -196,15 +199,15 @@
 	   <div class="container-fluid">
 		   <div class="row">
 			   <h2 class="demo-text"></h2>
-			   <div class="container">
+			   <div class="container ">
 				   <div class="row">
-					   <div class="col-md-6 nopadding">
-						   <label class="text-center">Product Description</label>
-						   <textarea id="editor" name="productdesc"><?php if(!empty($sellservices)) { echo $sellservices[0]->productdesc; }?></textarea>
+					   <div class="col-md-6 ">
+						   <label class="text-center">Product Description</label><br/>
+						   <textarea id="editor" name="productdesc" style="border-left:.5px solid gray;" ><?php if(!empty($sellservices)) { echo $sellservices[0]->productdesc; }?></textarea>
 					   </div>
-					   <div class="col-md-6 nopadding ">
-						   <label class="text-center">Product Feature</label>
-						   <textarea id="editor1" name="productfeature"><?php if(!empty($sellservices)) { echo $sellservices[0]->productfeature	; }?></textarea>
+					   <div class="col-md-6  ">
+						   <label class="text-center">Product Feature</label><br/>
+						   <textarea id="editor1" name="productfeature" style="border-left:.5px solid gray;" ><?php if(!empty($sellservices)) { echo $sellservices[0]->productfeature	; }?></textarea>
 					   </div>
 
 				   </div>
@@ -244,7 +247,7 @@
 	
 	
 	<div class="clearfix"></div>
-	<div class="row" align="right" style="margin-bottom:2px;">
+	<div class="col-md-12" align="right" style="margin-bottom:2px;">
 	 <?php if(config('global.demosite')=="yes"){?><span class="disabletxt">( <?php echo config('global.demotxt');?> ) </span><button type="button" class="btn btn-primary radiusoff btndisable">Add Services</button> 
 								<?php } else { ?>
 	
@@ -254,6 +257,7 @@
 	 </div>
 	 
 	<div class="row">
+		<div class="col-md-12 tbl-right-pd">
 	<div class="table-responsive">
 	<table class="table table-bordered">
   <thead>
@@ -343,6 +347,7 @@
 	</div>
 	
 	</div>
+	</div>
 		{{--<div class="container" style="text-align:right;">
 
 
@@ -360,7 +365,8 @@
 	
 	</div>
 	</div>
-	
+	</div>
+
 	
 	
 
