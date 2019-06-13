@@ -50,8 +50,22 @@ $setts = DB::table('settings')
                 <li><a href="<?php echo $url;?>/blogList">Blog</a></li>
 
                 <li><a href="<?php echo $url;?>/post">Post your Requirment</a></li>
+                <?php if(Auth::user()->admin==0) {
+                $mail = Auth::user()->email;
+                $mailcount = DB::table('shop')
+                    ->where('seller_email', '=',$mail)
+                    ->count();
+                ?>
+
+                <li><a href="<?php if(empty($mailcount)){?><?php echo $url;?>/addshop<?php } else { ?><?php echo $url;?>/editshop<?php } ?>">List your Business</a></li>
+
+
+
+                <?php }else{ ?>
+
                 <li><a href="<?php echo $url;?>/register">List your Business</a></li>
-                <li><a href="<?php echo $url;?>/contact">Contact Us</a></li>
+
+                <?php  }?>                <li><a href="<?php echo $url;?>/contact">Contact Us</a></li>
 
                 <li class="dropdown">
 
@@ -74,8 +88,10 @@ $setts = DB::table('settings')
 
                         <?php if(Auth::user()->admin==0) {?>
                         <li><a href="<?php echo $url;?>/dashboard">My Profile</a></li>
-                        <li><a href="<?php echo $url;?>/addshop">Become Seller</a></li>
-                            <li>
+                        <li><a href="<?php if(empty($mailcount)){?><?php echo $url;?>/addshop<?php } else { ?><?php echo $url;?>/editshop<?php } ?>">Become Seller</a></li>
+
+
+                        <li>
                                 <?php if(config('global.demosite')=="yes"){?>
                                 <a href="#" class="btndisable">
                                     Delete Account <span class="disabletxt" style="font-size:13px;">( <?php echo config('global.demotxt');?> )</span>

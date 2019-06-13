@@ -77,28 +77,38 @@
                                     <input type="hidden" id="product_id" name="product_id" value="<?php echo $products[0]->id; ?>">
                                     <input type="hidden" id="user_email" name="user_email" value="<?php echo $user_email; ?>">
 
+                                    <h5><strong>Name</strong></h5>
+                                    <input type="text" class="form-control" value="<?php echo $name ?>" disabled>
+
                                     <h5><strong>Address <span class="require">*</span></strong></h5>
                                     <input type="text" class="form-control validate[required]" id="book_address" name="book_address" >
 
                                     <br/>
                                     <h5><strong>Price </strong></h5>
-                                    <input type="text" class="form-control" id="price" name="price" >
+                                    <input type="number" class="form-control" id="price" name="price" >
                                 </div>
 
 
 
+
+
                                 <div class="col-md-4">
+                                    <h5><strong>Email</strong></h5>
+                                    <input type="text" class="form-control" value="<?php echo $email ?>" disabled>
+
                                     <h5><strong>City <span class="require">*</span></strong></h5>
                                     <input type="text" class="form-control validate[required]" id="book_city" name="book_city" >
 
                                     <br/>
                                     <h5><strong>Quantity </strong></h5>
-                                    <input type="text" class="form-control validate[required]" name="qty" >
+                                    <input type="number" class="form-control validate[required]" name="qty" >
 
 
                                 </div>
 
                                 <div class="col-md-4">
+                                    <h5><strong>Phone</strong></h5>
+                                    <input type="text" class="form-control" value="<?php echo $phone ?>" disabled>
                                     <h5><strong>Payment Mode <span class="require">*</span></strong></h5>
                                     <select id="payment_mode" name="payment_mode" class="form-control validate[required]">
                                         <option value="">None</option>

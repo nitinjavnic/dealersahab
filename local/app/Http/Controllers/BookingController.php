@@ -30,11 +30,10 @@ class BookingController extends Controller
 	
 	
 	public function sangvish_showpage($shop_id,$product_id,$userid) {
-
-
         $uber = DB::table('users')->where('id', '=', $userid)->get();
-
-
+        $name = $uber[0]->name;
+        $email = $uber[0]->email;
+        $phone = $uber[0]->phone;
 
 		 $user_email = $uber[0]->email;
 		 $products=DB::table('products')->where('id', '=', $product_id)->get();
@@ -47,19 +46,10 @@ class BookingController extends Controller
 		$setting = DB::table('settings')->where('id', $set_id)->get();
 
 
-	  $data = array( 'shop' => $shop, 'user_email'=>$user_email,  'setting' => $setting,'products' => $products,
+	  $data = array( 'shop' => $shop, 'phone'=>$phone, 'email'=>$email, 'name'=>$name, 'user_email'=>$user_email,  'setting' => $setting,'products' => $products,
 	   'shop_id' => $shop_id, 'userid' => $userid);
       return view('booking')->with($data);
    }
-
-
-
-
-
-
-
-
-
 
 
 

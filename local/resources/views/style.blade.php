@@ -28,12 +28,12 @@ $currentPaths= Route::getFacadeRoot()->current()->uri();
  }
 
 
-$googleany = DB::table('pages')
-		->where('page_title', '=', 'Google Analytics')
-		->get();
-
-echo trim($googleany[0]->page_desc,"'");
-
+//$googleany = DB::table('pages')
+//		->where('page_title', '=', 'Google Analytics')
+//		->get();
+//
+//echo trim($googleany[0]->page_desc,"'");
+//
 
  ?>
 

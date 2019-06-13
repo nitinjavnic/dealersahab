@@ -55,7 +55,23 @@ $setts = DB::table('settings')
                 <li><a href="<?php echo $url;?>/blogList">Blog</a></li>
 
                 <li><a href="<?php echo $url;?>/post">Post your Requirment</a></li>
+                <?php if(Auth::user()->admin==0) {
+                    $mail = Auth::user()->email;
+                    $mailcount = DB::table('shop')
+                        ->where('seller_email', '=',$mail)
+                        ->count();
+                    ?>
+
+                <li><a href="<?php if(empty($mailcount)){?><?php echo $url;?>/addshop<?php } else { ?><?php echo $url;?>/editshop<?php } ?>">List your Business</a></li>
+
+
+
+                <?php }else{ ?>
+
                 <li><a href="<?php echo $url;?>/register">List your Business</a></li>
+
+                <?php  }?>
+
                 <li><a href="<?php echo $url;?>/contact">Contact Us</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->name }}<b class="caret"></b></a>
@@ -72,7 +88,7 @@ $setts = DB::table('settings')
 
                         <?php if(Auth::user()->admin==0) {?>
                         <li><a href="<?php echo $url;?>/dashboard">My Profile</a></li>
-                        <li><a href="<?php echo $url;?>/addshop">Become Seller</a></li>
+                        <li><a href="<?php if(empty($mailcount)){?><?php echo $url;?>/addshop<?php } else { ?><?php echo $url;?>/editshop<?php } ?>">Become Seller</a></li>
                         <li><a href="<?php echo $url;?>/my_bookings">My Bookings</a></li>
                         <li><a href="<?php echo $url;?>/pinnedseller">Pinned Seller</a></li>
                             <li>
