@@ -66,7 +66,9 @@ class GetsubserviceController extends Controller
     {
         $data = $request->all();
         $id=$data['id'];
+
         $query = DB::table('subsuperservice')->select('subsupername','id')->where('subservice', $id)->get();
+
         $data=array();
         foreach ($query as $viewsub) {
 
@@ -204,102 +206,94 @@ class GetsubserviceController extends Controller
     public function filter(Request $request){
         $data = $request->all();
         $id = $data['id'];
-        $categoryShop = DB::table('shop')->where('category', $id)->get();
-        $shop = array();
-        foreach ($categoryShop as $viewshop) {
-                $shop[]=$viewshop;
-        }
-        return response()->json([
-            'shop' => $shop,
-
-        ]);
-
+        $subsearches = DB::table('shop')
+            ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+            ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+            ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+            ->where('shop.category', '=', $id)
+            ->groupBy('shop.id')
+            ->get();
+            return view('filter_data', ['subsearches' => $subsearches]);
     }
 
     public function subcategoryfilter(Request $request){
         $data = $request->all();
         $id = $data['id'];
-        $categoryShop = DB::table('shop')->where('sub_category', $id)->get();
-        $shop = array();
-        foreach ($categoryShop as $viewshop) {
-            $shop[]=$viewshop;
-        }
-        return response()->json([
-            'shop' => $shop,
-
-        ]);
+        $subsearches = DB::table('shop')
+            ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+            ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+            ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+            ->where('shop.sub_category', '=', $id)
+            ->groupBy('shop.id')
+            ->get();
+        return view('filter_data', ['subsearches' => $subsearches]);
 
     }
 
     public function supercategory(Request $request){
         $data = $request->all();
         $id = $data['id'];
-        $categoryShop = DB::table('shop')->where('super_category', $id)->get();
-        $shop = array();
-        foreach ($categoryShop as $viewshop) {
-            $shop[]=$viewshop;
-        }
-        return response()->json([
-            'shop' => $shop,
-
-        ]);
+        $subsearches = DB::table('shop')
+            ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+            ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+            ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+            ->where('shop.super_category', '=', $id)
+            ->groupBy('shop.id')
+            ->get();
+        return view('filter_data', ['subsearches' => $subsearches]);
 
     }
 
     public function brandProduct(Request $request){
         $data = $request->all();
         $id = $data['id'];
-        $categoryShop = DB::table('shop')->where('id', $id)->get();
-        $shop = array();
-        foreach ($categoryShop as $viewshop) {
-            $shop[]=$viewshop;
-        }
-        return response()->json([
-            'shop' => $shop,
-
-        ]);
+        $subsearches = DB::table('shop')
+            ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+            ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+            ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+            ->where('shop.brand_name', '=', $id)
+            ->groupBy('shop.id')
+            ->get();
+        return view('filter_data', ['subsearches' => $subsearches]);
     }
 
     public function productstate(Request $request){
         $data = $request->all();
         $id = $data['id'];
-        $categoryShop = DB::table('shop')->where('state', $id)->get();
-        $shop = array();
-        foreach ($categoryShop as $viewshop) {
-            $shop[]=$viewshop;
-        }
-        return response()->json([
-            'shop' => $shop,
-
-        ]);
+        $subsearches = DB::table('shop')
+            ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+            ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+            ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+            ->where('shop.state', '=', $id)
+            ->groupBy('shop.id')
+            ->get();
+        return view('filter_data', ['subsearches' => $subsearches]);
     }
 
     public function productcity(Request $request){
         $data = $request->all();
         $id = $data['id'];
-        $categoryShop = DB::table('shop')->where('city', $id)->get();
-        $shop = array();
-        foreach ($categoryShop as $viewshop) {
-            $shop[]=$viewshop;
-        }
-        return response()->json([
-            'shop' => $shop,
-
-        ]);
+        $subsearches = DB::table('shop')
+            ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+            ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+            ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+            ->where('shop.city', '=', $id)
+            ->groupBy('shop.id')
+            ->get();
+        return view('filter_data', ['subsearches' => $subsearches]);
     }
 
     public function shoppincode(Request $request){
         $data = $request->all();
         $id = $data['id'];
-        $categoryShop = DB::table('shop')->where('pin_code', $id)->get();
-        $shop = array();
-        foreach ($categoryShop as $viewshop) {
-            $shop[]=$viewshop;
-        }
-        return response()->json([
-            'shop' => $shop,
-
-        ]);
+        $subsearches = DB::table('shop')
+            ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
+            ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
+            ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+            ->where('shop.pin_code', '=', $id)
+            ->groupBy('shop.id')
+            ->get();
+        return view('filter_data', ['subsearches' => $subsearches]);
     }
 
     public function findRole(Request $request){
