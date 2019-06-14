@@ -2996,7 +2996,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 footer{background:#f4f4f4;}
 .testimons{ padding: 5px 10px; height: 150px; margin-top: 1em; background: #f4f4f4; border-radius: 10px;}
 
-.review-point{border:1px solid black; margin:10px 10px; padding-top:10px; box-shadow: 0 0 9px 0px #888888; min-height:230px;}
+.review-point{border:1px solid black; margin:10px 10px; padding:10px; box-shadow: 0 0 9px 0px #888888; }
 .rating span{font-size:2em; padding-right:1em; }
 .filter-review select{width:200px; box-shadow:0 0 6px 0px #294a5a; height:30px;}
 .filter-review1{border:1px solid black; box-shadow:inset 0 0 9px 0px #888888; padding:40px; margin-top:10px; position:sticky; top:6em;}
@@ -3029,8 +3029,10 @@ footer{background:#f4f4f4;}
 
 
 .info-review{border-left:1px solid black;}
-.blog-img img{width:100%; height:185px; margin-top:1.5em;}
+.blog-img{padding:0px; }
+.blog-img img{width:100%; height:200px; }
 .blog-info{padding: 10px;}
+.blog-info p{text-align: justify;}
 .blog-more-btn{float:right;}
 .pin-seller{float:right;}
 .gallery-filter{padding:20px;}
