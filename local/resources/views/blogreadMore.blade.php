@@ -17,11 +17,11 @@
 
 <div class="video">
     <div class="clearfix"></div>
-    <div class="">
-        <div class="col-md-12 fancy" align="center"><h2>Tips, Market & Trends</h2></div>
 
         <div class="height30"></div>
-    </div>
+
+
+
     <div class="container">
 
 
@@ -29,9 +29,11 @@
         <?php foreach ($blog as $newblog) {?>
         <div class="row test">
 
+
+
             <div class="row review-point m-0">
                 <div class="col-md-4 blog-img">
-
+                    <div class="view-blog">
 
                     <?php
                     $servicephoto="/blogphoto/";
@@ -52,19 +54,34 @@
                         <a href="#"><i id="social-gp" class="fa fa-quora fa-2x social"></i></a>
                     </div>
 
-
+                    </div>
                 </div>
 
 
 
-                <div class="col-md-8 blog-info ">
-                    <a href=""><h3><strong><?php echo $newblog->blog_titile; ?></strong></h3></a>
+                <div class="col-md-6 blog-info ">
+                  <h3 class="mt-0 text-capitalize text-info"><strong><?php echo $newblog->blog_titile; ?></strong></h3>
                     <p><?php echo $newblog->full_description; ?></p>
 
                 </div>
 
+                <div class="col-md-2 padd-0  blog-read-heading ">
+                  <div class="view-blog border-shadow">
+                    <h3 class="filter-heading text-center">Business Rating</h3>
+                <div class="pl-10 ">
+                    <p><a href="#">Online Factor</a></p>
+                    <p><a href="#">Hello</a></p>
+                    <p><a href="#">Hello</a></p>
+                    <p><a href="#">Hello</a></p>
+                    <p><a href="#">Hello</a></p>
+                    <p><a href="#">Hello</a></p>
+                    <p><a href="#">Hello</a></p>
+                    <p><a href="#">Hello</a></p>
+                    <p><a href="#">Hello</a></p>
 
-
+                </div>
+                </div>
+                </div>
             </div>
 
         </div>

@@ -36,21 +36,19 @@
 
 
 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 bg-company-info-3 "></div>
+        </div>
 
-<div class="video">
 
-    <div class="clearfix"></div>
-    <div class="container">
+    <div class="container ">
 
         <div class="height30"></div>
-        <div class="row test border-shadow">
 
-            <div class="clearfix"></div>
-
-            <div class="row margin-0">
-                <div class="col-md-4 product-img">
-
-
+            <div class="row border-shadow product-info-details">
+                <div class="clearfix-3"></div>
+                <div class="col-md-3 product-img">
                     <?php $shopphoto="/productimage/";
                     $paths ='/local/images'.$shopphoto.$products[0]->photo;
                     if($products[0]->photo!=""){?>
@@ -59,12 +57,12 @@
                 <?php } else { ?>
 
 
-            <img src="<?php echo $url.'/local/images/nophoto.jpg';?>" alt="" class="img-fluid"></div>
+            <img src="<?php echo $url.'/local/images/nophoto.jpg';?>" alt="" class="img-fluid">
 
 
     <?php } ?>
 
-                <div class="col-md-8 product-details">
+                <div class="col-md-9 ">
                     <h3><?php echo $products[0]->product_name ?></h3>
                     <h5 class="text-dark">Rs <?php echo $products[0]->price ?>/Unit <a class="text-info" href="<?php echo $url;?>/contactseller/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->user_id;?>"> Get Latest Price</a></h5>Product Brochure</p>
                     <h4>Product Features</h4>
@@ -82,8 +80,9 @@
 
 
 
+
         <div class="clearfix"></div>
-        <div class="row">
+
             <div class="col-md-12">
                 <h3 class="pl-10">You may also like</h3>
             </div>
@@ -115,7 +114,7 @@
 
 
         <?php } ?>
-</div>
+
 </div>
 </div>
 
