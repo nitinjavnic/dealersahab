@@ -45,7 +45,6 @@ class SearchController extends Controller
 
         $subview=strtolower($id);
 
-
         $results = preg_replace('/-+/', ' ', $subview);
         $allservice = DB::table('services')->select('name','id')->get();
 
@@ -57,7 +56,8 @@ class SearchController extends Controller
             ->join('subsuperservice', 'subservices.subid', '=', 'subsuperservice.subservice')
             ->get();
 
-        $services = DB::table('subservices')->select('subname', 'subid')->get();
+        $services = DB::table('subservices')->where('subname', $results)->get();
+
         $brandname = DB::table('products')->select('comapanyname','shop_id')->get();
         $shopData = DB::table('shop')->select('state','city','pin_code')->get();
 
@@ -72,11 +72,11 @@ class SearchController extends Controller
             ->paginate(5);
 
 
+
         $viewservices= DB::table('subservices')->orderBy('subname','asc')->get();
 
         $shopview=DB::table('shop')
             ->leftJoin('rating', 'rating.rshop_id', '=', 'shop.id')
-            ->where('shop.status', '=', 'approved')
             ->orderBy('shop.id','desc')->get();
 
         $sub_value = $id;

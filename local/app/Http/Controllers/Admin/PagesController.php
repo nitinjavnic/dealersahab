@@ -44,16 +44,28 @@ class PagesController extends Controller
 			
          $page_id=$data['page_id'];
         			
-		$page_title=$data['page_title'];
-		
-		/* $page_desc=htmlentities(htmlspecialchars($data['page_desc']));*/
-		
-		
-		
+		 $page_title=$data['page_title'];
+
+        $image = Input::file('photo');
+        if($image!="")
+        {
+            $filename  = time() . '.' . $image->getClientOriginalExtension();
+            $userphoto="/Aboutus/";
+            $path = base_path('images'.$userphoto.$filename);
+            $destinationPath=base_path('images'.$userphoto);
+            Input::file('photo')->move($destinationPath, $filename);
+            $namef=$filename;
+        }
+        else
+        {
+            $namef="";
+        }
+
+
 		$page_desc = DB::connection()->getPdo()->quote($data['page_desc']);
 		
 		
-		DB::update('update pages set page_title="'.$page_title.'",page_desc="'.$page_desc.'" where page_id = ?', [$page_id]);
+		DB::update('update pages set page_title="'.$page_title.'",page_desc="'.$page_desc.'" ,photo="'.$namef.'" where page_id = ?', [$page_id]);
 		
         $url1= 'admin/pages';
         return redirect($url1)->with('success', 'Page has been updated');

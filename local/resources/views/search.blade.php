@@ -57,7 +57,6 @@
 
 		<div class="container">
 
-			<?php if(!empty($search_text)){?>
 
 			<?php if(!empty($count)){?>
 
@@ -146,14 +145,7 @@
 			<?php } ?>
 
 
-
-			<?php if(empty($count)){?>
-
-			<div class="col-md-12 noservice" align="center">No services found!</div>
-
-			<?php } ?>
-
-			<?php } if(empty($search_text) && empty($sub_value)) { ?>
+			<?php  if(empty($search_text) && empty($sub_value)) { ?>
 
 			<div class="row">
 				<div class="clearfix"></div>
@@ -355,7 +347,7 @@
 
 								<img src="<?php echo $url.$npaths;?>" alt="" >
 								<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>/<?php echo $shop->supersubcategory_id;?>"><h3><strong><?php echo $shop->shop_name; ?></strong></h3></a>
-									<p><b>Address-</b> <?php echo $shop->address; ?><br><span><b>250 Profile Views</b></span></p>
+								<p><b>Address-</b> <?php echo $shop->address; ?><br><span><b>250 Profile Views</b></span></p>
 								<p><b>  Nature of Business-</b> <?php echo $shop->sellertype; ?></p>
 								<p><b>Product Dealing-</b> <?php echo $shop->product_dealing; ?></p>
 								<p><b>Brand-</b> <?php echo $shop->brand_name; ?></p>
@@ -363,7 +355,7 @@
 							</div>
 							<div class="col-md-5">
 								<div class="well well-sm">
-								<p style="float:left; font-weight: bold;">
+									<p style="float:left; font-weight: bold;">
 									<?php
 									if($shop->rating=="")
 									{
@@ -420,87 +412,87 @@
 
 
 									<div class="row">
-									<div class="col-md-5">
-									<p style="float:left; font-weight: bold;">
-										<span>Excelient</span>
-										<?php
-										if (in_array("5", $items))
-										{
-											echo "(1)";
-										}
-										else
-										{
-											echo "(0)";
-										}
+										<div class="col-md-5">
+											<p style="float:left; font-weight: bold;">
+												<span>Excelient</span>
+												<?php
+												if (in_array("5", $items))
+												{
+													echo "(1)";
+												}
+												else
+												{
+													echo "(0)";
+												}
 
-										?>
+												?>
 
 
-										&nbsp;&nbsp; </p>
-								</div>
-									<div class="col-md-7">
-									<?php
-									if (in_array("5", $items))
-									{
-										echo '<div class="progress">
+												&nbsp;&nbsp; </p>
+										</div>
+										<div class="col-md-7">
+											<?php
+											if (in_array("5", $items))
+											{
+												echo '<div class="progress">
 										<div class="progress-bar bg-rating5 " role="progressbar" style="width:'.$per.'%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>';
-									}
-									else
-									{
-										echo '<div class="progress">
+											}
+											else
+											{
+												echo '<div class="progress">
 										<div class="progress-bar bg-rating5 " role="progressbar" style="width: 0%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>';
-									}
+											}
 
-									?>
-								</div>
-							</div>
-
-
+											?>
+										</div>
+									</div>
 
 
 
 
 
 
-							<div class="row">
+
+
+									<div class="row">
 										<div class="col-md-5">
-									<p style="float:left; font-weight: bold;">
-										<span>Good</span>
-										<?php
-										if (in_array("4", $items))
-										{
-											echo "(1)";
-										}
-										else
-										{
-											echo "(0)";
-										}
+											<p style="float:left; font-weight: bold;">
+												<span>Good</span>
+												<?php
+												if (in_array("4", $items))
+												{
+													echo "(1)";
+												}
+												else
+												{
+													echo "(0)";
+												}
 
-										?>
+												?>
 
 
-										&nbsp;&nbsp; </p></div>
+												&nbsp;&nbsp; </p></div>
 
-									<div class="col-md-7">
-									<?php
-									if (in_array("4", $items))
-									{
-										echo '<div class="progress">
+										<div class="col-md-7">
+											<?php
+											if (in_array("4", $items))
+											{
+												echo '<div class="progress">
 										<div class="progress-bar bg-rating4" role="progressbar" style="width:'.$per.'%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>';
-									}
-									else
-									{
-										echo '<div class="progress">
+											}
+											else
+											{
+												echo '<div class="progress">
 										<div class="progress-bar bg-rating4" role="progressbar" style="width: 0" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>';
-									}
+											}
 
-									?>
+											?>
+										</div>
 									</div>
-								</div>
 
 
 
@@ -509,126 +501,126 @@
 										<div class="col-md-5">
 											<p style="float:left; font-weight: bold;">
 												<span>Average</span>
-										<?php
-										if (in_array("3", $items))
-										{
-											echo "(1)";
-										}
-										else
-										{
-											echo '(0)';
-										}
+												<?php
+												if (in_array("3", $items))
+												{
+													echo "(1)";
+												}
+												else
+												{
+													echo '(0)';
+												}
 
-										?>
-										&nbsp;&nbsp; </p></div>
+												?>
+												&nbsp;&nbsp; </p></div>
 
-									<div class="col-md-7">
-									<?php
-									if (in_array("3", $items))
-									{
-										echo '	<div class="progress">
+										<div class="col-md-7">
+											<?php
+											if (in_array("3", $items))
+											{
+												echo '	<div class="progress">
 										<div class="progress-bar bg-rating3" role="progressbar" style="width:'.$per.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>';
-									}
-									else
-									{
-										echo '<div class="progress">
+											}
+											else
+											{
+												echo '<div class="progress">
 										<div class="progress-bar bg-rating3" role="progressbar" style="width: 0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>';
-									}
+											}
 
-									?>
-									</div>
-									</div>
-
-
-
-
-
-
-
-								<div class="row">
-									<div class="col-md-5">
-									<p style="float:left; font-weight: bold;">
-										<span>bad</span>
-										<?php
-										if (in_array("2", $items))
-										{
-											echo "(1)";
-										}
-										else
-										{
-											echo "(0)";
-										}
-
-										?>
-										&nbsp;&nbsp; </p>
+											?>
+										</div>
 									</div>
 
-									<div class="col-md-7">
 
-									<?php
-									if (in_array("2", $items))
-									{
-										echo '<div class="progress">
+
+
+
+
+
+									<div class="row">
+										<div class="col-md-5">
+											<p style="float:left; font-weight: bold;">
+												<span>bad</span>
+												<?php
+												if (in_array("2", $items))
+												{
+													echo "(1)";
+												}
+												else
+												{
+													echo "(0)";
+												}
+
+												?>
+												&nbsp;&nbsp; </p>
+										</div>
+
+										<div class="col-md-7">
+
+											<?php
+											if (in_array("2", $items))
+											{
+												echo '<div class="progress">
 										<div class="progress-bar bg-rating2" role="progressbar" style="width:'.$per.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>';
-									}
-									else
-									{
-										echo '<div class="progress">
+											}
+											else
+											{
+												echo '<div class="progress">
 										<div class="progress-bar bg-rating2" role="progressbar" style="width: 0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>';
-									}
+											}
 
-									?>
-									</div>
-								</div>
-
-
-
-								<div class="row">
-									<div class="col-md-5">
-									<p style="float:left; font-weight: bold;">
-										<span>Very Bad</span>
-										<?php
-
-										if (in_array("1", $items))
-										{
-											echo "(1)";
-										}
-										else
-										{
-											echo "(0)";
-										}
-
-
-										?>
-
-										&nbsp;&nbsp; </p>
+											?>
+										</div>
 									</div>
 
 
-								<div class="col-md-7">
-									<?php
 
-									if (in_array("1", $items))
-									{
-										echo '<div class="progress">
+									<div class="row">
+										<div class="col-md-5">
+											<p style="float:left; font-weight: bold;">
+												<span>Very Bad</span>
+												<?php
+
+												if (in_array("1", $items))
+												{
+													echo "(1)";
+												}
+												else
+												{
+													echo "(0)";
+												}
+
+
+												?>
+
+												&nbsp;&nbsp; </p>
+										</div>
+
+
+										<div class="col-md-7">
+											<?php
+
+											if (in_array("1", $items))
+											{
+												echo '<div class="progress">
 										<div class="progress-bar bg-rating1" role="progressbar" style="width:'.$per.'%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>';
-									}
-									else
-									{
-										echo '<div class="progress">
+											}
+											else
+											{
+												echo '<div class="progress">
 										<div class="progress-bar bg-rating1" role="progressbar" style="width: 0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
 									</div>';
-									}
+											}
 
 
-									?>
-								</div>
-								</div>
+											?>
+										</div>
+									</div>
 
 
 
@@ -639,8 +631,8 @@
 						<?php } ?>
 
 						<?php } ?>&nbsp;&nbsp;
-						</div>
-						<div class="text-center mb-10">
+					</div>
+					<div class="text-center mb-10">
 
 					</div>
 
@@ -753,7 +745,7 @@
 					sellertype : Distributor
 				},
 				success: function(data) {
-						$('#test').html(data);
+					$('#test').html(data);
 
 				}
 
@@ -804,7 +796,7 @@
 				id : id
 			},
 			success: function(data) {
-					$('#test').html(data);
+				$('#test').html(data);
 				src = "{{ route('getsuballCategory') }}";
 				$(".subservice").change(function() {
 					var id = $(this).val();

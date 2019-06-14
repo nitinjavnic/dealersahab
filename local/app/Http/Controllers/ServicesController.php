@@ -95,6 +95,7 @@ class ServicesController extends Controller
    
    protected function sangvish_savedata(Request $request)
    {
+
        $this->validate($request, [
            'productname' => 'required',
        ]);
@@ -135,6 +136,7 @@ class ServicesController extends Controller
        $service=$data['service'];
 	   $subservice=$data['subservice'];
 	   $supersubservice=$data['supersubservice'];
+
 	   $price=$data['price'];
 	   $productname=$data['productname'];
 	   $user_id=$data['user_id'];
@@ -143,14 +145,34 @@ class ServicesController extends Controller
 	   $comapanyname=$data['comapanyname'];
 	   $productdesc=$data['productdesc'];
 	   $productfeature=$data['productfeature'];
-	   $servi_id=DB::table('subservices')->where('subid', $subservice)->get();
-	   $service_id = $servi_id[0]->service;
+       $servi_id=DB::table('subservices')->where('subid', $subservice)->get();
+       $service_id = $servi_id[0]->service;
+       $servicecnt = DB::table('seller_services')
+           ->where('user_id', '=', $user_id)
+           ->where('shop_id', '=', $shop_id)
+           ->where('subservice_id', '=', $subservice)
+           ->count();
+
+
+
 
 	   if($editid=="")
 	   {
-                   DB::insert('insert into products (user_id,shop_id,price,product_name,category_id,subcategory_id,supersubcategory_id,photo,comapanyname,productdesc,productfeature,brochure) 
+
+           if($servicecnt==0)
+
+           {
+               DB::insert('insert into seller_services (service_id,subservice_id,price,user_id,shop_id) values (?, ?, ?, ?, ?)', [$service_id,$subservice,$price,$user_id,$shop_id]);
+               DB::insert('insert into products (user_id,shop_id,price,product_name,category_id,subcategory_id,supersubcategory_id,photo,comapanyname,productdesc,productfeature,brochure) 
                    values (?, ?, ?, ?, ?, ? ,?, ?,?,?,?,?)', [$user_id,$shop_id,$price,$productname,$service,$subservice,$supersubservice,$namef,$comapanyname,$productdesc,$productfeature,$brochure]);
-           return back()->with('success', 'Products has been added');
+               return back()->with('success', 'Products has been added');
+
+           }
+           else
+           {
+               return back()->with('error','That services is already added.');
+           }
+
 
 	   }
        else if($editid!="")

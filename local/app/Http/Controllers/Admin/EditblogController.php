@@ -93,7 +93,11 @@ class EditblogController extends Controller
             $blog_title=$data['blog_titile'];
             $article_name=$data['article_name'];
             $keywords=$data['keywords'];
+
+
+
             $full_description=$data['full_description'];
+
             $currentphoto=$data['currentphoto'];
 
             $image = Input::file('photo');

@@ -105,6 +105,35 @@
                         <textarea id="page_desc" class="form-control col-md-7 col-xs-12" required="required" name="page_desc" style="min-height:200px;"><?php echo $pages[0]->page_desc; ?></textarea>
 					   </div>
                       </div>
+
+
+                       <div class="item form-group">
+                           <label class="control-label col-md-3 col-sm-3 col-xs-12" for="desc">Image <span class="required">*</span>
+                           </label>
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+
+                               <input id="photo" class="form-control col-md-7 col-xs-12"  name="photo" type="file">
+                           </div>
+                       </div>
+
+
+                       <?php
+                       $servicephoto="/Aboutus/";
+                       $path ='/local/images'.$servicephoto.$pages[0]->photo;
+                       if($pages[0]->photo!=""){
+                       ?>
+                       <div class="item form-group" align="center">
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+                               <img src="<?php echo $url.$path;?>" class="thumb" width="100">
+                           </div>
+                       </div>
+                       <?php } else { ?>
+                       <div class="item form-group" align="center">
+                           <div class="col-md-6 col-sm-6 col-xs-12">
+                               <img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="thumb" width="100">
+                           </div>
+                       </div>
+                       <?php } ?>
                       
                      
 					  <input type="hidden" name="page_id" value="<?php echo $pages[0]->page_id; ?>">

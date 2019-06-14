@@ -45,8 +45,8 @@
 
             <img src="<?php echo $url.'/local/images/nophoto.jpg';?>" class="img-fluid company-profile"></div>
 
+        <?php }?>
 
-        <?php } ?>
 
 
         <div class="col-md-6 col-8">
@@ -67,8 +67,8 @@
                     <td><strong>Year of Establishment</strong></td>
                 </tr>
                 <tr>
-                    <td>sellertype</td>
-                    <td>2010</td>
+                    <td><?php echo $shop[0]->nature_of_business ?></td>
+                    <td><?php echo $shop[0]->establishment ?></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -76,16 +76,16 @@
                     <td><strong>GST No.</strong></td>
                 </tr>
                 <tr>
-                    <td>Manufecturer</td>
-                    <td>2010</td>
+                    <td><?php echo $shop[0]->sellertype; ?></td>
+                    <td><?php echo $shop[0]->gst_number ?></td>
                     <td></td>
                 </tr>
             </table>
             <br>
-            <p><strong>Product Dealing-</strong> Compressor,ac Freez Motor</p>
-            <p><strong>Brand- </strong> Alg8i, Usha</p>
+            <p><strong>Product Dealing-</strong> <?php echo $shop[0]->product_dealing ?></p>
+            <p><strong>Brand- </strong> <?php echo $shop[0]->brand_name ?></p>
                 <p><strong>Description</strong></p>
-            <p>Concise description which, among other items of information, includes (1) firm's history, (2) number and quality of its human, financial, and physical resources (3) organizational and management structure, (4) past, current and anticipated performance, and (5) its reputation, and the standing of its goods or services.</p>
+            <p><?php echo $shop[0]->productdesc; ?></p>
         </div>
         <div class="col-md-4 col-12">
             <div class="well well-sm">
@@ -482,7 +482,15 @@
 
                 <h3 class="review-heading"><span >Customer Rating & Comments </span></h3>
                 <?php foreach($rating as $newrating){?>
-                <img src="../img/banner.jpg" alt="">
+                    <?php
+                    $url = URL::to("/");
+                    $userphoto="/userphoto/";
+                    $path ='/local/images'.$userphoto.$newrating->photo;
+                    if($newrating->photo!=""){?>
+                    <img src="<?php echo $url.$path;?>" class="img-responsive" alt="">
+                    <?php } else { ?>
+                    <img src="<?php echo $url.'/local/images/nophoto.jpg';?>" alt="">
+                    <?php } ?>
 
                 <div class="rating">
                     <?php
