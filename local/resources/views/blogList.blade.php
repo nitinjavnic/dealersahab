@@ -72,7 +72,7 @@
 
                     </div>
                     <div class="col-md-8 blog-info ">
-                        <a href="<?php echo $url;?>/readmore/{{ $blogs->id }}"><h3><strong><?php echo $blogs->blog_titile ?></strong></h3></a>
+                        <a href="<?php echo $url;?>/readmore/{{ $blogs->id }}"><h3 class="mt-0 text-capitalize"><strong><?php echo $blogs->blog_titile ?></strong></h3></a>
                         <p><?php echo  str_limit($blogs->full_description, 500);?></p>
                         <a href="<?php echo $url;?>/readmore/{{ $blogs->id }}" class="btn btn-success float-right blog-more-btn">Read more</a>
                     </div>

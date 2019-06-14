@@ -33,7 +33,7 @@
     </div>
 
     <div class="container ">
-        <div class="row block-company">
+        <div class="row block-company ">
             <div class="col-md-2 col-4">
 
                 <?php $shopphoto="/shop/";
