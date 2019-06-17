@@ -24,7 +24,13 @@ class VendorController extends Controller
 
 
 
+
+
+
+
+
     public function sangvish_showpage($id,$shop_id) {
+
 
         $uber = DB::table('users')->where('name', '=', $id)->get();
         $checkshop = DB::table('shop')
@@ -34,10 +40,15 @@ class VendorController extends Controller
             ->limit(3)
             ->get();
 
-
         $shopcount = DB::table('shop')
             ->where('seller_email', '=', $uber[0]->email)
             ->count();
+
+        $visitors = $checkshop[0]->view_counter + 1;
+
+        DB::update('update shop set view_counter ="'.$visitors.'" where id = ?', [$checkshop[0]->shop_id]);
+
+
 
         $pinned = DB::table('pinned')
             ->where('user_id', '=', $uber[0]->id)

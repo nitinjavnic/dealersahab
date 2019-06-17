@@ -340,4 +340,10 @@ class GetsubserviceController extends Controller
         return view('admin/sellerdetails', ['seller' => $seller]);
     }
 
+    public function profileview(Request $request){
+        $data= $request->all();
+        print_r($data);
+
+    }
+
 }
