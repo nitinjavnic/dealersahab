@@ -50,7 +50,7 @@
 
 
         <div class="col-md-6 col-8">
-            <h2 class="text-info"><?php echo $shop[0]->shop_name;?></h2>
+            <h2 class="text-info"><?php echo $shop[0]->shop_name;?>
 
                 <?php if(Auth::check()) { ?>
                 <?php if($pinned==0) { ?>
@@ -59,7 +59,7 @@
             <a href="#" data="<?php echo $shop[0]->shop_name;?>" class="btn btn-success pin-seller " id="pinned">Unpinned </a>
 
         <?php } ?>
-        <?php }?>
+        <?php }?></h2>
             <p><strong>Address-</strong> <?php echo $shop[0]->address;?> <br/><strong>Profile View</strong></p>
             <table class="text-center">
                 <tr>

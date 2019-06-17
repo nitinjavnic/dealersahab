@@ -219,8 +219,8 @@ $url = URL::to("/"); ?>
                             if($editshop[0]->cover_photo!=""){
                             ?>
                             <div class="item form-group" align="center">
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <img src="<?php echo $url.$path;?>" class="thumb" width="100" style="float:left" height="100">
+                                <div class="col-md-12 col-sm-6 col-xs-12">
+                                    <img src="<?php echo $url.$path;?>" class="thumb" width="100%" style="float:left" height="100">
                                 </div>
                             </div>
                             <?php } else { ?>
