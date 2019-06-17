@@ -96,9 +96,6 @@ class ServicesController extends Controller
    protected function sangvish_savedata(Request $request)
    {
 
-       $this->validate($request, [
-           'productname' => 'required',
-       ]);
 
        $image = Input::file('photo');
        if($image!="")
@@ -120,11 +117,16 @@ class ServicesController extends Controller
        $image = Input::file('Brochure');
        if($image!="")
        {
+
+
+
+
+
            $filename  = time() . '.' . $image->getClientOriginalExtension();
            $userphoto="/Brochure/";
+
            $path = base_path('images'.$userphoto.$filename);
-           $destinationPath=base_path('images'.$userphoto);
-           Image::make($image->getRealPath())->resize(300, 300)->save($path);
+           $request->file('Brochure')->move($path,$filename);
            $brochure=$filename;
        }
        else
