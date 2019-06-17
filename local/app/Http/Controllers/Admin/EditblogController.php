@@ -95,7 +95,6 @@ class EditblogController extends Controller
             $keywords=$data['keywords'];
 
 
-
             $full_description=$data['full_description'];
 
             $currentphoto=$data['currentphoto'];
