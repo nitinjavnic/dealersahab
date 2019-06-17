@@ -3018,10 +3018,6 @@ footer{background:#f4f4f4;}
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-
-
-
-
 .bg-company-info1 {
 
 	height: 300px;
@@ -3034,7 +3030,7 @@ footer{background:#f4f4f4;}
 
 .bg-company-info-3
 {
-	background-image: url("../img/banner.jpg");
+	background-image: url("../img/b3.jpg");
 	height: 300px;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -3196,7 +3192,7 @@ footer{background:#f4f4f4;}
 .sv_shop_style a:hover {color: #2a6496; text-decoration: underline;}
 .shop_pic img{width:100%; height:275px; }
 .clearfix-3{clear: both; height: 15px;}
-
+.blog-description{border-right:1px solid black; }
 
 
 @media (min-width: 320px) and (max-width:600px) {
@@ -3205,4 +3201,6 @@ footer{background:#f4f4f4;}
 	.view-blog{margin-top:0px!important;}
 	.bg-company-info-3{display: none!important;}
 	.product-info-details{top:20px!important;}
+	.blog-description{border:none!important; }
+
 }
