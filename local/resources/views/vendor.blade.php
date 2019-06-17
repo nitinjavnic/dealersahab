@@ -65,8 +65,13 @@
             <a href="#" data="<?php echo $shop[0]->shop_name;?>" class="btn btn-success pin-seller " id="pinned">Unpinned </a>
 
         <?php } ?>
+
         <?php }?>
             <p><b>Address-</b> <?php echo $shop[0]->address;?>  <?php echo $shop[0]->city; ?> <?php echo $shop[0]->state; ?> <?php  echo $shop[0]->pin_code;?><br><span><b><?php echo $shop[0]->view_counter ?> Profile Views</b></span></p>
+
+
+
+            <p><strong>Address-</strong> <?php echo $shop[0]->address;?> <br/><strong>Profile View</strong></p>
             <table class="text-center">
                 <tr>
                     <td><strong>Nature of Business</strong></td>

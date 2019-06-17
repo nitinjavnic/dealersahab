@@ -67,15 +67,15 @@
 			if($about[0]->photo!=""){
 			?>
 			<div class="item form-group" align="center">
-				<div class="col-md-6 col-sm-6 col-xs-12">
-					<img src="<?php echo $url.$path;?>" class="img-fluid"  width="100%">
-				</div>
+
+					<img src="<?php echo $url.$path;?>" class="img-fluid"  width="100%" height="400px">
+
 			</div>
 			<?php } else { ?>
 			<div class="item form-group" align="center">
-				<div class="col-md-6 col-sm-6 col-xs-12">
-					<img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="img-fluid" width="100%">
-				</div>
+
+					<img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="img-fluid" width="100%" width="100%" height="400px">
+
 			</div>
 			<?php } ?>
 

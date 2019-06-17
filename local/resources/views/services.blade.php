@@ -78,7 +78,7 @@
    
    <input type="hidden" name="editid" value="<?php echo $editid;?>">
    
-   
+   <div class="row">
 	<div class="form-group col-md-4 swidth " >
 	<label>Select Industry<span class="star">*</span></label>
 		<select id="change_category" class="form-control validate[required]" id="subservice_id" name="service" required>
@@ -115,9 +115,21 @@
 		   </select>
 
 	   </div>
+   </div>
 
 
+<div class="row">
 
+
+		<div class="col-md-6 col-sm-6 col-xs-12">
+			<label class="control-label " for="name"  > Product Name <span class="required">*</span></label>
+			<input id="name" class="form-control col-md-12 col-xs-12"  name="productname" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>" required="required" type="text">
+			@if ($errors->has('name'))
+				<span class="help-block" style="color:red;">
+                                        <strong>That product name is already exists</strong>
+                                    </span>
+			@endif
+		</div>
 
 	   <div class="form-group col-md-6 " >
 		   <label>Product Image<span class="star">*</span></label>
@@ -148,21 +160,10 @@
 		   <?php }}?>
 	   </div>
 
-	   <div class="item form-group">
-		   <label class="control-label col-md-6 col-sm-6 col-xs-12" for="name"  > Product Name <span class="required">*</span>
-		   </label>
-		   <div class="col-md-6 col-sm-6 col-xs-12">
-			   <input id="name" class="form-control col-md-12 col-xs-12"  name="productname" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>" required="required" type="text">
-			   @if ($errors->has('name'))
-				   <span class="help-block" style="color:red;">
-                                        <strong>That product name is already exists</strong>
-                                    </span>
-			   @endif
-		   </div>
-	   </div>
 
+   </div>
 
-	
+	<div class="row">
 	<div class="form-group col-md-4 swidth">
 		<label>Price <span class="star">*</span></label>
 		<input type="text"  name="price" required id="price" class="form-control validate[required] text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>">
@@ -203,7 +204,7 @@
 
      <?php }}?>
 	   </div>
-
+   </div>
 
 
 
@@ -215,15 +216,15 @@
 			   <h2 class="demo-text"></h2>
 			   <div class="container ">
 				   <div class="row">
-					   <div class="col-md-6 ">
-						   <label class="text-center">Product Description</label><br/>
-						   <textarea id="editor" name="productdesc" style="border-left:.5px solid gray; " ><?php if(!empty($sellservices)) { echo $sellservices[0]->productdesc; }?></textarea>
-					   </div>
+
 					   <div class="col-md-6  ">
 						   <label class="text-center">Product Feature</label><br/>
 						   <textarea id="editor1" name="productfeature" style="border-left:.5px solid gray; " ><?php if(!empty($sellservices)) { echo $sellservices[0]->productfeature	; }?></textarea>
 					   </div>
-
+					   <div class="col-md-6 ">
+						   <label class="text-center">Product Description</label><br/>
+						   <textarea id="editor" name="productdesc" style="border-left:.5px solid gray; " ><?php if(!empty($sellservices)) { echo $sellservices[0]->productdesc; }?></textarea>
+					   </div>
 				   </div>
 			   </div>
 		   </div>
@@ -261,13 +262,12 @@
 	
 	
 	<div class="clearfix"></div>
-	<div class="col-md-12" align="right" style="margin-bottom:2px;">
-	 <?php if(config('global.demosite')=="yes"){?><span class="disabletxt">( <?php echo config('global.demotxt');?> ) </span><button type="button" class="btn btn-primary radiusoff btndisable">Add Services</button>
-								<?php } else { ?>
-	
+
+
 	 <a href="<?php echo $url;?>/services" class="btn btn-primary radiusoff">Add Products</a>
-								<?php } ?>
-	 
+
+	
+
 	 </div>
 	 
 	<div class="row">

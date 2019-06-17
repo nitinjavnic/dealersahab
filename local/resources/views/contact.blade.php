@@ -6,6 +6,7 @@
 
    @include('style')
 
+
     <?php $google_id = 10;
     $google = DB::table('pages')
         ->where('page_id', '=', $google_id)
