@@ -27,6 +27,16 @@ class IndexController extends Controller
 
         $services = DB::table('services')->limit(7)->get();
 
+        $total_user = DB::table('users')
+            ->count();
+        $seller_id=2;
+        $total_seller = DB::table('users')
+            ->where('admin','=', $seller_id)
+            ->count();
+
+        $totalManufacturer = DB::table('shop')
+            ->where('sellertype','=', 'Manufacturer')
+            ->count();
 
         $one = DB::table('services')->orderBy('name', 'asc')->limit(1)->offset(0)->get();
         $one_count = DB::table('subservices')
@@ -64,8 +74,14 @@ class IndexController extends Controller
         $blog = DB::table('blog')->orderBy('id', 'desc') ->limit(3)->get();
 
 
+        $google_id = 10;
+        $google = DB::table('pages')
+            ->where('page_id', '=', $google_id)
+            ->get();
 
-        $data = array('services' => $services, 'one' => $one, 'first'=>$first, 'two' => $two,'second' =>$second, 'three'=> $three,'third'=>$third, 'four' => $four,
+
+
+        $data = array('google'=>$google,'total_user'=>$total_user, 'total_seller'=>$total_seller, 'totalManufacturer'=>$totalManufacturer, 'services' => $services, 'one' => $one, 'first'=>$first, 'two' => $two,'second' =>$second, 'three'=> $three,'third'=>$third, 'four' => $four,
             'fourth' => $fourth, 'testimonials' => $testimonials, 'blog' => $blog, 'one_count' => $one_count, 'two_count' => $two_count, 'three_count' => $three_count, 'four_count' => $four_count);
         return view('index')->with($data);
     }

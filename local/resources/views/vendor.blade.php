@@ -12,6 +12,12 @@
 
 
     <script src="<?php echo $url;?>/js/lightbox-plus-jquery.min.js"></script>
+
+        <script type="text/javascript">
+
+            <?php echo $google[0]->page_desc ?>;
+
+        </script>
 </head>
 <body>
 
@@ -60,7 +66,7 @@
 
         <?php } ?>
         <?php }?>
-            <p><strong>Address-</strong> <?php echo $shop[0]->address;?> <br/><strong>Profile View</strong></p>
+            <p><b>Address-</b> <?php echo $shop[0]->address;?>  <?php echo $shop[0]->city; ?> <?php echo $shop[0]->state; ?> <?php  echo $shop[0]->pin_code;?><br><span><b><?php echo $shop[0]->view_counter ?> Profile Views</b></span></p>
             <table class="text-center">
                 <tr>
                     <td><strong>Nature of Business</strong></td>

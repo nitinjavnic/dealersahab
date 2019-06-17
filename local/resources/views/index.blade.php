@@ -17,7 +17,11 @@ $setid=1;
 
 
 
+    <script type="text/javascript">
 
+        <?php echo $google[0]->page_desc ?>;
+
+    </script>
 
 </head>
 <body>
@@ -46,16 +50,16 @@ $setid=1;
                 <div class="col-md-6 col-6  ">
                     <div class="row info-sub pt-10">
                         <div class="col-md-4 text-center ">
-                            <p><strong>110</strong><br>Total User</p>
+                            <p><strong><?php echo $total_user; ?></strong><br>Total User</p>
                         </div>
 
                         <div class="col-md-4 text-center">
-                            <p><strong>45</strong><br>Total Manufacturer</p>
+                            <p><strong><?php echo $totalManufacturer; ?></strong><br>Total Manufacturer</p>
                         </div>
 
 
                         <div class="col-md-4 text-center">
-                            <p><strong>80</strong><br>Total Seller</p>
+                            <p><strong><?php echo $total_seller; ?></strong><br>Total Seller</p>
                         </div>
 
 

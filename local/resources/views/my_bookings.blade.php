@@ -19,7 +19,18 @@ else
    @include('style')
 
 
+	<?php $google_id = 10;
+	$google = DB::table('pages')
+			->where('page_id', '=', $google_id)
+			->get(); ?>
 
+
+
+	<script type="text/javascript">
+
+		<?php echo $google[0]->page_desc ?>;
+
+	</script>
 
 
 </head>
@@ -204,12 +215,12 @@ $(function(){
 				<div class="col-lg-4 paddingleft20">
 				<h3 class="sv_shop_style "><a href="<?php echo $url; ?>/vendor/<?php echo $book->name;?>" target="_blank" class="text-info"><?php echo $book->shop_name; ?> </a></h3>
 
-					<p><span class="lnr lnr-calendar-full"></span>	<?php echo $book->booking_date; ?> - <span class="lnr lnr-clock"></span>
-						<?php echo $final_time; ?></p>
+
 					
 					<h5>Booking Id : <?php echo $book->book_id; ?></h5>
 					<h5>Quantiy : <?php echo $book->qty; ?></h5>
 					<h5>Booking Note : <?php echo $book->booking_note; ?></h5>
+					<h5>Booking Date : <?php echo $book->booking_date	; ?></h5>
 
 					  <?php echo $ser_name; ?>
 				

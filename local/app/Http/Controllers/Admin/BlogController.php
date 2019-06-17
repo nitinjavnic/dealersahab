@@ -42,8 +42,10 @@ class BlogController extends Controller
 
     public function readmore($id){
         $readmore = DB::table('blog')->where('id', $id)->get();
-
-        return view('blogreadMore', ['blog' => $readmore]);
+        $randomblog = DB::table('blog')
+            ->inRandomOrder(3)
+            ->get();
+        return view('blogreadMore', ['blog' => $readmore,'randomblog'=>$randomblog]);
     }
 
 

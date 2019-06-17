@@ -23,6 +23,13 @@ else
 
 
 </head>
+
+<script type="text/javascript">
+
+    <?php echo $google[0]->page_desc ?>;
+
+</script>
+
 <body>
 <?php $url = URL::to("/"); ?>
 

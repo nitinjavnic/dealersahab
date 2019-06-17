@@ -8,7 +8,18 @@
 
 
 
+    <?php $google_id = 10;
+    $google = DB::table('pages')
+        ->where('page_id', '=', $google_id)
+        ->get(); ?>
 
+
+
+    <script type="text/javascript">
+
+        <?php echo $google[0]->page_desc ?>;
+
+    </script>
 
 </head>
 <body>
@@ -176,6 +187,26 @@ $url = URL::to("/"); ?>
 
                         <div class="col-md-6 moves20">
 
+                            <div class="form-group">
+                                <label for="name" class="col-md-12">Select Seller Type<span class="require">*</span></label>
+
+                                <div class="col-md-12">
+
+
+                                    <select id="change_category" class="form-control validate[required]" name="sellertype" required="">
+
+                                        <option value="">Select Seller Type</option>
+                                        <option value="Manufacturer">Manufacturer</option>
+                                        <option value="Dealer">Franchises/Dealer</option>
+                                        <option value="Wholesaler">Wholesaler/Trader</option>
+                                        <option value="Distributor">Supplier/Distributor</option>
+
+
+                                    </select>
+
+
+                                </div>
+                            </div>
 
 
                             <div class="form-group">
@@ -246,26 +277,6 @@ $url = URL::to("/"); ?>
 
 
 
-                            <div class="form-group">
-                                <label for="name" class="col-md-12">Select Seller Type<span class="require">*</span></label>
-
-                                <div class="col-md-12">
-
-
-                                    <select id="change_category" class="form-control validate[required]" name="sellertype" required="">
-
-                                        <option value="">Select Seller Type</option>
-                                        <option value="Manufacturer">Manufacturer</option>
-                                        <option value="Dealer">Franchises/Dealer</option>
-                                        <option value="Wholesaler">Wholesaler/Trader</option>
-                                        <option value="Distributor">Supplier/Distributor</option>
-
-
-                                    </select>
-
-
-                                </div>
-                            </div>
 
 
                         </div>

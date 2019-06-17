@@ -67,11 +67,14 @@ class SearchController extends Controller
             ->leftJoin('users', 'users.email', '=', 'shop.seller_email')
             ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
             ->where('shop.is_active', '=', '1')
-            ->where('seller_services.subservice_id', '=', $services[0]->subid)
             ->groupBy('shop.id')
             ->paginate(5);
 
 
+        $google_id = 10;
+        $google = DB::table('pages')
+            ->where('page_id', '=', $google_id)
+            ->get();
 
         $viewservices= DB::table('subservices')->orderBy('subname','asc')->get();
 
@@ -81,7 +84,7 @@ class SearchController extends Controller
 
         $sub_value = $id;
 
-        $data = array('subsearches' => $subsearches, 'shopData'=>$shopData,'brandname'=>$brandname, 'allsuper'=>$allsuper, 'viewservices' => $viewservices, 'shopview' => $shopview, 'sub_value' => $sub_value, 'services' => $services,'allsubservice'=>$allsubservice,'allservice'=>$allservice);
+        $data = array('google'=>$google,'subsearches' => $subsearches, 'shopData'=>$shopData,'brandname'=>$brandname, 'allsuper'=>$allsuper, 'viewservices' => $viewservices, 'shopview' => $shopview, 'sub_value' => $sub_value, 'services' => $services,'allsubservice'=>$allsubservice,'allservice'=>$allservice);
 
         return view('search')->with($data);
 

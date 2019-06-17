@@ -2,40 +2,51 @@
 <html lang="en">
 <head>
 
-    
+
 
    @include('style')
-	
 
+    <?php $google_id = 10;
+    $google = DB::table('pages')
+        ->where('page_id', '=', $google_id)
+        ->get(); ?>
+
+
+
+    <script type="text/javascript">
+
+        <?php echo $google[0]->page_desc ?>;
+
+    </script>
 
 
 
 </head>
 <body>
 
-    
+
 
     <!-- fixed navigation bar -->
     @include('header')
 
     <!-- slider -->
-    
 
-	
-    
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
 	<div class="clearfix"></div>
-	
-	
-	
-	
-	
+
+
+
+
+
 	<div class="video">
 	<div class="clearfix"></div>
 	<div class="container">
@@ -49,12 +60,12 @@
         <div class="col-md-4 ">
 
         </div>
-	
+
 	<div class="col-md-4 border-shadow">
         <h3 class="heading-0"><?php echo $contact[0]->page_title;?></h3>
 	<form class="form-horizontal" role="form" method="POST" action="{{ route('contact') }}" id="formID" enctype="multipart/form-data">
                         {{ csrf_field() }}
-	
+
 	<div class="col-md-12 cform">
 	<br>
           <div class="col-lg-12 col-md-12 col-sm-12">
@@ -78,7 +89,7 @@
           <div class="col-lg-6">
             <input type="submit" class="btn btn-primary" value="Send">
           </div>
-		  
+
 		 </div>
         </form>
 
@@ -91,19 +102,19 @@
 	echo trim($contact[0]->page_desc,"'");
 	?>
 	</div>
-	
+
 	</div>
-	
-	
-	
-	
+
+
+
+
 	</div>
-	
+
 	</div>
 	</div>
-	
-	
-	
+
+
+
 
       <div class="clearfix"></div>
 	   <div class="clearfix"></div>

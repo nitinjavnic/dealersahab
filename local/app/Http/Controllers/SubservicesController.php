@@ -58,7 +58,12 @@ class SubservicesController extends Controller
 			           ->where('service','=', $service_id[0]->id)
 					   ->count();
 
-		$data = array('services' => $services, 'serv_count' => $serv_count, 'service_id' => $service_id, 'id' => $id);
+        $google_id = 10;
+        $google = DB::table('pages')
+            ->where('page_id', '=', $google_id)
+            ->get();
+
+		$data = array('google'=>$google,'services' => $services, 'serv_count' => $serv_count, 'service_id' => $service_id, 'id' => $id);
 
         return view('subservices')->with($data); 
 		

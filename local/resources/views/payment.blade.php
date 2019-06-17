@@ -18,10 +18,21 @@ else
     
 
    @include('style')
-	
 
 
 
+	<?php $google_id = 10;
+	$google = DB::table('pages')
+			->where('page_id', '=', $google_id)
+			->get(); ?>
+
+
+
+	<script type="text/javascript">
+
+		<?php echo $google[0]->page_desc ?>;
+
+	</script>
 
 </head>
 <body>

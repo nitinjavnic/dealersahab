@@ -330,6 +330,7 @@ class ShopController extends Controller
                 if($shopcnt==0)
                 {
                     if(Auth::user()->admin==0){
+
                         DB::insert('insert into shop (shop_name,address,city,pin_code,country,state,cover_photo,profile_photo,seller_email,user_id,legal_status,gst_number,establishment,brand_name,product_dealing,productdesc,sellertype) values (?, ?, ?, ?, ? , ?, ?, ?, ? , ?, ?, ?, ?, ?, ?, ?, ?)',
                             [$shop_name,$shop_address,$shop_city,$shop_pin_code,$shop_country,$shop_state,$namef,$namepro,$sellermail,$sellerid,$legal,$gst,$establishment,$brand_name,$product_dealing,$productdesc,$sellertype]);
                         DB::update('update users set admin = 2 where id = ?',[Auth::user()->id]);

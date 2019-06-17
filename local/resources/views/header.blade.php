@@ -118,7 +118,7 @@ $setts = DB::table('settings')
                         ?>
 
 
-                            <li><a href="<?php echo $url;?>/dashboard">My Profile</a></li>
+                            <li><a href="<?php echo $url;?>/dashboard">Account Setting</a></li>
                         <li><a href="<?php if(empty($shcount)){?><?php echo $url;?>/addshop<?php } else { ?><?php echo $url;?>/editshop<?php } ?>">My Business</a></li>
 
                         <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/services" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>My Product</a></li>
@@ -129,8 +129,7 @@ $setts = DB::table('settings')
 
 
                             <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/pinnedseller" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Pinned Seller</a></li>
-                            <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="#" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Get Featured</a></li>
-                            <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/wallet" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Premium Seller</a></li>
+                        <li><a href="#">Get Featured</a></li>
                             <li <?php if(empty($shcount)){?>class="disabled"<?php } ?>><a href="<?php echo $url;?>/delete-account"  onclick="return confirm('Are you sure you want to delete your account?');" <?php if(empty($shcount)){?>class="disabled"<?php } ?>>Delete Account</a></li>
 
                         <?php } ?>

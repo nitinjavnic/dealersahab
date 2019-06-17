@@ -3,7 +3,18 @@
 <head>
 
     @include('style')
+    <?php $google_id = 10;
+    $google = DB::table('pages')
+        ->where('page_id', '=', $google_id)
+        ->get(); ?>
 
+
+
+    <script type="text/javascript">
+
+        <?php echo $google[0]->page_desc ?>;
+
+    </script>
 </head>
 <body>
 
@@ -57,16 +68,14 @@
                         <div class="fancy blog-description">
                             <h2 class=" text-center">Business Rating</h2>
                             <div class="p-25">
-                                <p><a href="#">Online Factor</a></p>
-                                <p><a href="#">Hello</a></p>
-                                <p><a href="#">Hello</a></p>
-                                <p><a href="#">Hello</a></p>
-                                <p><a href="#">Hello</a></p>
-                                <p><a href="#">Hello</a></p>
-                                <p><a href="#">Hello</a></p>
-                                <p><a href="#">Hello</a></p>
-                                <p><a href="#">Hello</a></p>
 
+
+                                <?php foreach ($randomblog as $myblog) {?>
+
+
+                                <p><a href="<?php echo $url;?>/readmore/{{ $myblog->id }}"><?php echo $myblog->blog_titile ?></a></p>
+
+                                 <?php } ?>
                             </div>
                         </div>
 

@@ -7,7 +7,18 @@
     @include('style')
 
 
+    <?php $google_id = 10;
+    $google = DB::table('pages')
+        ->where('page_id', '=', $google_id)
+        ->get(); ?>
 
+
+
+    <script type="text/javascript">
+
+        <?php echo $google[0]->page_desc ?>;
+
+    </script>
 
 
 </head>
@@ -167,8 +178,8 @@ $url = URL::to("/"); ?>
 
                                     <select id="change_category" class="form-control validate[required]" name="legal" required="">
 
-                                        <option value="registered"<?php if($editshop[0]->legal_status == 'registered') { ?> selected="selected"<?php } ?>>registered</option>
-                                        <option value="unregistered"<?php if($editshop[0]->legal_status == 'unregistered') { ?> selected="selected"<?php } ?>>unregistered</option>
+                                        <option value="registered"<?php if($editshop[0]->legal_status == 'registered') { ?> selected="selected"<?php } ?>>Registered</option>
+                                        <option value="unregistered"<?php if($editshop[0]->legal_status == 'unregistered') { ?> selected="selected"<?php } ?>>Unregistered</option>
 
 
 
@@ -200,6 +211,28 @@ $url = URL::to("/"); ?>
 
                         <div class="col-md-6 moves20">
 
+                            <div class="form-group">
+                                <label for="name" class="col-md-12">Nature of Business<span class="require">*</span></label>
+
+                                <div class="col-md-12">
+
+
+                                    <select id="change_category" class="form-control validate[required]" name="sellertype" required="">
+
+                                        <option value="Manufacturer"<?php if($editshop[0]->sellertype == 'Manufacturer') { ?> selected="selected"<?php } ?>>Manufacturer</option>
+                                        <option value="Dealer"<?php if($editshop[0]->sellertype == 'Dealer') { ?> selected="selected"<?php } ?>>Franchises/Dealer</option>
+                                        <option value="Wholesaler"<?php if($editshop[0]->sellertype == 'Wholesaler') { ?> selected="selected"<?php } ?>>Wholesaler/Trader</option>
+                                        <option value="Distributor"<?php if($editshop[0]->sellertype == 'Distributor') { ?> selected="selected"<?php } ?>>Supplier/Distributor</option>
+
+
+
+
+
+                                    </select>
+
+
+                                </div>
+                            </div>
 
 
                             <div class="form-group">
@@ -213,7 +246,9 @@ $url = URL::to("/"); ?>
                             </div>
 
 
-                            <?php
+
+
+                        <?php
                             $servicephoto="/shop/";
                             $path ='/local/images'.$servicephoto.$editshop[0]->cover_photo;
                             if($editshop[0]->cover_photo!=""){
@@ -295,28 +330,6 @@ $url = URL::to("/"); ?>
                             </div>
 
 
-                            <div class="form-group">
-                                <label for="name" class="col-md-12">Select Seller Type<span class="require">*</span></label>
-
-                                <div class="col-md-12">
-
-
-                                    <select id="change_category" class="form-control validate[required]" name="sellertype" required="">
-
-                                        <option value="Manufacturer"<?php if($editshop[0]->sellertype == 'Manufacturer') { ?> selected="selected"<?php } ?>>Manufacturer</option>
-                                        <option value="Dealer"<?php if($editshop[0]->sellertype == 'Dealer') { ?> selected="selected"<?php } ?>>Franchises/Dealer</option>
-                                        <option value="Wholesaler"<?php if($editshop[0]->sellertype == 'Wholesaler') { ?> selected="selected"<?php } ?>>Wholesaler/Trader</option>
-                                        <option value="Distributor"<?php if($editshop[0]->sellertype == 'Distributor') { ?> selected="selected"<?php } ?>>Supplier/Distributor</option>
-
-
-
-
-
-                                    </select>
-
-
-                                </div>
-                            </div>
 
 
 

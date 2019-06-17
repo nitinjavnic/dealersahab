@@ -11,7 +11,11 @@
 		.noborder .label { color:#000; font-size:16px;}
 	</style>
 
+	<script type="text/javascript">
 
+		<?php echo $google[0]->page_desc ?>;
+
+	</script>
 
 </head>
 <body>
@@ -347,7 +351,8 @@
 
 								<img src="<?php echo $url.$npaths;?>" alt="" >
 								<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>/<?php echo $shop->supersubcategory_id;?>"><h3><strong><?php echo $shop->shop_name; ?></strong></h3></a>
-								<p><b>Address-</b> <?php echo $shop->address; ?><br><span><b><?php echo $shop->view_counter ?> Profile Views</b></span></p>
+								<p><b>Address-</b> <?php echo $shop->address;?>  <?php echo $shop->city; ?> <?php echo $shop->state; ?> <?php  echo $shop->pin_code;?><br><span><b><?php echo $shop->view_counter ?> Profile Views</b></span></p>
+
 								<p><b>  Nature of Business-</b> <?php echo $shop->sellertype; ?></p>
 								<p><b>Product Dealing-</b> <?php echo $shop->product_dealing; ?></p>
 								<p><b>Brand-</b> <?php echo $shop->brand_name; ?></p>

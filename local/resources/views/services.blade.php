@@ -6,8 +6,19 @@
     
 
    @include('style')
-	
 
+	<?php $google_id = 10;
+	$google = DB::table('pages')
+			->where('page_id', '=', $google_id)
+			->get(); ?>
+
+
+
+	<script type="text/javascript">
+
+		<?php echo $google[0]->page_desc ?>;
+
+	</script>
 
 
 
@@ -251,10 +262,10 @@
 	
 	<div class="clearfix"></div>
 	<div class="col-md-12" align="right" style="margin-bottom:2px;">
-	 <?php if(config('global.demosite')=="yes"){?><span class="disabletxt">( <?php echo config('global.demotxt');?> ) </span><button type="button" class="btn btn-primary radiusoff btndisable">Add Services</button> 
+	 <?php if(config('global.demosite')=="yes"){?><span class="disabletxt">( <?php echo config('global.demotxt');?> ) </span><button type="button" class="btn btn-primary radiusoff btndisable">Add Services</button>
 								<?php } else { ?>
 	
-	 <a href="<?php echo $url;?>/services" class="btn btn-primary radiusoff">Add Services</a>
+	 <a href="<?php echo $url;?>/services" class="btn btn-primary radiusoff">Add Products</a>
 								<?php } ?>
 	 
 	 </div>

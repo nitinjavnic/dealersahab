@@ -37,9 +37,11 @@ $currentPaths= Route::getFacadeRoot()->current()->uri();
 
  ?>
 
- <title><?php echo $setts[0]->site_name;?> - <?php echo $pagetitle;?></title>
+     <title><?php echo $setts[0]->site_name;?> - <?php echo $pagetitle;?></title>
 	 <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="description" content="<?php echo $setts[0]->site_desc; ?>" />
+     <meta name="keywords" content=" <?php echo $setts[0]->site_keyword ?>  " />
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	 <!-- css stylesheets -->
 	 <?php if(!empty($setts[0]->site_favicon)){?>

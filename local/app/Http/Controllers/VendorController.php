@@ -129,8 +129,14 @@ class VendorController extends Controller
 
         $admin_email = $admindetails->email;
 
+        $google_id = 10;
+        $google = DB::table('pages')
+            ->where('page_id', '=', $google_id)
+            ->get();
 
-        $data = array('pinned'=>$pinned,'checkshop'=>$checkshop, 'allsubcategory'=>$allsubcategory, 'shopcount' => $shopcount, 'shop' => $shop, 'stime' => $stime, 'etime' => $etime, 'lev' => $lev, 'sel' => $sel, 'viewservice' => $viewservice,
+
+
+        $data = array('google'=>$google,'pinned'=>$pinned,'checkshop'=>$checkshop, 'allsubcategory'=>$allsubcategory, 'shopcount' => $shopcount, 'shop' => $shop, 'stime' => $stime, 'etime' => $etime, 'lev' => $lev, 'sel' => $sel, 'viewservice' => $viewservice,
             'setting' => $setting, 'viewgallery' => $viewgallery, 'shop_id' => $shop_id, 'vendor_email' => $vendor_email , 'site_setting' => $site_setting, 'vendor' => $vendor,
             'userid' => $userid, 'rating_count' => $rating_count, 'rating' => $rating,'admin_email' => $admin_email);
         return view('vendor')->with($data);

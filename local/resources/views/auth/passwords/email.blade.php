@@ -6,7 +6,7 @@
 <div class="headerbg">
 <div class="row">
 	 <div class="col-md-12" align="center"><h1>Forgot Your Password?</h1>
-	 
+
 	 </div>
 	 </div>
 	 </div>
