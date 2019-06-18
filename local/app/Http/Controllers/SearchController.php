@@ -68,7 +68,7 @@ class SearchController extends Controller
             ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
             ->where('shop.is_active', '=', '1')
             ->groupBy('shop.id')
-            ->paginate(5);
+            ->paginate(3);
 
 
         $google_id = 10;

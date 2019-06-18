@@ -404,7 +404,6 @@
 				},
 				success: function(data) {
 					if(data.error=='No Result Found'){
-						$("#subservice").append("<option>" + 'No Result Found' + "</option>");
 					}else {
 						$.each(data, function (index,value) {
 
@@ -431,7 +430,6 @@
 				},
 				success: function(data) {
 					if(data.error=='No Result Found'){
-						$("#subsuperservice").append("<option>" + 'No Result Found' + "</option>");
 					}else {
 						$.each(data, function (index,value) {
 

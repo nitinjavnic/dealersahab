@@ -82,7 +82,7 @@ Route::post('/addbusiness', ['as'=>'addbusiness','uses'=>'BusinessController@san
 
 
 
-Route::get('/vendor/{shop_id}/{id}', 'VendorController@sangvish_showpage');
+Route::get('/vendor/{id}', 'VendorController@sangvish_showpage');
 Route::post('/vendor', ['as'=>'vendor','uses'=>'VendorController@sangvish_savedata']);
 
 

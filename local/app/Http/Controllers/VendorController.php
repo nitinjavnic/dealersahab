@@ -29,7 +29,7 @@ class VendorController extends Controller
 
 
 
-    public function sangvish_showpage($id,$shop_id) {
+    public function sangvish_showpage($id) {
 
 
         $uber = DB::table('users')->where('name', '=', $id)->get();
@@ -44,9 +44,6 @@ class VendorController extends Controller
             ->where('seller_email', '=', $uber[0]->email)
             ->count();
 
-        $visitors = $checkshop[0]->view_counter + 1;
-
-        DB::update('update shop set view_counter ="'.$visitors.'" where id = ?', [$checkshop[0]->shop_id]);
 
 
 
@@ -54,14 +51,22 @@ class VendorController extends Controller
             ->where('user_id', '=', $uber[0]->id)
             ->count();
 
-
-        $allsubcategory = DB::table('subsuperservice')->where('id', '=', $shop_id)->get();
-
-
-
         $shop = DB::table('shop')
             ->where('seller_email', '=', $uber[0]->email)
             ->get();
+
+        $shop_product = DB::table('shop')
+            ->leftJoin('products', 'products.shop_id', '=', 'shop.id')
+            ->where('seller_email', '=', $uber[0]->email)
+            ->get();
+        $visitors = $shop[0]->view_counter + 1;
+
+
+        DB::update('update shop set view_counter ="'.$visitors.'" where id = ?', [$shop[0]->id]);
+
+
+
+
 
 
         if($shop[0]->start_time > 12)
@@ -136,7 +141,7 @@ class VendorController extends Controller
 
 
 
-        $data = array('google'=>$google,'pinned'=>$pinned,'checkshop'=>$checkshop, 'allsubcategory'=>$allsubcategory, 'shopcount' => $shopcount, 'shop' => $shop, 'stime' => $stime, 'etime' => $etime, 'lev' => $lev, 'sel' => $sel, 'viewservice' => $viewservice,
+        $data = array('shop_product'=>$shop_product,'google'=>$google,'pinned'=>$pinned,'checkshop'=>$checkshop,'shopcount' => $shopcount, 'shop' => $shop, 'stime' => $stime, 'etime' => $etime, 'lev' => $lev, 'sel' => $sel, 'viewservice' => $viewservice,
             'setting' => $setting, 'viewgallery' => $viewgallery, 'shop_id' => $shop_id, 'vendor_email' => $vendor_email , 'site_setting' => $site_setting, 'vendor' => $vendor,
             'userid' => $userid, 'rating_count' => $rating_count, 'rating' => $rating,'admin_email' => $admin_email);
         return view('vendor')->with($data);

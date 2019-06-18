@@ -340,6 +340,7 @@
 						<?php foreach($subsearches as $shop){
 
 
+
 						?>
 						<div class="row review-point ">
 							<div class="col-md-7 company-info ">
@@ -350,7 +351,7 @@
 								?>
 
 								<img src="<?php echo $url.$npaths;?>" alt="" >
-								<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>/<?php echo $shop->supersubcategory_id;?>"><h3><strong><?php echo $shop->shop_name; ?></strong></h3></a>
+								<a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>"><h3><strong><?php echo $shop->shop_name; ?></strong></h3></a>
 								<p><b>Address-</b> <?php echo $shop->address;?>  <?php echo $shop->city; ?> <?php echo $shop->state; ?> <?php  echo $shop->pin_code;?><br><span><b><?php echo $shop->view_counter ?> Profile Views</b></span></p>
 
 								<p><b>  Nature of Business-</b> <?php echo $shop->sellertype; ?></p>
@@ -661,7 +662,7 @@
 </div>
 
 </div>
-{{--
+
 <div class="container" style="text-align:right;">
 	@foreach ($subsearches as $shop)
 
@@ -670,7 +671,7 @@
 	{{ $subsearches->links() }}
 
 </div>
---}}
+
 
 <div class="clearfix"></div>
 <div class="clearfix"></div>
@@ -775,7 +776,6 @@
 				},
 				success: function(data) {
 					if(data.error=='No Result Found'){
-						$(".subservice").append("<option>" + 'No Result Found' + "</option>");
 					}else {
 						$.each(data, function (index,value) {
 
@@ -802,30 +802,6 @@
 			},
 			success: function(data) {
 				$('#test').html(data);
-				src = "{{ route('getsuballCategory') }}";
-				$(".subservice").change(function() {
-					var id = $(this).val();
-					$.ajax({
-						type: 'GET',
-						url: src,
-						data: {
-							id : id
-						},
-						success: function(data) {
-							if(data.error=='No Result Found'){
-								$(".subsuperservice").append("<option>" + 'No Result Found' + "</option>");
-							}else {
-								$.each(data, function (index,value) {
-
-									$(".subsuperservice").append("<option value="+ value.subid +">" + value.value + "</option>");
-
-								});
-							}
-						}
-
-
-					});
-				});
 			}
 
 		});
@@ -836,12 +812,35 @@
 
 
 
+	$(".subservice").change(function() {
+		src = "{{ route('getsuballCategory') }}";
+
+		var id = $(this).val();
+		$.ajax({
+			type: 'GET',
+			url: src,
+			data: {
+				id : id
+			},
+			success: function(data) {
+				if(data.error=='No Result Found'){
+				}else {
+					$.each(data, function (index,value) {
+
+						$(".subsuperservice").append("<option value="+ value.subid +">" + value.value + "</option>");
+
+					});
+				}
+			}
+
+
+		});
+	});
 
 
 
 
-
-	$(".supercategory").change(function() {
+	$(".subsuperservice").change(function() {
 		src = "{{ route('supercategoryfilter') }}";
 		var id = $(this).val();
 		$.ajax({

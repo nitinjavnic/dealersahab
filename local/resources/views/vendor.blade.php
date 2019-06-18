@@ -70,8 +70,6 @@
             <p><b>Address-</b> <?php echo $shop[0]->address;?>  <?php echo $shop[0]->city; ?> <?php echo $shop[0]->state; ?> <?php  echo $shop[0]->pin_code;?><br><span><b><?php echo $shop[0]->view_counter ?> Profile Views</b></span></p>
 
 
-
-            <p><strong>Address-</strong> <?php echo $shop[0]->address;?> <br/><strong>Profile View</strong></p>
             <table class="text-center">
                 <tr>
                     <td><strong>Nature of Business</strong></td>
@@ -162,7 +160,18 @@
 
                         <?php
 
-                    $test = 100/$rating_count;
+
+
+                    $var = 100;
+                    $var2 = $rating_count;
+
+                    if($var2 != 0)
+                    {
+                        $res = ( $var / $var2);
+                        $test = round($res, 1); // 66.7
+                    }
+
+
 
                     ?>
 
@@ -172,6 +181,7 @@
 
 
                         $items[] = $ratingitmes->rating;
+
 
                         ?>
                     <?php }?>
@@ -427,17 +437,24 @@
         </div>
 
 
-
-
-
             <div class="row">
 
 
                     <div class="clearfix"></div>
             <div class="gallery-filter">
                     <ul class="nav nav-tabs" id="myTab">
-                        <?php foreach ($allsubcategory as $allsubcategory) {?>
-                            <li class=""><a href="#<?php echo $allsubcategory->subsupername ?>" class="productCategory"  data="<?php echo $allsubcategory->id ?>" data-toggle="tab"><?php echo $allsubcategory->subsupername ?></a></li>
+
+                        <?php foreach ($shop_product as $products) {
+
+                        $allsubcategory = DB::table('subsuperservice')->where('id', '=', $products->supersubcategory_id)->get();
+                        ?>
+                            @if(!$allsubcategory->isEmpty())
+                                <li class=""><a href="#<?php  echo $allsubcategory[0]->subsupername ?>" class="productCategory"  data="<?php echo $allsubcategory[0]->id ?>" data-toggle="tab"><?php echo $allsubcategory[0]->subsupername ?></a></li>
+                            @else
+                                <h1>no product upload</h1>
+                            @endif
+
+
 
                         <?php } ?>
 
