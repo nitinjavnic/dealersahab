@@ -14,11 +14,11 @@
 
 
 
-	<script type="text/javascript">
+	<?php
 
-		<?php echo $google[0]->page_desc ?>;
+	$FileName = str_replace("'", "", $google[0]->page_desc);
+	echo $FileName; ?>
 
-	</script>
 
 
 
@@ -83,8 +83,13 @@
 	<label>Select Industry<span class="star">*</span></label>
 		<select id="change_category" class="form-control validate[required]" id="subservice_id" name="service" required>
 			<option value="">Select Industry</option>
-			<?php foreach($services as $disp){?>
+
+
+		<?php foreach($services as $disp){?>
 			   <option value="<?php echo $disp->id;?>"><?php echo $disp->name;?></option>
+
+
+
 		<?php }  ?>
 		</select>
 
@@ -112,6 +117,13 @@
 
 			   </option>
 
+
+
+
+
+
+
+
 		   </select>
 
 	   </div>
@@ -123,17 +135,21 @@
 
 		<div class="col-md-6 col-sm-6 col-xs-12">
 			<label class="control-label " for="name"  > Product Name <span class="required">*</span></label>
-			<input id="name" class="form-control col-md-12 col-xs-12"  name="productname" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>" required="required" type="text">
-			@if ($errors->has('name'))
-				<span class="help-block" style="color:red;">
-                                        <strong>That product name is already exists</strong>
-                                    </span>
-			@endif
+			<input id="name" class="form-control col-md-12 col-xs-12"  name="productname" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->product_name; }?>" required="required" type="text">
+
 		</div>
+
+
 
 	   <div class="form-group col-md-6 " >
 		   <label>Product Image<span class="star">*</span></label>
 		   <input type="file" id="photo" name="photo" class="form-control col-md-8 col-xs-12">
+
+
+
+
+
+
 		   <?php if(!empty($sellservices)) {
 
 		   $servicephoto="/productimage/";
@@ -142,6 +158,8 @@
 		   ?>
 		   <div class="item form-group" align="center">
 			   <div class="col-md-6 col-sm-6 col-xs-12">
+				   <input type="hidden" name="currentphoto" value="<?php echo $sellservices[0]->photo;?>">
+
 				   <img src="<?php echo $url.$path;?>" class="thumb " width="100" style="float:left" height="100">
 			   </div>
 		   </div>
@@ -149,15 +167,21 @@
 		   <div class="item form-group" align="center">
 			   <div class="col-md-6 col-sm-6 col-xs-12">
 				   <img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="thumb " width="100" height="100" style="float:left">
+
 			   </div>
 		   </div>
 		   <?php ?>
 
 
 
-		   <input type="hidden" name="photo" value="<?php echo $sellservices[0]->photo;?>">
 
 		   <?php }}?>
+
+
+
+
+
+
 	   </div>
 
 
@@ -176,7 +200,7 @@
 
 	   <div class="form-group col-md-4 swidth">
 		   <label>Brochure Upload <span class="star">*</span></label>
-		   <input type="file"  name="Brochure"  id="Brochure" class="form-control  text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>">
+		   <input type="file" accept="application/pdf" name="Brochure"  id="Brochure" class="form-control  text-input" value="<?php if(!empty($sellservices)) { echo $sellservices[0]->price; }?>">
 
 
       <?php if(!empty($sellservices)) {
@@ -187,20 +211,20 @@
 	   ?>
 	   <div class="item form-group" align="center">
 		   <div class="col-md-6 col-sm-6 col-xs-12">
-			   <img src="<?php echo $url.$path;?>" class="thumb " width="100" style="float:left" height="100">
+			   <input type="hidden" name="current_broucher" value="<?php echo $sellservices[0]->brochure;?>">
+
+			   <a href="<?php echo $url.$path;?>">Download Brochure</a>
 		   </div>
 	   </div>
 	   <?php } else {?>
 		   <div class="item form-group" align="center">
                <div class="col-md-6 col-sm-6 col-xs-12">
-                   <img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="thumb " width="100" height="100" style="float:left">
 		   </div>
 	   </div>
 	   <?php ?>
 
 
 
-		   <input type="hidden" name="Brochure" value="<?php echo $sellservices[0]->brochure;?>">
 
      <?php }}?>
 	   </div>
@@ -277,14 +301,13 @@
   <thead>
     <tr>
       <th>Sno</th>
-      <th>Product Price</th>
       <th>Industry</th>
-      <th>SubCategory</th>
+      <th>Sector</th>
 		<th>Product Type</th>
+		<th>Product Name</th>
 		<th>Product Image</th>
-      <th>Product Name</th>
-      <th>Company Name</th>
-
+		<th>Product Price</th>
+       <th>Company Name</th>
 	  <th>Update</th>
 	  <th>Delete</th>
     </tr>
@@ -299,10 +322,11 @@
   ?>
     <tr>
       <th><?php echo $ii;?></th>
-      <td><?php echo $newserve->price.' '.$setting[0]->site_currency;?></td>
 		<td><?php echo  $category[0]->name;?></td>
         <td><?php echo $newserve->subname;?></td>
 		<td><?php echo $supercategory[0]->subsupername;?></td>
+		<td><?php echo $newserve->product_name;?></td>
+
 		<td>
 
             <?php
@@ -326,8 +350,9 @@
 			<?php }?>
 
 		</td>
+		<td><?php echo $newserve->price.' '.$setting[0]->site_currency;?></td>
 
-		<td><?php echo $newserve->product_name;?></td>
+
 		<td><?php echo $newserve->comapanyname;?></td>
 
 	  <td>
@@ -362,8 +387,11 @@
 	
 	</div>
 	</div>
-		{{--<div class="container" style="text-align:right;">
 
+
+
+
+		{{--<div class="container" style="text-align:right;">
 
 			{{ $viewservice->links() }}
 

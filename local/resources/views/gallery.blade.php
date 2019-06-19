@@ -13,12 +13,12 @@
 			->get(); ?>
 
 
+	<?php
 
-	<script type="text/javascript">
+	$FileName = str_replace("'", "", $google[0]->page_desc);
+	echo $FileName; ?>
 
-		<?php echo $google[0]->page_desc ?>;
 
-	</script>
 
 
 </head>

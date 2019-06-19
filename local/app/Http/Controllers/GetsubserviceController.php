@@ -188,17 +188,7 @@ class GetsubserviceController extends Controller
         $product = DB::table('products')
             ->where('supersubcategory_id', '=', $subid)
             ->get();
-        $data=array();
-        foreach ($product as $viewsub) {
-
-            $data[]=array('value'=>$viewsub);
-        }
-
-        if(count($data))
-            return $data;
-        else
-            return ['error'=>'No Result Found'];
-
+            return view('productlist', ['data' => $product]);
 
     }
 
@@ -313,13 +303,32 @@ class GetsubserviceController extends Controller
 
     }
 
-    public function productDetail($id){
+    public function productDetail($id,$shop_id){
+        $shop = DB::table('shop')
+            ->where('id', $shop_id)->get();
+
         $randomProduct = DB::table('products')
             ->limit(4)
             ->get();
+        $products = DB::table('products')
+            ->where('id', $id)->get();
 
-        $products = DB::table('products')->where('id', $id)->get();
-        return view('productdetail', ['products' => $products,'randomProduct'=>$randomProduct]);
+        return view('productdetail', ['products' => $products,'shop'=>$shop,'randomProduct'=>$randomProduct]);
+
+    }
+
+    public function download($id){
+
+
+        $products = DB::table('products')
+            ->where('id', $id)->get();
+         $shopphoto="/Brochure/";
+         $paths ='/local/images'.$shopphoto.$products[0]->brochure;
+
+         $headers = array(
+            'Content-Type: application/pdf',
+        );
+        return response()->download('http://localhost/dealerSahab'.$paths, 'filename.pdf', $headers);
 
     }
 

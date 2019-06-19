@@ -11,13 +11,17 @@
 
 
 
-    <script src="<?php echo $url;?>/js/lightbox-plus-jquery.min.js"></script>
+        <?php $google_id = 10;
+        $google = DB::table('pages')
+            ->where('page_id', '=', $google_id)
+            ->get(); ?>
 
-        <script type="text/javascript">
 
-            <?php echo $google[0]->page_desc ?>;
 
-        </script>
+
+        <?php
+        $FileName = str_replace("'", "", $google[0]->page_desc);
+        echo $FileName; ?>
 </head>
 <body>
 
@@ -34,7 +38,17 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12 col-12 bg-company-info">
+            <?php $shopphoto="/shop/";
+            $paths ='/local/images'.$shopphoto.$shop[0]->cover_photo;
+            if($shop[0]->cover_photo!=""){?>
 
+           <style type="text/css"> .bg-company-info { background: url(<?php echo $url.$paths; ?>); } </style>
+
+        <?php } else { ?>
+        <style type="text/css"> .bg-company-info { background: url(<?php echo $url.'/local/images/nophoto.jpg' ?>); } </style>
+
+
+    <?php }?>
         </div>
     </div>
 
@@ -446,12 +460,12 @@
 
                         <?php foreach ($shop_product as $products) {
 
+
                         $allsubcategory = DB::table('subsuperservice')->where('id', '=', $products->supersubcategory_id)->get();
                         ?>
                             @if(!$allsubcategory->isEmpty())
-                                <li class=""><a href="#<?php  echo $allsubcategory[0]->subsupername ?>" class="productCategory"  data="<?php echo $allsubcategory[0]->id ?>" data-toggle="tab"><?php echo $allsubcategory[0]->subsupername ?></a></li>
+                                <li class=""><a href="#<?php  echo $allsubcategory[0]->subsupername ?>" class="productCategory"  shop_id="<?php echo $products->shop_id ?>" data="<?php echo $allsubcategory[0]->id ?>" data-toggle="tab"><?php echo $allsubcategory[0]->subsupername ?></a></li>
                             @else
-                                <h1>no product upload</h1>
                             @endif
 
 
@@ -564,8 +578,8 @@
                         <p><strong>Location-</strong> <?php echo $checkshops->city ?></p>
                     <p><b>250 Profile Views</b></p>
                     <p><b>Nature of Business-</b> <?php echo $checkshops->nature_of_business ?></p>
-                    <p><b>Product Dealing-</b> Compressor,Piston,Tools</p>
-                    <p><b>Brand-</b> Usha,Algi,Shakti,Kirlooskar</p>
+                    <p><b>Product Dealing-</b><?php echo $checkshops->product_dealing ?></p>
+                    <p><b>Brand-</b> <?php echo $checkshops->brand_name ?></p>
                 </div>
                 <hr>
                 <?php } ?>
@@ -630,6 +644,8 @@
         $('.productCategory').on('click', function() {
             src = "{{ route('getproduct') }}";
             var userId = $(this).attr("data");
+            var shop_id = $(this).attr("shop_id");
+
             $.ajax({
                 type: 'GET',
                 url: src,
@@ -637,27 +653,9 @@
                     subid : userId,
                 },
                     success: function(data) {
-                        var baseUrl = '{{URL::to('/')}}/local/images/productimage/';
-                        var profileUrl = baseUrl;
-                        $.each(data, function (index,value) {
-                            var id = value.value['id'];
-                            var url = '{{ route("productDetail", ":id") }}';
-                            url = url.replace(':id', id);
-                            var product_name = value.value['product_name'];
-                                var subcategory = value.value['subcategory_id'];
-                                var product_image = value.value['photo'];
-                                var image = profileUrl + product_image;
-                                $("#shopProfile").append('<div class="col-md-3 pt-30">\n' +
-                                '                                        <img src='+ image +' class="img-responsive">\n' +
-                                '                                        <a href="'+url+'" class="">'+ product_name +'</a>\n' +
-                                '                                    </div>');
-
-
-                        });
-
+                        $('#shopProfile').html(data);
                     }
-            });
-
+        });
         });
 
 

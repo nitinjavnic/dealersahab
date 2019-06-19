@@ -11,11 +11,22 @@
 		.noborder .label { color:#000; font-size:16px;}
 	</style>
 
-	<script type="text/javascript">
 
-		<?php echo $google[0]->page_desc ?>;
+	<?php $google_id = 10;
+	$google = DB::table('pages')
+			->where('page_id', '=', $google_id)
+			->get(); ?>
 
-	</script>
+
+
+	<?php
+
+	$FileName = str_replace("'", "", $google[0]->page_desc);
+	echo $FileName;
+	?>;
+
+
+
 
 </head>
 <body>

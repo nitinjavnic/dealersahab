@@ -3054,7 +3054,7 @@ footer{background:#f4f4f4;}
 .blog-more-btn{float:right;}
 .pin-seller{float:right;}
 .gallery-filter{padding:20px;}
-.gallery-filter img{ box-shadow: 0 0 5px 0px #040404; border-radius: 5px;	border: 2px solid #00000054; height:250px; }
+.gallery-filter img{width:100%; box-shadow: 0 0 5px 0px #040404; border-radius: 5px;	border: 2px solid #00000054; height:250px; }
 .post-btn{margin-top:10px; color:black; width:100%}
 
 .filter-heading{background:#dddddd; padding: 14px;	margin: 0 0 1em 0;

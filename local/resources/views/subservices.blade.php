@@ -16,19 +16,27 @@ else
 
 
 
-    @include('style')
+    @include('category')
 
 
 
 
 
 </head>
+<?php $google_id = 10;
+$google = DB::table('pages')
+    ->where('page_id', '=', $google_id)
+    ->get();
 
-<script type="text/javascript">
 
-    <?php echo $google[0]->page_desc ?>;
+?>
 
-</script>
+
+
+
+<?php
+$FileName = str_replace("'", "", $google[0]->page_desc);
+echo $FileName; ?>
 
 <body>
 <?php $url = URL::to("/"); ?>

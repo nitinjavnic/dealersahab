@@ -19,8 +19,6 @@ else
 
    @include('style')
 
-
-
 	<?php $google_id = 10;
 	$google = DB::table('pages')
 			->where('page_id', '=', $google_id)
@@ -28,11 +26,10 @@ else
 
 
 
-	<script type="text/javascript">
+	<?php
 
-		<?php echo $google[0]->page_desc ?>;
-
-	</script>
+	$FileName = str_replace("'", "", $google[0]->page_desc);
+	echo $FileName; ?>
 
 </head>
 <body>

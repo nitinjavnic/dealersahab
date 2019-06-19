@@ -68,7 +68,9 @@ Route::get('/addshop', 'ShopController@sangvish_addshop');
 
 Route::get('/editshop', 'ShopController@sangvish_editshop');
 
-Route::get('productDetail/{id}',array('as'=>'productDetail','uses'=>'GetsubserviceController@productDetail'));
+Route::get('productDetail/{id}/{shop_id}',array('as'=>'productDetail','uses'=>'GetsubserviceController@productDetail'));
+
+Route::get('download/{id}',array('as'=>'download','uses'=>'GetsubserviceController@download'));
 
 
 

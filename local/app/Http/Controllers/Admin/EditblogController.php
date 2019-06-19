@@ -93,11 +93,8 @@ class EditblogController extends Controller
             $blog_title=$data['blog_titile'];
             $article_name=$data['article_name'];
             $keywords=$data['keywords'];
-
-
             $full_description=$data['full_description'];
             $text = str_replace('"', "'", $full_description);
-
 
             $currentphoto=$data['currentphoto'];
 
@@ -121,7 +118,7 @@ class EditblogController extends Controller
                 $savefname=$currentphoto;
             }
 
-
+            /* DB::insert('insert into users (name, email,password,phone,admin) values (?, ?,?, ?,?)', [$name,$email,$password,$phone,$admin]);*/
             DB::update('update blog set article_name ="'.$article_name.'",full_description="'.$text.'",keywords="'.$keywords.'",blog_titile="'.$blog_title.'",blog_text="'.$blog_text.'",photo="'.$savefname.'" where id = ?', [$id]);
 
             $url1= 'admin/blog';

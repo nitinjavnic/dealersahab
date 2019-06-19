@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-    @include('style')
+    @include('blog_description')
     <?php $google_id = 10;
     $google = DB::table('pages')
         ->where('page_id', '=', $google_id)
@@ -10,11 +10,11 @@
 
 
 
-    <script type="text/javascript">
+    <?php
 
-        <?php echo $google[0]->page_desc ?>;
+    $FileName = str_replace("'", "", $google[0]->page_desc);
+    echo $FileName; ?>
 
-    </script>
 </head>
 <body>
 

@@ -5,18 +5,20 @@
 
 
     @include('style')
-<?php $google_id = 10;
+    <?php $google_id = 10;
     $google = DB::table('pages')
         ->where('page_id', '=', $google_id)
         ->get(); ?>
 
 
 
-    <script type="text/javascript">
+    <?php
 
-        <?php echo $google[0]->page_desc ?>;
+    $FileName = str_replace("'", "", $google[0]->page_desc);
+    echo $FileName; ?>;
 
-    </script>
+
+
 </head>
 <body>
 
@@ -45,7 +47,23 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 bg-company-info-3 "></div>
+            <div class="col-md-12 bg-company-info-3 ">
+
+                <?php $shopphoto="/shop/";
+                $paths ='/local/images'.$shopphoto.$shop[0]->cover_photo;
+                if($shop[0]->cover_photo!=""){?>
+
+                <style type="text/css"> .bg-company-info-3 { background: url(<?php echo $url.$paths; ?>); } </style>
+
+                <?php } else { ?>
+                <style type="text/css"> .bg-company-info-3 { background: url(<?php echo $url.'/local/images/nophoto.jpg' ?>); } </style>
+
+
+                <?php }?>
+
+
+
+            </div>
         </div>
 
 
@@ -59,19 +77,31 @@
                     <?php $shopphoto="/productimage/";
                     $paths ='/local/images'.$shopphoto.$products[0]->photo;
                     if($products[0]->photo!=""){?>
-                    <img src="<?php echo $url.$paths;?>" class="img-fluid"></div>
+                    <img src="<?php echo $url.$paths;?>" class="img-fluid">
+
+                <?php } else { ?>
+
+            <img src="<?php echo $url.'/local/images/nophoto.jpg';?>" alt="" class="img-fluid">
+
+    <?php } ?>
+                </div>
+
+                <div class="col-md-9 ">
+                    <h3><?php echo $products[0]->product_name ?></h3>
+                    <h5 class="text-dark">Rs <?php echo $products[0]->price ?>/Unit <a class="text-info" href="<?php echo $url;?>/contactseller/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->user_id;?>"> Get Latest Price</a>
+                    </h5>Product Brochure
+
+                    <?php $shopphoto="/Brochure/";
+                    $paths ='/local/images'.$shopphoto.$products[0]->brochure;
+                    if($products[0]->brochure!=""){?>
+                    <a href="<?php echo $url.$paths;?>">Download Brochure</a>
 
                 <?php } else { ?>
 
 
-            <img src="<?php echo $url.'/local/images/nophoto.jpg';?>" alt="" class="img-fluid">
 
+                <?php } ?>
 
-    <?php } ?>
-
-                <div class="col-md-9 ">
-                    <h3><?php echo $products[0]->product_name ?></h3>
-                    <h5 class="text-dark">Rs <?php echo $products[0]->price ?>/Unit <a class="text-info" href="<?php echo $url;?>/contactseller/<?php echo $products[0]->shop_id;?>/<?php echo $products[0]->user_id;?>"> Get Latest Price</a></h5>Product Brochure</p>
                     <h4>Product Features</h4>
                    <p><?php echo $products[0]->productfeature ?></p>
                     <h4>Product Description</h4>
@@ -83,9 +113,6 @@
                     </div>
 
                 </div>
-
-
-
 
 
         <div class="clearfix"></div>

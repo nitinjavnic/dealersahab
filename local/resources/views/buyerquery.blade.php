@@ -28,11 +28,12 @@ else
 
 
 
-    <script type="text/javascript">
+    <?php
 
-        <?php echo $google[0]->page_desc ?>;
+    $FileName = str_replace("'", "", $google[0]->page_desc);
+    echo $FileName; ?>
 
-    </script>
+
 
 
 

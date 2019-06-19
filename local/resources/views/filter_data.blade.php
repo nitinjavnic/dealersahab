@@ -12,7 +12,7 @@
         ?>
 
         <img src="<?php echo $url.$npaths;?>" alt="" >
-        <a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>/<?php echo $shop->supersubcategory_id;?>"><h3><strong><?php echo $shop->shop_name; ?></strong></h3></a>
+            <a href="<?php echo $url; ?>/vendor/<?php echo $shop->name;?>"><h3><strong><?php echo $shop->shop_name; ?></strong></h3></a>
         <p><b>Address-</b> <?php echo $shop->address; ?><br><span><b>250 Profile Views</b></span></p>
         <p><b>  Nature of Business-</b> <?php echo $shop->sellertype; ?></p>
         <p><b>Product Dealing-</b> <?php echo $shop->product_dealing; ?></p>

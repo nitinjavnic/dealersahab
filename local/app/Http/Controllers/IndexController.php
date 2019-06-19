@@ -64,6 +64,7 @@ class IndexController extends Controller
 
 
         $four = DB::table('services')->orderBy('name', 'asc')->limit(1)->offset(3)->get();
+
         $four_count = DB::table('subservices')
             ->where('service', '=', $four[0]->id)
             ->count();

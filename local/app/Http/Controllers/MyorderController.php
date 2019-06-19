@@ -40,10 +40,13 @@ class MyorderController extends Controller
 		
         $booking = DB::table('booking')
 		           ->leftJoin('shop', 'shop.id', '=', 'booking.shop_id')
+		           ->leftJoin('products', 'products.shop_id', '=', 'booking.shop_id')
 				   ->where('shop.status', '=', 'approved')
 				   ->where('shop.seller_email', '=', $email)
 				   ->orderBy('booking.book_id', 'desc')
 				 ->get();
+
+
 
 				$count = DB::table('booking')
 		           ->leftJoin('shop', 'shop.id', '=', 'booking.shop_id')

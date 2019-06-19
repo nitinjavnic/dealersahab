@@ -85,13 +85,9 @@ class EditserviceController extends Controller
 		
 		
 		$messages = array(
-            
-            
-			
+
         );
 
-		
-		
 		$validator = Validator::make(Input::all(), $rules, $messages);
 		
 		
@@ -110,8 +106,6 @@ class EditserviceController extends Controller
 
 		
 		$currentphoto=$data['currentphoto'];
-		
-		
 		$image = Input::file('photo');
         if($image!="")
 		{	

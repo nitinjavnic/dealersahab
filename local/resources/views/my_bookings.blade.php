@@ -26,12 +26,10 @@ else
 
 
 
-	<script type="text/javascript">
+	<?php
 
-		<?php echo $google[0]->page_desc ?>;
-
-	</script>
-
+	$FileName = str_replace("'", "", $google[0]->page_desc);
+	echo $FileName; ?>
 
 </head>
 <body>
@@ -223,7 +221,7 @@ $(function(){
 					<h5>Booking Date : <?php echo $book->booking_date	; ?></h5>
 
 					  <?php echo $ser_name; ?>
-				
+
 				<div class="total-price radiusoff">Total Price - <?php if($book->total_amt=="") { echo "0"; } else { echo $book->total_amt; }?>&nbsp;<?php echo $book->currency; ?></div>
 
 				</div>

@@ -188,6 +188,7 @@ class ShopController extends Controller
 
         $userid = Auth::user()->id;
         $editshop = DB::select('select * from shop where user_id = ?',[$userid]);
+
         $data = array('editshop'=> $editshop);
         return view('editshop')->with($data);
     }

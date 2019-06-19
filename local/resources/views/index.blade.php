@@ -15,13 +15,19 @@ $setid=1;
 
    @include('style')
 
+    <?php $google_id = 10;
+    $google = DB::table('pages')
+        ->where('page_id', '=', $google_id)
+        ->get(); ?>
 
 
-    <script type="text/javascript">
 
-        <?php echo $google[0]->page_desc ?>;
+    <?php
 
-    </script>
+    $FileName = str_replace("'", "", $google[0]->page_desc);
+    echo $FileName; ?>
+
+
 
 </head>
 <body>
@@ -162,8 +168,8 @@ $setid=1;
 
 <div class="container sub-cat">
     <div class="col-md-12 nopadding">
-	
-	
+
+
     <div id="flexiselDemo34">
 	<?php foreach ($services as $service) {
 
@@ -192,7 +198,7 @@ $setid=1;
 	<?php } ?>
 
 </div>
-	 
+
 </div>
 </div>
 
@@ -208,42 +214,6 @@ $setid=1;
 
 
 
-        <div class="container">
-            <div class="col-md-12 nopadding">
-                <?php if(!empty($two[0]->name)){?><h2 class="sli-head"><?php echo $two[0]->name;?></h2><?php } ?>
-
-                <?php if(!empty($two_count)){?>
-                <div id="flexiselDemo111">
-                    <?php
-
-                    foreach($second as $newservice){
-
-
-                    $subview=strtolower($newservice->subname);
-                    $results = preg_replace('/[ ,]+/', '-', trim($subview));
-                    ?>
-                    <li>
-                        <div class="weightbg">
-                            <div>
-                                <?php
-                                $subservicephoto="/subservicephoto/";
-                                $path ='/local/images'.$subservicephoto.$newservice->subimage;
-                                if($newservice->subimage!=""){
-                                ?>
-                                <a href="<?php echo $url; ?>/search/<?php echo $results;?>"><img src="<?php echo $url.$path;?>" class="img-responsive" /></a>
-                                <?php } else {?>
-                                <a href="<?php echo $url; ?>/search/<?php echo $results;?>"><img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="img-responsive"></a>
-                                <?php } ?>
-                            </div>
-                            <div><a href="<?php echo $url; ?>/search/<?php echo $results;?>"><?php  echo $newservice->subname;?></a></div>
-                        </div>
-                    </li>
-                    <?php } ?>
-
-                </div>
-                <?php } ?>
-            </div>
-        </div>
 
 
 
@@ -372,41 +342,6 @@ $setid=1;
 
 
 
-	<div class="container">
-
-    <div class="col-md-12 nopadding">
-	 <?php if(!empty($four[0]->name)){?><h2 class="sli-head"><?php echo $four[0]->name;?></h2><?php } ?>
-	 <?php if(!empty($four_count)){?>
-    <div id="flexiselDemo33">
-	<?php
-
-		 foreach($fourth as $newservice){
-			  $subview=strtolower($newservice->subname);
-			$results = preg_replace('/[ ,]+/', '-', trim($subview));
-			 ?>
-    <li>
-	<div class="weightbg">
-	<div>
-	<?php
-					   $subservicephoto="/subservicephoto/";
-						$path ='/local/images'.$subservicephoto.$newservice->subimage;
-						if($newservice->subimage!=""){
-						?>
-	<a href="<?php echo $url; ?>/search/<?php echo $results;?>"><img src="<?php echo $url.$path;?>" class="img-responsive" /></a>
-						<?php } else {?>
-						<a href="<?php echo $url; ?>/search/<?php echo $results;?>"><img src="<?php echo $url.'/local/images/noimage.jpg';?>" class="img-responsive"></a>
-						<?php } ?>
-	</div>
-	<div><a href="<?php echo $url; ?>/search/<?php echo $results;?>"><?php  echo $newservice->subname;?></a></div>
-	</div>
-	</li>
-		 <?php } ?>
-
-</div>
-	 <?php } ?>
-</div>
-
-</div>
 
 
 
